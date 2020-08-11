@@ -1,3 +1,3 @@
 ## Welcome to Machine Learning (ML) and Natural Language Processing (NLP) Research Group
-### [Mentors](./mentors.md)
+### [About the Group] (./index.md) | [Mentors](./mentors.md) | [Members](./mentors.md)
 
