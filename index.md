@@ -1,4 +1,4 @@
-## Welcome to the Machine Learning (ML) and Natural Language Processing (NLP) Research Group
+## Welcome to Machine Learning (ML) and Natural Language Processing (NLP) Research Group
 
 <!--You can use the [editor on GitHub](https://github.com/ml-nlp-researchgroup/ml-nlp.researchgroup/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
