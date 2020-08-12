@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## Activities
+## News and Activities
 
 
 [Back to Home](../index.md)
