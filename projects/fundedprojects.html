@@ -9,7 +9,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
         }
 
         #content-wrapper {
-            padding: 0 10px;
+            padding: 20px;
         }
 
         p {
@@ -35,6 +35,69 @@
             width: auto;
             max-width: 100%;
         }
+
+        .dropdown-container {
+            margin-bottom: 20px;
+        }
+
+        .dropdown-title {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: transparent;
+        }
+
+        .project-title {
+            color: #4e73df;
+        }
+
+        .sidebar-heading {
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav {
+            background-color: #4e73df;
+        }
+
+        .nav-item a {
+            color: white;
+        }
+
+        .nav-item a:hover {
+            background-color: #2e59d9;
+        }
+
+        .nav-item.active a {
+            background-color: #224abe;
+        }
+
+        .topbar {
+            box-shadow: 0 4px 8px rgba(248, 248, 248, 0.1);
+        }
+
+        .container-fluid h3 {
+            color: #224abe;
+        }
+
+        .footer {
+            background-color: #f8f9fc;
+            padding: 10px 0;
+            border-top: 1px solid #e3e6f0;
+        }
+
+        .footer span {
+            color: #5a5c69;
+        }
+
+        .scroll-to-top {
+            background-color: #224abe;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #2e59d9;
+        }
     </style>
 </head>
 
@@ -44,7 +107,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
                 <div class="sidebar-brand-text mx-3">MinNa LProc R&D Lab</div>
             </a>
@@ -59,12 +122,10 @@
 
             <hr class="sidebar-divider">
 
-            <div class="sidebar-heading">
-                PROJECTS and Publications
-            </div>
+            <div class="sidebar-heading">PROJECTS and Publications</div>
 
             <li class="nav-item">
-                <a class="nav-link" href="./projects/fundedprojects.html">
+                <a class="nav-link" href="">
                     <i class="fas fa-book-open"></i>
                     <span>Funded Projects</span>
                 </a>
@@ -79,9 +140,7 @@
 
             <hr class="sidebar-divider">
 
-            <div class="sidebar-heading">
-                Researchers and Developers
-            </div>
+            <div class="sidebar-heading">Researchers and Developers</div>
 
             <li class="nav-item">
                 <a class="nav-link" href="../people/faculties.html">
@@ -91,14 +150,14 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="#">
                     <i class="fas fa-user-friends"></i>
                     <span>Graduate Students</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="#">
                     <i class="fas fa-user-friends"></i>
                     <span>Undergrad Students</span>
                 </a>
@@ -106,9 +165,7 @@
 
             <hr class="sidebar-divider">
 
-            <div class="sidebar-heading">
-                Tools and Resources
-            </div>
+            <div class="sidebar-heading">Tools and Resources</div>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="true" aria-controls="collapsePages">
@@ -117,8 +174,8 @@
                 </a>
                 <div id="collapseTools" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Punctuation Tokenizer</a>
-                        <a class="collapse-item" href="">BPE Tokenizer</a>
+                        <a class="collapse-item" href="#">Punctuation Tokenizer</a>
+                        <a class="collapse-item" href="#">BPE Tokenizer</a>
                     </div>
                 </div>
             </li>
@@ -130,7 +187,7 @@
                 </a>
                 <div id="collapseResources" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Project iWag Corpus</a>
+                        <a class="collapse-item" href="#">Project iWag Corpus</a>
                     </div>
                 </div>
             </li>
@@ -173,46 +230,56 @@
                 <div class="container-fluid">
                     <br>
                     <h3>2022</h3>
-                    <div class="w3-dropdown-hover">
-                        RKAligner: Bitext Aligner for Cebuano and Filipino Machine Translation
-                        <div class="w3-dropdown-content w3-card-4">
-                            <div class="w3-container"></div>
+                    <div class="dropdown-container">
+                        <div class="w3-dropdown-hover">
+                            <div class="dropdown-title">RKAligner: Bitext Aligner for Cebuano and Filipino Machine Translation</div>
+                            <div class="w3-dropdown-content w3-card-4">
+                                <div class="w3-container"></div>
+                            </div>
                         </div>
                     </div>
-                    <br><br>
-                    <div class="w3-dropdown-hover">
-                        Cebuano Natural Language Toolkit
-                        <div class="w3-dropdown-content w3-card-4">
-                            <div class="w3-container"></div>
+
+                    <div class="dropdown-container">
+                        <div class="w3-dropdown-hover">
+                            <div class="dropdown-title">Cebuano Natural Language Toolkit</div>
+                            <div class="w3-dropdown-content w3-card-4">
+                                <div class="w3-container"></div>
+                            </div>
                         </div>
                     </div>
+
                     <hr>
                     <h3>2021</h3>
-                    <div class="w3-dropdown-hover">
-                        Project MinNa: Establishment of Mindanao Natural Language Processing R & D Lab
-                        <div class="w3-dropdown-content w3-card-4">
-                            <div class="w3-container"></div>
+                    <div class="dropdown-container">
+                        <div class="w3-dropdown-hover">
+                            <div class="dropdown-title">Project MinNa: Establishment of Mindanao Natural Language Processing R & D Lab</div>
+                            <div class="w3-dropdown-content w3-card-4">
+                                <div class="w3-container"></div>
+                            </div>
                         </div>
                     </div>
+
                     <hr>
                     <h3>2020</h3>
-                    <div class="w3-dropdown-hover">
-                        Project iWag: A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano
-                        <div class="w3-dropdown-content w3-card-4">
-                            <div class="w3-container">
-                                <p style="color: #830625f2;"><strong>About the Project:</strong></p>
-                                <p>This project presents the development of a Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano, employing a hybrid approach to enhance translation accuracy and efficiency. The project aims to address the linguistic challenges between these two languages by focusing on four key objectives.</p>
-                                <ol>
-                                    <li>Collect translated bidirectional parallel corpus of documents, and domain knowledge documents for Filipino and Cebuano</li>
-                                    <li>Employ pre-processing techniques to be used in preparing the data for translation</li>
-                                    <li>Apply hybrid approach in developing the machine translation system</li>
-                                    <li>Evaluate and analyze the translation result</li>
-                                </ol>
-                                <p>
-                                    <a href="#" style="text-decoration: none; color: #007bff; margin-right: 10px;">Funded by: DOST-PCIEERD</a> |
-                                    <a href="#" style="text-decoration: none; color: #007bff; margin-right: 10px;">Publication</a> | 
-                                    <a href="#" style="text-decoration: none; color: #007bff;">Know More >></a>
-                                </p>
+                    <div class="dropdown-container">
+                        <div class="w3-dropdown-hover">
+                            <div class="dropdown-title">Project iWag: A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano</div>
+                            <div class="w3-dropdown-content w3-card-4">
+                                <div class="w3-container">
+                                    <p class="project-title"><strong>About the Project:</strong></p>
+                                    <p>This project presents the development of a Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano, employing a hybrid approach to enhance translation accuracy and efficiency. The project aims to address the linguistic challenges between these two languages by focusing on four key objectives.</p>
+                                    <ol>
+                                        <li>Collect translated bidirectional parallel corpus of documents, and domain knowledge documents for Filipino and Cebuano</li>
+                                        <li>Employ pre-processing techniques to be used in preparing the data for translation</li>
+                                        <li>Apply hybrid approach in developing the machine translation system</li>
+                                        <li>Evaluate and analyze the translation result</li>
+                                    </ol>
+                                    <p>
+                                        <a href="#" style="text-decoration: none; color: #007bff; margin-right: 10px;">Funded by: DOST-PCIEERD</a> |
+                                        <a href="#" style="text-decoration: none; color: #007bff; margin-right: 10px;">Publication</a> | 
+                                        <a href="#" style="text-decoration: none; color: #007bff;">Know More >></a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -224,10 +291,10 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; MinNa LProc R&D Lab 2021</span>
+                        <span>&copy; MinNa LProc R&D Lab 2021</span>
                     </div>
                 </div>
             </footer>
@@ -238,30 +305,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -279,6 +322,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
 </body>
 
 </html>

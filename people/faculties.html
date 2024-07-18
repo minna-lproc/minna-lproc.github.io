@@ -20,20 +20,71 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <style>
+        /* Custom styles */
         .img-responsive {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto; /* Optional: Center-align the image */
+            margin: 0 auto;
         }
+
         #content-wrapper {
-        padding-right: 20px; /* Adjust this value as needed */
-        padding-left: 10px;
+            padding: 20px;
         }
+
         p {
             text-align: justify;
         }
-        </style>
+
+        .sidebar-heading {
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav {
+            background-color: #4e73df;
+        }
+
+        .nav-item a {
+            color: white;
+        }
+
+        .nav-item a:hover {
+            background-color: #2e59d9;
+        }
+
+        .nav-item.active a {
+            background-color: #224abe;
+        }
+
+        .topbar {
+            box-shadow: 0 4px 8px rgba(248, 248, 248, 0.1);
+        }
+
+        .container-fluid h3 {
+            color: #224abe;
+        }
+
+        .footer {
+            background-color: #f8f9fc;
+            padding: 10px 0;
+            border-top: 1px solid #e3e6f0;
+        }
+
+        .footer span {
+            color: #5a5c69;
+        }
+
+        .scroll-to-top {
+            background-color: #224abe;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #2e59d9;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -251,31 +302,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

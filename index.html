@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MinNa LProc R & D Lab</title>
+    <title>MinNa LProc R &amp; D Lab</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -13,8 +13,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
     <style>
+        /* Custom styles */
         .img-responsive {
             max-width: 100%;
             height: auto;
@@ -23,11 +23,60 @@
         }
 
         #content-wrapper {
-            padding: 0 20px;
+            padding: 20px;
         }
 
         p {
             text-align: justify;
+        }
+
+        .sidebar-heading {
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav {
+            background-color: #4e73df;
+        }
+
+        .nav-item a {
+            color: white;
+        }
+
+        .nav-item a:hover {
+            background-color: #2e59d9;
+        }
+
+        .nav-item.active a {
+            background-color: #224abe;
+        }
+
+        .topbar {
+            box-shadow: 0 4px 8px rgba(248, 248, 248, 0.1);
+        }
+
+        .container-fluid h3 {
+            color: #224abe;
+        }
+
+        .footer {
+            background-color: #f8f9fc;
+            padding: 10px 0;
+            border-top: 1px solid #e3e6f0;
+        }
+
+        .footer span {
+            color: #5a5c69;
+        }
+
+        .scroll-to-top {
+            background-color: #224abe;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #2e59d9;
         }
     </style>
 
@@ -42,32 +91,6 @@
 </head>
 
 <body id="page-top">
-    <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    return;
-                }
-            }
-        }
-        includeHTML();
-    </script>
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -87,12 +110,6 @@
                 <a class="nav-link" href="index.html">
                     <span>Home</span>
                 </a>
-                <li class="nav-item">
-                    <a class="nav-link" href="./projects/fundedprojects.html">
-                        <i class="fas fa-book-open"></i>
-                        <span>News and Activities</span>
-                    </a>
-                </li>
             </li>
 
             <!-- Divider -->
@@ -214,24 +231,35 @@
                 </nav>
 
                 <!-- Image and Text -->
-                <img src="./img/minna_lab.png" alt="Description of the image" class="img-responsive">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="./img/minna_lab.png" alt="MinNa Lab" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="content-wrapper">
+                                <p>MinNa is a research and development laboratory established to work on the development of Natural Language Processing (NLP) tools, technologies, and distributable digital resources of Mindanao Languages. With the increasing number of endangered languages, it is high time that we intensify Research and Development works that involve the collection, digitalization, storage, and dissemination of language resources, as well as the development of task-specific trained applications.</p>
 
-                <br><br>
-                <p>MinNa is a research and development laboratory established to work on the development of Natural Language Processing (NLP) tools, technologies, and distributable digital resources of Mindanao Languages. With the increasing number of endangered languages, it is high time that we intensify Research and Development works that involve the collection, digitalization, storage, and dissemination of language resources, as well as the development of task-specific trained applications.</p>
-
-                <p>MinNa Laboratory has been generously funded by the <a href="https://pcieerd.dost.gov.ph/">Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD)</a> with high-end equipment to enable Mindanao NLP researchers conduct research works. The <a href="https://www.uic.edu.ph/">University of the Immaculate Conception</a> serves as the implementing agency to advance these research works to its complete implementation and deployment.</p>
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; MinNa LProc R&D Lab 2021</span>
+                                <p>MinNa Laboratory has been generously funded by the <a href="https://pcieerd.dost.gov.ph/">Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD)</a> with high-end equipment to enable Mindanao NLP researchers conduct research works. The <a href="https://www.uic.edu.ph/">University of the Immaculate Conception</a> serves as the implementing agency to advance these research works to its complete implementation and deployment.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>&copy; MinNa LProc R&D Lab 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Main Content -->
 
         </div>
         <!-- End of Content Wrapper -->
