@@ -1,85 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
- <script>
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /*loop through a collection of all HTML elements:*/
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /*remove the attribute, and call this function once more:*/
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      }      
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /*exit the function:*/
-      return;
-    }
-  }
-};
-</script>
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>MinNa LProc R & D Lab</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
     <style>
         .img-responsive {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto; /* Optional: Center-align the image */
+            margin: 0 auto;
         }
+
         #content-wrapper {
-        padding-right: 20px; /* Adjust this value as needed */
-        padding-left: 10px;
+            padding: 0 20px;
         }
+
         p {
             text-align: justify;
         }
-        </style>
+    </style>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78656718-1"></script>
-       <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-
-         gtag('config', 'UA-78656718-1');
-       </script>
-
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78656718-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-78656718-1');
+    </script>
 </head>
 
 <body id="page-top">
     <script>
-    includeHTML();
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+        includeHTML();
     </script>
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -97,7 +85,8 @@ function includeHTML() {
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <span>Home</span></a>
+                    <span>Home</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -108,21 +97,22 @@ function includeHTML() {
                 PROJECTS and Publications
             </div>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item - Funded Projects -->
             <li class="nav-item">
                 <a class="nav-link" href="./projects/fundedprojects.html">
                     <i class="fas fa-book-open"></i>
                     <span>Funded Projects</span>
                 </a>
             </li>
-              <!-- Nav Item - Pages Collapse Menu -->
-              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing"
-                    aria-expanded="true" aria-controls="collapseOnGoing">
+
+            <!-- Nav Item - Publications -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing" aria-expanded="true" aria-controls="collapseOnGoing">
                     <i class="fas fa-book-open"></i>
                     <span>Publications</span>
                 </a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -131,26 +121,30 @@ function includeHTML() {
                 Researchers and Developers
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-           <li class="nav-item">
+            <!-- Nav Item - Faculties -->
+            <li class="nav-item">
                 <a class="nav-link" href="./people/faculties.html">
                     <i class="fas fa-user-friends"></i>
-                    <span>Faculties</span></a>
+                    <span>Faculties</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Graduate Students -->
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class="fas fa-user-friends"></i>
-                    <span>Graduate Students</span></a>
+                    <span>Graduate Students</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Undergrad Students -->
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class="fas fa-user-friends"></i>
-                    <span>Undergrad Students</span></a>
+                    <span>Undergrad Students</span>
+                </a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -159,17 +153,17 @@ function includeHTML() {
                 Tools and Resources
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Tools -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Tools</span>
                 </a>
             </li>
+
+            <!-- Nav Item - Resources -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Resources</span>
                 </a>
@@ -184,7 +178,7 @@ function includeHTML() {
             </div>
 
         </ul>
-        <!-- End of Sidebar --> 
+        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -201,11 +195,9 @@ function includeHTML() {
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -214,24 +206,14 @@ function includeHTML() {
                         </div>
                     </form>
                 </nav>
+
+                <!-- Image and Text -->
                 <img src="./img/minna_lab.png" alt="Description of the image" class="img-responsive">
 
                 <br><br>
-                <p>MinNa is a research and development laboratory established to work on the development of
-                    Natural Language Processing (NLP) tools, technologies, and distributable digital resources of Mindanao Languages.
-                    With the increasing number of endangered languages, it is high time that we intensify Research and Development works
-                    that involve the collection, digitalization, storage, and dissemination of language resources, as well as the
-                    development of task-specific trained applications. <br>
-                </p>
-                <p>
-                    MinNa Laboratory has been generously funded by the
-                    <a href="https://pcieerd.dost.gov.ph/">Department of Science and Technology - Philippine Council for
-                    Industry, Energy and Emerging Technology Research and Development
-                    (DOST-PCIEERD)</a> with high-end equipment to enable Mindanao NLP researchers conduct research works.
-                    The <a href="https://www.uic.edu.ph/">University of the Immaculate Conception</a>
-                    serves as the implementing agency to advance these research works to its complete implementation and deployment.
-                </p>
+                <p>MinNa is a research and development laboratory established to work on the development of Natural Language Processing (NLP) tools, technologies, and distributable digital resources of Mindanao Languages. With the increasing number of endangered languages, it is high time that we intensify Research and Development works that involve the collection, digitalization, storage, and dissemination of language resources, as well as the development of task-specific trained applications.</p>
 
+                <p>MinNa Laboratory has been generously funded by the <a href="https://pcieerd.dost.gov.ph/">Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD)</a> with high-end equipment to enable Mindanao NLP researchers conduct research works. The <a href="https://www.uic.edu.ph/">University of the Immaculate Conception</a> serves as the implementing agency to advance these research works to its complete implementation and deployment.</p>
             </div>
             <!-- End of Main Content -->
 
@@ -250,7 +232,6 @@ function includeHTML() {
 
     </div>
     <!-- End of Page Wrapper -->
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
