@@ -13,13 +13,11 @@
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <style>
         /* Custom styles */
         .img-responsive {
@@ -85,32 +83,39 @@
         .scroll-to-top:hover {
             background-color: #2e59d9;
         }
-        .w3-dropdown-content {
-            width: auto;
-            max-width: 100%;
-        }
 
         .dropdown-container {
             margin-bottom: 20px;
         }
 
         .dropdown-title {
-            font-size: 12px; /* Increase font size for better readability */
-            color: #333; /* Darken text color for better contrast */
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha (opacity) value for the desired transparency */
-            padding: 12px 20px; /* Increase padding for better spacing */
-            border-radius: 4px; /* Add rounded corners for a softer look */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-            transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+            font-size: 14px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 12px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
 
         .dropdown-title:hover {
-            background-color: rgba(255, 255, 255, 1); /* Darken background on hover */
+            background-color: rgba(255, 255, 255, 1);
         }
-
 
         .project-title {
             color: #4e73df;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-container:hover .dropdown-content {
+            display: block;
         }
     </style>
 </head>
@@ -233,9 +238,6 @@
                 </div>
             </li>
 
-           
-
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -247,7 +249,7 @@
         </ul>
         <!-- End of Sidebar -->
 
-<!-- Content Wrapper -->
+        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -255,6 +257,8 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
@@ -270,27 +274,27 @@
                             </div>
                         </div>
                     </form>
+
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <br>
                     <h3>2022</h3>
                     <div class="dropdown-container">
-                        <div class="w3-dropdown-hover">
+                        <div class="dropdown">
                             <div class="dropdown-title">RKAligner: Bitext Aligner for Cebuano and Filipino Machine Translation</div>
-                            <div class="w3-dropdown-content w3-card-4">
-                                <div class="w3-container"></div>
+                            <div class="dropdown-content p-3">
+                                <div class="container"></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="dropdown-container">
-                        <div class="w3-dropdown-hover">
+                        <div class="dropdown">
                             <div class="dropdown-title">Cebuano Natural Language Toolkit</div>
-                            <div class="w3-dropdown-content w3-card-4">
-                                <div class="w3-container"></div>
+                            <div class="dropdown-content p-3">
+                                <div class="container"></div>
                             </div>
                         </div>
                     </div>
@@ -298,10 +302,10 @@
                     <hr>
                     <h3>2021</h3>
                     <div class="dropdown-container">
-                        <div class="w3-dropdown-hover">
+                        <div class="dropdown">
                             <div class="dropdown-title">Project MinNa: Establishment of Mindanao Natural Language Processing R & D Lab</div>
-                            <div class="w3-dropdown-content w3-card-4">
-                                <div class="w3-container"></div>
+                            <div class="dropdown-content p-3">
+                                <div class="container"></div>
                             </div>
                         </div>
                     </div>
@@ -309,10 +313,10 @@
                     <hr>
                     <h3>2020</h3>
                     <div class="dropdown-container">
-                        <div class="w3-dropdown-hover">
+                        <div class="dropdown">
                             <div class="dropdown-title">Project iWag: A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano</div>
-                            <div class="w3-dropdown-content w3-card-4">
-                                <div class="w3-container">
+                            <div class="dropdown-content p-3">
+                                <div class="container">
                                     <p class="project-title"><strong>About the Project:</strong></p>
                                     <p>This project presents the development of a Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano, employing a hybrid approach to enhance translation accuracy and efficiency. The project aims to address the linguistic challenges between these two languages by focusing on four key objectives.</p>
                                     <ol>
@@ -354,21 +358,21 @@
     <!-- End of Page Wrapper -->
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="../js/demo/chart-pie-demo.js"></script>
 
 </body>
 
