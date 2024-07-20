@@ -81,6 +81,63 @@
         .scroll-to-top:hover {
             background-color: #2e59d9;
         }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping of cards on smaller screens */
+            justify-content: space-around; /* Adjust spacing between cards */
+            gap: 20px; /* Optional: Add space between cards */
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Default width for small screens */
+            max-width: 18rem; /* Maximum width for larger screens */
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .card-link {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (min-width: 576px) {
+            .card-container {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center; /* Center cards on very small screens */
+            }
+        }
+
+
     </style>
 </head>
 
@@ -246,15 +303,34 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Overall In-Charge</h1>
+                        <!-- <h1 class="h3 mb-0 text-gray-800">Overall In-Charge</h1>-->
                     </div>
-                    <hr>
-                    <p><strong>Kristine Mae M. Adlaon</strong><br> Head of Research and Development<br>
-                        <a href="https://scholar.google.com.ph/citations?user=zHeeqLoAAAAJ&hl=en">Google Scholar</a> | <a href="">Bio Note</a> | <a href="">Contact</a>
-                    </p>
-                    <p><strong>Aurora Atilano Manseras </strong><br> Head of Operations<br>
-                        <a href="">Google Scholar</a> | <a href="">Bio Note</a> | <a href="">Contact</a>
-                    </p>
+                  <!--  <hr>-->
+                    <div class="card-container">
+                        <div class="card">
+                            <img src="../img/people/adlaon.JPG" class="card-img-top" alt="Kristine Mae M. Adlaon">
+                            <div class="card-body">
+                                <h5 class="card-title">Kristine Mae M. Adlaon</h5>
+                                <p class="card-text">Head of Research and Development</p>
+                                <a href="https://scholar.google.com.ph/citations?user=zHeeqLoAAAAJ&hl=en" class="card-link">Google Scholar</a>
+                                <a href="#" class="card-link">BioNote</a>
+                                <a href="#" class="card-link">Contact</a>
+                            </div>
+                        </div>
+                    
+                        <div class="card">
+                            <img src="../img/people/manseras.png" class="card-img-top" alt="Aurora Atilano Manseras">
+                            <div class="card-body">
+                                <h5 class="card-title">Aurora Atilano Manseras</h5>
+                                <p class="card-text">Head of Operations</p>
+                                <a href="#" class="card-link">Google Scholar</a>
+                                <a href="#" class="card-link">BioNote</a>
+                                <a href="#" class="card-link">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
                     <br>
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Technology and Computing</h1>
