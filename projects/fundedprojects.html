@@ -117,6 +117,61 @@
         .dropdown-container:hover .dropdown-content {
             display: block;
         }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping of cards on smaller screens */
+            justify-content: space-around; /* Adjust spacing between cards */
+            gap: 20px; /* Optional: Add space between cards */
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Default width for small screens */
+            max-width: 18rem; /* Maximum width for larger screens */
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .card-link {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (min-width: 576px) {
+            .card-container {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center; /* Center cards on very small screens */
+            }
+        }
     </style>
 </head>
 
@@ -146,7 +201,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class='fas fa-file-alt'></i>
-                    <span>News and Activities</span>
+                    <span>News and Updates</span>
                 </a>
             </li>
 
@@ -280,58 +335,49 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3>2022</h3>
-                    <div class="dropdown-container">
-                        <div class="dropdown">
-                            <div class="dropdown-title"><strong>RKAligner: </strong>Bitext Aligner for Cebuano and Filipino Machine Translation</div>
-                            <div class="dropdown-content p-3">
-                                <div class="container"></div>
+                    <div class="card-container">
+                        <div class="card">
+                            <img src="images/iwag.png" class="card-img-top" alt="Kristine Mae M. Adlaon">
+                            <div class="card-body">
+                                <h5 class="card-title">Project iWag</h5>
+                                <p class="card-text">A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano</p>
+                                <a href="#" class="card-link">Go to Project</a>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="dropdown-container">
-                        <div class="dropdown">
-                            <div class="dropdown-title">Cebuano Natural Language Toolkit</div>
-                            <div class="dropdown-content p-3">
-                                <div class="container"></div>
+                    
+                        <div class="card">
+                            <img src="images/minna_round_logo.png" class="card-img-top" alt="Aurora Atilano Manseras">
+                            <div class="card-body">
+                                <h5 class="card-title">Project MinNa</h5>
+                                <p class="card-text">Establishment of Mindanao Natural Language Processing R & D Lab</p>
+                                <a href="../index.html" class="card-link">Go to Project</a>
                             </div>
                         </div>
-                    </div>
-
-                    <hr>
-                    <h3>2021</h3>
-                    <div class="dropdown-container">
-                        <div class="dropdown">
-                            <div class="dropdown-title"><strong>Project MinNa: </strong>Establishment of Mindanao Natural Language Processing R & D Lab</div>
-                            <div class="dropdown-content p-3">
-                                <div class="container"></div>
+                        <div class="card">
+                            <img src="images/RKAligner.png" class="card-img-top" alt="Aurora Atilano Manseras">
+                            <div class="card-body">
+                                <h5 class="card-title">RK Aligner</h5>
+                                <p class="card-text">Bitext Aligner for Cebuano and Filipino Machine Translation</p>
+                                <a href="#" class="card-link">Go to Project</a>
                             </div>
                         </div>
-                    </div>
-
-                    <hr>
-                    <h3>2020</h3>
-                    <div class="dropdown-container">
-                        <div class="dropdown">
-                            <div class="dropdown-title"><strong>Project iWag:</strong>A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano</div>
-                            <div class="dropdown-content p-3">
-                                <div class="container">
-                                    <p class="project-title"><strong>About the Project:</strong>
-                                    <p>iWag is a Multilingual Neural Machine Translation System developed by the Mindanao Natural Language Processing Research and Development Laboratory of the University of the Immaculate Conception. The Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD) funds the project under its Grants in Aid Program.</p>
-                                    <br>
-                                    <p class="project-title"><strong>About the name iWag</strong></p>
-                                    <p>iWag is a Cebuano term that means “to light”, “enlighten”, or as a “beacon”. The name iWag was chosen as the name of the system as this system envisions to be a tool that gives “light or enlightenment” to what a word, phrase, or sentence means when translated from a source language to a target language.</p>
-                                    <p>
-                                        <a href="#" style="text-decoration: none; color: #007bff; margin-right: 10px;">Funded by: DOST-PCIEERD</a> |
-                                        <a href="#" style="text-decoration: none; color: #007bff; margin-right: 10px;">Publication</a> | 
-                                        <a href="#" style="text-decoration: none; color: #007bff;">Know More >></a>
-                                    </p>
-                                </div>
+                        <div class="card">
+                            <img src="images/Cebuano Natural Language Toolkit.png" class="card-img-top" alt="Aurora Atilano Manseras">
+                            <div class="card-body">
+                                <h5 class="card-title">CNLTK</h5>
+                                <p class="card-text">Development of the Cebuano Natural Language Toolkit</p>
+                                <a href="#" class="card-link">Go to Project</a>
                             </div>
                         </div>
-                    </div>
-                    <hr>    
+                        <div class="card">
+                            <img src="images/Anna.png" class="card-img-top" alt="Aurora Atilano Manseras">
+                            <div class="card-body">
+                                <h5 class="card-title">Project ANNA</h5>
+                                <p class="card-text">A Web-based Chatbot for Career Planning following Cooperative Principle</p>
+                                <a href="https://anna-gsh7.onrender.com/" class="card-link">Go to Project</a>
+                            </div>
+                        </div>
+                    </div> <br>
                 </div>
                 <!-- /.container-fluid -->
 
