@@ -21,6 +21,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     
+        
     <style>
         /* Custom styles */
         .img-responsive {
@@ -86,6 +87,20 @@
         .scroll-to-top:hover {
             background-color: #2e59d9;
         }
+        .content-section {
+            margin-top: 20px;
+        }
+
+        .contributor-list {
+            column-count: 2;
+            column-gap: 20px;
+        }
+
+        @media (max-width: 576px) {
+            .contributor-list {
+                column-count: 1;
+            }
+        }
     </style>
 </head>
 
@@ -136,10 +151,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing" aria-expanded="true" aria-controls="collapseOnGoing">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePublications" aria-expanded="true" aria-controls="collapsePublications">
                     <i class="fas fa-book-open"></i>
                     <span>Publications</span>
                 </a>
+                <div id="collapsePublications" class="collapse" aria-labelledby="headingPublications" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- Add items here if needed -->
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -170,19 +190,25 @@
                     <i class="fas fa-user-friends"></i>
                     <span>Collaborators</span>
                 </a>
-                <div id="collapseCollaborators" class="collapse" aria-labelledby="collapseColalborators"
+                <div id="collapseCollaborators" class="collapse" aria-labelledby="headingCollaborators"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Kagan</a>
-                        <a class="collapse-item" href="">Manobo</a>
-                        <a class="collapse-item" href="">Mansaka</a>
+                        <a class="collapse-item" href="kagan.html">Kagan</a>
+                        <a class="collapse-item" href="manobo.html">Manobo</a>
+                        <a class="collapse-item" href="#">Mansaka</a>
                     </div>
                 </div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-                    aria-expanded="true" aria-controls="collapsecollapsePartners">
+                    aria-expanded="true" aria-controls="collapsePartners">
                     <i class="fas fa-user-friends"></i>
                     <span>Partners</span>
                 </a>
+                <div id="collapsePartners" class="collapse" aria-labelledby="headingPartners"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- Add items here if needed -->
+                    </div>
+                </div>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -194,24 +220,39 @@
 
              <!-- Nav Item - Resources -->
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapseResources">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Resources</span>
                 </a>
+                <div id="collapseResources" class="collapse" aria-labelledby="headingResources" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- Add items here if needed -->
+                    </div>
+                </div>
             </li>
               <!-- Nav Item - Technologies -->
               <li class="nav-item">
-                <a class="nav-link collapsed" href="../projects/featuredprojects.html" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="../projects/featuredprojects.html" data-toggle="collapse" data-target="#collapseTechnologies" aria-expanded="true" aria-controls="collapseTechnologies">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Technologies</span>
                 </a>
+                <div id="collapseTechnologies" class="collapse" aria-labelledby="headingTechnologies" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- Add items here if needed -->
+                    </div>
+                </div>
             </li>
             <!-- Nav Item - Tools -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="true" aria-controls="collapseTools">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Tools</span>
                 </a>
+                <div id="collapseTools" class="collapse" aria-labelledby="headingTools" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- Add items here if needed -->
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -255,9 +296,24 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                   
+                <div class="container content-section">
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-4">
+                            <img src="./files/images/kagan/kagan_01.JPG" alt="Kagan" class="img-fluid rounded">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p>Kagan came from the word kaag which means to inform, to secure, or secrecy. The other term also is
+                                Ka-allagan which means shining light referring from the sun due as they are believed to be more
+                                advanced in lifestyle and society than their neighbouring tribes which live on the highlands of the
+                                mountains of Davao. <a href="https://www.slideshare.net/slideshow/kalagan-ethnic-group-in-the-philippines/239228881">(view source)</a></p>
+                        </div>
+                    </div>
+            
+                    <h5><strong>Contributors</strong></h5>
+                    <hr>
+                    <p class="contributor-list">
+                        Amir B. Alami, Fauje M. Cale, Mordan L. Cale, Abdurrahim S. Cawanan, Abdul Salem Codah, Albert P. Compania, Maut P. Compania, Nasir Demalin, A. C. Intane, Alrazeen T. Lalong, Jamalon T. Lutang, <strong>Datu Edris M. Mamukid</strong>, Safee M. Motiva, Jiar S. Pandacupan, Charles P. Pangilan, Nur Haron G. Parao, Fatima Quibo, Ismael Rosilio, Ricky M. Sagapan, Aquilan B. Sarigan, Hamid Tediara
+                    </p>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -283,7 +339,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -301,22 +356,15 @@
     <script src="../js/demo/chart-area-demo.js"></script>
     <script src="../js/demo/chart-pie-demo.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+ 
 
 </body>
 
