@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +12,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -120,9 +119,9 @@
 
         .card-container {
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping of cards on smaller screens */
-            justify-content: space-around; /* Adjust spacing between cards */
-            gap: 20px; /* Add space between cards */
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
         }
 
         .card {
@@ -130,10 +129,11 @@
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%; /* Default width for small screens */
-            max-width: 18rem; /* Maximum width for larger screens */
+            width: 100%;
+            max-width: 18rem;
             transition: transform 0.3s ease-in-out;
         }
+
         .card-img-top {
             width: 100%;
             height: auto;
@@ -160,6 +160,10 @@
             color: #007bff;
         }
 
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
         /* Media Queries for Responsive Design */
         @media (min-width: 576px) {
             .card-container {
@@ -170,7 +174,7 @@
         @media (max-width: 575px) {
             .card-container {
                 flex-direction: column;
-                align-items: center; /* Center cards on very small screens */
+                align-items: center;
             }
         }
     </style>
@@ -277,24 +281,13 @@
                 </a>
                 <div id="collapseTools" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Punctuation Tokenizer</a>
-                        <a class="collapse-item" href="">BPE Tokenizer</a>
+                        <h6 class="collapse-header">Available Tools:</h6>
+                        <a class="collapse-item" href="#">Tool 1</a>
+                        <a class="collapse-item" href="#">Tool 2</a>
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Resources</span>
-                </a>
-                <div id="collapseResources" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Project iWag Corpus</a>
-                    </div>
-                </div>
-            </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -302,7 +295,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -321,9 +313,11 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -332,78 +326,119 @@
                         </div>
                     </form>
 
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                    </ul>
+
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="card-container">
-                        <div class="card">
-                            <img src="images/iwag.png" class="card-img-top" alt="Kristine Mae M. Adlaon">
-                            <div class="card-body">
-                                <h5 class="card-title">Project iWag</h5>
-                                <p class="card-text">A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano</p>
-                                <h6 style="color: brown;"> Funded by: DOST-PCIEERD</h6>
-                                <a href="#" class="card-link">Go to Project</a>
+
+                    <!-- Page Heading -->
+                    <h3 class="mb-4">Featured Projects</h3>
+
+                    <!-- Content Row -->
+                    <div class="row card-container">
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/iwag.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Project iWag</h5>
+                                    <p class="card-text">A Mobile-Web Bidirectional Neural Machine Translation System for Filipino and Cebuano</p>
+                                    <a href="#" class="btn btn-primary">Read More</a>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/minna_round_logo.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Project MinNa</h5>
+                                    <p class="card-text">Establishment of Mindanao Natural Language Processing R & D Lab</p>
+                                    <a href="../index.html" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/Anna.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Project ANNA</h5>
+                                    <p class="card-text">A Web-based Chatbot for Career Planning following Cooperative Principle</p>
+                                    <a href="https://anna-gsh7.onrender.com/" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/RKAligner.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">RK Aligner</h5>
+                                    <p class="card-text">Bitext Aligner for Cebuano and Filipino Machine Translation</p>
+                                    <a href="https://aclanthology.org/2022.loresmt-1.13.pdf" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/Cebuano Natural Language Toolkit.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">CNLTK</h5>
+                                    <p class="card-text">Development of the Cebuano Natural Language Toolkit</p>
+                                    <a href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/Pitik.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pitik</h5>
+                                    <p class="card-text">Cooperative Principle in a Cebuano-Binisaya Intent-Based Chatbot for
+                                        Cardiovascular Disease Patient Profiling and Risk Factor Recommendation</p>
+                                    <a href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="images/Madasigon.png" class="card-img-top" alt="Project Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Madasigon</h5>
+                                    <p class="card-text">A Binisaya Chatbot For Customer Device Troubleshooting</p>
+                                    <a href="https://madasigon-capstone-77lbnlnhw-patrickpatlonag.vercel.app/" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat above block for more projects -->
+                    </div>
                     
-                        <div class="card">
-                            <img src="images/minna_round_logo.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">Project MinNa</h5>
-                                <p class="card-text">Establishment of Mindanao Natural Language Processing R & D Lab</p>
-                                <h6 style="color: brown;"> Funded by: DOST-PCIEERD</h6>
-                                <a href="../index.html" class="card-link">Go to Project</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="images/Anna.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">Project ANNA</h5>
-                                <p class="card-text">A Web-based Chatbot for Career Planning following Cooperative Principle</p>
-                                <h6 style="color: brown;"> Funded by: UIC-RPIC</h6>
-                                <a href="https://anna-gsh7.onrender.com/" class="card-link">Go to Project</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="images/RKAligner.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">RK Aligner</h5>
-                                <p class="card-text">Bitext Aligner for Cebuano and Filipino Machine Translation</p>
-                                <h6 style="color: brown;"> Funded by: UIC-RPIC</h6>
-                                <a href="https://aclanthology.org/2022.loresmt-1.13.pdf" class="card-link">Go to Project</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="images/Cebuano Natural Language Toolkit.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">CNLTK</h5>
-                                <p class="card-text">Development of the Cebuano Natural Language Toolkit</p>
-                                <h6 style="color: brown;"> Funded by: UIC-RPIC</h6>
-                                <a href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" class="card-link">Go to Project</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="images/Pitik.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">Pitik</h5>
-                                <p class="card-text">Cooperative Principle in a Cebuano-Binisaya Intent-Based Chatbot for
-                                    Cardiovascular Disease Patient Profiling and Risk Factor Recommendation</p>
-                                <h6 style="color: brown;"></h6>
-                                <a href="" class="card-link">Go to Project</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="images/Madasigon.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">Madasigon</h5>
-                                <p class="card-text">A Binisaya Chatbot For Customer Device Troubleshooting</p>
-                                <h6 style="color: brown;"></h6>
-                                <a href="https://madasigon-capstone-77lbnlnhw-patrickpatlonag.vercel.app/" class="card-link">Go to Project</a>
-                            </div>
-                        </div>
-                    </div> <br>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -411,10 +446,10 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="footer">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; MinNa LProc R&D Lab 2021</span>
+                    <div class="text-center my-auto">
+                        <span>&copy; MinNa LProc R&D Lab 2024</span>
                     </div>
                 </div>
             </footer>
@@ -426,6 +461,11 @@
     </div>
     <!-- End of Page Wrapper -->
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -435,13 +475,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/chart-area-demo.js"></script>
-    <script src="../js/demo/chart-pie-demo.js"></script>
 
 </body>
 
