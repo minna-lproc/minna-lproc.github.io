@@ -144,30 +144,41 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Researchers and Developers
+                People
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Dropdown Nav Item for Researchers and Developers -->
             <li class="nav-item">
-                <a class="nav-link" href="faculties.html">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
+                    aria-expanded="true" aria-controls="collapseResearchers">
                     <i class="fas fa-user-friends"></i>
-                    <span>Faculties</span>
+                    <span>Researchers</span>
                 </a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+                <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="faculties.html">Faculties</a>
+                        <a class="collapse-item" href="gradstudents.html">Graduate Students</a>
+                        <a class="collapse-item" href="undergradstudents.html">Undergrad Students</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
+                    aria-expanded="true" aria-controls="collapseCollaborators">
                     <i class="fas fa-user-friends"></i>
-                    <span>Graduate Students</span>
+                    <span>Collaborators</span>
                 </a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="undergradstudents.html">
+                <div id="collapseCollaborators" class="collapse" aria-labelledby="collapseColalborators"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="">Kagan</a>
+                        <a class="collapse-item" href="">Manobo</a>
+                        <a class="collapse-item" href="">Mansaka</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
+                    aria-expanded="true" aria-controls="collapsecollapsePartners">
                     <i class="fas fa-user-friends"></i>
-                    <span>Undergrad Students</span>
+                    <span>Partners</span>
                 </a>
             </li>
             <!-- Divider -->

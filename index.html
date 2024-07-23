@@ -9,7 +9,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -82,9 +84,11 @@
         .scroll-to-top:hover {
             background-color: #2e59d9;
         }
+
         /* Carousel customization */
         .carousel-item {
-            height: 500px; /* Set your desired height */
+            height: 500px;
+            /* Set your desired height */
             transition: transform 1s ease, opacity 1s ease;
         }
 
@@ -115,16 +119,19 @@
         .carousel-fade .carousel-item.active.carousel-item-right {
             opacity: 1;
         }
-         /* Responsive adjustments */
-         @media (max-width: 768px) {
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
             .carousel-item {
-                height: 300px; /* Adjust height for smaller screens */
+                height: 300px;
+                /* Adjust height for smaller screens */
             }
         }
 
         @media (max-width: 576px) {
             .carousel-item {
-                height: 200px; /* Adjust height for extra small screens */
+                height: 200px;
+                /* Adjust height for extra small screens */
             }
         }
     </style>
@@ -132,11 +139,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-BZRJP33YFX');
+        gtag('config', 'G-BZRJP33YFX');
     </script>
 </head>
 
@@ -188,7 +195,8 @@
 
             <!-- Nav Item - Publications -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing" aria-expanded="true" aria-controls="collapseOnGoing">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing"
+                    aria-expanded="true" aria-controls="collapseOnGoing">
                     <i class="fas fa-book-open"></i>
                     <span>Publications</span>
                 </a>
@@ -199,33 +207,43 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Researchers and Developers
+                People
             </div>
 
-            <!-- Nav Item - Faculties -->
+            <!-- Dropdown Nav Item for Researchers and Developers -->
             <li class="nav-item">
-                <a class="nav-link" href="./people/faculties.html">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
+                    aria-expanded="true" aria-controls="collapseResearchers">
                     <i class="fas fa-user-friends"></i>
-                    <span>Faculties</span>
+                    <span>Researchers</span>
+                </a>
+                <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="./people/faculties.html">Faculties</a>
+                        <a class="collapse-item" href="./people/gradstudents.html">Graduate Students</a>
+                        <a class="collapse-item" href="./people/undergradstudents.html">Undergrad Students</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
+                    aria-expanded="true" aria-controls="collapseCollaborators">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Collaborators</span>
+                </a>
+                <div id="collapseCollaborators" class="collapse" aria-labelledby="collapseColalborators"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="">Kagan</a>
+                        <a class="collapse-item" href="">Manobo</a>
+                        <a class="collapse-item" href="">Mansaka</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
+                    aria-expanded="true" aria-controls="collapsecollapsePartners">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Partners</span>
                 </a>
             </li>
-
-            <!-- Nav Item - Graduate Students -->
-            <li class="nav-item">
-                <a class="nav-link" href="./people/gradstudents.html">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Graduate Students</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Undergrad Students -->
-            <li class="nav-item">
-                <a class="nav-link" href="./people/undergradstudents.html">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Undergrad Students</span>
-                </a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -234,29 +252,32 @@
                 Tools and Resources
             </div>
 
-              <!-- Nav Item - Resources -->
-              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
+            <!-- Nav Item - Resources -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
+                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Resources</span>
                 </a>
             </li>
-              <!-- Nav Item - Technologies -->
-              <li class="nav-item">
-                <a class="nav-link collapsed" href="./projects/featuredprojects.html" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
+            <!-- Nav Item - Technologies -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="./projects/featuredprojects.html" data-toggle="collapse"
+                    data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Technologies</span>
                 </a>
             </li>
             <!-- Nav Item - Tools -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
+                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Tools</span>
                 </a>
             </li>
 
-          
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -284,9 +305,11 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -349,11 +372,13 @@
                                         <img class="d-block w-100" src="./img/kagan_04.JPG" alt="11">
                                     </div>
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                    data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                    data-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
@@ -367,14 +392,29 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div id="content-wrapper">
-                                <p>MinNa LProc R&D Lab, or simply MinNa, is a research and development laboratory dedicated to the creation of advanced Natural Language Processing (NLP) tools, technologies, and digital resources. Our mission is to document, preserve, and revitalize endangered languages, with an initial focus on Mansaka, Kagan, and Manobo in Mindanao.</p>
+                                <p>MinNa LProc R&D Lab, or simply MinNa, is a research and development laboratory
+                                    dedicated to the creation of advanced Natural Language Processing (NLP) tools,
+                                    technologies, and digital resources. Our mission is to document, preserve, and
+                                    revitalize endangered languages, with an initial focus on Mansaka, Kagan, and Manobo
+                                    in Mindanao.</p>
 
-                                <p>MinNa is committed to intensifying R&D efforts in collecting, digitizing, storing, and disseminating language resources. We also develop specialized applications like Machine Translation and Dialogue Systems. Our goals include training and encouraging more NLP researchers in Mindanao, setting policy recommendations, and creating a technology roadmap to advance NLP studies.</p>
+                                <p>MinNa is committed to intensifying R&D efforts in collecting, digitizing, storing,
+                                    and disseminating language resources. We also develop specialized applications like
+                                    Machine Translation and Dialogue Systems. Our goals include training and encouraging
+                                    more NLP researchers in Mindanao, setting policy recommendations, and creating a
+                                    technology roadmap to advance NLP studies.</p>
 
-                                <p>MinNa Laboratory has been generously funded by the <a href="https://pcieerd.dost.gov.ph/">Department of Science and Technology - Philippine Council for Industry, Energy and Emerging Technology Research and Development (DOST-PCIEERD)</a> with high-end equipment to enable Mindanao NLP researchers conduct research works. The <a href="https://www.uic.edu.ph/">University of the Immaculate Conception</a> serves as the implementing agency to advance these research works to its complete implementation and deployment.</p>
+                                <p>MinNa Laboratory has been generously funded by the <a
+                                        href="https://pcieerd.dost.gov.ph/">Department of Science and Technology -
+                                        Philippine Council for Industry, Energy and Emerging Technology Research and
+                                        Development (DOST-PCIEERD)</a> with high-end equipment to enable Mindanao NLP
+                                    researchers conduct research works. The <a href="https://www.uic.edu.ph/">University
+                                        of the Immaculate Conception</a> serves as the implementing agency to advance
+                                    these research works to its complete implementation and deployment.</p>
 
                                 <p>
-                                MinNa officially started its operations last December 8, 2021, after the blessing of the laboratory. 
+                                    MinNa officially started its operations last December 8, 2021, after the blessing of
+                                    the laboratory.
                                 </p>
                             </div>
                         </div>
