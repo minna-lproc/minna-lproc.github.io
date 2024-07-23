@@ -17,6 +17,10 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../minna_round_logo.png">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    
     <style>
         /* Custom styles */
         .img-responsive {
@@ -82,63 +86,6 @@
         .scroll-to-top:hover {
             background-color: #2e59d9;
         }
-        .card-container {
-            display: flex;
-            flex-wrap: wrap; /* Allows wrapping of cards on smaller screens */
-            justify-content: space-around; /* Adjust spacing between cards */
-            gap: 20px; /* Optional: Add space between cards */
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%; /* Default width for small screens */
-            max-width: 18rem; /* Maximum width for larger screens */
-        }
-
-        .card-img-top {
-            width: 100%;
-            height: auto;
-        }
-
-        .card-body {
-            padding: 15px;
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .card-text {
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .card-link {
-            margin-right: 10px;
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        /* Media Queries for Responsive Design */
-        @media (min-width: 576px) {
-            .card-container {
-                flex-direction: row;
-            }
-        }
-
-        @media (max-width: 575px) {
-            .card-container {
-                flex-direction: column;
-                align-items: center; /* Center cards on very small screens */
-            }
-        }
-
-
     </style>
 </head>
 
@@ -162,13 +109,13 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="../index.html">
-                    <i class='fas fa-home'></i>
+                    <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">
-                    <i class='fas fa-file-alt'></i>
+                    <i class="fas fa-file-alt"></i>
                     <span>News and Updates</span>
                 </a>
             </li>
@@ -183,12 +130,11 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                    <a class="nav-link" href="../projects/featuredprojects.html">
+                <a class="nav-link" href="../projects/featuredprojects.html">
                     <i class="fas fa-book-open"></i>
                     <span>Featured Projects</span>
                 </a>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing" aria-expanded="true" aria-controls="collapseOnGoing">
                     <i class="fas fa-book-open"></i>
@@ -196,47 +142,50 @@
                 </a>
             </li>
 
-           <!-- Heading -->
-           <div class="sidebar-heading">
-            People
-        </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-        <!-- Dropdown Nav Item for Researchers and Developers -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
-                aria-expanded="true" aria-controls="collapseResearchers">
-                <i class="fas fa-user-friends"></i>
-                <span>Researchers</span>
-            </a>
-            <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="faculties.html">Faculties</a>
-                    <a class="collapse-item" href="gradstudents.html">Graduate Students</a>
-                    <a class="collapse-item" href="undergradstudents.html">Undergrad Students</a>
-                </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                People
             </div>
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
-                aria-expanded="true" aria-controls="collapseCollaborators">
-                <i class="fas fa-user-friends"></i>
-                <span>Collaborators</span>
-            </a>
-            <div id="collapseCollaborators" class="collapse" aria-labelledby="collapseColalborators"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="">Kagan</a>
-                    <a class="collapse-item" href="">Manobo</a>
-                    <a class="collapse-item" href="">Mansaka</a>
+
+            <!-- Dropdown Nav Item for Researchers and Developers -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
+                    aria-expanded="true" aria-controls="collapseResearchers">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Researchers</span>
+                </a>
+                <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="./faculties.html">Faculties</a>
+                        <a class="collapse-item" href="./gradstudents.html">Graduate Students</a>
+                        <a class="collapse-item" href="./undergradstudents.html">Undergrad Students</a>
+                    </div>
                 </div>
-            </div>
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-                aria-expanded="true" aria-controls="collapsecollapsePartners">
-                <i class="fas fa-user-friends"></i>
-                <span>Partners</span>
-            </a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
+                    aria-expanded="true" aria-controls="collapseCollaborators">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Collaborators</span>
+                </a>
+                <div id="collapseCollaborators" class="collapse" aria-labelledby="collapseColalborators"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="">Kagan</a>
+                        <a class="collapse-item" href="">Manobo</a>
+                        <a class="collapse-item" href="">Mansaka</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
+                    aria-expanded="true" aria-controls="collapsecollapsePartners">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Partners</span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -252,7 +201,7 @@
             </li>
               <!-- Nav Item - Technologies -->
               <li class="nav-item">
-                <a class="nav-link collapsed" href="./projects/featuredprojects.html" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="../projects/featuredprojects.html" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Technologies</span>
                 </a>
@@ -308,77 +257,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <!-- <h1 class="h3 mb-0 text-gray-800">Overall In-Charge</h1>-->
-                    </div>
-                  <!--  <hr>-->
-                    <div class="card-container">
-                        <div class="card">
-                            <img src="../img/people/adlaon.JPG" class="card-img-top" alt="Kristine Mae M. Adlaon">
-                            <div class="card-body">
-                                <h5 class="card-title">Kristine Mae M. Adlaon</h5>
-                                <p class="card-text">Head of Research and Development</p>
-                                <a href="https://scholar.google.com.ph/citations?user=zHeeqLoAAAAJ&hl=en" class="card-link">Google Scholar</a>
-                                <a href="#" class="card-link">BioNote</a>
-                                <a href="#" class="card-link">Contact</a>
-                            </div>
-                        </div>
-                    
-                        <div class="card">
-                            <img src="../img/people/manseras.png" class="card-img-top" alt="Aurora Atilano Manseras">
-                            <div class="card-body">
-                                <h5 class="card-title">Aurora Atilano Manseras</h5>
-                                <p class="card-text">Head of Operations</p>
-                                <a href="#" class="card-link">Google Scholar</a>
-                                <a href="#" class="card-link">BioNote</a>
-                                <a href="#" class="card-link">Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                    <br>
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Computing and Technology</h1>
-                    </div>
-                    <hr>
-                    <p><strong>Joseph Cedeño </strong><br> Chatbot Solutions Developer  <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a><br> 
-                    </p>
-                    <p><strong>Jonel Amora </strong><br> Web Developer, Project iWag  <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a><br> 2021-2022
-                    </p>
-                    <p><strong>Michel B. Bolo </strong><br> Researcher <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-                    <p><strong>Shenna Rhea Cloribel </strong><br> Lead, Project Kaag <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-                    
-                    <p><strong>Eric John Emberda </strong><br> Researcher <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-                    <p><strong>Jenn Leana Fernandez </strong><br> Researcher <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-
-                    <br>
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Language</h1>
-                    </div>
-                    <hr>
-                    <p><strong>Ma. Juliet Vasay - Cruz </strong><br> Researcher <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-                    <p><strong>Mildred Galvez </strong><br> Researcher <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-
-                    <p><strong>Virgion Mamonong </strong><br> Researcher <br>
-                        <a href="">Google Scholar</a> | <a href="">BioNote</a> | <a href="">Contact</a>
-                    </p>
-                 
+                   
                 </div>
                 <!-- /.container-fluid -->
 
@@ -421,6 +300,23 @@
     <!-- Page level custom scripts -->
     <script src="../js/demo/chart-area-demo.js"></script>
     <script src="../js/demo/chart-pie-demo.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 
