@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Learn about the projects and research at Mindanao Natural Language Processing Research and Development Laboratory.">
+    <meta name="description"
+        content="Learn about the projects and research at Mindanao Natural Language Processing Research and Development Laboratory.">
     <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
     <title>MinNa LProc R & D Lab</title>
 
@@ -166,12 +167,20 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../index.html" data-toggle="collapse" data-target="#collapseHome"
+                    aria-expanded="true" aria-controls="collapseHome">
                     <i class='fas fa-home'></i>
                     <span>Home</span>
                 </a>
+                <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="">Home</a>
+                        <a class="collapse-item" href="./about/about.html">About</a>
+                    </div>
+                </div>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="">
                     <i class='fas fa-file-alt'></i>
