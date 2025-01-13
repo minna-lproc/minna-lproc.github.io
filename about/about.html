@@ -38,10 +38,6 @@
             padding: 20px;
         }
 
-        p {
-            text-align: justify;
-        }
-
         .sidebar-heading {
             font-size: 16px;
             text-transform: uppercase;
@@ -132,7 +128,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseHome"
-                    aria-expanded="true" aria-controls="collapseHome">
+                    aria-expanded="false" aria-controls="collapseHome">
                     <i class='fas fa-home'></i>
                     <span>Home</span>
                 </a>
@@ -183,7 +179,7 @@
             <!-- Dropdown Nav Item for Researchers and Developers -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
-                    aria-expanded="true" aria-controls="collapseResearchers">
+                    aria-expanded="false" aria-controls="collapseResearchers">
                     <i class="fas fa-user-friends"></i>
                     <span>Researchers</span>
                 </a>
@@ -209,7 +205,7 @@
                     </div>
                 </div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-                    aria-expanded="true" aria-controls="collapsePartners">
+                    aria-expanded="false" aria-controls="collapsePartners">
                     <i class="fas fa-user-friends"></i>
                     <span>Partners</span>
                 </a>
@@ -231,7 +227,7 @@
             <!-- Nav Item - Resources -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
-                    aria-expanded="true" aria-controls="collapseResources">
+                    aria-expanded="false" aria-controls="collapseResources">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Resources</span>
                 </a>
@@ -245,7 +241,7 @@
             <!-- Nav Item - Tools -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
-                    aria-expanded="true" aria-controls="collapseTools">
+                    aria-expanded="false" aria-controls="collapseTools">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Tools</span>
                 </a>
@@ -335,14 +331,21 @@
                                 <a href="#collapseFirstMission" class="d-block card-header py-3" data-toggle="collapse"
                                     role="button" aria-expanded="true" aria-controls="collapseFirstMission">
                                     <h6 class="m-0 font-weight-bold text-primary">Innovative NLP Solutions</h6>
-                                    <small class="text-muted">Develop Natural Language Processing tools and technologies
-                                        that support language revitalization and cultural heritage.</small>
                                 </a>
+                                    <small class="text-muted d-block mt-1 ml-3">Develop Natural Language Processing tools and technologies
+                                        that support language revitalization and cultural heritage.</small>
+                                
                                 <!-- Card Content - Collapse -->
                                 <!-- First Mission -->
                                 <div class="collapse" id="collapseFirstMission">
                                     <div class="card-body">
-                                        <p>The Natural Language Processing (NLP) tools is deemed to enhance health communication through multilingual translation and dialogue systems (SDG 3), improving access to quality education for diverse linguistic communities (SDG 4), bridging the digital divide for marginalized groups to preserve and promote their languages (SDG 10), and fostering international cooperation in cultural and linguistic preservation through collaboration with global partners (SDG 17).</p>
+                                        <p>The Natural Language Processing (NLP) tools is deemed to enhance health
+                                            communication through multilingual translation and dialogue systems (SDG 3),
+                                            improving access to quality education for diverse linguistic communities
+                                            (SDG 4), bridging the digital divide for marginalized groups to preserve and
+                                            promote their languages (SDG 10), and fostering international cooperation in
+                                            cultural and linguistic preservation through collaboration with global
+                                            partners (SDG 17).</p>
 
                                     </div>
                                 </div>
@@ -353,62 +356,111 @@
                                 <a href="#collapseSecondMission" class="d-block card-header py-3" data-toggle="collapse"
                                     role="button" aria-expanded="true" aria-controls="collapseSecondMission">
                                     <h6 class="m-0 font-weight-bold text-primary">Language Preservation</h6>
-                                    <small class="text-muted">Document, digitize, and preserve endangered languages,
-                                        ensuring their survival and accessibility for future generations.</small>
                                 </a>
+                                    <small class="text-muted d-block mt-1 ml-3">Document, digitize, and preserve endangered
+                                        languages, ensuring their survival and accessibility for future generations.</small>
+                                
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse" id="collapseSecondMission">
                                     <div class="card-body">
-                                        <p>Preserving and documenting endangered languages plays a crucial role in achieving several Sustainable Development Goals (SDGs). It not only helps maintain the cultural identity and mental well-being of indigenous communities (SDG 3), but also creates a rich repository of linguistic knowledge that supports lifelong learning and cultural education for future generations (SDG 4). <br> <br>Ensuring the survival and accessibility of endangered languages reduces cultural inequalities by preserving the heritage of marginalized communities (SDG 10). Partnering with local and international organizations in language preservation efforts fosters global collaboration and strengthens shared commitments to cultural diversity (SDG 17).</p>
-
+                                        <p>Preserving and documenting endangered languages plays a crucial role in
+                                            achieving several Sustainable Development Goals (SDGs). It not only helps
+                                            maintain the cultural identity and mental well-being of indigenous
+                                            communities (SDG 3), but also creates a rich repository of linguistic
+                                            knowledge that supports lifelong learning and cultural education for future
+                                            generations (SDG 4).<br><br>
+                                            Ensuring the survival and accessibility of endangered languages reduces
+                                            cultural inequalities by preserving the heritage of marginalized communities
+                                            (SDG 10). Partnering with local and international organizations in language
+                                            preservation efforts fosters global collaboration and strengthens shared
+                                            commitments to cultural diversity (SDG 17).</p>
                                     </div>
                                 </div>
                             </div>
-                             <!-- Third Mission -->
-                             <div class="shadow mb-4 wide-card">
+
+                            <!-- Third Mission -->
+                            <div class="shadow mb-4 wide-card">
                                 <!-- Card Header - Accordion -->
                                 <a href="#collapseThirdMission" class="d-block card-header py-3" data-toggle="collapse"
                                     role="button" aria-expanded="true" aria-controls="collapseThirdMission">
                                     <h6 class="m-0 font-weight-bold text-primary">Community Empowerment</h6>
-                                    <small class="text-muted">Empower local communities by providing the resources and training needed to actively participate in the preservation and revitalization of their native languages.</small>
                                 </a>
+                                    <small class="text-muted d-block mt-1 ml-3">Empower local communities by providing the resources and
+                                        training needed to actively participate in the preservation and revitalization
+                                        of their native languages.</small>
+                               
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse" id="collapseThirdMission">
                                     <div class="card-body">
-                                        <p>Empowering local communities with resources and training for language preservation enhances their social well-being and mental health by fostering a strong sense of identity and pride (SDG 3). This empowerment enables communities to actively engage in the preservation and revitalization of their native languages, contributing to educational enrichment (SDG 4). <br><br>By equipping them with the necessary tools and knowledge, we seek to help reduce inequalities and enable the preservation of their cultural heritage (SDG 10). Collaborating with community organizations and stakeholders in empowerment initiatives fosters partnerships that support collective progress in language revitalization (SDG 17).</p>
+                                        <p>Empowering local communities with resources and training for language
+                                            preservation enhances their social well-being and mental health by fostering
+                                            a strong sense of identity and pride (SDG 3). This empowerment enables
+                                            communities to actively engage in the preservation and revitalization of
+                                            their native languages, contributing to educational enrichment (SDG 4).
+                                            <br><br>By equipping them with the necessary tools and knowledge, we seek to
+                                            help reduce inequalities and enable the preservation of their cultural
+                                            heritage (SDG 10). Collaborating with community organizations and
+                                            stakeholders in empowerment initiatives fosters partnerships that support
+                                            collective progress in language revitalization (SDG 17).</p>
                                     </div>
                                 </div>
                             </div>
-                              <!-- Fourth Mission -->
-                              <div class="shadow mb-4 wide-card">
+                            <!-- Fourth Mission -->
+                            <div class="shadow mb-4 wide-card">
                                 <!-- Card Header - Accordion -->
                                 <a href="#collapseFourthMission" class="d-block card-header py-3" data-toggle="collapse"
                                     role="button" aria-expanded="true" aria-controls="collapseFourthMission">
                                     <h6 class="m-0 font-weight-bold text-primary">Research Excellence</h6>
-                                    <small class="text-muted">Foster a research environment in Mindanao, encouraging and training new NLP
-                                        researchers, and advancing the field of language technology.</small>
                                 </a>
+                                    <small class="text-muted d-block mt-1 ml-3">Foster a research environment in Mindanao, encouraging and
+                                        training new NLP
+                                        researchers, and advancing the field of language technology.</small>
+                               
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse" id="collapseFourthMission">
                                     <div class="card-body">
-                                       <p>Promoting research excellence in Natural Language Processing (NLP) can lead to innovative health communication tools that improve health literacy and access to health information (SDG 3). Additionally, encouraging and training new NLP researchers in Mindanao advances the field of language technology, contributing to higher educational standards and innovation (SDG 4). <br><br>By developing a vibrant research environment, we ensure that all regions, including underserved areas, can contribute to and benefit from advancements in language technology, thereby reducing inequalities (SDG 10). Fostering collaboration and knowledge exchange among researchers and institutions enhances global partnerships, supporting collective progress in language technology and preservation (SDG 17).</p>
+                                        <p>Promoting research excellence in Natural Language Processing (NLP) can lead
+                                            to innovative health communication tools that improve health literacy and
+                                            access to health information (SDG 3). Additionally, encouraging and training
+                                            new NLP researchers in Mindanao advances the field of language technology,
+                                            contributing to higher educational standards and innovation (SDG 4).
+                                            <br><br>By developing a vibrant research environment, we ensure that all
+                                            regions, including underserved areas, can contribute to and benefit from
+                                            advancements in language technology, thereby reducing inequalities (SDG 10).
+                                            Fostering collaboration and knowledge exchange among researchers and
+                                            institutions enhances global partnerships, supporting collective progress in
+                                            language technology and preservation (SDG 17).</p>
 
                                     </div>
                                 </div>
                             </div>
 
-                              <!-- Fifth Mission -->
-                              <div class="shadow mb-4 wide-card">
+                            <!-- Fifth Mission -->
+                            <div class="shadow mb-4 wide-card">
                                 <!-- Card Header - Accordion -->
                                 <a href="#collapseFifthhMission" class="d-block card-header py-3" data-toggle="collapse"
                                     role="button" aria-expanded="true" aria-controls="collapseFifthhMission">
                                     <h6 class="m-0 font-weight-bold text-primary">Policy and Advocacy</h6>
-                                    <small class="text-muted">Influence language preservation policies and create a comprehensive technology roadmap that guides the future of NLP studies and language revitalization efforts.</small>
+                                </a>
+                                    <small class="text-muted d-block mt-1 ml-3">Influence language preservation policies and create a
+                                        comprehensive technology roadmap that guides the future of NLP studies and
+                                        language revitalization efforts.</small>
                                 </a>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse" id="collapseFifthhMission">
                                     <div class="card-body">
-                                       <p>Influencing language preservation policies is essential for ensuring that health information is accessible in native languages, which improves health outcomes for indigenous and marginalized communities (SDG 3).Advocating for supportive language policies guarantees that educational materials are available in native languages, thereby enhancing the quality and inclusivity of education (SDG 4). <br><br>By shaping policies that support language preservation, we promote linguistic diversity and reduce cultural inequalities, protecting the rights of marginalized language communities (SDG 10). Creating a comprehensive technology roadmap and advocating for supportive policies fosters collaboration among stakeholders, ensuring a united and strategic approach to Natural Language Processing studies and language revitalization efforts (SDG 17).</p>
+                                        <p>Influencing language preservation policies is essential for ensuring that
+                                            health information is accessible in native languages, which improves health
+                                            outcomes for indigenous and marginalized communities (SDG 3).Advocating for
+                                            supportive language policies guarantees that educational materials are
+                                            available in native languages, thereby enhancing the quality and inclusivity
+                                            of education (SDG 4). <br><br>By shaping policies that support language
+                                            preservation, we promote linguistic diversity and reduce cultural
+                                            inequalities, protecting the rights of marginalized language communities
+                                            (SDG 10). Creating a comprehensive technology roadmap and advocating for
+                                            supportive policies fosters collaboration among stakeholders, ensuring a
+                                            united and strategic approach to Natural Language Processing studies and
+                                            language revitalization efforts (SDG 17).</p>
 
                                     </div>
                                 </div>
@@ -430,7 +482,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; MinNa LProc R&D Lab 2021</span>
+                        <span>Copyright &copy; MinNa LProc R&D Lab</span>
                     </div>
                 </div>
             </footer>
