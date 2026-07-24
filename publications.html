@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Browse publications of the Mindanao Natural Language Processing Research and Development Laboratory on Philippine languages, low-resource NLP, machine translation, language resources, alignment, tokenization, and morphology.">
+    <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
+    <meta name="google-site-verification" content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
+    <title>Publications | MinNa LProc R&amp;D Lab</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="minna_round_logo.png">
+
+    <style>
+        :root {
+            --minna-primary: #224abe;
+            --minna-secondary: #4e73df;
+            --minna-dark: #14275f;
+            --minna-accent: #36b9cc;
+            --minna-light: #eef3ff;
+            --minna-text: #2f3542;
+            --minna-muted: #6c757d;
+            --minna-border: #e3e8f4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Nunito", sans-serif;
+            color: var(--minna-text);
+            background: #f6f8fc;
+        }
+
+        #content-wrapper {
+            min-width: 0;
+            background: #f6f8fc;
+        }
+
+        .sidebar-heading {
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+        }
+
+        .navbar-nav.sidebar {
+            background: linear-gradient(180deg, #244dbc 0%, #183786 100%);
+        }
+
+        .sidebar .nav-item .nav-link {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .sidebar .nav-item .nav-link:hover,
+        .sidebar .nav-item.active .nav-link {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.11);
+        }
+
+        .sidebar-brand-text {
+            line-height: 1.1;
+        }
+
+        .topbar {
+            min-height: 4.5rem;
+            border-bottom: 1px solid var(--minna-border);
+        }
+
+        .topbar-title {
+            font-weight: 800;
+            color: var(--minna-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 4.6rem 0 4rem;
+            color: white;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(54, 185, 204, 0.38), transparent 26%),
+                radial-gradient(circle at 68% 80%, rgba(255, 255, 255, 0.15), transparent 25%),
+                linear-gradient(135deg, #17367f 0%, #2857cd 57%, #3274d7 100%);
+        }
+
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            right: -120px;
+            bottom: -170px;
+            border-radius: 50%;
+            border: 55px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.85rem;
+            margin-bottom: 1.15rem;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            max-width: 780px;
+            font-size: clamp(2rem, 4vw, 3.65rem);
+            font-weight: 900;
+            line-height: 1.04;
+            letter-spacing: -0.045em;
+        }
+
+        .hero-copy {
+            max-width: 760px;
+            margin-top: 1.15rem;
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 1.08rem;
+            line-height: 1.75;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.75rem;
+        }
+
+        .hero-actions .btn {
+            border-radius: 0.75rem;
+            padding: 0.7rem 1.15rem;
+            font-weight: 800;
+        }
+
+        .btn-soft-light {
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-soft-light:hover {
+            color: var(--minna-primary);
+            background: white;
+        }
+
+        .stats-strip {
+            position: relative;
+            z-index: 5;
+            margin-top: -2rem;
+        }
+
+        .stats-card {
+            height: 100%;
+            padding: 1.35rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 0.8rem 2rem rgba(31, 51, 105, 0.08);
+        }
+
+        .stat-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: 0.8rem;
+            border-radius: 0.8rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+        }
+
+        .stat-value {
+            margin: 0;
+            color: var(--minna-dark);
+            font-size: 1.65rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .stat-label {
+            margin: 0.4rem 0 0;
+            color: var(--minna-muted);
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .section-wrap {
+            padding: 3.2rem 0 4.5rem;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.3rem;
+            color: var(--minna-secondary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--minna-dark);
+            font-size: clamp(1.65rem, 3vw, 2.25rem);
+            font-weight: 900;
+            letter-spacing: -0.025em;
+        }
+
+        .section-copy {
+            max-width: 760px;
+            color: white;
+            line-height: 1.75;
+        }
+
+        .filter-panel {
+            padding: 1.15rem;
+            margin: 1.7rem 0 2rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 0.5rem 1.5rem rgba(31, 51, 105, 0.05);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            color: #9aa3b7;
+            transform: translateY(-50%);
+        }
+
+        .search-box input {
+            height: 3rem;
+            padding-left: 2.75rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.75rem;
+            background: #fbfcff;
+        }
+
+        .filter-select {
+            height: 3rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.75rem;
+            background: #fbfcff;
+        }
+
+        .topic-dropdown-wrap {
+            margin-top: 1rem;
+        }
+
+        .topic-dropdown-label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #526078;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .result-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .publication-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .publication-card {
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 0.45rem 1.25rem rgba(31, 51, 105, 0.045);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .publication-card:hover {
+            border-color: #c9d7fb;
+            box-shadow: 0 1rem 2.4rem rgba(31, 51, 105, 0.11);
+            transform: translateY(-3px);
+        }
+
+        .publication-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--minna-secondary), var(--minna-accent));
+        }
+
+        .publication-year {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 4.2rem;
+            height: 2rem;
+            border-radius: 0.55rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+            font-size: 0.82rem;
+            font-weight: 900;
+        }
+
+        .publication-type {
+            margin-left: 0.4rem;
+            color: #7d8799;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .publication-title {
+            margin: 0.9rem 0 0.55rem;
+            color: var(--minna-dark);
+            font-size: 1.25rem;
+            font-weight: 900;
+            line-height: 1.38;
+        }
+
+        .publication-authors {
+            margin-bottom: 0.5rem;
+            color: #42516d;
+            font-weight: 700;
+        }
+
+        .publication-venue {
+            margin-bottom: 0.8rem;
+            color: var(--minna-muted);
+            font-size: 0.91rem;
+            line-height: 1.55;
+        }
+
+        .publication-abstract {
+            display: -webkit-box;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            color: #596479;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .topic-tag {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            margin: 0 0.35rem 0.4rem 0;
+            border-radius: 999px;
+            color: #35507d;
+            background: #f0f4fc;
+            font-size: 0.74rem;
+            font-weight: 800;
+        }
+
+        .publication-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 0.95rem;
+        }
+
+        .publication-actions .btn {
+            border-radius: 0.6rem;
+            font-size: 0.79rem;
+            font-weight: 800;
+        }
+
+        .btn-outline-minna {
+            color: var(--minna-primary);
+            border-color: #b8c8f5;
+            background: white;
+        }
+
+        .btn-outline-minna:hover {
+            color: white;
+            border-color: var(--minna-primary);
+            background: var(--minna-primary);
+        }
+
+        .empty-state {
+            display: none;
+            padding: 3.5rem 1.5rem;
+            border: 1px dashed #c9d2e6;
+            border-radius: 1rem;
+            text-align: center;
+            background: white;
+        }
+
+        .empty-state i {
+            margin-bottom: 1rem;
+            color: #a8b2c6;
+            font-size: 2.2rem;
+        }
+
+        .research-note {
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 1rem;
+            color: #2f4771;
+            background: linear-gradient(135deg, #eaf2ff, #eefaff);
+        }
+
+        .research-note h3 {
+            color: var(--minna-dark);
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+
+        .research-note p {
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .modal-content {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 1rem 4rem rgba(20, 39, 95, 0.2);
+        }
+
+        .modal-header {
+            border-bottom-color: var(--minna-border);
+        }
+
+        .modal-title {
+            color: var(--minna-dark);
+            font-weight: 900;
+        }
+
+        .citation-box {
+            padding: 1rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.7rem;
+            color: #34415a;
+            background: #f9fbff;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.65;
+        }
+
+        .bibtex-box {
+            max-height: 330px;
+            overflow: auto;
+            padding: 1rem;
+            border-radius: 0.7rem;
+            color: #eaf1ff;
+            background: #17213a;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.8rem;
+            white-space: pre-wrap;
+        }
+
+        .sticky-footer {
+            border-top: 1px solid var(--minna-border);
+        }
+
+        .scroll-to-top {
+            background: var(--minna-primary);
+        }
+
+        .toast-notice {
+            position: fixed;
+            z-index: 1090;
+            right: 1rem;
+            bottom: 1rem;
+            display: none;
+            max-width: 320px;
+            padding: 0.85rem 1rem;
+            border-radius: 0.7rem;
+            color: white;
+            background: #26395f;
+            box-shadow: 0 0.8rem 2rem rgba(20, 39, 95, 0.25);
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 3.4rem 0 3.8rem;
+            }
+
+            .stats-strip {
+                margin-top: -1.25rem;
+            }
+
+            .publication-card {
+                padding: 1.25rem;
+            }
+
+            .result-summary {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-BZRJP33YFX');
+    </script>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <img src="minna_round_logo.png" alt="MinNa LProc logo" style="height: 40px; margin-right: 10px;">
+                <div class="sidebar-brand-text mx-3">MinNa LProc<br><small>R&amp;D Lab</small></div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
+                    aria-expanded="false" aria-controls="collapseHome">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="index.html">Home</a>
+                        <a class="collapse-item" href="about/about.html">Vision and Mission</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">Projects and Publications</div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="projects/featuredprojects.html">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Featured Projects</span>
+                </a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="publications.html" aria-current="page">
+                    <i class="fas fa-book-open"></i>
+                    <span>Publications</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">People</div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
+                    aria-expanded="false" aria-controls="collapseResearchers">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Researchers</span>
+                </a>
+                <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="people/faculties.html">Faculties</a>
+                        <a class="collapse-item" href="people/gradstudents.html">Graduate Students</a>
+                        <a class="collapse-item" href="people/undergradstudents.html">Undergrad Students</a>
+                    </div>
+                </div>
+
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
+                    aria-expanded="false" aria-controls="collapseCollaborators">
+                    <i class="fas fa-users"></i>
+                    <span>Collaborators</span>
+                </a>
+                <div id="collapseCollaborators" class="collapse" aria-labelledby="headingCollaborators"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="people/kagan.html">Kagan</a>
+                        <a class="collapse-item" href="people/manobo.html">Manobo</a>
+                        <a class="collapse-item" href="people/mansaka.html">Mansaka</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">Tools and Resources</div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
+                    aria-expanded="false" aria-controls="collapseResources">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Resources</span>
+                </a>
+                <div id="collapseResources" class="collapse" aria-labelledby="headingResources"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="https://www.iwag.info/" target="_blank" rel="noopener">Translation</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-tools"></i>
+                    <span>Tools</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle" aria-label="Toggle sidebar"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow-sm">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="topbar-title">Research Publications</div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="btn btn-sm btn-outline-primary" href="#publications">
+                                <i class="fas fa-search mr-1"></i> Browse
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+
+                <main>
+                    <!-- Hero -->
+                     <section class="hero-section">
+                        <div class="container-fluid px-4 px-lg-5 position-relative" style="z-index: 2;">
+                            <div class="section-kicker">Research Output</div>
+                            <h2 class="section-title" style="color: white;">All Publications</h2>
+                            <p class="section-copy">
+                                Search by title, author, venue, or keyword. Filter the collection by year and research
+                                topic, then open the official record, read the full paper, or copy a formatted citation.
+                            </p>
+                            <div class="hero-actions">
+                                <button type="button" class="btn btn-soft-light" id="downloadBibtexTop">
+                                    <i class="fas fa-file-code mr-2"></i>Download BibTeX
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- Publications -->
+                    <section id="publications" class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
+                           
+
+                            <div class="filter-panel">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-7 mb-3 mb-lg-0">
+                                        <div class="search-box">
+                                            <i class="fas fa-search"></i>
+                                            <input id="publicationSearch" type="search" class="form-control"
+                                                placeholder="Search title, author, venue, or keyword..."
+                                                aria-label="Search publications">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-2 mb-3 mb-lg-0">
+                                        <select id="yearFilter" class="form-control filter-select" aria-label="Filter by year">
+                                            <option value="all">All years</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 col-lg-3">
+                                        <select id="sortFilter" class="form-control filter-select" aria-label="Sort publications">
+                                            <option value="newest">Newest first</option>
+                                            <option value="oldest">Oldest first</option>
+                                            <option value="title">Title A–Z</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="topic-dropdown-wrap">
+                                    <label class="topic-dropdown-label" for="topicFilter">Research topic</label>
+                                    <select id="topicFilter" class="form-control filter-select"
+                                        aria-label="Filter publications by research topic">
+                                        <option value="all" selected>All topics</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div id="publicationList" class="publication-list"></div>
+
+                            <div id="emptyState" class="empty-state">
+                                <i class="fas fa-search"></i>
+                                <h3 class="h5 font-weight-bold text-gray-800">No publications found</h3>
+                                <p class="text-muted mb-3">Try another keyword or reset the filters.</p>
+                                <button class="btn btn-primary" type="button" id="emptyReset">Reset filters</button>
+                            </div>
+
+                            
+
+                            <div class="research-note">
+                                <h3><i class="fas fa-info-circle mr-2"></i>About this collection</h3>
+                                <p>
+                                    This page highlights the MinNa LProc-affiliated and laboratory-related research
+                                    outputs currently available through official publisher or proceedings records.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>&copy; <span id="currentYear"></span> MinNa LProc R&amp;D Lab. All rights reserved.</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top" aria-label="Back to top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Citation Modal -->
+    <div class="modal fade" id="citationModal" tabindex="-1" role="dialog" aria-labelledby="citationModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <small class="text-uppercase text-primary font-weight-bold">Publication Citation</small>
+                        <h5 class="modal-title mt-1" id="citationModalTitle">Citation</h5>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="font-weight-bold text-gray-800">APA-style citation</h6>
+                    <div class="citation-box" id="citationText"></div>
+                    <button class="btn btn-sm btn-primary mt-2" type="button" id="copyCitationButton">
+                        <i class="fas fa-copy mr-1"></i>Copy citation
+                    </button>
+
+                    <h6 class="font-weight-bold text-gray-800 mt-4">BibTeX</h6>
+                    <div class="bibtex-box" id="bibtexText"></div>
+                    <button class="btn btn-sm btn-outline-minna mt-2" type="button" id="copyBibtexButton">
+                        <i class="fas fa-copy mr-1"></i>Copy BibTeX
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite"></div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages -->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+        const publications = [
+            {
+                id: "adlaon-marcos-2026",
+                year: 2026,
+                type: "Conference Paper",
+                title: "Lexicon-Guided Morphological Tag Injection for Low-Resource Filipino-Cebuano Neural Machine Translation",
+                authors: ["Kristine Mae M. Adlaon", "Nelson Marcos"],
+                venue: "Proceedings of the 39th Canadian Conference on Artificial Intelligence, Proceedings of Machine Learning Research, Volume 318",
+                location: "Burnaby, British Columbia, Canada",
+                pages: "916–923",
+                topics: ["Machine Translation", "Morphology", "Low-Resource NLP", "Language Models"],
+                abstract: "Introduces a lexicon-guided framework that injects structured aspect and voice information into source-side input for Filipino–Cebuano neural machine translation. The approach uses parameter-efficient LoRA fine-tuning and improves translation of morphologically complex predicates and difficult lexical mappings.",
+                officialUrl: "https://proceedings.mlr.press/v318/adlaon26a.html",
+                pdfUrl: "https://raw.githubusercontent.com/mlresearch/v318/main/assets/adlaon26a/adlaon26a.pdf",
+                doi: "",
+                citation: "Adlaon, K. M. M., & Marcos, N. (2026). Lexicon-guided morphological tag injection for low-resource Filipino-Cebuano neural machine translation. In Proceedings of the 39th Canadian Conference on Artificial Intelligence (PMLR Vol. 318, pp. 916–923).",
+                bibtex: `@inproceedings{adlaon-marcos-2026,
+  title     = {Lexicon-Guided Morphological Tag Injection for Low-Resource Filipino-Cebuano Neural Machine Translation},
+  author    = {Adlaon, Kristine Mae M. and Marcos, Nelson},
+  booktitle = {Proceedings of the 39th Canadian Conference on Artificial Intelligence},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {318},
+  pages     = {916--923},
+  year      = {2026},
+  publisher = {PMLR},
+  url       = {https://proceedings.mlr.press/v318/adlaon26a.html}
+}`
+            },
+            {
+                id: "adlaon-marcos-2024",
+                year: 2024,
+                type: "Conference Paper",
+                title: "Finding the Optimal Byte-Pair Encoding Merge Operations for Neural Machine Translation in a Low-Resource Setting",
+                authors: ["Kristine Mae M. Adlaon", "Nelson Marcos"],
+                venue: "Findings of the Association for Computational Linguistics: EMNLP 2024",
+                location: "Miami, Florida, USA",
+                pages: "14673–14682",
+                topics: ["Machine Translation", "Tokenization", "Low-Resource NLP"],
+                abstract: "Examines how different Byte-Pair Encoding merge-operation settings affect Filipino–Cebuano neural machine translation across text domains. Smaller BPE configurations consistently produced stronger BLEU results than larger configurations or models trained without BPE.",
+                officialUrl: "https://aclanthology.org/2024.findings-emnlp.860/",
+                pdfUrl: "https://aclanthology.org/2024.findings-emnlp.860.pdf",
+                doi: "10.18653/v1/2024.findings-emnlp.860",
+                citation: "Adlaon, K. M. M., & Marcos, N. (2024). Finding the optimal byte-pair encoding merge operations for neural machine translation in a low-resource setting. In Findings of the Association for Computational Linguistics: EMNLP 2024 (pp. 14673–14682). Association for Computational Linguistics. https://doi.org/10.18653/v1/2024.findings-emnlp.860",
+                bibtex: `@inproceedings{adlaon-marcos-2024,
+  title     = {Finding the Optimal Byte-Pair Encoding Merge Operations for Neural Machine Translation in a Low-Resource Setting},
+  author    = {Adlaon, Kristine Mae M. and Marcos, Nelson},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2024},
+  pages     = {14673--14682},
+  year      = {2024},
+  publisher = {Association for Computational Linguistics},
+  address   = {Miami, Florida, USA},
+  doi       = {10.18653/v1/2024.findings-emnlp.860},
+  url       = {https://aclanthology.org/2024.findings-emnlp.860/}
+}`
+            },
+            {
+                id: "fernandez-adlaon-2022",
+                year: 2022,
+                type: "Conference Paper",
+                title: "Exploring Word Alignment towards an Efficient Sentence Aligner for Filipino and Cebuano Languages",
+                authors: ["Jenn Leana Fernandez", "Kristine Mae M. Adlaon"],
+                venue: "Proceedings of the Fifth Workshop on Technologies for Machine Translation of Low-Resource Languages (LoResMT 2022)",
+                location: "Gyeongju, Republic of Korea",
+                pages: "99–106",
+                topics: ["Word Alignment", "Language Resources", "Low-Resource NLP", "Machine Translation"],
+                abstract: "Investigates how monolingual Filipino and Cebuano resources can be transformed into parallel data through bitext alignment. The study compares alignment strategies and tests whether Byte-Pair Encoding improves word alignment for sentences of different lengths.",
+                officialUrl: "https://aclanthology.org/2022.loresmt-1.13/",
+                pdfUrl: "https://aclanthology.org/2022.loresmt-1.13.pdf",
+                doi: "",
+                citation: "Fernandez, J. L., & Adlaon, K. M. M. (2022). Exploring word alignment towards an efficient sentence aligner for Filipino and Cebuano languages. In Proceedings of the Fifth Workshop on Technologies for Machine Translation of Low-Resource Languages (LoResMT 2022) (pp. 99–106). Association for Computational Linguistics.",
+                bibtex: `@inproceedings{fernandez-adlaon-2022,
+  title     = {Exploring Word Alignment towards an Efficient Sentence Aligner for Filipino and Cebuano Languages},
+  author    = {Fernandez, Jenn Leana and Adlaon, Kristine Mae M.},
+  booktitle = {Proceedings of the Fifth Workshop on Technologies for Machine Translation of Low-Resource Languages (LoResMT 2022)},
+  pages     = {99--106},
+  year      = {2022},
+  publisher = {Association for Computational Linguistics},
+  address   = {Gyeongju, Republic of Korea},
+  url       = {https://aclanthology.org/2022.loresmt-1.13/}
+}`
+            },
+            {
+                id: "baliber-etal-2020",
+                year: 2020,
+                type: "Conference Paper",
+                title: "Bridging Philippine Languages with Multilingual Neural Machine Translation",
+                authors: ["Renz Iver Baliber", "Charibeth Cheng", "Kristine Mae Adlaon", "Virgion Mamonong"],
+                venue: "Proceedings of the 3rd Workshop on Technologies for MT of Low Resource Languages (LoResMT 2020)",
+                location: "Suzhou, China",
+                pages: "14–22",
+                topics: ["Machine Translation", "Multilingual NLP", "Low-Resource NLP", "Philippine Languages"],
+                abstract: "Benchmarks multilingual neural machine translation for closely related and low-resource Philippine languages. The study evaluates direct, zero-shot, and English-pivot translation for Tagalog and Cebuano, showing the potential of multilingual transfer for language pairs with limited parallel data.",
+                officialUrl: "https://aclanthology.org/2020.loresmt-1.2/",
+                pdfUrl: "https://aclanthology.org/2020.loresmt-1.2.pdf",
+                doi: "10.18653/v1/2020.loresmt-1.2",
+                citation: "Baliber, R. I., Cheng, C., Adlaon, K. M., & Mamonong, V. (2020). Bridging Philippine languages with multilingual neural machine translation. In Proceedings of the 3rd Workshop on Technologies for MT of Low Resource Languages (pp. 14–22). Association for Computational Linguistics. https://doi.org/10.18653/v1/2020.loresmt-1.2",
+                bibtex: `@inproceedings{baliber-etal-2020,
+  title     = {Bridging Philippine Languages with Multilingual Neural Machine Translation},
+  author    = {Baliber, Renz Iver and Cheng, Charibeth and Adlaon, Kristine Mae and Mamonong, Virgion},
+  booktitle = {Proceedings of the 3rd Workshop on Technologies for MT of Low Resource Languages},
+  pages     = {14--22},
+  year      = {2020},
+  publisher = {Association for Computational Linguistics},
+  address   = {Suzhou, China},
+  doi       = {10.18653/v1/2020.loresmt-1.2},
+  url       = {https://aclanthology.org/2020.loresmt-1.2/}
+}`
+            },
+            {
+                id: "adlaon-marcos-2019",
+                year: 2019,
+                type: "Conference Paper",
+                title: "Building the Language Resource for a Cebuano-Filipino Neural Machine Translation System",
+                authors: ["Kristine Mae M. Adlaon", "Nelson Marcos"],
+                venue: "Proceedings of the 3rd International Conference on Natural Language Processing and Information Retrieval (NLPIR 2019)",
+                location: "Tokushima, Japan",
+                pages: "127–132",
+                topics: ["Language Resources", "Machine Translation", "Corpus Development", "Philippine Languages"],
+                abstract: "Documents the development of Cebuano–Filipino language resources for neural machine translation. The work builds parallel data from biblical texts and web-based sources and examines practical challenges in collecting and preparing corpora for low-resource Philippine languages.",
+                officialUrl: "https://dl.acm.org/doi/10.1145/3342827.3342833",
+                pdfUrl: "https://dl.acm.org/doi/pdf/10.1145/3342827.3342833",
+                doi: "10.1145/3342827.3342833",
+                citation: "Adlaon, K. M. M., & Marcos, N. (2019). Building the language resource for a Cebuano-Filipino neural machine translation system. In Proceedings of the 3rd International Conference on Natural Language Processing and Information Retrieval (pp. 127–132). Association for Computing Machinery. https://doi.org/10.1145/3342827.3342833",
+                bibtex: `@inproceedings{adlaon-marcos-2019,
+  title     = {Building the Language Resource for a Cebuano-Filipino Neural Machine Translation System},
+  author    = {Adlaon, Kristine Mae M. and Marcos, Nelson},
+  booktitle = {Proceedings of the 3rd International Conference on Natural Language Processing and Information Retrieval},
+  pages     = {127--132},
+  year      = {2019},
+  publisher = {Association for Computing Machinery},
+  doi       = {10.1145/3342827.3342833},
+  url       = {https://doi.org/10.1145/3342827.3342833}
+}`
+            },
+            {
+                id: "adlaon-marcos-2018",
+                year: 2018,
+                type: "Conference Paper",
+                title: "Neural Machine Translation for Cebuano to Tagalog with Subword Unit Translation",
+                authors: ["Kristine Mae M. Adlaon", "Nelson Marcos"],
+                venue: "2018 International Conference on Asian Language Processing (IALP 2018)",
+                location: "Bandung, Indonesia",
+                pages: "328–333",
+                topics: ["Machine Translation", "Subword Modeling", "Low-Resource NLP", "Philippine Languages"],
+                abstract: "Develops a recurrent neural machine translation system for Cebuano-to-Tagalog translation using OpenNMT and TensorFlow. A subword treatment for verbs and a copyable-word approach improved BLEU from 20.01 to 22.87, providing an early neural baseline for this Philippine language pair.",
+                officialUrl: "https://ieeexplore.ieee.org/document/8629153/",
+                pdfUrl: "https://arxiv.org/pdf/1902.07250",
+                doi: "10.1109/IALP.2018.8629153",
+                citation: "Adlaon, K. M. M., & Marcos, N. (2018). Neural machine translation for Cebuano to Tagalog with subword unit translation. In 2018 International Conference on Asian Language Processing (IALP) (pp. 328–333). IEEE. https://doi.org/10.1109/IALP.2018.8629153",
+                bibtex: `@inproceedings{adlaon-marcos-2018,
+  title     = {Neural Machine Translation for Cebuano to Tagalog with Subword Unit Translation},
+  author    = {Adlaon, Kristine Mae M. and Marcos, Nelson},
+  booktitle = {2018 International Conference on Asian Language Processing (IALP)},
+  pages     = {328--333},
+  year      = {2018},
+  publisher = {IEEE},
+  doi       = {10.1109/IALP.2018.8629153},
+  url       = {https://doi.org/10.1109/IALP.2018.8629153}
+}`
+            }
+        ];
+
+        const state = {
+            search: "",
+            year: "all",
+            topic: "all",
+            sort: "newest"
+        };
+
+        const publicationList = document.getElementById("publicationList");
+        const emptyState = document.getElementById("emptyState");
+        const resultCount = document.getElementById("resultCount");
+        const searchInput = document.getElementById("publicationSearch");
+        const yearFilter = document.getElementById("yearFilter");
+        const sortFilter = document.getElementById("sortFilter");
+        const topicFilter = document.getElementById("topicFilter");
+        const toastNotice = document.getElementById("toastNotice");
+
+        let activePublication = null;
+        let toastTimer = null;
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function showToast(message) {
+            clearTimeout(toastTimer);
+            toastNotice.textContent = message;
+            toastNotice.style.display = "block";
+            toastTimer = setTimeout(() => {
+                toastNotice.style.display = "none";
+            }, 2400);
+        }
+
+        async function copyText(text, successMessage) {
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast(successMessage);
+            } catch (error) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+                showToast(successMessage);
+            }
+        }
+
+        function buildFilters() {
+            const years = [...new Set(publications.map(pub => pub.year))].sort((a, b) => b - a);
+            years.forEach(year => {
+                const option = document.createElement("option");
+                option.value = String(year);
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+
+            const priorityTopics = [
+                "Machine Translation",
+                "Language Resources",
+                "Low-Resource NLP",
+                "Morphology",
+                "Tokenization",
+                "Word Alignment",
+                "Multilingual NLP"
+            ];
+
+            const availableTopics = [...new Set(publications.flatMap(pub => pub.topics))];
+            const orderedTopics = [
+                ...priorityTopics.filter(topic => availableTopics.includes(topic)),
+                ...availableTopics
+                    .filter(topic => !priorityTopics.includes(topic))
+                    .sort((a, b) => a.localeCompare(b))
+            ];
+
+            orderedTopics.forEach(topic => {
+                const option = document.createElement("option");
+                option.value = topic;
+                option.textContent = topic;
+                topicFilter.appendChild(option);
+            });
+        }
+
+        function getFilteredPublications() {
+            const query = state.search.trim().toLowerCase();
+
+            const filtered = publications.filter(pub => {
+                const searchableText = [
+                    pub.title,
+                    pub.authors.join(" "),
+                    pub.venue,
+                    pub.location,
+                    pub.abstract,
+                    pub.topics.join(" "),
+                    pub.year
+                ].join(" ").toLowerCase();
+
+                const matchesSearch = !query || searchableText.includes(query);
+                const matchesYear = state.year === "all" || String(pub.year) === state.year;
+                const matchesTopic = state.topic === "all" || pub.topics.includes(state.topic);
+                return matchesSearch && matchesYear && matchesTopic;
+            });
+
+            return filtered.sort((a, b) => {
+                if (state.sort === "oldest") return a.year - b.year || a.title.localeCompare(b.title);
+                if (state.sort === "title") return a.title.localeCompare(b.title);
+                return b.year - a.year || a.title.localeCompare(b.title);
+            });
+        }
+
+        function createPublicationCard(pub) {
+            const card = document.createElement("article");
+            card.className = "publication-card";
+            card.setAttribute("data-year", pub.year);
+
+            const doiButton = pub.doi
+                ? `<a class="btn btn-sm btn-outline-minna" href="https://doi.org/${escapeHtml(pub.doi)}" target="_blank" rel="noopener"><i class="fas fa-link mr-1"></i>DOI</a>`
+                : "";
+
+            card.innerHTML = `
+                <div>
+                    <span class="publication-year">${escapeHtml(pub.year)}</span>
+                    <span class="publication-type">${escapeHtml(pub.type)}</span>
+                </div>
+                <h3 class="publication-title">${escapeHtml(pub.title)}</h3>
+                <div class="publication-authors">${escapeHtml(pub.authors.join(" · "))}</div>
+                <div class="publication-venue">
+                    <i class="fas fa-university mr-1 text-primary"></i>${escapeHtml(pub.venue)}<br>
+                    <span><i class="fas fa-map-marker-alt mr-1"></i>${escapeHtml(pub.location)}</span>
+                    <span class="mx-2">•</span><span>pp. ${escapeHtml(pub.pages)}</span>
+                </div>
+                <p class="publication-abstract">${escapeHtml(pub.abstract)}</p>
+                <div>${pub.topics.map(topic => `<span class="topic-tag">${escapeHtml(topic)}</span>`).join("")}</div>
+                <div class="publication-actions">
+                    <a class="btn btn-sm btn-primary" href="${escapeHtml(pub.officialUrl)}" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt mr-1"></i>Official Record
+                    </a>
+                    <a class="btn btn-sm btn-outline-minna" href="${escapeHtml(pub.pdfUrl)}" target="_blank" rel="noopener">
+                        <i class="fas fa-file-pdf mr-1"></i>Full Text
+                    </a>
+                    ${doiButton}
+                    <button class="btn btn-sm btn-outline-minna citation-trigger" type="button" data-id="${escapeHtml(pub.id)}">
+                        <i class="fas fa-quote-right mr-1"></i>Cite
+                    </button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function renderPublications() {
+            const filtered = getFilteredPublications();
+            publicationList.innerHTML = "";
+
+            filtered.forEach(pub => publicationList.appendChild(createPublicationCard(pub)));
+
+            publicationList.style.display = filtered.length ? "grid" : "none";
+            emptyState.style.display = filtered.length ? "none" : "block";
+
+            const descriptor = filtered.length === publications.length
+                ? `Showing all ${publications.length} publications`
+                : `Showing ${filtered.length} of ${publications.length} publications`;
+            if (resultCount) {
+                resultCount.textContent = descriptor;
+            }
+
+            document.querySelectorAll(".citation-trigger").forEach(button => {
+                button.addEventListener("click", () => openCitation(button.dataset.id));
+            });
+        }
+
+        function openCitation(publicationId) {
+            activePublication = publications.find(pub => pub.id === publicationId);
+            if (!activePublication) return;
+
+            document.getElementById("citationModalTitle").textContent = activePublication.title;
+            document.getElementById("citationText").textContent = activePublication.citation;
+            document.getElementById("bibtexText").textContent = activePublication.bibtex;
+            $("#citationModal").modal("show");
+        }
+
+        function resetFilters() {
+            state.search = "";
+            state.year = "all";
+            state.topic = "all";
+            state.sort = "newest";
+
+            searchInput.value = "";
+            yearFilter.value = "all";
+            sortFilter.value = "newest";
+            topicFilter.value = "all";
+
+            renderPublications();
+        }
+
+        function downloadAllBibtex() {
+            const content = publications.map(pub => pub.bibtex).join("\n\n");
+            const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement("a");
+            anchor.href = url;
+            anchor.download = "minna-lproc-publications.bib";
+            document.body.appendChild(anchor);
+            anchor.click();
+            anchor.remove();
+            URL.revokeObjectURL(url);
+            showToast("BibTeX library downloaded.");
+        }
+
+        function updateStats() {
+            const years = publications.map(pub => pub.year);
+            const collaborators = new Set(
+                publications.flatMap(pub => pub.authors)
+                    .filter(author => !author.toLowerCase().includes("kristine mae"))
+            );
+            const venues = new Set(publications.map(pub => pub.venue));
+
+            const publicationCount = document.getElementById("publicationCount");
+            const yearRange = document.getElementById("yearRange");
+            const coauthorCount = document.getElementById("coauthorCount");
+            const venueCount = document.getElementById("venueCount");
+
+            if (publicationCount) publicationCount.textContent = publications.length;
+            if (yearRange) yearRange.textContent = `${Math.min(...years)}–${Math.max(...years)}`;
+            if (coauthorCount) coauthorCount.textContent = collaborators.size;
+            if (venueCount) venueCount.textContent = venues.size;
+        }
+
+        searchInput.addEventListener("input", event => {
+            state.search = event.target.value;
+            renderPublications();
+        });
+
+        yearFilter.addEventListener("change", event => {
+            state.year = event.target.value;
+            renderPublications();
+        });
+
+        sortFilter.addEventListener("change", event => {
+            state.sort = event.target.value;
+            renderPublications();
+        });
+
+        topicFilter.addEventListener("change", event => {
+            state.topic = event.target.value;
+            renderPublications();
+        });
+
+        const clearFiltersButton = document.getElementById("clearFilters");
+        if (clearFiltersButton) {
+            clearFiltersButton.addEventListener("click", resetFilters);
+        }
+        document.getElementById("emptyReset").addEventListener("click", resetFilters);
+        document.getElementById("downloadBibtexTop").addEventListener("click", downloadAllBibtex);
+
+        document.getElementById("copyCitationButton").addEventListener("click", () => {
+            if (activePublication) copyText(activePublication.citation, "Citation copied to clipboard.");
+        });
+
+        document.getElementById("copyBibtexButton").addEventListener("click", () => {
+            if (activePublication) copyText(activePublication.bibtex, "BibTeX copied to clipboard.");
+        });
+
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        buildFilters();
+        updateStats();
+        resetFilters();
+    </script>
+</body>
+
+</html>

@@ -6,136 +6,603 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="Learn about the projects and research at Mindanao Natural Language Processing Research and Development Laboratory.">
+        content="Browse publications of the Mindanao Natural Language Processing Research and Development Laboratory on Philippine languages, low-resource NLP, machine translation, language resources, alignment, tokenization, and morphology.">
     <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
-    <meta name="google-site-verification" content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8" />
-    <title>MinNa LProc R & D Lab</title>
+    <meta name="google-site-verification" content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
+    <title>Home | MinNa LProc R&amp;D Lab</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="minna_round_logo.png">
+
     <style>
-        /* Custom styles */
-        .img-responsive {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+        :root {
+            --minna-primary: #224abe;
+            --minna-secondary: #4e73df;
+            --minna-dark: #14275f;
+            --minna-accent: #36b9cc;
+            --minna-light: #eef3ff;
+            --minna-text: #2f3542;
+            --minna-muted: #6c757d;
+            --minna-border: #e3e8f4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Nunito", sans-serif;
+            color: var(--minna-text);
+            background: #f6f8fc;
         }
 
         #content-wrapper {
-            padding: 20px;
-        }
-
-        p {
-            text-align: justify;
+            min-width: 0;
+            background: #f6f8fc;
         }
 
         .sidebar-heading {
-            font-size: 16px;
-            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
         }
 
-        .navbar-nav {
-            background-color: #4e73df;
+        .navbar-nav.sidebar {
+            background: linear-gradient(180deg, #244dbc 0%, #183786 100%);
         }
 
-        .nav-item a {
-            color: white;
+        .sidebar .nav-item .nav-link {
+            color: rgba(255, 255, 255, 0.82);
         }
 
-        .nav-item a:hover {
-            background-color: #2e59d9;
+        .sidebar .nav-item .nav-link:hover,
+        .sidebar .nav-item.active .nav-link {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.11);
         }
 
-        .nav-item.active a {
-            background-color: #224abe;
+        .sidebar-brand-text {
+            line-height: 1.1;
         }
 
         .topbar {
-            box-shadow: 0 4px 8px rgba(248, 248, 248, 0.1);
+            min-height: 4.5rem;
+            border-bottom: 1px solid var(--minna-border);
         }
 
-        .container-fluid h3 {
-            color: #224abe;
+        .topbar-title {
+            font-weight: 800;
+            color: var(--minna-dark);
+            letter-spacing: -0.02em;
         }
 
-        .footer {
-            background-color: #f8f9fc;
-            padding: 10px 0;
-            border-top: 1px solid #e3e6f0;
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 4.6rem 0 4rem;
+            color: white;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(54, 185, 204, 0.38), transparent 26%),
+                radial-gradient(circle at 68% 80%, rgba(255, 255, 255, 0.15), transparent 25%),
+                linear-gradient(135deg, #17367f 0%, #2857cd 57%, #3274d7 100%);
         }
 
-        .footer span {
-            color: #5a5c69;
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            right: -120px;
+            bottom: -170px;
+            border-radius: 50%;
+            border: 55px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.85rem;
+            margin-bottom: 1.15rem;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            max-width: 780px;
+            font-size: clamp(2rem, 4vw, 3.65rem);
+            font-weight: 900;
+            line-height: 1.04;
+            letter-spacing: -0.045em;
+        }
+
+        .hero-copy {
+            max-width: 760px;
+            margin-top: 1.15rem;
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 1.08rem;
+            line-height: 1.75;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.75rem;
+        }
+
+        .hero-actions .btn {
+            border-radius: 0.75rem;
+            padding: 0.7rem 1.15rem;
+            font-weight: 800;
+        }
+
+        .btn-soft-light {
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-soft-light:hover {
+            color: var(--minna-primary);
+            background: white;
+        }
+
+        .stats-strip {
+            position: relative;
+            z-index: 5;
+            margin-top: -2rem;
+        }
+
+        .stats-card {
+            height: 100%;
+            padding: 1.35rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 0.8rem 2rem rgba(31, 51, 105, 0.08);
+        }
+
+        .stat-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: 0.8rem;
+            border-radius: 0.8rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+        }
+
+        .stat-value {
+            margin: 0;
+            color: var(--minna-dark);
+            font-size: 1.65rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .stat-label {
+            margin: 0.4rem 0 0;
+            color: var(--minna-muted);
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .section-wrap {
+            padding: 3.2rem 0 4.5rem;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.3rem;
+            color: var(--minna-secondary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--minna-dark);
+            font-size: clamp(1.65rem, 3vw, 2.25rem);
+            font-weight: 900;
+            letter-spacing: -0.025em;
+        }
+
+        .section-copy {
+            max-width: 760px;
+            color: var(--minna-muted);
+            line-height: 1.75;
+        }
+
+        .filter-panel {
+            padding: 1.15rem;
+            margin: 1.7rem 0 2rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 0.5rem 1.5rem rgba(31, 51, 105, 0.05);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            color: #9aa3b7;
+            transform: translateY(-50%);
+        }
+
+        .search-box input {
+            height: 3rem;
+            padding-left: 2.75rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.75rem;
+            background: #fbfcff;
+        }
+
+        .filter-select {
+            height: 3rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.75rem;
+            background: #fbfcff;
+        }
+
+        .topic-dropdown-wrap {
+            margin-top: 1rem;
+        }
+
+        .topic-dropdown-label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #526078;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .result-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .publication-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .publication-card {
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 0.45rem 1.25rem rgba(31, 51, 105, 0.045);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .publication-card:hover {
+            border-color: #c9d7fb;
+            box-shadow: 0 1rem 2.4rem rgba(31, 51, 105, 0.11);
+            transform: translateY(-3px);
+        }
+
+        .publication-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--minna-secondary), var(--minna-accent));
+        }
+
+        .publication-year {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 4.2rem;
+            height: 2rem;
+            border-radius: 0.55rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+            font-size: 0.82rem;
+            font-weight: 900;
+        }
+
+        .publication-type {
+            margin-left: 0.4rem;
+            color: #7d8799;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .publication-title {
+            margin: 0.9rem 0 0.55rem;
+            color: var(--minna-dark);
+            font-size: 1.25rem;
+            font-weight: 900;
+            line-height: 1.38;
+        }
+
+        .publication-authors {
+            margin-bottom: 0.5rem;
+            color: #42516d;
+            font-weight: 700;
+        }
+
+        .publication-venue {
+            margin-bottom: 0.8rem;
+            color: var(--minna-muted);
+            font-size: 0.91rem;
+            line-height: 1.55;
+        }
+
+        .publication-abstract {
+            display: -webkit-box;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            color: #596479;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .topic-tag {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            margin: 0 0.35rem 0.4rem 0;
+            border-radius: 999px;
+            color: #35507d;
+            background: #f0f4fc;
+            font-size: 0.74rem;
+            font-weight: 800;
+        }
+
+        .publication-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 0.95rem;
+        }
+
+        .publication-actions .btn {
+            border-radius: 0.6rem;
+            font-size: 0.79rem;
+            font-weight: 800;
+        }
+
+        .btn-outline-minna {
+            color: var(--minna-primary);
+            border-color: #b8c8f5;
+            background: white;
+        }
+
+        .btn-outline-minna:hover {
+            color: white;
+            border-color: var(--minna-primary);
+            background: var(--minna-primary);
+        }
+
+        .empty-state {
+            display: none;
+            padding: 3.5rem 1.5rem;
+            border: 1px dashed #c9d2e6;
+            border-radius: 1rem;
+            text-align: center;
+            background: white;
+        }
+
+        .empty-state i {
+            margin-bottom: 1rem;
+            color: #a8b2c6;
+            font-size: 2.2rem;
+        }
+
+        .research-note {
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 1rem;
+            color: #2f4771;
+            background: linear-gradient(135deg, #eaf2ff, #eefaff);
+        }
+
+        .research-note h3 {
+            color: var(--minna-dark);
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+
+        .research-note p {
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .modal-content {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 1rem 4rem rgba(20, 39, 95, 0.2);
+        }
+
+        .modal-header {
+            border-bottom-color: var(--minna-border);
+        }
+
+        .modal-title {
+            color: var(--minna-dark);
+            font-weight: 900;
+        }
+
+        .citation-box {
+            padding: 1rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.7rem;
+            color: #34415a;
+            background: #f9fbff;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.65;
+        }
+
+        .bibtex-box {
+            max-height: 330px;
+            overflow: auto;
+            padding: 1rem;
+            border-radius: 0.7rem;
+            color: #eaf1ff;
+            background: #17213a;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.8rem;
+            white-space: pre-wrap;
+        }
+
+        .sticky-footer {
+            border-top: 1px solid var(--minna-border);
         }
 
         .scroll-to-top {
-            background-color: #224abe;
-            border-radius: 50%;
+            background: var(--minna-primary);
+        }
+
+        .toast-notice {
+            position: fixed;
+            z-index: 1090;
+            right: 1rem;
+            bottom: 1rem;
+            display: none;
+            max-width: 320px;
+            padding: 0.85rem 1rem;
+            border-radius: 0.7rem;
             color: white;
+            background: #26395f;
+            box-shadow: 0 0.8rem 2rem rgba(20, 39, 95, 0.25);
+            font-size: 0.86rem;
+            font-weight: 700;
         }
 
-        .scroll-to-top:hover {
-            background-color: #2e59d9;
-        }
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 3.4rem 0 3.8rem;
+            }
 
-        /* Carousel customization */
-        .carousel-item {
-            height: 500px;
-            /* Set your desired height */
-            transition: transform 1s ease, opacity 1s ease;
-        }
+            .stats-strip {
+                margin-top: -1.25rem;
+            }
 
-        .carousel-item img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
+            .publication-card {
+                padding: 1.25rem;
+            }
 
-        /* Fade effect for carousel */
-        .carousel-fade .carousel-item {
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
+            .result-summary {
+                align-items: flex-start;
+                flex-direction: column;
+            }
 
-        .carousel-fade .carousel-item.active {
-            opacity: 1;
-        }
-
-        .carousel-fade .carousel-item-next.carousel-item-left,
-        .carousel-fade .carousel-item-prev.carousel-item-right {
-            opacity: 0;
-        }
-
-        .carousel-fade .carousel-item-next,
-        .carousel-fade .carousel-item-prev,
-        .carousel-fade .carousel-item.active.carousel-item-left,
-        .carousel-fade .carousel-item.active.carousel-item-right {
-            opacity: 1;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
+                /* Carousel customization */
             .carousel-item {
                 height: 300px;
-                /* Adjust height for smaller screens */
+                /* Set your desired height */
+                transition: transform 1s ease, opacity 1s ease;
+            }
+
+            .carousel-item img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+
+            /* Fade effect for carousel */
+            .carousel-fade .carousel-item {
+                opacity: 0;
+                transition: opacity 1s ease;
+            }
+
+            .carousel-fade .carousel-item.active {
+                opacity: 1;
+            }
+
+            .carousel-fade .carousel-item-next.carousel-item-left,
+            .carousel-fade .carousel-item-prev.carousel-item-right {
+                opacity: 0;
+            }
+
+            .carousel-fade .carousel-item-next,
+            .carousel-fade .carousel-item-prev,
+            .carousel-fade .carousel-item.active.carousel-item-left,
+            .carousel-fade .carousel-item.active.carousel-item-right {
+                opacity: 1;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .carousel-item {
+                    height: 300px;
+                    /* Adjust height for smaller screens */
+                }
+            }
+
+            @media (max-width: 576px) {
+                .carousel-item {
+                    height: 200px;
+                    /* Adjust height for extra small screens */
+                }
+            }
+            
+        }
+                /* Equal carousel size on desktop */
+        #carouselExampleIndicators .carousel-inner,
+        #carouselExampleIndicators .carousel-item {
+            height: 500px;
+        }
+
+        #carouselExampleIndicators .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            #carouselExampleIndicators .carousel-inner,
+            #carouselExampleIndicators .carousel-item {
+                height: 350px;
             }
         }
 
+        /* Mobile */
         @media (max-width: 576px) {
-            .carousel-item {
-                height: 200px;
-                /* Adjust height for extra small screens */
+            #carouselExampleIndicators .carousel-inner,
+            #carouselExampleIndicators .carousel-item {
+                height: 220px;
             }
         }
     </style>
@@ -144,159 +611,115 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag() { window.dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-BZRJP33YFX');
     </script>
-    
 </head>
 
 <body id="page-top">
-    <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img src="minna_round_logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
-                <div class="sidebar-brand-text mx-3">MinNa LProc R&D Lab</div>
+                <img src="minna_round_logo.png" alt="MinNa LProc logo" style="height: 40px; margin-right: 5px;">
+                <div class="sidebar-brand-text mx-3">MinNa LProc<br><small>R&amp;D Lab</small></div>
             </a>
 
-            <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="../index.html" data-toggle="collapse" data-target="#collapseHome"
-                    aria-expanded="true" aria-controls="collapseHome">
-                    <i class='fas fa-home'></i>
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
+                    aria-expanded="false" aria-controls="collapseHome">
+                    <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
                 <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Home</a>
-                        <a class="collapse-item" href="./about/about.html">Vision and Mission</a>
+                        <a class="collapse-item" href="index.html">Home</a>
+                        <a class="collapse-item" href="about/about.html">Vision and Mission</a>
                     </div>
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class='fas fa-file-alt'></i>
-                    <span>News and Updates</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
             <hr class="sidebar-divider">
+            <div class="sidebar-heading">Projects and Publications</div>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                PROJECTS and Publications
-            </div>
-
-            <!-- Nav Item - Funded Projects -->
             <li class="nav-item">
-                <a class="nav-link" href="./projects/featuredprojects.html">
-                    <i class="fas fa-book-open"></i>
+                <a class="nav-link" href="projects/featuredprojects.html">
+                    <i class="fas fa-lightbulb"></i>
                     <span>Featured Projects</span>
                 </a>
             </li>
 
-            <!-- Nav Item - Publications -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="publications.html" aria-current="page">
                     <i class="fas fa-book-open"></i>
                     <span>Publications</span>
                 </a>
             </li>
 
-            <!-- Divider -->
             <hr class="sidebar-divider">
+            <div class="sidebar-heading">People</div>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                People
-            </div>
-
-            <!-- Dropdown Nav Item for Researchers and Developers -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
-                    aria-expanded="true" aria-controls="collapseResearchers">
+                    aria-expanded="false" aria-controls="collapseResearchers">
                     <i class="fas fa-user-friends"></i>
                     <span>Researchers</span>
                 </a>
                 <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./people/faculties.html">Faculties</a>
-                        <a class="collapse-item" href="./people/gradstudents.html">Graduate Students</a>
-                        <a class="collapse-item" href="./people/undergradstudents.html">Undergrad Students</a>
+                        <a class="collapse-item" href="people/faculties.html">Faculties</a>
+                        <a class="collapse-item" href="people/gradstudents.html">Graduate Students</a>
+                        <a class="collapse-item" href="people/undergradstudents.html">Undergrad Students</a>
                     </div>
                 </div>
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
-                    aria-expanded="true" aria-controls="collapseCollaborators">
-                    <i class="fas fa-user-friends"></i>
+                    aria-expanded="false" aria-controls="collapseCollaborators">
+                    <i class="fas fa-users"></i>
                     <span>Collaborators</span>
                 </a>
-                <div id="collapseCollaborators" class="collapse" aria-labelledby="collapseColalborators"
+                <div id="collapseCollaborators" class="collapse" aria-labelledby="headingCollaborators"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="./people/kagan.html">Kagan</a>
-                        <a class="collapse-item" href="./people/manobo.html">Manobo</a>
-                        <a class="collapse-item" href="">Mansaka</a>
+                        <a class="collapse-item" href="people/kagan.html">Kagan</a>
+                        <a class="collapse-item" href="people/manobo.html">Manobo</a>
+                        <a class="collapse-item" href="people/mansaka.html">Mansaka</a>
                     </div>
                 </div>
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners"
-                    aria-expanded="true" aria-controls="collapsecollapsePartners">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Partners</span>
-                </a>
             </li>
-            <!-- Divider -->
+
             <hr class="sidebar-divider">
+            <div class="sidebar-heading">Tools and Resources</div>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Tools and Resources
-            </div>
-
-            <!-- Nav Item - Resources -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                    aria-expanded="false" aria-controls="collapseResources">
+                    <i class="fas fa-folder-open"></i>
                     <span>Resources</span>
                 </a>
                 <div id="collapseResources" class="collapse" aria-labelledby="headingResources"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="https://www.iwag.info/">Translation</a>
+                        <a class="collapse-item" href="https://www.iwag.info/" target="_blank" rel="noopener">Translation</a>
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Tools -->
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link" href="#">
+                    <i class="fas fa-tools"></i>
                     <span>Tools</span>
                 </a>
             </li>
 
-
-
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                <button class="rounded-circle border-0" id="sidebarToggle" aria-label="Toggle sidebar"></button>
             </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -315,18 +738,6 @@
                 </button>
 
                 <!-- Topbar Search -->
-                <form
-                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                            aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -431,17 +842,9 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div id="content-wrapper">
-                                <p>MinNa LProc R&D Lab, or simply MinNa, is a research and development laboratory
-                                    dedicated to the creation of advanced Natural Language Processing (NLP) tools,
-                                    technologies, and digital resources. Our mission is to document, preserve, and
-                                    revitalize endangered languages, with an initial focus on Mansaka, Kagan, and Manobo
-                                    in Mindanao.</p>
+                                <p>MinNa LProc R&D Lab, or simply MinNa, is a research and development laboratory dedicated to the creation of advanced Natural Language Processing (NLP) tools, technologies, language resources, and AI-driven solutions. Its mission is to document, preserve, and revitalize endangered and underrepresented languages, with an initial focus on Mansaka, Kagan, and Manobo in Mindanao.</p>
 
-                                <p>MinNa is committed to intensifying R&D efforts in collecting, digitizing, storing,
-                                    and disseminating language resources. We also develop specialized applications like
-                                    Machine Translation and Dialogue Systems. Our goals include training and encouraging
-                                    more NLP researchers in Mindanao, setting policy recommendations, and creating a
-                                    technology roadmap to advance NLP studies.</p>
+                                <p>MinNa is committed to intensifying R&D efforts in collecting, digitizing, storing, and disseminating language resources. It also conducts research on machine translation, dialogue systems, and large language models to explore how indigenous and low-resource languages can be meaningfully represented and included in emerging AI technologies. Its goals include training and encouraging more NLP researchers in Mindanao, setting policy recommendations, and creating a technology roadmap to advance NLP and language AI studies. </p>
 
                                 <p>MinNa Laboratory has been generously funded by the <a
                                         href="https://pcieerd.dost.gov.ph/">Department of Science and Technology -
