@@ -705,15 +705,26 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="https://www.iwag.info/" target="_blank" rel="noopener">Translation</a>
+                        <h2 class="collapse-header">Parallel Corpora</h6>
+                        <ul> 
+                            <li><a class="collapse-item" href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences" target="_blank" rel="noopener">tl-ceb</a></li>
+                            <li><a class="collapse-item" href="./people/kagan.html" target="_blank" rel="noopener">ceb-kll</a></li>
+                            <li><a class="collapse-item" href="./people/manobo.html" target="_blank" rel="noopener">ceb-mno</a></li>
+                        </ul>
                     </div>
                 </div>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
+                    aria-expanded="false" aria-controls="collapseTools">
                     <i class="fas fa-tools"></i>
                     <span>Tools</span>
                 </a>
+                <div id="collapseTools" class="collapse" aria-labelledby="headingTools"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" target="_blank" rel="noopener">Cebuano NLTK</a>
+                    </div>
+                </div>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
@@ -731,6 +742,39 @@
 
                <!-- Topbar -->
                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="people/kagan.html">Kagan</a>
+                        <a class="collapse-item" href="people/manobo.html">Manobo</a>
+                        <a class="collapse-item" href="people/mansaka.html">Mansaka</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

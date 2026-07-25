@@ -558,7 +558,7 @@
                 <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="../index.html">Home</a>
-                        <a class="collapse-item" href="./about.html">Vision and Mission</a>
+                         <a class="collapse-item" href="../about/about.html">Vision and Mission</a>
                     </div>
                 </div>
             </li>
@@ -613,7 +613,7 @@
                 </div>
             </li>
 
-            <hr class="sidebar-divider">
+       <hr class="sidebar-divider">
             <div class="sidebar-heading">Tools and Resources</div>
 
             <li class="nav-item">
@@ -626,15 +626,26 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="https://www.iwag.info/" target="_blank" rel="noopener">Translation</a>
+                        <h2 class="collapse-header">Parallel Corpora</h6>
+                        <ul> 
+                            <li><a class="collapse-item" href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences" target="_blank" rel="noopener">tl-ceb</a></li>
+                            <li><a class="collapse-item" href="./people/kagan.html" target="_blank" rel="noopener">ceb-kll</a></li>
+                            <li><a class="collapse-item" href="./people/manobo.html" target="_blank" rel="noopener">ceb-mno</a></li>
+                        </ul>
                     </div>
                 </div>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
+                    aria-expanded="false" aria-controls="collapseTools">
                     <i class="fas fa-tools"></i>
                     <span>Tools</span>
                 </a>
+                <div id="collapseTools" class="collapse" aria-labelledby="headingTools"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" target="_blank" rel="noopener">Cebuano NLTK</a>
+                    </div>
+                </div>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
