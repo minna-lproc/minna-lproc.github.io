@@ -1,0 +1,194 @@
+.minna-chatbot-widget {
+    position: fixed;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    z-index: 1100;
+    font-family: 'Nunito', sans-serif;
+}
+
+.minna-chatbot-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.82rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    background: linear-gradient(135deg, #c32962, #d95b8b);
+    box-shadow: 0 0.7rem 1.6rem rgba(195, 41, 98, 0.28);
+    font-size: 0.92rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.minna-chatbot-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.95rem 1.9rem rgba(195, 41, 98, 0.34);
+}
+
+.minna-chatbot-toggle i {
+    font-size: 1rem;
+}
+
+.minna-chatbot-panel {
+    display: none;
+    width: min(92vw, 360px);
+    max-height: min(78vh, 560px);
+    overflow: hidden;
+    border: 1px solid #f0d8e3;
+    border-radius: 1.1rem;
+    background: #fff;
+    box-shadow: 0 1.2rem 2.8rem rgba(79, 23, 48, 0.18);
+}
+
+.minna-chatbot-panel.is-open {
+    display: flex;
+    flex-direction: column;
+}
+
+.minna-chatbot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.9rem;
+    color: #fff;
+    background: linear-gradient(135deg, #4f1730, #9f2958);
+}
+
+.minna-chatbot-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.minna-chatbot-title strong {
+    font-size: 0.98rem;
+    font-weight: 800;
+}
+
+.minna-chatbot-title span {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.minna-chatbot-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.16);
+    cursor: pointer;
+}
+
+.minna-chatbot-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: linear-gradient(180deg, #fff9fb 0%, #ffffff 100%);
+}
+
+.minna-chatbot-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 0.2rem;
+}
+
+.minna-chatbot-message {
+    max-width: 86%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    word-break: break-word;
+}
+
+.minna-chatbot-message.user {
+    align-self: flex-end;
+    color: #fff;
+    background: #c32962;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.minna-chatbot-message.bot {
+    align-self: flex-start;
+    color: #4f1730;
+    background: #fff0f5;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.minna-chatbot-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.minna-chatbot-suggestion {
+    padding: 0.42rem 0.62rem;
+    border: 1px solid #f0d8e3;
+    border-radius: 999px;
+    color: #8b4961;
+    background: #fff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.minna-chatbot-suggestion:hover {
+    color: #c32962;
+    border-color: #e5a9c2;
+    background: #fff7fb;
+}
+
+.minna-chatbot-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.minna-chatbot-input {
+    flex: 1;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid #ecd7e2;
+    border-radius: 0.8rem;
+    color: #4f1730;
+    background: #fff;
+}
+
+.minna-chatbot-input:focus {
+    outline: none;
+    border-color: #c32962;
+    box-shadow: 0 0 0 3px rgba(195, 41, 98, 0.12);
+}
+
+.minna-chatbot-send {
+    padding: 0.7rem 0.85rem;
+    border: 0;
+    border-radius: 0.8rem;
+    color: #fff;
+    background: linear-gradient(135deg, #c32962, #d95b8b);
+    cursor: pointer;
+}
+
+@media (max-width: 575.98px) {
+    .minna-chatbot-widget {
+        right: 0.7rem;
+        bottom: 0.7rem;
+        left: 0.7rem;
+    }
+
+    .minna-chatbot-panel {
+        width: auto;
+        max-height: 76vh;
+    }
+}
