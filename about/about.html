@@ -541,14 +541,18 @@
 
         /* Process */
         .process-grid {
-            display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 0.8rem;
-            margin-top: 2rem;
+            margin: 2rem auto 0;
+            max-width: 980px;
         }
 
         .process-step {
             position: relative;
+            flex: 0 1 160px;
+            min-width: 150px;
             padding: 1.2rem 0.8rem;
             text-align: center;
             border: 1px solid var(--minna-border);
@@ -628,7 +632,7 @@
             }
 
             .process-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                max-width: 720px;
             }
 
             .process-step:nth-child(3)::after,
@@ -667,7 +671,11 @@
             }
 
             .process-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                max-width: 100%;
+            }
+
+            .process-step {
+                flex-basis: calc(50% - 0.4rem);
             }
 
             .process-step:nth-child(2)::after,
@@ -691,7 +699,13 @@
             }
 
             .process-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .process-step {
+                flex-basis: 100%;
+                max-width: 320px;
             }
 
             .process-step::after {

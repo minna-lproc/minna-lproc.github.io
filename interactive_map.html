@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c32962">
+    <meta name="description"
+          content="Interactive province-level map of Indigenous Peoples and language communities in the Davao Region based on a list supplied by NCIP Region XI.">
+
+    <title>Interactive Mindanao IP and Language Map | MinNa LProc</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIINfQ3ynhprHmZ9jMZgPScXtNnMZKp2HVo="
+          crossorigin="">
+
+    <style>
+        :root {
+            --rose: #c32962;
+            --pink: #e05d87;
+            --burgundy: #4f1730;
+            --blush: #fff0f5;
+            --surface: #fcf7f9;
+            --text: #3a2d33;
+            --muted: #76666d;
+            --border: #eadde3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Nunito", system-ui, sans-serif;
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .topbar {
+            position: sticky;
+            z-index: 1200;
+            top: 0;
+            border-top: 4px solid var(--rose);
+            border-bottom: 1px solid rgba(195, 41, 98, 0.12);
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 0.45rem 1.6rem rgba(91, 37, 57, 0.10);
+            backdrop-filter: blur(12px);
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            max-width: 1500px;
+            min-height: 70px;
+            padding: 0.7rem 1.2rem;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 0.9rem;
+            color: #fff;
+            background: linear-gradient(135deg, var(--burgundy), var(--rose));
+            box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.20);
+            font-weight: 900;
+        }
+
+        .brand-copy strong,
+        .brand-copy small {
+            display: block;
+        }
+
+        .brand-copy strong {
+            color: var(--burgundy);
+            font-weight: 900;
+        }
+
+        .brand-copy small {
+            margin-top: 0.16rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .topbar-button {
+            min-height: 2.65rem;
+            padding: 0.6rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 0.7rem;
+            color: var(--rose);
+            background: #fff;
+            font-size: 0.77rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .topbar-button:hover {
+            color: #fff;
+            border-color: var(--rose);
+            background: var(--rose);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 4.6rem 1.2rem 4.8rem;
+            color: #fff;
+            background:
+                radial-gradient(circle at 88% 14%, rgba(255, 207, 221, 0.34), transparent 24%),
+                radial-gradient(circle at 62% 92%, rgba(255, 255, 255, 0.13), transparent 24%),
+                linear-gradient(135deg, #4f1730 0%, #9f2958 55%, #df6a8f 100%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            top: -220px;
+            right: -120px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            padding: 0.5rem 0.9rem;
+            margin-bottom: 1.15rem;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            max-width: 980px;
+            margin: 0 0 1.15rem;
+            font-size: clamp(2.35rem, 5vw, 4.65rem);
+            font-weight: 900;
+            letter-spacing: -0.055em;
+            line-height: 1.02;
+        }
+
+        .hero h1 span {
+            color: #ffd9e5;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.05rem;
+            line-height: 1.82;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.7rem;
+        }
+
+        .hero-button {
+            min-height: 3rem;
+            padding: 0.7rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.36);
+            border-radius: 0.75rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .hero-button.primary {
+            color: var(--rose);
+            background: #fff;
+        }
+
+        .page {
+            max-width: 1500px;
+            padding: 2.2rem 1.2rem 4.5rem;
+            margin: 0 auto;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.4rem;
+            color: var(--pink);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin: 0;
+            color: var(--burgundy);
+            font-size: clamp(1.75rem, 3vw, 2.55rem);
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            line-height: 1.14;
+        }
+
+        .section-copy {
+            max-width: 850px;
+            margin: 0.8rem 0 0;
+            color: var(--muted);
+            line-height: 1.78;
+        }
+
+        .map-layout {
+            display: grid;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 1.1rem;
+            margin-top: 1.7rem;
+        }
+
+        .controls {
+            display: flex;
+            min-height: 690px;
+            overflow: hidden;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            border-radius: 1.1rem;
+            background: #fff;
+            box-shadow: 0 0.65rem 2rem rgba(91, 37, 57, 0.08);
+        }
+
+        .controls-header {
+            padding: 1.2rem;
+            color: #fff;
+            background: linear-gradient(135deg, var(--burgundy), var(--rose));
+        }
+
+        .controls-header h2 {
+            margin: 0 0 0.3rem;
+            font-size: 1.16rem;
+            font-weight: 900;
+        }
+
+        .controls-header p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.78rem;
+            line-height: 1.6;
+        }
+
+        .controls-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 0.95rem;
+            padding: 1.1rem;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: #6c4c59;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            min-height: 2.8rem;
+            padding: 0.65rem 0.72rem;
+            border: 1px solid var(--border);
+            border-radius: 0.68rem;
+            color: var(--text);
+            background: #fffafb;
+        }
+
+        .field input:focus,
+        .field select:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 0.18rem rgba(195, 41, 98, 0.12);
+        }
+
+        .control-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .control-button {
+            min-height: 2.55rem;
+            padding: 0.55rem 0.65rem;
+            border: 1px solid #e7abc0;
+            border-radius: 0.65rem;
+            color: var(--rose);
+            background: #fff;
+            font-size: 0.73rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .control-button:hover {
+            color: #fff;
+            background: var(--rose);
+        }
+
+        .chip-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chip-heading strong {
+            color: var(--burgundy);
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+
+        .chip-heading span {
+            color: var(--muted);
+            font-size: 0.67rem;
+            font-weight: 800;
+        }
+
+        .language-chips {
+            display: flex;
+            overflow-y: auto;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 0.4rem;
+            max-height: 285px;
+        }
+
+        .language-chip {
+            padding: 0.4rem 0.58rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: #6d3a50;
+            background: var(--blush);
+            font-size: 0.68rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .language-chip:hover,
+        .language-chip.active {
+            color: #fff;
+            border-color: var(--rose);
+            background: var(--rose);
+        }
+
+        .summary {
+            margin-top: auto;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
+            color: #6d3a50;
+            background: var(--blush);
+            font-size: 0.73rem;
+            font-weight: 800;
+            line-height: 1.55;
+        }
+
+        .map-wrap {
+            position: relative;
+            min-height: 690px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 1.1rem;
+            background: #edf1f2;
+            box-shadow: 0 0.65rem 2rem rgba(91, 37, 57, 0.08);
+        }
+
+        #mindanaoMap {
+            width: 100%;
+            height: 100%;
+            min-height: 690px;
+        }
+
+        .map-disclaimer {
+            position: absolute;
+            z-index: 500;
+            right: 0.8rem;
+            bottom: 0.8rem;
+            max-width: 330px;
+            padding: 0.72rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 0.75rem;
+            color: var(--burgundy);
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 0.45rem 1.2rem rgba(79, 23, 48, 0.14);
+            backdrop-filter: blur(8px);
+            font-size: 0.67rem;
+            font-weight: 800;
+            line-height: 1.5;
+        }
+
+        .province-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(255, 255, 255, 0.92);
+            border-radius: 50%;
+            color: #fff;
+            background: linear-gradient(135deg, var(--burgundy), var(--rose));
+            box-shadow: 0 0.6rem 1.3rem rgba(79, 23, 48, 0.32);
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+
+        .province-marker.highlighted {
+            color: var(--burgundy);
+            background: linear-gradient(135deg, #ffd9e5, #f29ab3);
+            transform: scale(1.12);
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 0.9rem;
+            box-shadow: 0 0.85rem 2rem rgba(79, 23, 48, 0.20);
+        }
+
+        .leaflet-popup-content {
+            min-width: 240px;
+            font-family: "Nunito", sans-serif;
+        }
+
+        .popup-label {
+            color: var(--rose);
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .popup-title {
+            margin: 0.2rem 0 0.6rem;
+            color: var(--burgundy);
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .popup-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.33rem;
+        }
+
+        .popup-chip {
+            padding: 0.3rem 0.45rem;
+            border-radius: 999px;
+            color: #6d3a50;
+            background: var(--blush);
+            font-size: 0.65rem;
+            font-weight: 900;
+        }
+
+        .directory {
+            margin-top: 3.7rem;
+        }
+
+        .province-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.95rem;
+            margin-top: 1.4rem;
+        }
+
+        .province-card {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            padding: 1.15rem;
+            border: 1px solid var(--border);
+            border-radius: 0.92rem;
+            background: #fff;
+            box-shadow: 0 0.45rem 1.3rem rgba(91, 37, 57, 0.06);
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .province-card:hover,
+        .province-card.highlighted {
+            border-color: #e7abc0;
+            transform: translateY(-4px);
+        }
+
+        .province-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.7rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .province-card h3 {
+            margin: 0;
+            color: var(--burgundy);
+            font-size: 0.98rem;
+            font-weight: 900;
+        }
+
+        .province-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2rem;
+            height: 2rem;
+            padding: 0 0.45rem;
+            border-radius: 999px;
+            color: #fff;
+            background: var(--rose);
+            font-size: 0.68rem;
+            font-weight: 900;
+        }
+
+        .province-languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.36rem;
+            margin-top: auto;
+        }
+
+        .province-language {
+            padding: 0.33rem 0.48rem;
+            border-radius: 999px;
+            color: #6d3a50;
+            background: var(--blush);
+            font-size: 0.66rem;
+            font-weight: 900;
+        }
+
+        .province-language.match {
+            color: #fff;
+            background: var(--rose);
+        }
+
+        .empty-state {
+            display: none;
+            padding: 2rem;
+            margin-top: 1.4rem;
+            border: 1px dashed #dfbecb;
+            border-radius: 1rem;
+            color: var(--muted);
+            text-align: center;
+            background: #fff;
+        }
+
+        .notes {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 3.7rem;
+        }
+
+        .note-card {
+            padding: 1.3rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 0.45rem 1.3rem rgba(91, 37, 57, 0.06);
+        }
+
+        .note-card.source {
+            border-left: 5px solid var(--rose);
+            background: linear-gradient(135deg, #fff0f5, #fff9fb);
+        }
+
+        .note-card h2 {
+            margin: 0 0 0.55rem;
+            color: var(--burgundy);
+            font-size: 0.98rem;
+            font-weight: 900;
+        }
+
+        .note-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 1.4rem 1.2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            background: #fff;
+            text-align: center;
+            font-size: 0.73rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1100px) {
+            .map-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                min-height: auto;
+            }
+
+            .province-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .topbar-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .topbar-button {
+                width: 100%;
+            }
+
+            .province-grid,
+            .notes {
+                grid-template-columns: 1fr;
+            }
+
+            .map-wrap,
+            #mindanaoMap {
+                min-height: 560px;
+            }
+
+            .map-disclaimer {
+                right: 0.55rem;
+                left: 0.55rem;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .control-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <span class="brand-mark">M</span>
+                <span class="brand-copy">
+                    <strong>MinNa LProc</strong>
+                    <small>Interactive Community Map</small>
+                </span>
+            </div>
+
+            <button id="topReset"
+                    class="topbar-button"
+                    type="button">
+                Reset Map
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <span class="hero-kicker">
+                    Davao Region · Mindanao
+                </span>
+
+                <h1>
+                    Interactive map of
+                    <span>Indigenous Peoples and language communities</span>
+                </h1>
+
+                <p>
+                    Explore the IP groups and language communities listed by
+                    province in the Davao Region. Select a province, search for
+                    a community, or click a language name to see where it appears
+                    in the supplied NCIP Region XI list.
+                </p>
+
+                <div class="hero-actions">
+                    <button id="exploreMap"
+                            class="hero-button primary"
+                            type="button">
+                        Explore the Map
+                    </button>
+
+                    <button id="heroReset"
+                            class="hero-button"
+                            type="button">
+                        Show All Communities
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="page">
+            <section id="mapSection"
+                     aria-labelledby="mapTitle">
+                <div class="section-kicker">
+                    Interactive Visualization
+                </div>
+
+                <h2 id="mapTitle"
+                    class="section-title">
+                    Map communities by province or language
+                </h2>
+
+                <p class="section-copy">
+                    Province markers show the number of listed groups. Click a
+                    marker or province card to zoom in. Language filters highlight
+                    all provinces where the selected name appears.
+                </p>
+
+                <div class="map-layout">
+                    <aside class="controls"
+                           aria-label="Interactive map filters">
+                        <div class="controls-header">
+                            <h2>Explore the Data</h2>
+                            <p>
+                                Filter the map using a province, language name,
+                                or search term.
+                            </p>
+                        </div>
+
+                        <div class="controls-body">
+                            <div class="field">
+                                <label for="searchInput">
+                                    Search
+                                </label>
+                                <input id="searchInput"
+                                       type="search"
+                                       placeholder="Example: Mansaka or Davao de Oro"
+                                       autocomplete="off">
+                            </div>
+
+                            <div class="field">
+                                <label for="provinceFilter">
+                                    Province
+                                </label>
+                                <select id="provinceFilter">
+                                    <option value="all"
+                                            selected>
+                                        All provinces
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="languageFilter">
+                                    Language or IP group
+                                </label>
+                                <select id="languageFilter">
+                                    <option value="all"
+                                            selected>
+                                        All communities
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="control-buttons">
+                                <button id="showAll"
+                                        class="control-button"
+                                        type="button">
+                                    Show All
+                                </button>
+
+                                <button id="resetFilters"
+                                        class="control-button"
+                                        type="button">
+                                    Reset Filters
+                                </button>
+                            </div>
+
+                            <div>
+                                <div class="chip-heading">
+                                    <strong>Browse communities</strong>
+                                    <span id="languageCount"></span>
+                                </div>
+
+                                <div id="languageChips"
+                                     class="language-chips">
+                                </div>
+                            </div>
+
+                            <div id="filterSummary"
+                                 class="summary"
+                                 role="status"
+                                 aria-live="polite">
+                            </div>
+                        </div>
+                    </aside>
+
+                    <section class="map-wrap"
+                             aria-label="Interactive Davao Region map">
+                        <div id="mindanaoMap"></div>
+
+                        <div class="map-disclaimer">
+                            Markers use representative provincial locations.
+                            This visualization does not show official ancestral
+                            domain or ancestral land boundaries.
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section class="directory"
+                     aria-labelledby="directoryTitle">
+                <div class="section-kicker">
+                    Provincial Directory
+                </div>
+
+                <h2 id="directoryTitle"
+                    class="section-title">
+                    Communities listed for each province
+                </h2>
+
+                <p class="section-copy">
+                    The cards mirror the supplied list. Click a province card
+                    to focus its representative location on the map.
+                </p>
+
+                <div id="provinceGrid"
+                     class="province-grid">
+                </div>
+
+                <div id="emptyState"
+                     class="empty-state">
+                    No province or community matches the current filters.
+                </div>
+            </section>
+
+            <section id="dataSource"
+                     class="notes">
+                <article class="note-card source">
+                    <h2>Source of the Community List</h2>
+                    <p>
+                        The province-to-community mapping is based on the
+                        “IP groups per Province with Ancestral Domains/Ancestral
+                        Lands” list supplied through correspondence from NCIP
+                        Region XI. Community names are preserved as provided.
+                    </p>
+                </article>
+
+                <article class="note-card">
+                    <h2>Important Mapping Limitation</h2>
+                    <p>
+                        This page visualizes province-level associations only.
+                        It does not reproduce CADT, CALT, ancestral domain,
+                        ancestral land, barangay, municipal, or community
+                        boundary data. Representative marker coordinates are
+                        used only for navigation and exploration.
+                    </p>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        MinNa LProc R&amp;D Lab · Interactive Davao Region IP and Language Communities Map
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="">
+    </script>
+
+    <script>
+        const provinceData = [
+            {
+                province: "Davao Occidental",
+                coordinates: [6.4150, 125.6117],
+                communities: [
+                    "Blaan",
+                    "Tagakaulo",
+                    "Manobo"
+                ]
+            },
+            {
+                province: "Davao del Sur",
+                coordinates: [6.7497, 125.3572],
+                communities: [
+                    "Bagobo-Tagabawa",
+                    "Blaan",
+                    "Kalagan",
+                    "Tagakaulo"
+                ]
+            },
+            {
+                province: "Davao City",
+                coordinates: [7.1907, 125.4553],
+                communities: [
+                    "Bagobo-Tagabawa",
+                    "Bagobo-Klata",
+                    "Ata",
+                    "Matigsalog",
+                    "Obu-Manuvu"
+                ]
+            },
+            {
+                province: "Davao del Norte",
+                coordinates: [7.4478, 125.8078],
+                communities: [
+                    "Ata-Manobo",
+                    "Sama",
+                    "Mandaya",
+                    "Dibabawon",
+                    "Mangguangan"
+                ]
+            },
+            {
+                province: "Davao de Oro",
+                coordinates: [7.6078, 125.9664],
+                communities: [
+                    "Mansaka",
+                    "Mandaya",
+                    "Dibabawon",
+                    "Manobo",
+                    "Kagan",
+                    "Mangguangan"
+                ]
+            },
+            {
+                province: "Davao Oriental",
+                coordinates: [6.9551, 126.2166],
+                communities: [
+                    "Mandaya",
+                    "Kagan"
+                ]
+            }
+        ];
+
+        const state = {
+            province: "all",
+            language: "all",
+            search: ""
+        };
+
+        const map = L.map("mindanaoMap", {
+            zoomControl: true,
+            scrollWheelZoom: true
+        }).setView([7.05, 125.78], 8);
+
+        L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+                maxZoom: 18,
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }
+        ).addTo(map);
+
+        const markers = new Map();
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const provinceFilter =
+            document.getElementById("provinceFilter");
+
+        const languageFilter =
+            document.getElementById("languageFilter");
+
+        const languageChips =
+            document.getElementById("languageChips");
+
+        const languageCount =
+            document.getElementById("languageCount");
+
+        const provinceGrid =
+            document.getElementById("provinceGrid");
+
+        const filterSummary =
+            document.getElementById("filterSummary");
+
+        const emptyState =
+            document.getElementById("emptyState");
+
+        const allLanguages = [
+            ...new Set(
+                provinceData.flatMap(
+                    item => item.communities
+                )
+            )
+        ].sort((a, b) => a.localeCompare(b));
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function markerIcon(item, highlighted) {
+            return L.divIcon({
+                className: "",
+                html: `
+                    <div class="province-marker ${highlighted ? "highlighted" : ""}">
+                        ${item.communities.length}
+                    </div>
+                `,
+                iconSize: [44, 44],
+                iconAnchor: [22, 22],
+                popupAnchor: [0, -22]
+            });
+        }
+
+        function popupContent(item) {
+            const communities = item.communities
+                .map(
+                    community => `
+                        <span class="popup-chip">
+                            ${escapeHtml(community)}
+                        </span>
+                    `
+                )
+                .join("");
+
+            return `
+                <div class="popup-label">
+                    Province-level listing
+                </div>
+
+                <div class="popup-title">
+                    ${escapeHtml(item.province)}
+                </div>
+
+                <div class="popup-chips">
+                    ${communities}
+                </div>
+            `;
+        }
+
+        function buildControls() {
+            provinceData
+                .map(item => item.province)
+                .sort((a, b) => a.localeCompare(b))
+                .forEach(province => {
+                    const option =
+                        document.createElement("option");
+
+                    option.value = province;
+                    option.textContent = province;
+                    provinceFilter.appendChild(option);
+                });
+
+            allLanguages.forEach(language => {
+                const option =
+                    document.createElement("option");
+
+                option.value = language;
+                option.textContent = language;
+                languageFilter.appendChild(option);
+
+                const chip =
+                    document.createElement("button");
+
+                chip.type = "button";
+                chip.className = "language-chip";
+                chip.dataset.language = language;
+                chip.textContent = language;
+
+                chip.addEventListener("click", () => {
+                    state.language =
+                        state.language === language
+                            ? "all"
+                            : language;
+
+                    languageFilter.value =
+                        state.language;
+
+                    render(true);
+                });
+
+                languageChips.appendChild(chip);
+            });
+
+            languageCount.textContent =
+                `${allLanguages.length} names`;
+        }
+
+        function buildMarkers() {
+            provinceData.forEach(item => {
+                const marker = L.marker(
+                    item.coordinates,
+                    {
+                        icon: markerIcon(item, false),
+                        title: item.province
+                    }
+                );
+
+                marker.bindPopup(
+                    popupContent(item),
+                    {
+                        maxWidth: 320
+                    }
+                );
+
+                marker.bindTooltip(
+                    item.province,
+                    {
+                        direction: "top",
+                        offset: [0, -20]
+                    }
+                );
+
+                marker.on("click", () => {
+                    state.province = item.province;
+                    provinceFilter.value = item.province;
+                    render(false);
+                });
+
+                marker.addTo(map);
+                markers.set(item.province, marker);
+            });
+        }
+
+        function isMatch(item) {
+            const query =
+                state.search.trim().toLowerCase();
+
+            const searchableText = [
+                item.province,
+                ...item.communities
+            ].join(" ").toLowerCase();
+
+            return (
+                (
+                    state.province === "all" ||
+                    item.province === state.province
+                ) &&
+                (
+                    state.language === "all" ||
+                    item.communities.includes(state.language)
+                ) &&
+                (
+                    !query ||
+                    searchableText.includes(query)
+                )
+            );
+        }
+
+        function filteredData() {
+            return provinceData.filter(isMatch);
+        }
+
+        function renderMarkers(filtered) {
+            const visible = new Set(
+                filtered.map(item => item.province)
+            );
+
+            provinceData.forEach(item => {
+                const marker =
+                    markers.get(item.province);
+
+                const highlighted =
+                    state.province === item.province ||
+                    (
+                        state.language !== "all" &&
+                        item.communities.includes(state.language)
+                    );
+
+                marker.setIcon(
+                    markerIcon(item, highlighted)
+                );
+
+                if (visible.has(item.province)) {
+                    if (!map.hasLayer(marker)) {
+                        marker.addTo(map);
+                    }
+                } else if (map.hasLayer(marker)) {
+                    map.removeLayer(marker);
+                }
+            });
+        }
+
+        function renderChips() {
+            document
+                .querySelectorAll(".language-chip")
+                .forEach(chip => {
+                    chip.classList.toggle(
+                        "active",
+                        chip.dataset.language === state.language
+                    );
+                });
+        }
+
+        function renderCards(filtered) {
+            provinceGrid.innerHTML = "";
+
+            filtered.forEach(item => {
+                const card =
+                    document.createElement("article");
+
+                card.className = "province-card";
+
+                if (state.province === item.province) {
+                    card.classList.add("highlighted");
+                }
+
+                const languages = item.communities
+                    .map(community => `
+                        <span class="province-language ${state.language === community ? "match" : ""}">
+                            ${escapeHtml(community)}
+                        </span>
+                    `)
+                    .join("");
+
+                card.innerHTML = `
+                    <div class="province-card-header">
+                        <h3>${escapeHtml(item.province)}</h3>
+
+                        <span class="province-count">
+                            ${item.communities.length}
+                        </span>
+                    </div>
+
+                    <div class="province-languages">
+                        ${languages}
+                    </div>
+                `;
+
+                card.addEventListener("click", () => {
+                    state.province = item.province;
+                    provinceFilter.value = item.province;
+
+                    map.setView(
+                        item.coordinates,
+                        10,
+                        {
+                            animate: true
+                        }
+                    );
+
+                    const marker =
+                        markers.get(item.province);
+
+                    if (marker && map.hasLayer(marker)) {
+                        marker.openPopup();
+                    }
+
+                    render(false);
+                });
+
+                provinceGrid.appendChild(card);
+            });
+
+            provinceGrid.style.display =
+                filtered.length ? "grid" : "none";
+
+            emptyState.style.display =
+                filtered.length ? "none" : "block";
+        }
+
+        function updateSummary(filtered) {
+            const communities =
+                new Set(
+                    filtered.flatMap(
+                        item => item.communities
+                    )
+                );
+
+            const provinceText =
+                filtered.length === 1
+                    ? "1 province"
+                    : `${filtered.length} provinces`;
+
+            const communityText =
+                communities.size === 1
+                    ? "1 listed community"
+                    : `${communities.size} listed communities`;
+
+            const filters = [];
+
+            if (state.province !== "all") {
+                filters.push(
+                    `Province: ${state.province}`
+                );
+            }
+
+            if (state.language !== "all") {
+                filters.push(
+                    `Community: ${state.language}`
+                );
+            }
+
+            if (state.search.trim()) {
+                filters.push(
+                    `Search: “${state.search.trim()}”`
+                );
+            }
+
+            filterSummary.textContent =
+                filters.length
+                    ? `${provinceText} and ${communityText} match. ${filters.join(" · ")}`
+                    : `Showing all ${provinceText} and ${communityText}.`;
+        }
+
+        function fitMarkers(filtered) {
+            if (!filtered.length) {
+                return;
+            }
+
+            if (filtered.length === 1) {
+                map.setView(
+                    filtered[0].coordinates,
+                    10,
+                    {
+                        animate: true
+                    }
+                );
+                return;
+            }
+
+            const bounds =
+                L.latLngBounds(
+                    filtered.map(
+                        item => item.coordinates
+                    )
+                );
+
+            map.fitBounds(
+                bounds.pad(0.35),
+                {
+                    animate: true,
+                    maxZoom: 9
+                }
+            );
+        }
+
+        function render(shouldFit) {
+            const filtered =
+                filteredData();
+
+            renderMarkers(filtered);
+            renderChips();
+            renderCards(filtered);
+            updateSummary(filtered);
+
+            if (shouldFit) {
+                fitMarkers(filtered);
+            }
+        }
+
+        function resetAll() {
+            state.province = "all";
+            state.language = "all";
+            state.search = "";
+
+            provinceFilter.value = "all";
+            languageFilter.value = "all";
+            searchInput.value = "";
+
+            render(true);
+        }
+
+        searchInput.addEventListener("input", event => {
+            state.search = event.target.value;
+            render(true);
+        });
+
+        provinceFilter.addEventListener("change", event => {
+            state.province = event.target.value;
+            render(true);
+        });
+
+        languageFilter.addEventListener("change", event => {
+            state.language = event.target.value;
+            render(true);
+        });
+
+        document
+            .getElementById("resetFilters")
+            .addEventListener("click", resetAll);
+
+        document
+            .getElementById("showAll")
+            .addEventListener("click", resetAll);
+
+        document
+            .getElementById("topReset")
+            .addEventListener("click", resetAll);
+
+        document
+            .getElementById("heroReset")
+            .addEventListener("click", () => {
+                resetAll();
+
+                document
+                    .getElementById("mapSection")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+            });
+
+        document
+            .getElementById("exploreMap")
+            .addEventListener("click", () => {
+                document
+                    .getElementById("mapSection")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+            });
+
+        buildControls();
+        buildMarkers();
+        resetAll();
+
+        window.addEventListener("resize", () => {
+            window.setTimeout(
+                () => map.invalidateSize(),
+                100
+            );
+        });
+    </script>
+</body>
+</html>
