@@ -5,23 +5,28 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <meta name="description"
-        content="Browse publications of the Mindanao Natural Language Processing Research and Development Laboratory on Philippine languages, low-resource NLP, machine translation, language resources, alignment, tokenization, and morphology.">
-    <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
-    <meta name="google-site-verification" content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
+        content="Learn about the vision, mission, research pillars, and community-centered impact of the Mindanao Natural Language Processing Research and Development Laboratory.">
+    <meta name="author"
+        content="Mindanao Natural Language Processing Research and Development Laboratory">
+    <meta name="google-site-verification"
+        content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
+
     <title>About | MinNa LProc R&amp;D Lab</title>
 
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- SB Admin 2 -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="../minna_round_logo.png">
 
     <style>
@@ -34,6 +39,7 @@
             --minna-text: #2f3542;
             --minna-muted: #6c757d;
             --minna-border: #e3e8f4;
+            --minna-surface: #f6f8fc;
         }
 
         html {
@@ -43,14 +49,15 @@
         body {
             font-family: "Nunito", sans-serif;
             color: var(--minna-text);
-            background: #f6f8fc;
+            background: var(--minna-surface);
         }
 
         #content-wrapper {
             min-width: 0;
-            background: #f6f8fc;
+            background: var(--minna-surface);
         }
 
+        /* Sidebar */
         .sidebar-heading {
             font-size: 0.78rem;
             letter-spacing: 0.08em;
@@ -61,11 +68,11 @@
         }
 
         .sidebar .nav-item .nav-link {
-            color: rgba(255, 255, 255, 0.82);
+            color: rgba(255, 255, 255, 0.84);
         }
 
         .sidebar .nav-item .nav-link:hover,
-        .sidebar .nav-item.active .nav-link {
+        .sidebar .nav-item.active > .nav-link {
             color: #fff;
             background: rgba(255, 255, 255, 0.11);
         }
@@ -74,117 +81,214 @@
             line-height: 1.1;
         }
 
+        .sidebar .collapse-inner .collapse-item {
+            height: auto;
+            white-space: normal !important;
+            overflow-wrap: anywhere;
+            line-height: 1.35;
+        }
+
+        .sidebar .collapse-inner .collapse-item.active {
+            color: var(--minna-primary);
+            background: #edf2ff;
+            font-weight: 800;
+        }
+
+        .resource-list {
+            margin: 0;
+            padding-left: 2rem;
+            list-style: disc;
+        }
+
+        .resource-list li {
+            color: #5a5c69;
+        }
+
+        .resource-list .collapse-item {
+            display: inline-block;
+            width: calc(100% - 0.5rem);
+            padding: 0.45rem 0.5rem;
+        }
+
+        /* Topbar */
         .topbar {
             min-height: 4.5rem;
             border-bottom: 1px solid var(--minna-border);
         }
 
         .topbar-title {
-            font-weight: 800;
             color: var(--minna-dark);
+            font-weight: 900;
             letter-spacing: -0.02em;
         }
 
+        /* General sections */
+        .section-wrap {
+            padding: 4.5rem 0;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.45rem;
+            color: var(--minna-secondary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            color: var(--minna-dark);
+            font-size: clamp(1.75rem, 3vw, 2.55rem);
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            line-height: 1.15;
+        }
+
+        .section-copy {
+            max-width: 780px;
+            color: var(--minna-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Hero */
         .hero-section {
             position: relative;
             overflow: hidden;
-            padding: 4.6rem 0 4rem;
-            color: white;
+            padding: 5.2rem 0 5rem;
+            color: #fff;
             background:
-                radial-gradient(circle at 85% 20%, rgba(54, 185, 204, 0.38), transparent 26%),
-                radial-gradient(circle at 68% 80%, rgba(255, 255, 255, 0.15), transparent 25%),
-                linear-gradient(135deg, #17367f 0%, #2857cd 57%, #3274d7 100%);
+                radial-gradient(circle at 84% 18%, rgba(54, 185, 204, 0.42), transparent 25%),
+                radial-gradient(circle at 68% 88%, rgba(255, 255, 255, 0.14), transparent 27%),
+                linear-gradient(135deg, #14275f 0%, #2857cd 58%, #3274d7 100%);
         }
 
+        .hero-section::before,
         .hero-section::after {
             content: "";
             position: absolute;
-            width: 360px;
-            height: 360px;
-            right: -120px;
-            bottom: -170px;
             border-radius: 50%;
-            border: 55px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .hero-section::before {
+            width: 430px;
+            height: 430px;
+            right: -125px;
+            top: -210px;
+        }
+
+        .hero-section::after {
+            width: 300px;
+            height: 300px;
+            right: 4%;
+            bottom: -200px;
+            border-width: 52px;
+            border-color: rgba(255, 255, 255, 0.07);
         }
 
         .hero-kicker {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.45rem 0.85rem;
-            margin-bottom: 1.15rem;
+            padding: 0.48rem 0.9rem;
+            margin-bottom: 1.25rem;
             border: 1px solid rgba(255, 255, 255, 0.28);
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.1);
-            font-weight: 700;
             font-size: 0.82rem;
+            font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         .hero-title {
-            max-width: 780px;
-            font-size: clamp(2rem, 4vw, 3.65rem);
+            max-width: 900px;
+            margin-bottom: 1.2rem;
+            font-size: clamp(2.3rem, 5vw, 4.3rem);
             font-weight: 900;
-            line-height: 1.04;
-            letter-spacing: -0.045em;
+            letter-spacing: -0.055em;
+            line-height: 1.03;
         }
 
         .hero-copy {
-            max-width: 760px;
-            margin-top: 1.15rem;
-            color: rgba(255, 255, 255, 0.84);
-            font-size: 1.08rem;
-            line-height: 1.75;
+            max-width: 800px;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.12rem;
+            line-height: 1.8;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.75rem;
+            gap: 0.8rem;
+            margin-top: 2rem;
         }
 
         .hero-actions .btn {
+            padding: 0.76rem 1.2rem;
             border-radius: 0.75rem;
-            padding: 0.7rem 1.15rem;
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .btn-soft-light {
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.36);
             background: rgba(255, 255, 255, 0.1);
         }
 
         .btn-soft-light:hover {
             color: var(--minna-primary);
-            background: white;
+            background: #fff;
         }
 
+        /* Stats */
         .stats-strip {
             position: relative;
             z-index: 5;
-            margin-top: -2rem;
+            margin-top: -2.25rem;
         }
 
         .stats-card {
+            position: relative;
             height: 100%;
+            overflow: hidden;
             padding: 1.35rem;
             border: 1px solid var(--minna-border);
             border-radius: 1rem;
-            background: white;
-            box-shadow: 0 0.8rem 2rem rgba(31, 51, 105, 0.08);
+            background: #fff;
+            box-shadow: 0 0.9rem 2.3rem rgba(31, 51, 105, 0.11);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 1.2rem 2.8rem rgba(31, 51, 105, 0.16);
+        }
+
+        .stats-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 72px;
+            height: 72px;
+            border-radius: 0 0 0 100%;
+            background: linear-gradient(135deg,
+                rgba(78, 115, 223, 0.10),
+                rgba(54, 185, 204, 0.18));
         }
 
         .stat-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 2.75rem;
-            height: 2.75rem;
-            margin-bottom: 0.8rem;
-            border-radius: 0.8rem;
+            width: 2.8rem;
+            height: 2.8rem;
+            margin-bottom: 0.85rem;
+            border-radius: 0.85rem;
             color: var(--minna-primary);
             background: var(--minna-light);
         }
@@ -192,298 +296,335 @@
         .stat-value {
             margin: 0;
             color: var(--minna-dark);
-            font-size: 1.65rem;
+            font-size: 1.75rem;
             font-weight: 900;
             line-height: 1;
         }
 
         .stat-label {
-            margin: 0.4rem 0 0;
+            margin: 0.45rem 0 0;
             color: var(--minna-muted);
             font-size: 0.86rem;
+            font-weight: 800;
+        }
+
+        .stat-note {
+            display: block;
+            margin-top: 0.35rem;
+            color: #8d96a9;
+            font-size: 0.74rem;
             font-weight: 700;
         }
 
-        .section-wrap {
-            padding: 3.2rem 0 4.5rem;
+        /* Who we are */
+        .about-lead {
+            color: #42516d;
+            font-size: 1.12rem;
+            font-weight: 600;
+            line-height: 1.85;
         }
 
-        .section-kicker {
-            margin-bottom: 0.3rem;
-            color: var(--minna-secondary);
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+        .about-feature-image {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 1.25rem;
+            box-shadow: 0 1.2rem 3rem rgba(31, 51, 105, 0.17);
         }
 
-        .section-title {
-            color: var(--minna-dark);
-            font-size: clamp(1.65rem, 3vw, 2.25rem);
-            font-weight: 900;
-            letter-spacing: -0.025em;
-        }
-
-        .section-copy {
-            max-width: 760px;
-            color: white;
-            line-height: 1.75;
-        }
-
-        .filter-panel {
-            padding: 1.15rem;
-            margin: 1.7rem 0 2rem;
-            border: 1px solid var(--minna-border);
-            border-radius: 1rem;
-            background: white;
-            box-shadow: 0 0.5rem 1.5rem rgba(31, 51, 105, 0.05);
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box i {
-            position: absolute;
-            top: 50%;
-            left: 1rem;
-            color: #9aa3b7;
-            transform: translateY(-50%);
-        }
-
-        .search-box input {
-            height: 3rem;
-            padding-left: 2.75rem;
-            border: 1px solid var(--minna-border);
-            border-radius: 0.75rem;
-            background: #fbfcff;
-        }
-
-        .filter-select {
-            height: 3rem;
-            border: 1px solid var(--minna-border);
-            border-radius: 0.75rem;
-            background: #fbfcff;
-        }
-
-        .topic-dropdown-wrap {
+        .about-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
             margin-top: 1rem;
         }
 
-        .topic-dropdown-label {
-            display: block;
-            margin-bottom: 0.4rem;
-            color: #526078;
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .result-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            color: var(--minna-muted);
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
-        .publication-list {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .publication-card {
-            position: relative;
-            overflow: hidden;
-            padding: 1.5rem;
-            border: 1px solid var(--minna-border);
-            border-radius: 1rem;
-            background: white;
-            box-shadow: 0 0.45rem 1.25rem rgba(31, 51, 105, 0.045);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .publication-card:hover {
-            border-color: #c9d7fb;
-            box-shadow: 0 1rem 2.4rem rgba(31, 51, 105, 0.11);
-            transform: translateY(-3px);
-        }
-
-        .publication-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 5px;
-            background: linear-gradient(180deg, var(--minna-secondary), var(--minna-accent));
-        }
-
-        .publication-year {
+        .about-point-icon {
             display: inline-flex;
+            flex: 0 0 auto;
             align-items: center;
             justify-content: center;
-            min-width: 4.2rem;
-            height: 2rem;
-            border-radius: 0.55rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 0.65rem;
             color: var(--minna-primary);
             background: var(--minna-light);
-            font-size: 0.82rem;
-            font-weight: 900;
         }
 
-        .publication-type {
-            margin-left: 0.4rem;
-            color: #7d8799;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .publication-title {
-            margin: 0.9rem 0 0.55rem;
+        .about-point strong {
+            display: block;
             color: var(--minna-dark);
-            font-size: 1.25rem;
-            font-weight: 900;
-            line-height: 1.38;
+            font-size: 0.93rem;
         }
 
-        .publication-authors {
-            margin-bottom: 0.5rem;
-            color: #42516d;
-            font-weight: 700;
-        }
-
-        .publication-venue {
-            margin-bottom: 0.8rem;
+        .about-point span {
             color: var(--minna-muted);
-            font-size: 0.91rem;
+            font-size: 0.87rem;
             line-height: 1.55;
         }
 
-        .publication-abstract {
-            display: -webkit-box;
+        /* Vision */
+        .vision-section {
+            padding: 0 0 4.5rem;
+        }
+
+        .vision-card {
+            position: relative;
             overflow: hidden;
-            margin-bottom: 1rem;
-            color: #596479;
-            font-size: 0.92rem;
-            line-height: 1.7;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            padding: clamp(2rem, 5vw, 4rem);
+            border-radius: 1.4rem;
+            color: #fff;
+            background:
+                radial-gradient(circle at 90% 15%, rgba(54, 185, 204, 0.4), transparent 27%),
+                linear-gradient(135deg, #14275f, #2857cd);
+            box-shadow: 0 1.2rem 3.2rem rgba(31, 51, 105, 0.2);
         }
 
-        .topic-tag {
-            display: inline-block;
-            padding: 0.35rem 0.65rem;
-            margin: 0 0.35rem 0.4rem 0;
-            border-radius: 999px;
-            color: #35507d;
-            background: #f0f4fc;
-            font-size: 0.74rem;
-            font-weight: 800;
-        }
-
-        .publication-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-top: 0.95rem;
-        }
-
-        .publication-actions .btn {
-            border-radius: 0.6rem;
-            font-size: 0.79rem;
-            font-weight: 800;
-        }
-
-        .btn-outline-minna {
-            color: var(--minna-primary);
-            border-color: #b8c8f5;
-            background: white;
-        }
-
-        .btn-outline-minna:hover {
-            color: white;
-            border-color: var(--minna-primary);
-            background: var(--minna-primary);
-        }
-
-        .empty-state {
-            display: none;
-            padding: 3.5rem 1.5rem;
-            border: 1px dashed #c9d2e6;
-            border-radius: 1rem;
-            text-align: center;
-            background: white;
-        }
-
-        .empty-state i {
-            margin-bottom: 1rem;
-            color: #a8b2c6;
-            font-size: 2.2rem;
-        }
-
-        .research-note {
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 1rem;
-            color: #2f4771;
-            background: linear-gradient(135deg, #eaf2ff, #eefaff);
-        }
-
-        .research-note h3 {
-            color: var(--minna-dark);
-            font-size: 1.1rem;
+        .vision-card::after {
+            content: "\f57d";
+            position: absolute;
+            right: 4%;
+            bottom: -2.6rem;
+            color: rgba(255, 255, 255, 0.08);
+            font-family: "Font Awesome 5 Free";
+            font-size: 12rem;
             font-weight: 900;
+            line-height: 1;
         }
 
-        .research-note p {
-            margin-bottom: 0;
-            line-height: 1.7;
+        .vision-card blockquote {
+            position: relative;
+            z-index: 2;
+            max-width: 980px;
+            margin: 1rem 0 0;
+            font-size: clamp(1.55rem, 3vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.45;
         }
 
-        .modal-content {
-            border: 0;
-            border-radius: 1rem;
-            box-shadow: 0 1rem 4rem rgba(20, 39, 95, 0.2);
-        }
-
-        .modal-header {
-            border-bottom-color: var(--minna-border);
-        }
-
-        .modal-title {
-            color: var(--minna-dark);
+        .vision-label {
+            position: relative;
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.82rem;
             font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
         }
 
-        .citation-box {
-            padding: 1rem;
+        /* Mission */
+        .mission-intro {
+            margin-bottom: 2rem;
+        }
+
+        .mission-image {
+            width: 100%;
+            height: 360px;
+            margin-bottom: 1.25rem;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 0.9rem 2.3rem rgba(31, 51, 105, 0.12);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .mission-card {
+            position: relative;
+            overflow: hidden;
+            padding: 1.45rem;
             border: 1px solid var(--minna-border);
-            border-radius: 0.7rem;
-            color: #34415a;
-            background: #f9fbff;
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.65;
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 0.5rem 1.5rem rgba(31, 51, 105, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .bibtex-box {
-            max-height: 330px;
-            overflow: auto;
-            padding: 1rem;
-            border-radius: 0.7rem;
-            color: #eaf1ff;
-            background: #17213a;
-            font-family: Consolas, Monaco, monospace;
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(31, 51, 105, 0.12);
+        }
+
+        .mission-card:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .mission-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 1rem;
+            border-radius: 0.85rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+            font-size: 1.15rem;
+        }
+
+        .mission-card h3 {
+            color: var(--minna-dark);
+            font-size: 1.06rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .mission-card > p,
+        .mission-card .collapse p {
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            font-size: 0.9rem;
+            line-height: 1.72;
+        }
+
+        .mission-toggle {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            color: var(--minna-primary);
+            font-size: 0.82rem;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .mission-toggle:hover {
+            color: var(--minna-dark);
+            text-decoration: none;
+        }
+
+        .mission-details {
+            padding-top: 1rem;
+            border-top: 1px solid var(--minna-border);
+            margin-top: 1rem;
+        }
+
+        /* SDG impact */
+        .impact-section {
+            padding: 4.5rem 0;
+            background: linear-gradient(180deg, #edf3ff 0%, #f7fbff 100%);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .impact-item {
+            height: 100%;
+            padding: 1.3rem;
+            border: 1px solid rgba(78, 115, 223, 0.14);
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: 0 0.45rem 1.4rem rgba(31, 51, 105, 0.06);
+        }
+
+        .sdg-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.7rem;
+            height: 2.7rem;
+            margin-bottom: 0.85rem;
+            border-radius: 50%;
+            color: #fff;
+            background: linear-gradient(135deg, var(--minna-secondary), var(--minna-accent));
+            font-weight: 900;
+        }
+
+        .impact-item h3 {
+            color: var(--minna-dark);
+            font-size: 1rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .impact-item p {
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            font-size: 0.84rem;
+            line-height: 1.6;
+        }
+
+        /* Process */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.9rem;
+            background: #fff;
+            box-shadow: 0 0.4rem 1.2rem rgba(31, 51, 105, 0.05);
+        }
+
+        .process-step:not(:last-child)::after {
+            content: "\f061";
+            position: absolute;
+            top: 50%;
+            right: -0.75rem;
+            z-index: 2;
+            color: #a9b8df;
+            font-family: "Font Awesome 5 Free";
             font-size: 0.8rem;
-            white-space: pre-wrap;
+            font-weight: 900;
+            transform: translateY(-50%);
         }
 
+        .process-step i {
+            display: block;
+            margin-bottom: 0.65rem;
+            color: var(--minna-primary);
+            font-size: 1.3rem;
+        }
+
+        .process-step strong {
+            color: var(--minna-dark);
+            font-size: 0.84rem;
+        }
+
+        /* CTA */
+        .about-cta {
+            padding: 4.5rem 0;
+            color: #fff;
+            text-align: center;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(54, 185, 204, 0.32), transparent 25%),
+                linear-gradient(135deg, #14275f, #224abe);
+        }
+
+        .about-cta h2 {
+            max-width: 850px;
+            margin: 0 auto 1rem;
+            font-size: clamp(1.8rem, 3vw, 2.65rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .about-cta p {
+            max-width: 760px;
+            margin: 0 auto 1.7rem;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.8;
+        }
+
+        .about-cta .btn {
+            margin: 0.25rem;
+            border-radius: 0.7rem;
+            font-weight: 900;
+        }
+
+        /* Footer */
         .sticky-footer {
             border-top: 1px solid var(--minna-border);
         }
@@ -492,79 +633,150 @@
             background: var(--minna-primary);
         }
 
-        .toast-notice {
-            position: fixed;
-            z-index: 1090;
-            right: 1rem;
-            bottom: 1rem;
-            display: none;
-            max-width: 320px;
-            padding: 0.85rem 1rem;
-            border-radius: 0.7rem;
-            color: white;
-            background: #26395f;
-            box-shadow: 0 0.8rem 2rem rgba(20, 39, 95, 0.25);
-            font-size: 0.86rem;
-            font-weight: 700;
+        @media (max-width: 1199.98px) {
+            .impact-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .process-step:nth-child(3)::after,
+            .process-step:nth-child(6)::after {
+                display: none;
+            }
         }
 
         @media (max-width: 767.98px) {
             .hero-section {
-                padding: 3.4rem 0 3.8rem;
+                padding: 4rem 0 4.2rem;
             }
 
             .stats-strip {
-                margin-top: -1.25rem;
+                margin-top: -1.4rem;
             }
 
-            .publication-card {
-                padding: 1.25rem;
+            .section-wrap,
+            .impact-section,
+            .about-cta {
+                padding: 3.5rem 0;
             }
 
-            .result-summary {
-                align-items: flex-start;
+            .about-feature-image,
+            .mission-image {
+                height: 300px;
+            }
+
+            .mission-grid,
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-card:last-child {
+                grid-column: auto;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .process-step:nth-child(2)::after,
+            .process-step:nth-child(4)::after,
+            .process-step:nth-child(6)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-actions {
                 flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .vision-card {
+                padding: 2rem 1.4rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step::after {
+                display: none !important;
             }
         }
     </style>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-BZRJP33YFX');
+
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-BZRJP33YFX");
     </script>
 </head>
 
 <body id="page-top">
     <div id="wrapper">
+
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
-                <img src="../minna_round_logo.png" alt="MinNa LProc logo" style="height: 40px; margin-right: 10px;">
-                <div class="sidebar-brand-text mx-3">MinNa LProc<br><small>R&amp;D Lab</small></div>
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+            id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center"
+               href="../index.html">
+                <img src="../minna_round_logo.png"
+                     alt="MinNa LProc logo"
+                     style="height: 40px; margin-right: 10px;">
+                <div class="sidebar-brand-text mx-3">
+                    MinNa LProc<br>
+                    <small>R&amp;D Lab</small>
+                </div>
             </a>
 
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
-                    aria-expanded="false" aria-controls="collapseHome">
+                <a class="nav-link"
+                   href="#"
+                   data-toggle="collapse"
+                   data-target="#collapseHome"
+                   aria-expanded="true"
+                   aria-controls="collapseHome">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
-                <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
+
+                <div id="collapseHome"
+                     class="collapse show"
+                     aria-labelledby="headingHome"
+                     data-parent="#accordionSidebar">
+
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="../index.html">Home</a>
-                        <a class="collapse-item" href="./about.html">Vision and Mission</a>
+                        <a class="collapse-item active"
+                           href="./about.html"
+                           aria-current="page">
+                            Vision and Mission
+                        </a>
                     </div>
                 </div>
             </li>
 
             <hr class="sidebar-divider">
-            <div class="sidebar-heading">Projects and Publications</div>
+
+            <div class="sidebar-heading">
+                Projects and Publications
+            </div>
 
             <li class="nav-item">
                 <a class="nav-link" href="../projects/featuredprojects.html">
@@ -574,316 +786,759 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="../publications.html" aria-current="page">
+                <a class="nav-link" href="../publications.html">
                     <i class="fas fa-book-open"></i>
                     <span>Publications</span>
                 </a>
             </li>
 
             <hr class="sidebar-divider">
-            <div class="sidebar-heading">People</div>
+
+            <div class="sidebar-heading">
+                People
+            </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
-                    aria-expanded="false" aria-controls="collapseResearchers">
+                <a class="nav-link collapsed"
+                   href="#"
+                   data-toggle="collapse"
+                   data-target="#collapseResearchers"
+                   aria-expanded="false"
+                   aria-controls="collapseResearchers">
                     <i class="fas fa-user-friends"></i>
                     <span>Researchers</span>
                 </a>
-                <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
-                    data-parent="#accordionSidebar">
+
+                <div id="collapseResearchers"
+                     class="collapse"
+                     aria-labelledby="headingResearchers"
+                     data-parent="#accordionSidebar">
+
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../people/faculties.html">Faculties</a>
-                        <a class="collapse-item" href="../people/gradstudents.html">Graduate Students</a>
-                        <a class="collapse-item" href="people/undergradstudents.html">Undergrad Students</a>
+                        <a class="collapse-item"
+                           href="../people/faculties.html">
+                            Faculties
+                        </a>
+                        <a class="collapse-item"
+                           href="../people/gradstudents.html">
+                            Graduate Students
+                        </a>
+                        <a class="collapse-item"
+                           href="../people/undergradstudents.html">
+                            Undergraduate Students
+                        </a>
                     </div>
                 </div>
 
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
-                    aria-expanded="false" aria-controls="collapseCollaborators">
+                <a class="nav-link collapsed"
+                   href="#"
+                   data-toggle="collapse"
+                   data-target="#collapseCollaborators"
+                   aria-expanded="false"
+                   aria-controls="collapseCollaborators">
                     <i class="fas fa-users"></i>
                     <span>Collaborators</span>
                 </a>
-                <div id="collapseCollaborators" class="collapse" aria-labelledby="headingCollaborators"
-                    data-parent="#accordionSidebar">
+
+                <div id="collapseCollaborators"
+                     class="collapse"
+                     aria-labelledby="headingCollaborators"
+                     data-parent="#accordionSidebar">
+
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../people/kagan.html">Kagan</a>
-                        <a class="collapse-item" href="../people/manobo.html">Manobo</a>
-                        <a class="collapse-item" href="../people/mansaka.html">Mansaka</a>
+                        <a class="collapse-item"
+                           href="../people/kagan.html">
+                            Kagan
+                        </a>
+                        <a class="collapse-item"
+                           href="../people/manobo.html">
+                            Manobo
+                        </a>
+                        <a class="collapse-item"
+                           href="../people/mansaka.html">
+                            Mansaka
+                        </a>
                     </div>
                 </div>
             </li>
 
-           <hr class="sidebar-divider">
-            <div class="sidebar-heading">Tools and Resources</div>
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Tools and Resources
+            </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
-                    aria-expanded="false" aria-controls="collapseResources">
+                <a class="nav-link collapsed"
+                   href="#"
+                   data-toggle="collapse"
+                   data-target="#collapseResources"
+                   aria-expanded="false"
+                   aria-controls="collapseResources">
                     <i class="fas fa-folder-open"></i>
                     <span>Resources</span>
                 </a>
-                <div id="collapseResources" class="collapse" aria-labelledby="headingResources"
-                    data-parent="#accordionSidebar">
+
+                <div id="collapseResources"
+                     class="collapse"
+                     aria-labelledby="headingResources"
+                     data-parent="#accordionSidebar">
+
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="https://www.iwag.info/" target="_blank" rel="noopener">Translation</a>
-                        <h2 class="collapse-header">Parallel Corpora</h6>
-                        <ul> 
-                            <li><a class="collapse-item" href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences" target="_blank" rel="noopener">tl-ceb</a></li>
-                            <li><a class="collapse-item" href="./people/kagan.html" target="_blank" rel="noopener">ceb-kll</a></li>
-                            <li><a class="collapse-item" href="./people/manobo.html" target="_blank" rel="noopener">ceb-mno</a></li>
+                        <a class="collapse-item"
+                           href="https://www.iwag.info/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Translation Tool
+                        </a>
+
+                        <h6 class="collapse-header mt-2 mb-1">
+                            Parallel Corpora
+                        </h6>
+
+                        <ul class="resource-list mb-0">
+                            <li>
+                                <a class="collapse-item"
+                                   href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Filipino–Cebuano
+                                </a>
+                            </li>
+                            <li>
+                                <a class="collapse-item"
+                                   href="../people/kagan.html">
+                                    Cebuano–Kagan
+                                </a>
+                            </li>
+                            <li>
+                                <a class="collapse-item"
+                                   href="../people/manobo.html">
+                                    Cebuano–Manobo
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
-                    aria-expanded="false" aria-controls="collapseTools">
+                <a class="nav-link collapsed"
+                   href="#"
+                   data-toggle="collapse"
+                   data-target="#collapseTools"
+                   aria-expanded="false"
+                   aria-controls="collapseTools">
                     <i class="fas fa-tools"></i>
                     <span>Tools</span>
                 </a>
-                <div id="collapseTools" class="collapse" aria-labelledby="headingTools"
-                    data-parent="#accordionSidebar">
+
+                <div id="collapseTools"
+                     class="collapse"
+                     aria-labelledby="headingTools"
+                     data-parent="#accordionSidebar">
+
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" target="_blank" rel="noopener">Cebuano NLTK</a>
+                        <a class="collapse-item"
+                           href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Cebuano NLTK
+                        </a>
                     </div>
                 </div>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
+
             <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle" aria-label="Toggle sidebar"></button>
+                <button class="rounded-circle border-0"
+                        id="sidebarToggle"
+                        aria-label="Toggle sidebar">
+                </button>
             </div>
         </ul>
-        <!-- End of Sidebar -->
-
+        <!-- End Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow-sm">
+                    <button id="sidebarToggleTop"
+                            class="btn btn-link d-md-none rounded-circle mr-3"
+                            aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container content-section">
-
-                    <!-- About MinNa Section -->
-
-                    <!-- Vision Section -->
-                    <div class="row align-items-center mb-5">
-                        <div class="col-12 col-md-6 mb-4">
-                            <img src="./img/mission.JPG" alt="Language documentation and community engagement" class="img-fluid rounded shadow-sm">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <h3 class="section-title text-center" style="color: #f78da7;"><strong>Vision</strong></h3>
-                            <p style="text-align: center; font-size: 1.5em; line-height: 1.6;">
-                                A digital future where
-                                <span style="color: #4e73df; font-weight: bold;">every language</span>&mdash;no matter the status, 
-                                  <span style="color: #4e73df; font-weight: bold;">thrives</span>, be  <span style="color: #4e73df; font-weight: bold;">represented</span>, 
-                                  and meaningfully <span style="color: #4e73df; font-weight: bold;">included in AI </span>and the broader 
-                                    <span style="color: #4e73df; font-weight: bold;">digital ecosystem</span>.
-                            </p>
-                        </div>
+                    <div class="topbar-title">
+                        About MinNa LProc
                     </div>
 
-                    <!-- Mission Section -->
-                    <div class="row align-items-start">
-                        <div class="col-12 col-md-6 mb-4">
-                            <img src="./img/mission2.jpg" alt="MinNa community and research collaboration" class="img-fluid rounded shadow-sm mb-4">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="btn btn-sm btn-outline-primary"
+                               href="../projects/featuredprojects.html">
+                                <i class="fas fa-lightbulb mr-1"></i>
+                                Explore Projects
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Topbar -->
 
-                            <div class="mission-summary shadow-sm">
-                                <h5 class="font-weight-bold text-primary">Aligned Impact Areas</h5>
-                                <p class="mb-3">
-                                    MinNa&rsquo;s work contributes to inclusive and community-centered development through language technologies,
-                                    responsible AI, and research capacity building.
-                                </p>
-                                <span class="impact-badge">SDG 3: Health</span><br>
-                                <span class="impact-badge">SDG 4: Education</span><br>
-                                <span class="impact-badge">SDG 10: Inclusion</span><br>
-                                <span class="impact-badge">SDG 17: Partnerships</span><br>
-                            </div>
-                        </div>
+                <main>
 
-                        <div class="col-12 col-md-6">
-                            <h3 class="section-title text-center" style="color: #f78da7;"><strong>Mission</strong></h3>
-                            <p class="lead-text">
-                                MinNa LProc R&amp;D Lab advances the documentation, preservation, revitalization, and technological
-                                inclusion of Philippine and indigenous languages through <span style="color: #4e73df; font-weight: bold;">
-                                    research, development, and community-engaged innovation in Natural Language Processing and Artificial Intelligence</span>.
-                                We build language resources, develop AI-enabled language technologies, study language models for
-                                low-resource and indigenous languages, and cultivate a strong research ecosystem in Mindanao.
+                    <!-- Hero -->
+                    <section class="hero-section">
+                        <div class="container-fluid px-4 px-lg-5 position-relative"
+                             style="z-index: 2;">
+                            <p class="hero-copy">
+                                MinNa advances Natural Language Processing, language
+                                documentation, and responsible Artificial Intelligence
+                                for Philippine, indigenous, and low-resource languages.
                             </p>
 
-                            <!-- Mission Pillar 1 -->
-                            <div class="shadow mb-4 wide-card">
-                                <a href="#collapseFirstMission" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="collapseFirstMission">
-                                    <h6 class="m-0 font-weight-bold text-primary">Language Documentation and Digital Resource Creation</h6>
+                            <div class="hero-actions">
+                                <a href="../publications.html"
+                                   class="btn btn-light">
+                                    <i class="fas fa-book-open mr-2"></i>
+                                    Explore Publications
                                 </a>
-                                <small class="text-muted d-block mt-1 ml-3 mr-3">
-                                    Collect, document, digitize, curate, and steward linguistic resources for Philippine and indigenous languages.
-                                </small>
-                                <div class="collapse" id="collapseFirstMission">
-                                    <div class="card-body">
-                                        <p>
-                                            MinNa supports the creation of corpora, lexicons, annotations, translations, recordings,
-                                            and other digital language assets that can be used for research, education, preservation,
-                                            and computational modeling. This work is carried out with attention to ethical data practices,
-                                            community participation, and long-term accessibility.
-                                        </p>
+
+                                <a href="#mission"
+                                   class="btn btn-soft-light">
+                                    <i class="fas fa-compass mr-2"></i>
+                                    Discover Our Mission
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Impact Counters -->
+
+                    <!-- Who We Are -->
+                    <section class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
+                            <div class="row align-items-center">
+
+                                <div class="col-lg-7 mb-5 mb-lg-0 pr-lg-5">
+                                    <div class="section-kicker">
+                                        Who We Are
+                                    </div>
+
+                                    <h2 class="section-title">
+                                        Language technology rooted in Mindanao
+                                    </h2>
+
+                                    <p class="about-lead">
+                                        MinNa LProc R&amp;D Lab is a research and
+                                        development laboratory dedicated to advancing
+                                        Natural Language Processing, digital language
+                                        resources, and responsible AI for Philippine
+                                        and indigenous languages.
+                                    </p>
+
+                                    <p class="section-copy">
+                                        The laboratory brings together researchers,
+                                        developers, language experts, students,
+                                        communities, and institutional partners to
+                                        create technologies that preserve linguistic
+                                        knowledge and make digital services more
+                                        inclusive.
+                                    </p>
+
+                                    <div class="about-point">
+                                        <div class="about-point-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Build meaningful language resources</strong>
+                                            <span>
+                                                Corpora, lexicons, translations, annotations,
+                                                and recordings for research and preservation.
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="about-point">
+                                        <div class="about-point-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Advance inclusive language AI</strong>
+                                            <span>
+                                                Machine translation, language models, speech
+                                                technologies, and dialogue systems for
+                                                low-resource contexts.
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="about-point">
+                                        <div class="about-point-icon">
+                                            <i class="fas fa-hands-helping"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Co-create with communities</strong>
+                                            <span>
+                                                Research and innovation grounded in cultural
+                                                respect, community benefit, and responsible
+                                                data practices.
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Mission Pillar 2 -->
-                            <div class="shadow mb-4 wide-card">
-                                <a href="#collapseSecondMission" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="collapseSecondMission">
-                                    <h6 class="m-0 font-weight-bold text-primary">NLP Research and AI for Indigenous Languages</h6>
-                                </a>
-                                <small class="text-muted d-block mt-1 ml-3 mr-3">
-                                    Study language models, machine translation, speech and language technologies, and dialogue systems for low-resource contexts.
-                                </small>
-                                <div class="collapse" id="collapseSecondMission">
-                                    <div class="card-body">
-                                        <p>
-                                            MinNa conducts research on different language models and AI architectures to examine how
-                                            indigenous and low-resource Philippine languages can be more meaningfully represented,
-                                            supported, and included in emerging AI systems. This includes work on multilingual NLP,
-                                            machine translation, morphology-aware modeling, evaluation, and responsible AI development.
-                                        </p>
-                                    </div>
+                                <div class="col-lg-5">
+                                    <img src="./img/mission.JPG"
+                                         class="about-feature-image"
+                                         alt="Language documentation and community engagement activity">
                                 </div>
-                            </div>
 
-                            <!-- Mission Pillar 3 -->
-                            <div class="shadow mb-4 wide-card">
-                                <a href="#collapseThirdMission" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="collapseThirdMission">
-                                    <h6 class="m-0 font-weight-bold text-primary">Inclusive Language Technologies for Real-World Use</h6>
-                                </a>
-                                <small class="text-muted d-block mt-1 ml-3 mr-3">
-                                    Design, build, evaluate, and deploy NLP applications that address practical needs in communities and institutions.
-                                </small>
-                                <div class="collapse" id="collapseThirdMission">
-                                    <div class="card-body">
-                                        <p>
-                                            The laboratory develops language technologies and AI-enabled applications for education,
-                                            health communication, cultural documentation, governance, and community development.
-                                            These tools aim to make information and services more accessible across languages and
-                                            to support institutions working with linguistically diverse communities.
-                                        </p>
-                                    </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Vision -->
+                    <section class="vision-section">
+                        <div class="container-fluid px-4 px-lg-5">
+                            <div class="vision-card">
+                                <div class="vision-label">
+                                    Our Vision
                                 </div>
-                            </div>
 
-                            <!-- Mission Pillar 4 -->
-                            <div class="shadow mb-4 wide-card">
-                                <a href="#collapseFourthMission" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="collapseFourthMission">
-                                    <h6 class="m-0 font-weight-bold text-primary">Research Capacity Building in Mindanao</h6>
-                                </a>
-                                <small class="text-muted d-block mt-1 ml-3 mr-3">
-                                    Train and mentor emerging NLP researchers, developers, students, and collaborators in responsible language technology R&amp;D.
-                                </small>
-                                <div class="collapse" id="collapseFourthMission">
-                                    <div class="card-body">
-                                        <p>
-                                            MinNa strengthens the regional NLP ecosystem by encouraging faculty, students, and
-                                            early-career researchers to engage in language technology research. Through mentoring,
-                                            collaborative projects, workshops, publications, and interdisciplinary partnerships, the lab
-                                            helps build Mindanao-based expertise in NLP, AI, and digital language resource development.
-                                        </p>
+                                <blockquote>
+                                    A digital future where every language—regardless
+                                    of its status—thrives, is represented, and is
+                                    meaningfully included in AI and the broader
+                                    digital ecosystem.
+                                </blockquote>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Mission -->
+                    <section id="mission" class="section-wrap pt-0">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="row align-items-start mission-intro">
+
+                                <div class="col-lg-5 mb-4 mb-lg-0">
+                                    <img src="./img/mission2.jpg"
+                                         class="mission-image"
+                                         alt="MinNa community and research collaboration">
+
+                                    <div class="section-kicker">
+                                        Our Mission
                                     </div>
-                                </div>
-                            </div>
 
-                            <!-- Mission Pillar 5 -->
-                            <div class="shadow mb-4 wide-card">
-                                <a href="#collapseFifthMission" class="d-block card-header py-3" data-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="collapseFifthMission">
-                                    <h6 class="m-0 font-weight-bold text-primary">Partnerships, Policy, and Responsible Innovation</h6>
-                                </a>
-                                <small class="text-muted d-block mt-1 ml-3 mr-3">
-                                    Collaborate with communities, government, academe, and industry to guide ethical and inclusive language AI development.
-                                </small>
-                                <div class="collapse" id="collapseFifthMission">
-                                    <div class="card-body">
-                                        <p>
-                                            MinNa works with indigenous communities, local government units, schools, health institutions,
-                                            research organizations, and technology partners to co-create language technologies and inform
-                                            policy recommendations. The lab advocates for responsible innovation, community benefit,
-                                            cultural respect, and strategic roadmaps for the future of NLP and language AI in the Philippines.
-                                        </p>
+                                    <h2 class="section-title">
+                                        Research, innovation, and community engagement
+                                    </h2>
+
+                                    <p class="section-copy">
+                                        MinNa advances the documentation, preservation,
+                                        revitalization, and technological inclusion of
+                                        Philippine and indigenous languages through
+                                        research, development, and community-engaged
+                                        innovation in NLP and Artificial Intelligence.
+                                    </p>
+                                </div>
+
+                                <div class="col-lg-7 pl-lg-5">
+                                    <div class="mission-grid">
+
+                                        <article class="mission-card">
+                                            <div class="mission-icon">
+                                                <i class="fas fa-database"></i>
+                                            </div>
+
+                                            <h3>
+                                                Language Documentation and Digital Resource Creation
+                                            </h3>
+
+                                            <p>
+                                                Collect, document, digitize, curate, and
+                                                steward linguistic resources for Philippine
+                                                and indigenous languages.
+                                            </p>
+
+                                            <a class="mission-toggle"
+                                               href="#missionOne"
+                                               data-toggle="collapse"
+                                               role="button"
+                                               aria-expanded="false"
+                                               aria-controls="missionOne">
+                                                Learn more
+                                                <i class="fas fa-arrow-right ml-2"></i>
+                                            </a>
+
+                                            <div class="collapse mission-details"
+                                                 id="missionOne">
+                                                <p>
+                                                    MinNa supports the creation of corpora,
+                                                    lexicons, annotations, translations,
+                                                    recordings, and other digital language
+                                                    assets for research, education,
+                                                    preservation, and computational modeling.
+                                                    This work emphasizes ethical data
+                                                    practices, community participation, and
+                                                    long-term accessibility.
+                                                </p>
+                                            </div>
+                                        </article>
+
+                                        <article class="mission-card">
+                                            <div class="mission-icon">
+                                                <i class="fas fa-brain"></i>
+                                            </div>
+
+                                            <h3>
+                                                NLP Research and AI for Indigenous Languages
+                                            </h3>
+
+                                            <p>
+                                                Study language models, machine translation,
+                                                speech technologies, and dialogue systems
+                                                for low-resource contexts.
+                                            </p>
+
+                                            <a class="mission-toggle"
+                                               href="#missionTwo"
+                                               data-toggle="collapse"
+                                               role="button"
+                                               aria-expanded="false"
+                                               aria-controls="missionTwo">
+                                                Learn more
+                                                <i class="fas fa-arrow-right ml-2"></i>
+                                            </a>
+
+                                            <div class="collapse mission-details"
+                                                 id="missionTwo">
+                                                <p>
+                                                    MinNa examines how indigenous and
+                                                    low-resource Philippine languages can
+                                                    be more meaningfully represented and
+                                                    supported in emerging AI systems. This
+                                                    includes multilingual NLP,
+                                                    morphology-aware modeling, evaluation,
+                                                    and responsible AI development.
+                                                </p>
+                                            </div>
+                                        </article>
+
+                                        <article class="mission-card">
+                                            <div class="mission-icon">
+                                                <i class="fas fa-laptop-code"></i>
+                                            </div>
+
+                                            <h3>
+                                                Inclusive Language Technologies for Real-World Use
+                                            </h3>
+
+                                            <p>
+                                                Design, build, evaluate, and deploy NLP
+                                                applications that respond to practical
+                                                community and institutional needs.
+                                            </p>
+
+                                            <a class="mission-toggle"
+                                               href="#missionThree"
+                                               data-toggle="collapse"
+                                               role="button"
+                                               aria-expanded="false"
+                                               aria-controls="missionThree">
+                                                Learn more
+                                                <i class="fas fa-arrow-right ml-2"></i>
+                                            </a>
+
+                                            <div class="collapse mission-details"
+                                                 id="missionThree">
+                                                <p>
+                                                    The laboratory develops language
+                                                    technologies and AI-enabled applications
+                                                    for education, health communication,
+                                                    cultural documentation, governance, and
+                                                    community development, helping make
+                                                    information and services more accessible
+                                                    across languages.
+                                                </p>
+                                            </div>
+                                        </article>
+
+                                        <article class="mission-card">
+                                            <div class="mission-icon">
+                                                <i class="fas fa-user-graduate"></i>
+                                            </div>
+
+                                            <h3>
+                                                Research Capacity Building in Mindanao
+                                            </h3>
+
+                                            <p>
+                                                Train and mentor emerging NLP researchers,
+                                                developers, students, and collaborators in
+                                                responsible language technology R&amp;D.
+                                            </p>
+
+                                            <a class="mission-toggle"
+                                               href="#missionFour"
+                                               data-toggle="collapse"
+                                               role="button"
+                                               aria-expanded="false"
+                                               aria-controls="missionFour">
+                                                Learn more
+                                                <i class="fas fa-arrow-right ml-2"></i>
+                                            </a>
+
+                                            <div class="collapse mission-details"
+                                                 id="missionFour">
+                                                <p>
+                                                    Through mentoring, collaborative
+                                                    projects, workshops, publications, and
+                                                    interdisciplinary partnerships, MinNa
+                                                    strengthens Mindanao-based expertise in
+                                                    NLP, AI, and digital language resource
+                                                    development.
+                                                </p>
+                                            </div>
+                                        </article>
+
+                                        <article class="mission-card">
+                                            <div class="mission-icon">
+                                                <i class="fas fa-handshake"></i>
+                                            </div>
+
+                                            <h3>
+                                                Partnerships, Policy, and Responsible Innovation
+                                            </h3>
+
+                                            <p>
+                                                Collaborate with communities, government,
+                                                academe, and industry to guide ethical and
+                                                inclusive language AI development.
+                                            </p>
+
+                                            <a class="mission-toggle"
+                                               href="#missionFive"
+                                               data-toggle="collapse"
+                                               role="button"
+                                               aria-expanded="false"
+                                               aria-controls="missionFive">
+                                                Learn more
+                                                <i class="fas fa-arrow-right ml-2"></i>
+                                            </a>
+
+                                            <div class="collapse mission-details"
+                                                 id="missionFive">
+                                                <p>
+                                                    MinNa works with indigenous communities,
+                                                    local government units, schools, health
+                                                    institutions, research organizations, and
+                                                    technology partners to co-create language
+                                                    technologies, inform policy recommendations,
+                                                    and advance responsible innovation.
+                                                </p>
+                                            </div>
+                                        </article>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div><br>
+                    </section>
 
-                </div>
-                <!-- /.container-fluid -->
+                    <!-- SDG Impact -->
+                    <section class="impact-section">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="text-center mb-4">
+                                <div class="section-kicker">
+                                    Aligned Impact Areas
+                                </div>
+
+                                <h2 class="section-title">
+                                    Language technology for inclusive development
+                                </h2>
+
+                                <p class="section-copy mx-auto">
+                                    MinNa connects language research with practical
+                                    outcomes in health, education, inclusion, and
+                                    cross-sector collaboration.
+                                </p>
+                            </div>
+
+                            <div class="impact-grid">
+
+                                <article class="impact-item">
+                                    <span class="sdg-number">3</span>
+                                    <h3>Good Health and Well-Being</h3>
+                                    <p>
+                                        Language-aware tools that improve access to
+                                        health information, patient communication,
+                                        and community services.
+                                    </p>
+                                </article>
+
+                                <article class="impact-item">
+                                    <span class="sdg-number">4</span>
+                                    <h3>Quality Education</h3>
+                                    <p>
+                                        Digital resources and technologies that support
+                                        learning, research training, and regional-language
+                                        educational content.
+                                    </p>
+                                </article>
+
+                                <article class="impact-item">
+                                    <span class="sdg-number">10</span>
+                                    <h3>Reduced Inequalities</h3>
+                                    <p>
+                                        More equitable participation in AI and digital
+                                        systems for speakers of indigenous and
+                                        underrepresented languages.
+                                    </p>
+                                </article>
+
+                                <article class="impact-item">
+                                    <span class="sdg-number">17</span>
+                                    <h3>Partnerships for the Goals</h3>
+                                    <p>
+                                        Community, government, academic, and industry
+                                        partnerships that enable responsible and
+                                        sustainable language innovation.
+                                    </p>
+                                </article>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Process -->
+                    <section class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="text-center">
+                                <div class="section-kicker">
+                                    Our Approach
+                                </div>
+
+                                <h2 class="section-title">
+                                    From language knowledge to lasting impact
+                                </h2>
+
+                                <p class="section-copy mx-auto">
+                                    MinNa follows a connected research and development
+                                    pathway that transforms linguistic knowledge into
+                                    useful, responsible, and community-centered technologies.
+                                </p>
+                            </div>
+
+                            <div class="process-grid">
+
+                                <div class="process-step">
+                                    <i class="fas fa-microphone"></i>
+                                    <strong>Document</strong>
+                                </div>
+
+                                <div class="process-step">
+                                    <i class="fas fa-file-code"></i>
+                                    <strong>Digitize</strong>
+                                </div>
+
+                                <div class="process-step">
+                                    <i class="fas fa-brain"></i>
+                                    <strong>Model</strong>
+                                </div>
+
+                                <div class="process-step">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <strong>Develop</strong>
+                                </div>
+
+                                <div class="process-step">
+                                    <i class="fas fa-rocket"></i>
+                                    <strong>Deploy</strong>
+                                </div>
+
+                                <div class="process-step">
+                                    <i class="fas fa-users"></i>
+                                    <strong>Empower</strong>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CTA -->
+                    <section class="about-cta">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <h2>
+                                Help build a more linguistically inclusive digital future.
+                            </h2>
+
+                            <p>
+                                Collaborate with MinNa in language documentation,
+                                responsible AI research, digital resource development,
+                                and community-centered innovation.
+                            </p>
+
+                            <a href="../people/faculties.html"
+                               class="btn btn-light">
+                                <i class="fas fa-users mr-2"></i>
+                                Meet Our Researchers
+                            </a>
+
+                            <a href="../publications.html"
+                               class="btn btn-outline-light">
+                                <i class="fas fa-book-open mr-2"></i>
+                                Explore Our Research
+                            </a>
+                        </div>
+                    </section>
+
+                </main>
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>
+                                &copy; <span id="currentYear"></span>
+                                MinNa LProc R&amp;D Lab. All rights reserved.
+                            </span>
+                        </div>
+                    </div>
+                </footer>
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; MinNa LProc R&D Lab</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <!-- End Page Wrapper -->
+
+    <a class="scroll-to-top rounded"
+       href="#page-top"
+       aria-label="Back to top">
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Bootstrap core JavaScript-->
+    <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
+    <!-- Core plugin JavaScript -->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
+    <!-- SB Admin -->
     <script src="../js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/chart-area-demo.js"></script>
-    <script src="../js/demo/chart-pie-demo.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-
-
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
 </body>
 
 </html>
