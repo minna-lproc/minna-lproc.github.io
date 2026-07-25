@@ -211,8 +211,12 @@
             button.className = 'minna-chatbot-suggestion';
             button.type = 'button';
             button.textContent = item;
-            button.addEventListener('click', () => {
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                event.stopPropagation();
                 input.value = item;
+                openPanel();
+                button.remove();
                 form.requestSubmit();
             });
             suggestions.appendChild(button);
@@ -238,8 +242,15 @@
 
         closeButton.addEventListener('click', closePanel);
 
+        panel.addEventListener('click', event => {
+            event.stopPropagation();
+        });
+
         form.addEventListener('submit', event => {
             event.preventDefault();
+            event.stopPropagation();
+            openPanel();
+
             const userInput = input.value.trim();
             if (!userInput) {
                 return;
