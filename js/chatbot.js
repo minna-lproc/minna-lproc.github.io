@@ -44,6 +44,7 @@
         'Where can I read publications?',
         'How do I contact you?'
     ];
+    let activeSuggestions = [...quickSuggestions];
 
     const maybeLinks = {
         projects: '../projects/featuredprojects.html',
@@ -206,7 +207,7 @@
 
     function renderSuggestions() {
         suggestions.innerHTML = '';
-        quickSuggestions.forEach(item => {
+        activeSuggestions.forEach(item => {
             const button = document.createElement('button');
             button.className = 'minna-chatbot-suggestion';
             button.type = 'button';
@@ -215,8 +216,9 @@
                 event.preventDefault();
                 event.stopPropagation();
                 input.value = item;
+                activeSuggestions = activeSuggestions.filter(suggestion => suggestion !== item);
+                renderSuggestions();
                 openPanel();
-                button.remove();
                 form.requestSubmit();
             });
             suggestions.appendChild(button);
