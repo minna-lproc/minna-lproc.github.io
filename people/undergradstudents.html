@@ -4,36 +4,59 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description"
-        content="Browse publications of the Mindanao Natural Language Processing Research and Development Laboratory on Philippine languages, low-resource NLP, machine translation, language resources, alignment, tokenization, and morphology.">
-    <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
-    <meta name="google-site-verification" content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
-    <title>Researchers | MinNa LProc R&amp;D Lab</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Custom fonts for this template -->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <meta name="description"
+          content="Explore undergraduate student research and development projects of the Mindanao Natural Language Processing Research and Development Laboratory in language AI, health technology, conversational systems, and digital innovation.">
+    <meta name="author"
+          content="Mindanao Natural Language Processing Research and Development Laboratory">
+    <meta name="google-site-verification"
+          content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
+    <meta name="theme-color"
+          content="#c32962">
+
+    <title>Undergraduate Students | MinNa LProc R&amp;D Lab</title>
+
+    <!-- Custom fonts -->
+    <link href="../vendor/fontawesome-free/css/all.min.css"
+          rel="stylesheet"
+          type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../minna_round_logo.png">
+    <!-- SB Admin 2 -->
+    <link href="../css/sb-admin-2.min.css"
+          rel="stylesheet">
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="../minna_round_logo.png">
 
     <style>
         :root {
-            --minna-primary: #224abe;
-            --minna-secondary: #4e73df;
-            --minna-dark: #14275f;
-            --minna-accent: #36b9cc;
-            --minna-light: #eef3ff;
-            --minna-text: #2f3542;
-            --minna-muted: #6c757d;
-            --minna-border: #e3e8f4;
+            --minna-primary: #c32962;
+            --minna-secondary: #e05d87;
+            --minna-dark: #4f1730;
+            --minna-accent: #f29ab3;
+            --minna-light: #fff0f5;
+            --minna-surface: #fcf7f9;
+            --minna-text: #3a2d33;
+            --minna-muted: #76666d;
+            --minna-border: #eadde3;
+            --minna-success: #2f9e72;
+
+            --uic-rose: #c32962;
+            --uic-pink: #e05d87;
+            --uic-burgundy: #4f1730;
+            --uic-blush: #fff0f5;
+            --uic-cream: #fcf7f9;
+            --uic-charcoal: #3a2d33;
         }
 
         html {
@@ -43,200 +66,314 @@
         body {
             font-family: "Nunito", sans-serif;
             color: var(--minna-text);
-            background: #f6f8fc;
+            background: var(--minna-surface);
+        }
+
+        #wrapper,
+        #content-wrapper,
+        #content {
+            width: 100%;
+            min-width: 0;
         }
 
         #content-wrapper {
-            min-width: 0;
-            background: #f6f8fc;
+            background: var(--minna-surface);
         }
 
-        .sidebar-heading {
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
+        /* Top navigation */
+        .site-navbar {
+            z-index: 1040;
+            min-height: 76px;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            border-top: 4px solid var(--uic-rose);
+            border-bottom: 1px solid rgba(195, 41, 98, 0.12);
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 0.45rem 1.6rem rgba(91, 37, 57, 0.10);
+            backdrop-filter: blur(14px);
         }
 
-        .navbar-nav.sidebar {
-            background: linear-gradient(180deg, #244dbc 0%, #183786 100%);
+        .navbar-brand {
+            margin-right: 1.5rem;
         }
 
-        .sidebar .nav-item .nav-link {
-            color: rgba(255, 255, 255, 0.82);
+        .navbar-brand-logo {
+            width: 46px;
+            height: 46px;
+            margin-right: 0.72rem;
+            object-fit: contain;
         }
 
-        .sidebar .nav-item .nav-link:hover,
-        .sidebar .nav-item.active .nav-link {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.11);
-        }
-
-        .sidebar-brand-text {
-            line-height: 1.1;
-        }
-
-        .topbar {
-            min-height: 4.5rem;
-            border-bottom: 1px solid var(--minna-border);
-        }
-
-        .topbar-title {
-            font-weight: 800;
+        .navbar-brand-copy {
+            display: flex;
+            flex-direction: column;
             color: var(--minna-dark);
+            line-height: 1.05;
+        }
+
+        .navbar-brand-copy strong {
+            font-size: 1rem;
+            font-weight: 900;
             letter-spacing: -0.02em;
         }
 
+        .navbar-brand-copy small {
+            margin-top: 0.25rem;
+            color: var(--minna-muted);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .site-navbar .navbar-nav {
+            gap: 0.1rem;
+        }
+
+        .site-navbar .nav-link {
+            position: relative;
+            padding: 0.68rem 0.78rem !important;
+            border-radius: 0.65rem;
+            color: #5a404a !important;
+            font-size: 0.84rem;
+            font-weight: 800;
+            transition:
+                color 0.18s ease,
+                background-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-item.active > .nav-link,
+        .site-navbar .nav-item.show > .nav-link {
+            color: var(--uic-rose) !important;
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .nav-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .nav-icon {
+            margin-right: 0.35rem;
+            color: #b07a8f;
+            font-size: 0.76rem;
+        }
+
+        .site-navbar .nav-link:hover .nav-icon,
+        .site-navbar .nav-item.active .nav-icon {
+            color: var(--uic-rose);
+        }
+
+        .site-navbar .dropdown-menu {
+            min-width: 245px;
+            padding: 0.65rem;
+            margin-top: 0.55rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.85rem;
+        }
+
+        .site-navbar .dropdown-item {
+            padding: 0.62rem 0.75rem;
+            border-radius: 0.55rem;
+            color: #5a404a;
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: normal;
+        }
+
+        .site-navbar .dropdown-item:hover,
+        .site-navbar .dropdown-item:focus,
+        .site-navbar .dropdown-item.active {
+            color: var(--uic-rose);
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .dropdown-header {
+            padding: 0.45rem 0.75rem;
+            color: #9d7c88;
+            font-size: 0.66rem;
+            font-weight: 900;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .dropdown-icon {
+            width: 1.2rem;
+            margin-right: 0.45rem;
+            color: #b07a8f;
+            text-align: center;
+        }
+
+        .resource-dropdown {
+            min-width: 275px !important;
+        }
+
+        .nav-cta {
+            padding: 0.72rem 1rem;
+            border-radius: 0.68rem;
+            color: #fff;
+            background: linear-gradient(
+                135deg,
+                var(--uic-rose),
+                var(--uic-pink)
+            );
+            box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.24);
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+
+        .nav-cta:hover {
+            color: #fff;
+            box-shadow: 0 0.7rem 1.4rem rgba(195, 41, 98, 0.32);
+            transform: translateY(-1px);
+        }
+
+        .site-navbar .navbar-toggler {
+            padding: 0.42rem 0.58rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.6rem;
+        }
+
+        /* Shared sections */
+        .section-wrap {
+            padding: 4.7rem 0;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.45rem;
+            color: var(--minna-secondary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            color: var(--minna-dark);
+            font-size: clamp(1.8rem, 3vw, 2.65rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+        }
+
+        .section-copy {
+            max-width: 800px;
+            color: var(--minna-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Hero */
         .hero-section {
             position: relative;
             overflow: hidden;
-            padding: 4.6rem 0 4rem;
-            color: white;
+            padding: 5rem 0;
+            color: #fff;
             background:
-                radial-gradient(circle at 85% 20%, rgba(54, 185, 204, 0.38), transparent 26%),
-                radial-gradient(circle at 68% 80%, rgba(255, 255, 255, 0.15), transparent 25%),
-                linear-gradient(135deg, #17367f 0%, #2857cd 57%, #3274d7 100%);
+                radial-gradient(circle at 88% 14%, rgba(255, 207, 221, 0.34), transparent 24%),
+                radial-gradient(circle at 62% 92%, rgba(255, 255, 255, 0.13), transparent 24%),
+                linear-gradient(135deg, #4f1730 0%, #9f2958 55%, #df6a8f 100%);
         }
 
+        .hero-section::before,
         .hero-section::after {
             content: "";
             position: absolute;
-            width: 360px;
-            height: 360px;
-            right: -120px;
-            bottom: -170px;
             border-radius: 50%;
-            border: 55px solid rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .hero-section::before {
+            width: 430px;
+            height: 430px;
+            top: -220px;
+            right: -120px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .hero-section::after {
+            width: 330px;
+            height: 330px;
+            right: 8%;
+            bottom: -250px;
+            border: 58px solid rgba(255, 255, 255, 0.07);
         }
 
         .hero-kicker {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.45rem 0.85rem;
-            margin-bottom: 1.15rem;
+            gap: 0.55rem;
+            padding: 0.5rem 0.95rem;
+            margin-bottom: 1.3rem;
             border: 1px solid rgba(255, 255, 255, 0.28);
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.1);
-            font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
+            font-weight: 900;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         .hero-title {
-            max-width: 780px;
-            font-size: clamp(2rem, 4vw, 3.65rem);
+            max-width: 930px;
+            margin-bottom: 1.3rem;
+            font-size: clamp(2.4rem, 5vw, 4.6rem);
             font-weight: 900;
-            line-height: 1.04;
-            letter-spacing: -0.045em;
+            letter-spacing: -0.06em;
+            line-height: 1.01;
+        }
+
+        .hero-title span {
+            color: #ffd9e5;
         }
 
         .hero-copy {
-            max-width: 760px;
-            margin-top: 1.15rem;
-            color: rgba(255, 255, 255, 0.84);
-            font-size: 1.08rem;
-            line-height: 1.75;
+            max-width: 830px;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.1rem;
+            line-height: 1.82;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.75rem;
+            gap: 0.8rem;
+            margin-top: 2rem;
         }
 
         .hero-actions .btn {
-            border-radius: 0.75rem;
-            padding: 0.7rem 1.15rem;
-            font-weight: 800;
+            padding: 0.78rem 1.2rem;
+            border-radius: 0.78rem;
+            font-weight: 900;
         }
 
         .btn-soft-light {
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.38);
             background: rgba(255, 255, 255, 0.1);
         }
 
         .btn-soft-light:hover {
             color: var(--minna-primary);
-            background: white;
+            background: #fff;
         }
 
-        .stats-strip {
-            position: relative;
-            z-index: 5;
-            margin-top: -2rem;
-        }
-
-        .stats-card {
-            height: 100%;
-            padding: 1.35rem;
-            border: 1px solid var(--minna-border);
-            border-radius: 1rem;
-            background: white;
-            box-shadow: 0 0.8rem 2rem rgba(31, 51, 105, 0.08);
-        }
-
-        .stat-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.75rem;
-            height: 2.75rem;
-            margin-bottom: 0.8rem;
-            border-radius: 0.8rem;
-            color: var(--minna-primary);
-            background: var(--minna-light);
-        }
-
-        .stat-value {
-            margin: 0;
-            color: var(--minna-dark);
-            font-size: 1.65rem;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .stat-label {
-            margin: 0.4rem 0 0;
-            color: var(--minna-muted);
-            font-size: 0.86rem;
-            font-weight: 700;
-        }
-
-        .section-wrap {
-            padding: 3.2rem 0 4.5rem;
-        }
-
-        .section-kicker {
-            margin-bottom: 0.3rem;
-            color: var(--minna-secondary);
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            color: var(--minna-dark);
-            font-size: clamp(1.65rem, 3vw, 2.25rem);
-            font-weight: 900;
-            letter-spacing: -0.025em;
-        }
-
-        .section-copy {
-            max-width: 760px;
-            color: white;
-            line-height: 1.75;
+        /* Directory */
+        .directory-section {
+            padding: 4.7rem 0;
+            background: linear-gradient(180deg, #fdebf1 0%, #fff9fb 100%);
         }
 
         .filter-panel {
             padding: 1.15rem;
-            margin: 1.7rem 0 2rem;
+            margin: 2rem 0 1rem;
             border: 1px solid var(--minna-border);
             border-radius: 1rem;
-            background: white;
-            box-shadow: 0 0.5rem 1.5rem rgba(31, 51, 105, 0.05);
+            background: #fff;
+            box-shadow: 0 0.5rem 1.5rem rgba(91, 37, 57, 0.06);
         }
 
         .search-box {
@@ -247,7 +384,7 @@
             position: absolute;
             top: 50%;
             left: 1rem;
-            color: #9aa3b7;
+            color: #b58b9a;
             transform: translateY(-50%);
         }
 
@@ -256,234 +393,245 @@
             padding-left: 2.75rem;
             border: 1px solid var(--minna-border);
             border-radius: 0.75rem;
-            background: #fbfcff;
+            background: #fffafb;
         }
 
         .filter-select {
             height: 3rem;
             border: 1px solid var(--minna-border);
             border-radius: 0.75rem;
-            background: #fbfcff;
+            background: #fffafb;
         }
 
-        .topic-dropdown-wrap {
-            margin-top: 1rem;
-        }
-
-        .topic-dropdown-label {
-            display: block;
-            margin-bottom: 0.4rem;
-            color: #526078;
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+        .form-control:focus {
+            border-color: var(--uic-pink);
+            box-shadow: 0 0 0 0.2rem rgba(195, 41, 98, 0.14);
         }
 
         .result-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            margin: 1rem 0 1.1rem;
             color: var(--minna-muted);
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.88rem;
+            font-weight: 800;
         }
 
-        .publication-list {
+        .project-grid {
             display: grid;
-            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.3rem;
         }
 
-        .publication-card {
-            position: relative;
+        .student-project-card {
+            display: flex;
+            height: 100%;
             overflow: hidden;
-            padding: 1.5rem;
+            flex-direction: column;
             border: 1px solid var(--minna-border);
             border-radius: 1rem;
-            background: white;
-            box-shadow: 0 0.45rem 1.25rem rgba(31, 51, 105, 0.045);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
         }
 
-        .publication-card:hover {
-            border-color: #c9d7fb;
-            box-shadow: 0 1rem 2.4rem rgba(31, 51, 105, 0.11);
-            transform: translateY(-3px);
+        .student-project-card:hover {
+            border-color: #e7abc0;
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(91, 37, 57, 0.13);
         }
 
-        .publication-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 5px;
-            background: linear-gradient(180deg, var(--minna-secondary), var(--minna-accent));
+        .project-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem 1.4rem 0.85rem;
         }
 
-        .publication-year {
+        .project-icon {
             display: inline-flex;
+            flex: 0 0 auto;
             align-items: center;
             justify-content: center;
-            min-width: 4.2rem;
-            height: 2rem;
-            border-radius: 0.55rem;
-            color: var(--minna-primary);
-            background: var(--minna-light);
-            font-size: 0.82rem;
-            font-weight: 900;
-        }
-
-        .publication-type {
-            margin-left: 0.4rem;
-            color: #7d8799;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .publication-title {
-            margin: 0.9rem 0 0.55rem;
-            color: var(--minna-dark);
+            width: 4.25rem;
+            height: 4.25rem;
+            border-radius: 1rem;
+            color: #fff;
+            background:
+                radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.2), transparent 30%),
+                linear-gradient(135deg, var(--uic-burgundy), var(--uic-rose));
+            box-shadow: 0 0.45rem 1rem rgba(91, 37, 57, 0.16);
             font-size: 1.25rem;
+        }
+
+        .project-meta {
+            min-width: 0;
+        }
+
+        .project-area {
+            margin-bottom: 0.2rem;
+            color: var(--minna-primary);
+            font-size: 0.72rem;
             font-weight: 900;
-            line-height: 1.38;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
-        .publication-authors {
-            margin-bottom: 0.5rem;
-            color: #42516d;
-            font-weight: 700;
-        }
-
-        .publication-venue {
-            margin-bottom: 0.8rem;
-            color: var(--minna-muted);
-            font-size: 0.91rem;
-            line-height: 1.55;
-        }
-
-        .publication-abstract {
-            display: -webkit-box;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            color: #596479;
-            font-size: 0.92rem;
-            line-height: 1.7;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-
-        .topic-tag {
-            display: inline-block;
-            padding: 0.35rem 0.65rem;
-            margin: 0 0.35rem 0.4rem 0;
-            border-radius: 999px;
-            color: #35507d;
-            background: #f0f4fc;
-            font-size: 0.74rem;
+        .project-year {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #9d7c88;
+            font-size: 0.76rem;
             font-weight: 800;
         }
 
-        .publication-actions {
+        .project-card-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 0 1.4rem 1.4rem;
+        }
+
+        .project-title {
+            margin-bottom: 0.8rem;
+            color: var(--minna-dark);
+            font-size: 1.08rem;
+            font-weight: 900;
+            line-height: 1.5;
+        }
+
+        .project-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-title a:hover {
+            color: var(--minna-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .project-members-label {
+            margin-bottom: 0.35rem;
+            color: #9d7c88;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .project-members {
+            flex: 1;
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.65;
+        }
+
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-top: 0.95rem;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
         }
 
-        .publication-actions .btn {
-            border-radius: 0.6rem;
-            font-size: 0.79rem;
-            font-weight: 800;
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.34rem 0.56rem;
+            border-radius: 999px;
+            color: #7e3e59;
+            background: #fff0f5;
+            font-size: 0.69rem;
+            font-weight: 900;
         }
 
-        .btn-outline-minna {
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .project-actions a,
+        .project-actions span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.42rem 0.62rem;
+            border-radius: 0.55rem;
+            font-size: 0.73rem;
+            font-weight: 900;
+        }
+
+        .project-actions a {
             color: var(--minna-primary);
-            border-color: #b8c8f5;
-            background: white;
+            border: 1px solid #e7abc0;
+            background: #fff;
+            text-decoration: none;
         }
 
-        .btn-outline-minna:hover {
-            color: white;
-            border-color: var(--minna-primary);
+        .project-actions a:hover {
+            color: #fff;
             background: var(--minna-primary);
+        }
+
+        .project-actions .pending-link {
+            color: #a18690;
+            background: #fff5f8;
         }
 
         .empty-state {
             display: none;
             padding: 3.5rem 1.5rem;
-            border: 1px dashed #c9d2e6;
+            border: 1px dashed #dfbecb;
             border-radius: 1rem;
             text-align: center;
-            background: white;
+            background: #fff;
         }
 
         .empty-state i {
             margin-bottom: 1rem;
-            color: #a8b2c6;
+            color: #b99aaa;
             font-size: 2.2rem;
         }
 
-        .research-note {
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 1rem;
-            color: #2f4771;
-            background: linear-gradient(135deg, #eaf2ff, #eefaff);
+        /* CTA */
+        .student-cta {
+            padding: 4.8rem 0;
+            color: #fff;
+            text-align: center;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(242, 154, 179, 0.32), transparent 25%),
+                linear-gradient(135deg, #4f1730, #b52d60);
         }
 
-        .research-note h3 {
-            color: var(--minna-dark);
-            font-size: 1.1rem;
+        .student-cta h2 {
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            font-size: clamp(1.9rem, 3vw, 2.75rem);
+            font-weight: 900;
+            letter-spacing: -0.035em;
+        }
+
+        .student-cta p {
+            max-width: 790px;
+            margin: 0 auto 1.7rem;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.8;
+        }
+
+        .student-cta .btn {
+            margin: 0.25rem;
+            border-radius: 0.7rem;
             font-weight: 900;
         }
 
-        .research-note p {
-            margin-bottom: 0;
-            line-height: 1.7;
-        }
-
-        .modal-content {
-            border: 0;
-            border-radius: 1rem;
-            box-shadow: 0 1rem 4rem rgba(20, 39, 95, 0.2);
-        }
-
-        .modal-header {
-            border-bottom-color: var(--minna-border);
-        }
-
-        .modal-title {
-            color: var(--minna-dark);
-            font-weight: 900;
-        }
-
-        .citation-box {
-            padding: 1rem;
-            border: 1px solid var(--minna-border);
-            border-radius: 0.7rem;
-            color: #34415a;
-            background: #f9fbff;
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.65;
-        }
-
-        .bibtex-box {
-            max-height: 330px;
-            overflow: auto;
-            padding: 1rem;
-            border-radius: 0.7rem;
-            color: #eaf1ff;
-            background: #17213a;
-            font-family: Consolas, Monaco, monospace;
-            font-size: 0.8rem;
-            white-space: pre-wrap;
-        }
-
+        /* Footer */
         .sticky-footer {
             border-top: 1px solid var(--minna-border);
         }
@@ -492,334 +640,1054 @@
             background: var(--minna-primary);
         }
 
-        .toast-notice {
-            position: fixed;
-            z-index: 1090;
-            right: 1rem;
-            bottom: 1rem;
-            display: none;
-            max-width: 320px;
-            padding: 0.85rem 1rem;
-            border-radius: 0.7rem;
-            color: white;
-            background: #26395f;
-            box-shadow: 0 0.8rem 2rem rgba(20, 39, 95, 0.25);
-            font-size: 0.86rem;
-            font-weight: 700;
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .site-navbar .dropdown:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .site-navbar .dropdown-menu {
+                top: calc(100% - 0.1rem);
+            }
+
+            .site-navbar .nav-item.active > .nav-link::after {
+                content: "";
+                position: absolute;
+                right: 0.8rem;
+                bottom: 0.28rem;
+                left: 0.8rem;
+                height: 3px;
+                border-radius: 999px;
+                background: var(--uic-rose);
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .site-navbar {
+                padding-top: 0.55rem;
+                padding-bottom: 0.55rem;
+            }
+
+            .site-navbar .navbar-collapse {
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+                padding: 1rem 0 0.35rem;
+            }
+
+            .site-navbar .navbar-nav {
+                align-items: stretch !important;
+                gap: 0.2rem;
+            }
+
+            .site-navbar .nav-link {
+                padding: 0.75rem !important;
+            }
+
+            .site-navbar .dropdown-menu {
+                margin-top: 0.15rem;
+                margin-bottom: 0.35rem;
+                border: 0;
+                box-shadow: none !important;
+                background: #fff9fb;
+            }
+
+            .nav-cta {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
         }
 
         @media (max-width: 767.98px) {
             .hero-section {
-                padding: 3.4rem 0 3.8rem;
+                padding: 4rem 0;
             }
 
-            .stats-strip {
-                margin-top: -1.25rem;
+            .directory-section,
+            .student-cta {
+                padding: 3.7rem 0;
             }
 
-            .publication-card {
-                padding: 1.25rem;
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-brand-logo {
+                width: 40px;
+                height: 40px;
             }
 
-            .result-summary {
-                align-items: flex-start;
+            .navbar-brand-copy strong {
+                font-size: 0.92rem;
+            }
+
+            .navbar-brand-copy small {
+                font-size: 0.62rem;
+            }
+
+            .hero-actions {
                 flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
             }
         }
     </style>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
+    <!-- Google Analytics -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX">
+    </script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-BZRJP33YFX');
+
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-BZRJP33YFX");
     </script>
 </head>
 
 <body id="page-top">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
-                <img src="../minna_round_logo.png" alt="MinNa LProc logo" style="height: 40px; margin-right: 10px;">
-                <div class="sidebar-brand-text mx-3">MinNa LProc<br><small>R&amp;D Lab</small></div>
+
+    <!-- Top navigation -->
+    <nav class="navbar navbar-expand-xl navbar-light site-navbar sticky-top"
+         aria-label="Primary navigation">
+        <div class="container-fluid px-3 px-lg-5">
+
+            <a class="navbar-brand d-flex align-items-center"
+               href="../index.html">
+                <img src="../minna_round_logo.png"
+                     class="navbar-brand-logo"
+                     alt="MinNa LProc logo">
+                <span class="navbar-brand-copy">
+                    <strong>MinNa LProc</strong>
+                    <small>R&amp;D Lab</small>
+                </span>
             </a>
 
-            <hr class="sidebar-divider my-0">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#mainNavigation"
+                    aria-controls="mainNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHome"
-                    aria-expanded="false" aria-controls="collapseHome">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <div id="collapseHome" class="collapse" aria-labelledby="headingHome" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../index.html">Home</a>
-                         <a class="collapse-item" href="../about/about.html">Vision and Mission</a>
-                    </div>
-                </div>
-            </li>
+            <div class="collapse navbar-collapse"
+                 id="mainNavigation">
 
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">Projects and Publications</div>
+                <ul class="navbar-nav ml-auto align-items-xl-center">
 
-            <li class="nav-item">
-                <a class="nav-link" href="../projects/featuredprojects.html">
-                    <i class="fas fa-lightbulb"></i>
-                    <span>Featured Projects</span>
-                </a>
-            </li>
+                   <li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="homeDropdown" role="button">
+<i class="fas fa-home nav-icon"></i>
+        Home
+    </a>
+<div aria-labelledby="homeDropdown" class="dropdown-menu shadow">
+<a class="dropdown-item" href="../about/about.html">
+<i class="fas fa-compass dropdown-icon"></i>
+            Vision and Mission
+        </a>
+</div>
+</li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="../publications.html" aria-current="page">
-                    <i class="fas fa-book-open"></i>
-                    <span>Publications</span>
-                </a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="../projects/featuredprojects.html">
+                            <i class="fas fa-lightbulb nav-icon"></i>
+                            Projects
+                        </a>
+                    </li>
 
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">People</div>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="../publications.html">
+                            <i class="fas fa-book-open nav-icon"></i>
+                            Publications
+                        </a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResearchers"
-                    aria-expanded="false" aria-controls="collapseResearchers">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Researchers</span>
-                </a>
-                <div id="collapseResearchers" class="collapse" aria-labelledby="headingResearchers"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../people/faculties.html">Faculties</a>
-                        <a class="collapse-item" href="../people/gradstudents.html">Graduate Students</a>
-                        <a class="collapse-item" href="../people/undergradstudents.html">Undergrad Students</a>
-                    </div>
-                </div>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="researchersDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           aria-current="page">
+                            <i class="fas fa-user-friends nav-icon"></i>
+                            Researchers
+                        </a>
 
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCollaborators"
-                    aria-expanded="false" aria-controls="collapseCollaborators">
-                    <i class="fas fa-users"></i>
-                    <span>Collaborators</span>
-                </a>
-                <div id="collapseCollaborators" class="collapse" aria-labelledby="headingCollaborators"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../people/kagan.html">Kagan</a>
-                        <a class="collapse-item" href="../people/manobo.html">Manobo</a>
-                        <a class="collapse-item" href="../people/mansaka.html">Mansaka</a>
-                    </div>
-                </div>
-            </li>
-
-       <hr class="sidebar-divider">
-            <div class="sidebar-heading">Tools and Resources</div>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources"
-                    aria-expanded="false" aria-controls="collapseResources">
-                    <i class="fas fa-folder-open"></i>
-                    <span>Resources</span>
-                </a>
-                <div id="collapseResources" class="collapse" aria-labelledby="headingResources"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="https://www.iwag.info/" target="_blank" rel="noopener">Translation</a>
-                        <h2 class="collapse-header">Parallel Corpora</h6>
-                        <ul> 
-                            <li><a class="collapse-item" href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences" target="_blank" rel="noopener">tl-ceb</a></li>
-                            <li><a class="collapse-item" href="./people/kagan.html" target="_blank" rel="noopener">ceb-kll</a></li>
-                            <li><a class="collapse-item" href="./people/manobo.html" target="_blank" rel="noopener">ceb-mno</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools"
-                    aria-expanded="false" aria-controls="collapseTools">
-                    <i class="fas fa-tools"></i>
-                    <span>Tools</span>
-                </a>
-                <div id="collapseTools" class="collapse" aria-labelledby="headingTools"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta" target="_blank" rel="noopener">Cebuano NLTK</a>
-                    </div>
-                </div>
-            </li>
-
-            <hr class="sidebar-divider d-none d-md-block">
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle" aria-label="Toggle sidebar"></button>
-            </div>
-        </ul>
-        <!-- End of Sidebar -->        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
+                        <div class="dropdown-menu dropdown-menu-right shadow"
+                             aria-labelledby="researchersDropdown">
+                            <a class="dropdown-item"
+                               href="./faculties.html">
+                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
+                                Faculties
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
+
+                            <a class="dropdown-item"
+                               href="./gradstudents.html">
+                                <i class="fas fa-user-graduate dropdown-icon"></i>
+                                Graduate Students
+                            </a>
+
+                            <a class="dropdown-item active"
+                               href="./undergradstudents.html">
+                                <i class="fas fa-users dropdown-icon"></i>
+                                Undergraduate Students
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="communitiesDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-hands-helping nav-icon"></i>
+                            Communities
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow"
+                             aria-labelledby="communitiesDropdown">
+                            <h6 class="dropdown-header">
+                                Language Communities
+                            </h6>
+                            <a class="dropdown-item" href="./kagan.html">
+                                Kagan
+                            </a>
+                            <a class="dropdown-item" href="./manobo.html">
+                                Manobo
+                            </a>
+                            <a class="dropdown-item" href="./mansaka.html">
+                                Mansaka
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="resourcesDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-folder-open nav-icon"></i>
+                            Resources
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow resource-dropdown"
+                             aria-labelledby="resourcesDropdown">
+                            <h6 class="dropdown-header">Language Tools</h6>
+
+                            <a class="dropdown-item"
+                               href="https://www.iwag.info/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-language dropdown-icon"></i>
+                                Translation Tool
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-tools dropdown-icon"></i>
+                                Cebuano NLTK
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">Parallel Corpora</h6>
+
+                            <a class="dropdown-item"
+                               href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Filipino–Cebuano
+                            </a>
+
+                            <a class="dropdown-item" href="./kagan.html">
+                                Cebuano–Kagan
+                            </a>
+
+                            <a class="dropdown-item" href="./manobo.html">
+                                Cebuano–Manobo
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
+                        <a class="btn nav-cta"
+                           href="#projectDirectory">
+                            <i class="fas fa-project-diagram mr-2"></i>
+                            View Projects
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper"
+         class="d-block w-100">
+        <div id="content-wrapper"
+             class="d-flex flex-column w-100">
+            <div id="content"
+                 class="w-100">
+
+                <main>
+
+                    <!-- Hero -->
+                  
+
+                    <!-- Project directory -->
+                    <section id="projectDirectory"
+                             class="directory-section">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="section-kicker">
+                                Undergraduate Research Portfolio
+                            </div>
+
+                            <h2 class="section-title">
+                                Student projects across computing, technology, and language
+                            </h2>
+
+                            <p class="section-copy">
+                                Search by student, project title, year, or technology.
+                                Filter the portfolio by research area or completion year.
+                            </p>
+
+                            <div class="filter-panel">
+                                <div class="row align-items-center">
+
+                                    <div class="col-lg-6 mb-3 mb-lg-0">
+                                        <div class="search-box">
+                                            <i class="fas fa-search"></i>
+                                            <input id="projectSearch"
+                                                   type="search"
+                                                   class="form-control"
+                                                   placeholder="Search students, project, topic, or year..."
+                                                   aria-label="Search undergraduate projects"
+                                                   autocomplete="off">
                                         </div>
                                     </div>
-                                </form>
+
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                                        <select id="areaFilter"
+                                                class="form-control filter-select"
+                                                aria-label="Filter projects by research area"
+                                                autocomplete="off">
+                                            <option value="all" selected>
+                                                All research areas
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 col-lg-3">
+                                        <select id="yearFilter"
+                                                class="form-control filter-select"
+                                                aria-label="Filter projects by year"
+                                                autocomplete="off">
+                                            <option value="all" selected>
+                                                All years
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </div>
                             </div>
-                        </li>
 
-                    </ul>
+                            <div id="resultSummary"
+                                 class="result-summary">
+                            </div>
 
-                </nav>
-                <!-- End of Topbar -->
+                            <div id="projectGrid"
+                                 class="project-grid">
+                            </div>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                            <div id="emptyState"
+                                 class="empty-state">
+                                <i class="fas fa-search"></i>
+                                <h3 class="h5 font-weight-bold">
+                                    No matching student projects found
+                                </h3>
+                                <p class="text-muted mb-3">
+                                    Try another name, project, year, or research area.
+                                </p>
+                                <button id="resetFilters"
+                                        type="button"
+                                        class="btn btn-primary">
+                                    Reset filters
+                                </button>
+                            </div>
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Computing and Technology</h1>
+                        </div>
+                    </section>
+
+                    <!-- CTA -->
+                    <section class="student-cta">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <h2>
+                                Transform undergraduate research into responsible and useful technology.
+                            </h2>
+
+                            <p>
+                                MinNa supports student innovation in Natural Language
+                                Processing, AI, language resources, education, health,
+                                well-being, and community-centered digital development.
+                            </p>
+
+                            <a href="./faculties.html"
+                               class="btn btn-light">
+                                <i class="fas fa-user-friends mr-2"></i>
+                                Meet the Faculty Researchers
+                            </a>
+
+                            <a href="../publications.html"
+                               class="btn btn-outline-light">
+                                <i class="fas fa-book-open mr-2"></i>
+                                Read Our Publications
+                            </a>
+
+                        </div>
+                    </section>
+
+                </main>
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>
+                                &copy; <span id="currentYear"></span>
+                                MinNa LProc R&amp;D Lab. All rights reserved.
+                            </span>
+                        </div>
                     </div>
-                    <hr>
-                    <div class="card-container">
-
-                    </div>
-                    <p><strong>Lemuel Bayson, Reuben Rex Batoy, Josiephous Pierre Dosdos, Marc Laurence Lapating</strong><br> EUNOIA: An AI-Powered System for Psychological Well-Being Assessment Using the Ryff Scale
-                    <br>2025</p>
-                    <p><strong>Princess Micah Espinosa, Jericho Opsima, Princess Mae Tulod</strong><br> Benchmarking Vision–Language Models for Handwritten Drug Name Recognition <br>2025</p>
-                    <p><strong>Shaira Lorraine Montojo, Al Gabriel Orig, Charlese Jeanrie Te</strong><br> WiMarka: A Reference-free Evaluation Metric for Machine  Translation of Philippine Languages <br>2025</p>
-                    <p><strong>Julie Joy Caroro, Edel Jhonrex Sarzuelo, Jevril Sumaya</strong><br> ANNA 2.0: A Multi-tenant Career Planning System <br>2025</p>
-                    <p><strong>Jenn Leana Fernandez </strong><br> RKALigner: Bitext Aligner for Cebuano and Filipino
-                        Machine Translation <br>2023</p>
-                    <p><strong>Joshua Andre Gonzales, J-Adrielle Gustilo, Glenn Michael Nituda </strong><br> Cebuano
-                        Natural Language Toolkit <br>2023</p>
-                    <p><strong>John Michael Amto, Reymond Gomera, Ryan Christian Hibaya </strong><br> ANNA: A Web-based
-                        Chatbot for Career Planning following Cooperative Principle <br>2023</p>
-                    <p><strong>Joseph Cedeño, Andrew Manteza, Nicole Nacar, Merhamdin Umbukan</strong><br> Pitik:
-                        Cooperative Principle in a Cebuano-Binisaya Intent-Based Chatbot for Cardiovascular Disease
-                        Patient Profiling and Risk Factor Recommendation <br>2022</p>
-                    <p><strong>Tristan Lee Montaner, Ray Patrick Patlonag, John Benedict Sullan </strong><br>
-                        Madasigon: A Binisaya Chatbot For Customer Device Troubleshooting <br>2022</p>
-                    <p><strong>Mckeen Asma, Eldon Rey Bayacag, Jonas Surigao, Christian John Talo </strong><br>
-                        Ulayaw: A Web-based Chatbot for Assessing Inidividual Suicidal Ideation and Risk
-                        Level<br>2022</p>
-                    <p><strong>Kent Romans Bandong, Eirol John Coronado </strong><br> Project Alima <br>2022</p>
-                    <p><strong>Laimee Antonette Pisao, Jan Millena Villaflores </strong><br> Project Dapok <br>2022
-                    </p>
-                    <p><strong>Blad Ryan Culango, Jhon Kristoffer Delgado, Camille Alemania </strong><br>
-                        Development of the MinNa Website <br>2022</p>
-
-
-
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Language</h1>
-                    </div>
-                    <hr>
-                    <p><strong>Shamier K. Animeta </strong><br><a href="./files/documents/Animeta_Final_Paper.pdf">An
-                            In-depth Comparative Analysis of the Filipino-Cebuano Parallel Corpus Utilizing the
-                            Contrastive, Typological, and Translation Mining Traditions</a><br> 2023</p>
-                    <p><strong>Vhinos B. Gallosa </strong><br><a
-                            href="./files/documents/Gallosa_Final_Paper.pdf">Language Translation Divergences</a><br>
-                        2023</p>
-                </div>
-                <!-- /.container-fluid -->
+                </footer>
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; MinNa LProc R&D Lab</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
-    <a class="scroll-to-top rounded" href="#page-top">
+
+    <a class="scroll-to-top rounded"
+       href="#page-top"
+       aria-label="Back to top">
         <i class="fas fa-angle-up"></i>
     </a>
 
-
-    <!-- Bootstrap core JavaScript-->
+    <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
+    <!-- Core plugin JavaScript -->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
+    <!-- SB Admin -->
     <script src="../js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
+    <script>
+        const undergraduateProjects = [
+            {
+                title: "EUNOIA: An AI-Powered System for Psychological Well-Being Assessment Using the Ryff Scale",
+                members: [
+                    "Lemuel Bayson",
+                    "Reuben Rex Batoy",
+                    "Josiephous Pierre Dosdos",
+                    "Marc Laurence Lapating"
+                ],
+                year: "2025",
+                area: "Well-Being Technology",
+                icon: "fas fa-heart",
+                url: "",
+                keywords: [
+                    "Ryff Scale",
+                    "psychological well-being",
+                    "assessment",
+                    "artificial intelligence"
+                ]
+            },
+            {
+                title: "Benchmarking Vision–Language Models for Handwritten Drug Name Recognition",
+                members: [
+                    "Princess Micah Espinosa",
+                    "Jericho Opsima",
+                    "Princess Mae Tulod"
+                ],
+                year: "2025",
+                area: "Health Technology",
+                icon: "fas fa-prescription",
+                url: "",
+                keywords: [
+                    "vision-language models",
+                    "handwriting recognition",
+                    "drug names",
+                    "prescription recognition"
+                ]
+            },
+            {
+                title: "WiMarka: A Reference-Free Evaluation Metric for Machine Translation of Philippine Languages",
+                members: [
+                    "Shaira Lorraine Montojo",
+                    "Al Gabriel Orig",
+                    "Charlese Jeanrie Te"
+                ],
+                year: "2025",
+                area: "Language AI",
+                icon: "fas fa-language",
+                url: "",
+                keywords: [
+                    "machine translation",
+                    "evaluation metric",
+                    "Philippine languages",
+                    "reference-free evaluation"
+                ]
+            },
+            {
+                title: "ANNA 2.0: A Multi-Tenant Career Planning System",
+                members: [
+                    "Julie Joy Caroro",
+                    "Edel Jhonrex Sarzuelo",
+                    "Jevril Sumaya"
+                ],
+                year: "2025",
+                area: "Education Technology",
+                icon: "fas fa-compass",
+                url: "",
+                keywords: [
+                    "career planning",
+                    "multi-tenant system",
+                    "guidance",
+                    "student assessment"
+                ]
+            },
+            {
+                title: "RKALigner: Bitext Aligner for Cebuano and Filipino Machine Translation",
+                members: [
+                    "Jenn Leana Fernandez"
+                ],
+                year: "2023",
+                area: "Language Resources",
+                icon: "fas fa-align-left",
+                url: "",
+                keywords: [
+                    "bitext alignment",
+                    "Cebuano",
+                    "Filipino",
+                    "machine translation"
+                ]
+            },
+            {
+                title: "Cebuano Natural Language Toolkit",
+                members: [
+                    "Joshua Andre Gonzales",
+                    "J-Adrielle Gustilo",
+                    "Glenn Michael Nituda"
+                ],
+                year: "2023",
+                area: "Language Resources",
+                icon: "fas fa-tools",
+                url: "",
+                keywords: [
+                    "Cebuano",
+                    "NLP toolkit",
+                    "part-of-speech tagging",
+                    "named entity recognition"
+                ]
+            },
+            {
+                title: "ANNA: A Web-Based Chatbot for Career Planning Following the Cooperative Principle",
+                members: [
+                    "John Michael Amto",
+                    "Reymond Gomera",
+                    "Ryan Christian Hibaya"
+                ],
+                year: "2023",
+                area: "Education Technology",
+                icon: "fas fa-comments",
+                url: "",
+                keywords: [
+                    "chatbot",
+                    "career planning",
+                    "cooperative principle",
+                    "guidance"
+                ]
+            },
+            {
+                title: "Pitik: Cooperative Principle in a Cebuano-Binisaya Intent-Based Chatbot for Cardiovascular Disease Patient Profiling and Risk Factor Recommendation",
+                members: [
+                    "Joseph Cedeño",
+                    "Andrew Manteza",
+                    "Nicole Nacar",
+                    "Merhamdin Umbukan"
+                ],
+                year: "2022",
+                area: "Health Technology",
+                icon: "fas fa-heartbeat",
+                url: "",
+                keywords: [
+                    "medical chatbot",
+                    "Cebuano-Binisaya",
+                    "cardiovascular disease",
+                    "patient profiling"
+                ]
+            },
+            {
+                title: "Madasigon: A Binisaya Chatbot for Customer Device Troubleshooting",
+                members: [
+                    "Tristan Lee Montaner",
+                    "Ray Patrick Patlonag",
+                    "John Benedict Sullan"
+                ],
+                year: "2022",
+                area: "Conversational Systems",
+                icon: "fas fa-robot",
+                url: "",
+                keywords: [
+                    "Binisaya",
+                    "chatbot",
+                    "device troubleshooting",
+                    "customer support"
+                ]
+            },
+            {
+                title: "Ulayaw: A Web-Based Chatbot for Assessing Individual Suicidal Ideation and Risk Level",
+                members: [
+                    "Mckeen Asma",
+                    "Eldon Rey Bayacag",
+                    "Jonas Surigao",
+                    "Christian John Talo"
+                ],
+                year: "2022",
+                area: "Well-Being Technology",
+                icon: "fas fa-hands-helping",
+                url: "",
+                keywords: [
+                    "chatbot",
+                    "suicidal ideation",
+                    "risk assessment",
+                    "mental health"
+                ]
+            },
+            {
+                title: "Project Alima",
+                members: [
+                    "Kent Romans Bandong",
+                    "Eirol John Coronado"
+                ],
+                year: "2022",
+                area: "Digital Innovation",
+                icon: "fas fa-laptop-code",
+                url: "",
+                keywords: [
+                    "digital innovation",
+                    "student project"
+                ]
+            },
+            {
+                title: "Project Dapok",
+                members: [
+                    "Laimee Antonette Pisao",
+                    "Jan Millena Villaflores"
+                ],
+                year: "2022",
+                area: "Digital Innovation",
+                icon: "fas fa-project-diagram",
+                url: "",
+                keywords: [
+                    "digital innovation",
+                    "student project"
+                ]
+            },
+            {
+                title: "Development of the MinNa Website",
+                members: [
+                    "Blad Ryan Culango",
+                    "Jhon Kristoffer Delgado",
+                    "Camille Alemania"
+                ],
+                year: "2022",
+                area: "Web Development",
+                icon: "fas fa-globe",
+                url: "",
+                keywords: [
+                    "web development",
+                    "MinNa website",
+                    "digital platform"
+                ]
+            },
+            {
+                title: "An In-Depth Comparative Analysis of the Filipino-Cebuano Parallel Corpus Utilizing the Contrastive, Typological, and Translation Mining Traditions",
+                members: [
+                    "Shamier K. Animeta"
+                ],
+                year: "2023",
+                area: "Language Studies",
+                icon: "fas fa-book",
+                url: "./files/documents/Animeta_Final_Paper.pdf",
+                keywords: [
+                    "Filipino-Cebuano",
+                    "parallel corpus",
+                    "contrastive analysis",
+                    "translation mining"
+                ]
+            },
+            {
+                title: "Language Translation Divergences",
+                members: [
+                    "Vhinos B. Gallosa"
+                ],
+                year: "2023",
+                area: "Language Studies",
+                icon: "fas fa-exchange-alt",
+                url: "./files/documents/Gallosa_Final_Paper.pdf",
+                keywords: [
+                    "translation divergences",
+                    "language studies",
+                    "translation analysis"
+                ]
+            }
+        ];
 
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/chart-area-demo.js"></script>
-    <script src="../js/demo/chart-pie-demo.js"></script>
+        const state = {
+            search: "",
+            area: "all",
+            year: "all"
+        };
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        const projectGrid =
+            document.getElementById("projectGrid");
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        const projectSearch =
+            document.getElementById("projectSearch");
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        const areaFilter =
+            document.getElementById("areaFilter");
 
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        const yearFilter =
+            document.getElementById("yearFilter");
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+        const resultSummary =
+            document.getElementById("resultSummary");
 
+        const emptyState =
+            document.getElementById("emptyState");
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function buildFilters() {
+            const areas = [
+                ...new Set(
+                    undergraduateProjects.map(project => project.area)
+                )
+            ].sort((a, b) => a.localeCompare(b));
+
+            const years = [
+                ...new Set(
+                    undergraduateProjects.map(project => project.year)
+                )
+            ].sort((a, b) => Number(b) - Number(a));
+
+            areas.forEach(area => {
+                const option =
+                    document.createElement("option");
+
+                option.value = area;
+                option.textContent = area;
+                areaFilter.appendChild(option);
+            });
+
+            years.forEach(year => {
+                const option =
+                    document.createElement("option");
+
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+        }
+
+        function getFilteredProjects() {
+            const query =
+                state.search.trim().toLowerCase();
+
+            return undergraduateProjects
+                .filter(project => {
+                    const searchableText = [
+                        project.title,
+                        project.members.join(" "),
+                        project.year,
+                        project.area,
+                        project.keywords.join(" ")
+                    ].join(" ").toLowerCase();
+
+                    const matchesSearch =
+                        !query ||
+                        searchableText.includes(query);
+
+                    const matchesArea =
+                        state.area === "all" ||
+                        project.area === state.area;
+
+                    const matchesYear =
+                        state.year === "all" ||
+                        project.year === state.year;
+
+                    return (
+                        matchesSearch &&
+                        matchesArea &&
+                        matchesYear
+                    );
+                })
+                .sort((a, b) => {
+                    return (
+                        Number(b.year) - Number(a.year) ||
+                        a.title.localeCompare(b.title)
+                    );
+                });
+        }
+
+        function createProjectCard(project) {
+            const article =
+                document.createElement("article");
+
+            article.className =
+                "student-project-card reveal is-visible";
+
+            const projectTitle = project.url
+                ? `
+                    <a href="${escapeHtml(project.url)}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ${escapeHtml(project.title)}
+                    </a>
+                `
+                : escapeHtml(project.title);
+
+            const projectLink = project.url
+                ? `
+                    <a href="${escapeHtml(project.url)}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fas fa-file-alt"></i>
+                        View Full Paper
+                    </a>
+                `
+                : `
+                    <span class="pending-link">
+                        <i class="fas fa-link"></i>
+                        Project Link Coming Soon
+                    </span>
+                `;
+
+            const tags = project.keywords
+                .slice(0, 3)
+                .map(keyword => `
+                    <span class="project-tag">
+                        ${escapeHtml(keyword)}
+                    </span>
+                `)
+                .join("");
+
+            article.innerHTML = `
+                <div class="project-card-header">
+                    <div class="project-icon"
+                         aria-hidden="true">
+                        <i class="${escapeHtml(project.icon)}"></i>
+                    </div>
+
+                    <div class="project-meta">
+                        <div class="project-area">
+                            ${escapeHtml(project.area)}
+                        </div>
+
+                        <span class="project-year">
+                            <i class="fas fa-calendar-alt"></i>
+                            ${escapeHtml(project.year)}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="project-card-body">
+                    <h3 class="project-title">
+                        ${projectTitle}
+                    </h3>
+
+                    <div class="project-members-label">
+                        Student Researcher${project.members.length > 1 ? "s" : ""}
+                    </div>
+
+                    <p class="project-members">
+                        ${escapeHtml(project.members.join(" · "))}
+                    </p>
+
+                    <div class="project-tags">
+                        ${tags}
+                    </div>
+
+                    <div class="project-actions">
+                        ${projectLink}
+                    </div>
+                </div>
+            `;
+
+            return article;
+        }
+
+        function renderProjects() {
+            const filtered =
+                getFilteredProjects();
+
+            projectGrid.innerHTML = "";
+
+            filtered.forEach(project => {
+                projectGrid.appendChild(
+                    createProjectCard(project)
+                );
+            });
+
+            projectGrid.style.display =
+                filtered.length ? "grid" : "none";
+
+            emptyState.style.display =
+                filtered.length ? "none" : "block";
+
+            resultSummary.textContent =
+                filtered.length === undergraduateProjects.length
+                    ? `Showing all ${undergraduateProjects.length} undergraduate projects`
+                    : `Showing ${filtered.length} of ${undergraduateProjects.length} undergraduate projects`;
+        }
+
+        function resetFilters() {
+            state.search = "";
+            state.area = "all";
+            state.year = "all";
+
+            projectSearch.value = "";
+            areaFilter.value = "all";
+            yearFilter.value = "all";
+
+            renderProjects();
+        }
+
+        projectSearch.addEventListener(
+            "input",
+            event => {
+                state.search = event.target.value;
+                renderProjects();
+            }
+        );
+
+        areaFilter.addEventListener(
+            "change",
+            event => {
+                state.area = event.target.value;
+                renderProjects();
+            }
+        );
+
+        yearFilter.addEventListener(
+            "change",
+            event => {
+                state.year = event.target.value;
+                renderProjects();
+            }
+        );
+
+        document.getElementById("resetFilters")
+            .addEventListener("click", resetFilters);
+
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        buildFilters();
+        resetFilters();
+
+        window.addEventListener("pageshow", () => {
+            window.requestAnimationFrame(() => {
+                resetFilters();
+            });
+        });
+
+        const revealItems =
+            document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+            const revealObserver =
+                new IntersectionObserver(
+                    entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add(
+                                    "is-visible"
+                                );
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+            revealItems.forEach(item =>
+                revealObserver.observe(item)
+            );
+        } else {
+            revealItems.forEach(item =>
+                item.classList.add("is-visible")
+            );
+        }
+    </script>
 </body>
 
 </html>

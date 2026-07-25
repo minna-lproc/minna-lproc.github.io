@@ -1312,17 +1312,17 @@
 </button>
 <div class="collapse navbar-collapse" id="mainNavigation">
 <ul class="navbar-nav ml-auto align-items-xl-center">
-<li class="nav-item active">
-<a aria-current="page" class="nav-link" href="index.html">
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="homeDropdown" role="button">
 <i class="fas fa-home nav-icon"></i>
-                        Home
-                    </a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="about/about.html">
-<i class="fas fa-compass nav-icon"></i>
-                        About
-                    </a>
+        Home
+    </a>
+<div aria-labelledby="homeDropdown" class="dropdown-menu shadow">
+<a class="dropdown-item" href="about/about.html">
+<i class="fas fa-compass dropdown-icon"></i>
+            Vision and Mission
+        </a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="projects/featuredprojects.html">
@@ -1422,10 +1422,7 @@
 <div class="container-fluid px-4 px-lg-5 position-relative" style="z-index: 2;">
 <div class="row align-items-center">
 <div class="col-lg-7 pr-lg-5">
-<h3 class="hero-title">
-                                        Building AI where
-                                        <span class="hero-accent">every language belongs</span>
-</h3>
+
 <p class="hero-copy">
                                         MinNa advances Natural Language Processing,
                                         digital language resources, and responsible AI
