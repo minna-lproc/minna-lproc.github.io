@@ -3,410 +3,1558 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MinNa LProc R &amp; D Lab</title>
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <meta name="description"
+          content="Contact the Mindanao Natural Language Processing Research and Development Laboratory for research collaboration, language resources, student engagement, community partnership, and technical inquiries.">
+    <meta name="author"
+          content="Mindanao Natural Language Processing Research and Development Laboratory">
+    <meta name="google-site-verification"
+          content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8">
+    <meta name="theme-color"
+          content="#c32962">
 
+    <title>Contact Us | MinNa LProc R&amp;D Lab</title>
 
-    <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css"
+          rel="stylesheet"
+          type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
+        rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/chatbot.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="css/sb-admin-2.min.css"
+          rel="stylesheet">
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="minna_round_logo.png">
+
     <style>
-        /* Custom styles */
-        .img-responsive {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+        :root {
+            --minna-primary: #c32962;
+            --minna-secondary: #e05d87;
+            --minna-dark: #4f1730;
+            --minna-accent: #f29ab3;
+            --minna-light: #fff0f5;
+            --minna-surface: #fcf7f9;
+            --minna-text: #3a2d33;
+            --minna-muted: #76666d;
+            --minna-border: #eadde3;
+            --minna-success: #2f9e72;
+            --minna-warning: #c87f24;
+
+            --uic-rose: #c32962;
+            --uic-pink: #e05d87;
+            --uic-burgundy: #4f1730;
+            --uic-blush: #fff0f5;
+            --uic-cream: #fcf7f9;
+            --uic-charcoal: #3a2d33;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Nunito", sans-serif;
+            color: var(--minna-text);
+            background: var(--minna-surface);
+        }
+
+        #wrapper,
+        #content-wrapper,
+        #content {
+            width: 100%;
+            min-width: 0;
         }
 
         #content-wrapper {
-            padding: 20px;
+            background: var(--minna-surface);
         }
 
-        p {
-            text-align: justify;
+        /* Top navigation */
+        .site-navbar {
+            z-index: 1040;
+            min-height: 76px;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            border-top: 4px solid var(--uic-rose);
+            border-bottom: 1px solid rgba(195, 41, 98, 0.12);
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 0.45rem 1.6rem rgba(91, 37, 57, 0.10);
+            backdrop-filter: blur(14px);
         }
 
-        .sidebar-heading {
-            font-size: 16px;
+        .navbar-brand {
+            margin-right: 1.5rem;
+        }
+
+        .navbar-brand-logo {
+            width: 46px;
+            height: 46px;
+            margin-right: 0.72rem;
+            object-fit: contain;
+        }
+
+        .navbar-brand-copy {
+            display: flex;
+            flex-direction: column;
+            color: var(--minna-dark);
+            line-height: 1.05;
+        }
+
+        .navbar-brand-copy strong {
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .navbar-brand-copy small {
+            margin-top: 0.25rem;
+            color: var(--minna-muted);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
         }
 
-        .navbar-nav {
-            background-color: #4e73df;
+        .site-navbar .navbar-nav {
+            gap: 0.1rem;
         }
 
-        .nav-item a {
-            color: white;
+        .site-navbar .nav-link {
+            position: relative;
+            padding: 0.68rem 0.78rem !important;
+            border-radius: 0.65rem;
+            color: #5a404a !important;
+            font-size: 0.84rem;
+            font-weight: 800;
+            transition:
+                color 0.18s ease,
+                background-color 0.18s ease,
+                transform 0.18s ease;
         }
 
-        .nav-item a:hover {
-            background-color: #2e59d9;
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-item.active > .nav-link,
+        .site-navbar .nav-item.show > .nav-link {
+            color: var(--uic-rose) !important;
+            background: var(--uic-blush);
         }
 
-        .nav-item.active a {
-            background-color: #224abe;
+        .site-navbar .nav-link:hover {
+            transform: translateY(-1px);
         }
 
-        .topbar {
-            box-shadow: 0 4px 8px rgba(248, 248, 248, 0.1);
+        .nav-icon {
+            margin-right: 0.35rem;
+            color: #b07a8f;
+            font-size: 0.76rem;
         }
 
-        .container-fluid h3 {
-            color: #224abe;
+        .site-navbar .nav-link:hover .nav-icon,
+        .site-navbar .nav-item.active .nav-icon {
+            color: var(--uic-rose);
         }
 
-        .footer {
-            background-color: #f8f9fc;
-            padding: 10px 0;
-            border-top: 1px solid #e3e6f0;
+        .site-navbar .dropdown-menu {
+            min-width: 245px;
+            padding: 0.65rem;
+            margin-top: 0.55rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.85rem;
         }
 
-        .footer span {
-            color: #5a5c69;
+        .site-navbar .dropdown-item {
+            padding: 0.62rem 0.75rem;
+            border-radius: 0.55rem;
+            color: #5a404a;
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: normal;
+        }
+
+        .site-navbar .dropdown-item:hover,
+        .site-navbar .dropdown-item:focus,
+        .site-navbar .dropdown-item.active {
+            color: var(--uic-rose);
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .dropdown-header {
+            padding: 0.45rem 0.75rem;
+            color: #9d7c88;
+            font-size: 0.66rem;
+            font-weight: 900;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .dropdown-icon {
+            width: 1.2rem;
+            margin-right: 0.45rem;
+            color: #b07a8f;
+            text-align: center;
+        }
+
+        .resource-dropdown {
+            min-width: 275px !important;
+        }
+
+        .nav-cta {
+            padding: 0.72rem 1rem;
+            border-radius: 0.68rem;
+            color: #fff;
+            background: linear-gradient(
+                135deg,
+                var(--uic-rose),
+                var(--uic-pink)
+            );
+            box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.24);
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+
+        .nav-cta:hover {
+            color: #fff;
+            box-shadow: 0 0.7rem 1.4rem rgba(195, 41, 98, 0.32);
+            transform: translateY(-1px);
+        }
+
+        .site-navbar .navbar-toggler {
+            padding: 0.42rem 0.58rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.6rem;
+        }
+
+        /* Shared */
+        .section-wrap {
+            padding: 4.8rem 0;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.45rem;
+            color: var(--minna-secondary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            color: var(--minna-dark);
+            font-size: clamp(1.8rem, 3vw, 2.65rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+        }
+
+        .section-copy {
+            max-width: 820px;
+            color: var(--minna-muted);
+            font-size: 1rem;
+            line-height: 1.82;
+        }
+
+        /* Hero */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 5.2rem 0;
+            color: #fff;
+            background:
+                radial-gradient(circle at 88% 14%, rgba(255, 207, 221, 0.34), transparent 24%),
+                radial-gradient(circle at 62% 92%, rgba(255, 255, 255, 0.13), transparent 24%),
+                linear-gradient(135deg, #4f1730 0%, #9f2958 55%, #df6a8f 100%);
+        }
+
+        .hero-section::before,
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::before {
+            width: 430px;
+            height: 430px;
+            top: -220px;
+            right: -120px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .hero-section::after {
+            width: 330px;
+            height: 330px;
+            right: 8%;
+            bottom: -250px;
+            border: 58px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 0.95rem;
+            margin-bottom: 1.3rem;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            max-width: 970px;
+            margin-bottom: 1.3rem;
+            font-size: clamp(2.4rem, 5vw, 4.65rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.01;
+        }
+
+        .hero-title span {
+            color: #ffd9e5;
+        }
+
+        .hero-copy {
+            max-width: 850px;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.1rem;
+            line-height: 1.82;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .hero-actions .btn {
+            padding: 0.78rem 1.2rem;
+            border-radius: 0.78rem;
+            font-weight: 900;
+        }
+
+        .btn-soft-light {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.38);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-soft-light:hover {
+            color: var(--minna-primary);
+            background: #fff;
+        }
+
+        /* Contact channels */
+        .contact-channels-section {
+            padding: 4.8rem 0;
+            background: linear-gradient(180deg, #fdebf1 0%, #fff9fb 100%);
+        }
+
+        .contact-channel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-channel {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            padding: 1.5rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .contact-channel:hover {
+            border-color: #e7abc0;
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(91, 37, 57, 0.13);
+        }
+
+        .contact-channel-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.25rem;
+            height: 3.25rem;
+            margin-bottom: 1rem;
+            border-radius: 0.95rem;
+            color: #fff;
+            background: linear-gradient(
+                135deg,
+                var(--uic-burgundy),
+                var(--uic-rose)
+            );
+            box-shadow: 0 0.45rem 1rem rgba(91, 37, 57, 0.15);
+            font-size: 1.1rem;
+        }
+
+        .contact-channel h3 {
+            margin-bottom: 0.55rem;
+            color: var(--minna-dark);
+            font-size: 1.08rem;
+            font-weight: 900;
+        }
+
+        .contact-channel p {
+            flex: 1;
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .contact-channel-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            align-self: flex-start;
+            color: var(--minna-primary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            overflow-wrap: anywhere;
+            text-decoration: none;
+        }
+
+        .contact-channel-link:hover {
+            color: var(--minna-dark);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Form */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.78fr);
+            gap: 1.5rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .contact-form-panel,
+        .contact-information-panel {
+            border: 1px solid var(--minna-border);
+            border-radius: 1.1rem;
+            background: #fff;
+            box-shadow: 0 0.65rem 2rem rgba(91, 37, 57, 0.08);
+        }
+
+        .contact-form-panel {
+            padding: clamp(1.4rem, 4vw, 2rem);
+        }
+
+        .contact-information-panel {
+            overflow: hidden;
+        }
+
+        .panel-heading {
+            margin-bottom: 1.3rem;
+        }
+
+        .panel-heading h3 {
+            margin-bottom: 0.45rem;
+            color: var(--minna-dark);
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .panel-heading p {
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            line-height: 1.7;
+        }
+
+        .form-label {
+            margin-bottom: 0.42rem;
+            color: #654955;
+            font-size: 0.78rem;
+            font-weight: 900;
+        }
+
+        .required-mark {
+            color: var(--minna-primary);
+        }
+
+        .form-control {
+            min-height: 3rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.72rem;
+            color: var(--minna-text);
+            background: #fffafb;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-control:focus {
+            border-color: var(--minna-secondary);
+            box-shadow: 0 0 0 0.2rem rgba(195, 41, 98, 0.13);
+        }
+
+        .contact-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 3rem;
+            padding: 0.7rem 1.1rem;
+            border: 0;
+            border-radius: 0.72rem;
+            color: #fff;
+            background: linear-gradient(
+                135deg,
+                var(--uic-burgundy),
+                var(--uic-rose)
+            );
+            box-shadow: 0 0.5rem 1.2rem rgba(195, 41, 98, 0.22);
+            font-weight: 900;
+        }
+
+        .contact-submit:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .form-privacy-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            margin-top: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.72rem;
+            line-height: 1.55;
+        }
+
+        .form-privacy-note i {
+            margin-top: 0.15rem;
+            color: var(--minna-primary);
+        }
+
+        .form-status {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.8rem 0.9rem;
+            border-radius: 0.7rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            line-height: 1.55;
+        }
+
+        .form-status.is-visible {
+            display: block;
+        }
+
+        .form-status.is-success {
+            color: #176347;
+            background: #eaf8f3;
+        }
+
+        .form-status.is-error {
+            color: #8d2439;
+            background: #fff0f3;
+        }
+
+        /* Institutional panel */
+        .institutional-heading {
+            padding: 1.5rem;
+            color: #fff;
+            background:
+                radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.13), transparent 25%),
+                linear-gradient(135deg, var(--uic-burgundy), var(--uic-rose));
+        }
+
+        .institutional-heading .section-kicker {
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .institutional-heading h3 {
+            margin-bottom: 0.45rem;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .institutional-heading p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.80);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .institutional-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .institutional-item {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 0.8rem;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--minna-border);
+        }
+
+        .institutional-item:last-child {
+            border-bottom: 0;
+        }
+
+        .institutional-item-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 0.7rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+        }
+
+        .institutional-item-label {
+            display: block;
+            margin-bottom: 0.18rem;
+            color: #9d7c88;
+            font-size: 0.67rem;
+            font-weight: 900;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .institutional-item strong,
+        .institutional-item a {
+            color: var(--minna-dark);
+            font-size: 0.86rem;
+            font-weight: 900;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .institutional-item a:hover {
+            color: var(--minna-primary);
+        }
+
+        .institutional-source {
+            padding: 1rem 1.2rem;
+            border-top: 1px solid var(--minna-border);
+            color: var(--minna-muted);
+            background: #fffafb;
+            font-size: 0.72rem;
+            line-height: 1.55;
+        }
+
+        .institutional-source a {
+            color: var(--minna-primary);
+            font-weight: 900;
+        }
+
+        /* Inquiry guidance */
+        .guidance-section {
+            padding: 4.8rem 0;
+            background: #fff;
+        }
+
+        .guidance-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.9rem;
+            margin-top: 1.6rem;
+        }
+
+        .guidance-item {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 0.8rem;
+            padding: 1rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.85rem;
+            background: #fffafb;
+        }
+
+        .guidance-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 0.7rem;
+            color: #fff;
+            background: linear-gradient(
+                135deg,
+                var(--uic-burgundy),
+                var(--uic-rose)
+            );
+            font-size: 0.78rem;
+            font-weight: 900;
+        }
+
+        .guidance-item h3 {
+            margin-bottom: 0.25rem;
+            color: var(--minna-dark);
+            font-size: 0.92rem;
+            font-weight: 900;
+        }
+
+        .guidance-item p {
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .contact-cta {
+            padding: 4.8rem 0;
+            color: #fff;
+            text-align: center;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(242, 154, 179, 0.32), transparent 25%),
+                linear-gradient(135deg, #4f1730, #b52d60);
+        }
+
+        .contact-cta h2 {
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            font-size: clamp(1.9rem, 3vw, 2.75rem);
+            font-weight: 900;
+            letter-spacing: -0.035em;
+        }
+
+        .contact-cta p {
+            max-width: 790px;
+            margin: 0 auto 1.7rem;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.8;
+        }
+
+        .contact-cta .btn {
+            margin: 0.25rem;
+            border-radius: 0.7rem;
+            font-weight: 900;
+        }
+
+        /* Footer */
+        .sticky-footer {
+            border-top: 1px solid var(--minna-border);
         }
 
         .scroll-to-top {
-            background-color: #224abe;
-            border-radius: 50%;
-            color: white;
+            background: var(--minna-primary);
         }
 
-        .scroll-to-top:hover {
-            background-color: #2e59d9;
-        }
-        /* Carousel customization */
-        .carousel-item {
-            height: 500px; /* Set your desired height */
-            transition: transform 1s ease, opacity 1s ease;
-        }
-
-        .carousel-item img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-
-        /* Fade effect for carousel */
-        .carousel-fade .carousel-item {
+        .reveal {
             opacity: 0;
-            transition: opacity 1s ease;
+            transform: translateY(18px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
         }
 
-        .carousel-fade .carousel-item.active {
+        .reveal.is-visible {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .carousel-fade .carousel-item-next.carousel-item-left,
-        .carousel-fade .carousel-item-prev.carousel-item-right {
-            opacity: 0;
-        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
 
-        .carousel-fade .carousel-item-next,
-        .carousel-fade .carousel-item-prev,
-        .carousel-fade .carousel-item.active.carousel-item-left,
-        .carousel-fade .carousel-item.active.carousel-item-right {
-            opacity: 1;
-        }
-         /* Responsive adjustments */
-         @media (max-width: 768px) {
-            .carousel-item {
-                height: 300px; /* Adjust height for smaller screens */
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
             }
         }
 
-        @media (max-width: 576px) {
-            .carousel-item {
-                height: 200px; /* Adjust height for extra small screens */
+        @media (min-width: 1200px) {
+            .site-navbar .dropdown:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .site-navbar .dropdown-menu {
+                top: calc(100% - 0.1rem);
+            }
+
+            .site-navbar .nav-item.active > .nav-link::after {
+                content: "";
+                position: absolute;
+                right: 0.8rem;
+                bottom: 0.28rem;
+                left: 0.8rem;
+                height: 3px;
+                border-radius: 999px;
+                background: var(--uic-rose);
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .site-navbar {
+                padding-top: 0.55rem;
+                padding-bottom: 0.55rem;
+            }
+
+            .site-navbar .navbar-collapse {
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+                padding: 1rem 0 0.35rem;
+            }
+
+            .site-navbar .navbar-nav {
+                align-items: stretch !important;
+                gap: 0.2rem;
+            }
+
+            .site-navbar .nav-link {
+                padding: 0.75rem !important;
+            }
+
+            .site-navbar .dropdown-menu {
+                margin-top: 0.15rem;
+                margin-bottom: 0.35rem;
+                border: 0;
+                box-shadow: none !important;
+                background: #fff9fb;
+            }
+
+            .nav-cta {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .contact-channel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 4rem 0;
+            }
+
+            .section-wrap,
+            .contact-channels-section,
+            .guidance-section,
+            .contact-cta {
+                padding: 3.7rem 0;
+            }
+
+            .guidance-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-brand-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .navbar-brand-copy strong {
+                font-size: 0.92rem;
+            }
+
+            .navbar-brand-copy small {
+                font-size: 0.62rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
             }
         }
     </style>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-BZRJP33YFX');
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX">
     </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-BZRJP33YFX");
+    </script>
+
+    <!-- MinNa Website Agent -->
+    <link rel="stylesheet"
+          href="/agent/minna-agent.css">
 </head>
 
 <body id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <nav class="navbar navbar-expand-xl navbar-light site-navbar sticky-top"
+         aria-label="Primary navigation">
+        <div class="container-fluid px-3 px-lg-5">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">MinNa LProc R&D Lab</div>
+            <a class="navbar-brand d-flex align-items-center"
+               href="index.html">
+                <img src="minna_round_logo.png"
+                     class="navbar-brand-logo"
+                     alt="MinNa LProc logo">
+                <span class="navbar-brand-copy">
+                    <strong>MinNa LProc</strong>
+                    <small>R&amp;D Lab</small>
+                </span>
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#mainNavigation"
+                    aria-controls="mainNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class='fas fa-home'></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class='fas fa-file-alt'></i>
-                    <span>News and Activities</span>
-                </a>
-            </li>
+            <div class="collapse navbar-collapse"
+                 id="mainNavigation">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <ul class="navbar-nav ml-auto align-items-xl-center">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                PROJECTS and Publications
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="homeDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-home nav-icon"></i>
+                            Home
+                        </a>
+
+                        <div class="dropdown-menu shadow"
+                             aria-labelledby="homeDropdown">
+                            <a class="dropdown-item"
+                               href="index.html">
+                                <i class="fas fa-home dropdown-icon"></i>
+                                Home
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="about/about.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Vision and Mission
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="projects/featuredprojects.html">
+                            <i class="fas fa-lightbulb nav-icon"></i>
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="publications.html">
+                            <i class="fas fa-book-open nav-icon"></i>
+                            Publications
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="researchersDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-user-friends nav-icon"></i>
+                            Researchers
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow"
+                             aria-labelledby="researchersDropdown">
+                            <a class="dropdown-item"
+                               href="people/faculties.html">
+                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
+                                Faculties
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/gradstudents.html">
+                                <i class="fas fa-user-graduate dropdown-icon"></i>
+                                Graduate Students
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/undergradstudents.html">
+                                <i class="fas fa-users dropdown-icon"></i>
+                                Undergraduate Students
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="communitiesDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-hands-helping nav-icon"></i>
+                            Communities
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow"
+                             aria-labelledby="communitiesDropdown">
+                            <h6 class="dropdown-header">
+                                Language Communities
+                            </h6>
+
+                            <a class="dropdown-item"
+                               href="people/kagan.html">
+                                Kagan
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/manobo.html">
+                                Manobo
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/mansaka.html">
+                                Mansaka
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="resourcesDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-folder-open nav-icon"></i>
+                            Resources
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow resource-dropdown"
+                             aria-labelledby="resourcesDropdown">
+                            <h6 class="dropdown-header">
+                                Language Tools
+                            </h6>
+
+                            <a class="dropdown-item"
+                               href="https://www.iwag.info/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-language dropdown-icon"></i>
+                                Translation Tool
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-tools dropdown-icon"></i>
+                                Cebuano NLTK
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">
+                                Parallel Corpora
+                            </h6>
+
+                            <a class="dropdown-item"
+                               href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Filipino–Cebuano
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/kagan.html">
+                                Cebuano–Kagan
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/manobo.html">
+                                Cebuano–Manobo
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link"
+                           href="contact.html"
+                           aria-current="page">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
+                        <a class="btn nav-cta"
+                           href="#contactForm">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send a Message
+                        </a>
+                    </li>
+
+                </ul>
             </div>
+        </div>
+    </nav>
 
-            <!-- Nav Item - Funded Projects -->
-            <li class="nav-item">
-                <a class="nav-link" href="./projects/fundedprojects.html">
-                    <i class="fas fa-book-open"></i>
-                    <span>Funded Projects</span>
-                </a>
-            </li>
+    <div id="wrapper"
+         class="d-block w-100">
+        <div id="content-wrapper"
+             class="d-flex flex-column w-100">
+            <div id="content"
+                 class="w-100">
 
-            <!-- Nav Item - Publications -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnGoing" aria-expanded="true" aria-controls="collapseOnGoing">
-                    <i class="fas fa-book-open"></i>
-                    <span>Publications</span>
-                </a>
-            </li>
+                <main>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                   
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Researchers and Developers
-            </div>
+                    <section id="contactForm"
+                             class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
 
-            <!-- Nav Item - Faculties -->
-            <li class="nav-item">
-                <a class="nav-link" href="./people/faculties.html">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Faculties</span>
-                </a>
-            </li>
+                            <div class="section-kicker">
+                                Send an Inquiry
+                            </div>
 
-            <!-- Nav Item - Graduate Students -->
-            <li class="nav-item">
-                <a class="nav-link" href="./people/gradstudents.html">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Graduate Students</span>
-                </a>
-            </li>
+                            <h2 class="section-title">
+                                Tell us how MinNa may connect with your work
+                            </h2>
 
-            <!-- Nav Item - Undergrad Students -->
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fas fa-user-friends"></i>
-                    <span>Undergrad Students</span>
-                </a>
-            </li>
+                            <p class="section-copy">
+                                Complete the form to prepare an email addressed
+                                to the laboratory. The website will open your
+                                default email application with the information
+                                you provide.
+                            </p>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                            <div class="contact-layout">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Tools and Resources
-            </div>
+                                <section class="contact-form-panel reveal"
+                                         aria-labelledby="contactFormHeading">
 
-            <!-- Nav Item - Tools -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTools" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Tools</span>
-                </a>
-            </li>
+                                    <div class="panel-heading">
+                                        <h3 id="contactFormHeading">
+                                            Contact form
+                                        </h3>
 
-            <!-- Nav Item - Resources -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Resources</span>
-                </a>
-            </li>
+                                        <p>
+                                            Required fields are marked with an
+                                            asterisk.
+                                        </p>
+                                    </div>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+                                    <form id="minnaContactForm"
+                                          novalidate>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+                                        <div class="row">
 
-        </ul>
-        <!-- End of Sidebar -->
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label"
+                                                       for="contactName">
+                                                    Full name
+                                                    <span class="required-mark">*</span>
+                                                </label>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+                                                <input id="contactName"
+                                                       name="name"
+                                                       type="text"
+                                                       class="form-control"
+                                                       maxlength="120"
+                                                       autocomplete="name"
+                                                       required>
+                                            </div>
 
-            <!-- Main Content -->
-            <div id="content">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label"
+                                                       for="contactEmail">
+                                                    Email address
+                                                    <span class="required-mark">*</span>
+                                                </label>
 
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                                                <input id="contactEmail"
+                                                       name="email"
+                                                       type="email"
+                                                       class="form-control"
+                                                       maxlength="160"
+                                                       autocomplete="email"
+                                                       required>
+                                            </div>
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label"
+                                                       for="contactOrganization">
+                                                    Organization or institution
+                                                </label>
 
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
+                                                <input id="contactOrganization"
+                                                       name="organization"
+                                                       type="text"
+                                                       class="form-control"
+                                                       maxlength="160"
+                                                       autocomplete="organization">
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label"
+                                                       for="contactSubject">
+                                                    Inquiry type
+                                                    <span class="required-mark">*</span>
+                                                </label>
+
+                                                <select id="contactSubject"
+                                                        name="subject"
+                                                        class="form-control"
+                                                        required>
+                                                    <option value=""
+                                                            selected
+                                                            disabled>
+                                                        Select an inquiry type
+                                                    </option>
+                                                    <option value="General Inquiry">
+                                                        General Inquiry
+                                                    </option>
+                                                    <option value="Research Collaboration">
+                                                        Research Collaboration
+                                                    </option>
+                                                    <option value="Language Resources and Community Partnership">
+                                                        Language Resources and Community Partnership
+                                                    </option>
+                                                    <option value="Student Research and Engagement">
+                                                        Student Research and Engagement
+                                                    </option>
+                                                    <option value="Speaking Invitation or Event">
+                                                        Speaking Invitation or Event
+                                                    </option>
+                                                    <option value="Technical or Website Concern">
+                                                        Technical or Website Concern
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-12 mb-3">
+                                                <label class="form-label"
+                                                       for="contactMessage">
+                                                    Message
+                                                    <span class="required-mark">*</span>
+                                                </label>
+
+                                                <textarea id="contactMessage"
+                                                          name="message"
+                                                          class="form-control"
+                                                          maxlength="3000"
+                                                          required
+                                                          placeholder="Briefly describe your inquiry, proposed collaboration, requested resource, or concern."></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <button type="submit"
+                                                class="contact-submit">
+                                            <i class="fas fa-paper-plane"></i>
+                                            Prepare Email
+                                        </button>
+
+                                        <div class="form-privacy-note">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>
+                                                This form does not store or submit
+                                                information to the website. It prepares
+                                                a message in your email application.
+                                            </span>
+                                        </div>
+
+                                        <div id="contactFormStatus"
+                                             class="form-status"
+                                             role="status"
+                                             aria-live="polite">
+                                        </div>
+
+                                    </form>
+                                </section>
+
+                                <aside class="contact-information-panel reveal"
+                                       aria-labelledby="institutionalContactHeading">
+
+                                    <div class="institutional-heading">
+                                        <h3 id="institutionalContactHeading">
+                                            Mindanao Natural Language Processing Research and Development Laboratory
+                                        </h3>
+
+                                        <p>
+                                            For general Inquiries.
+                                        </p>
+                                    </div>
+
+                                    <div class="institutional-list">
+
+                                        <div class="institutional-item">
+                                            <div class="institutional-item-icon">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+
+                                            <div>
+                                                <span class="institutional-item-label">
+                                                    3rd Floor, Immaculate Conception Building,
+                                                    Fr. Selga Campus
+                                                </span>
+                                                <strong>
+                                                    Fr. Selga St., Davao City
+                                                </strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="institutional-item">
+                                            <div class="institutional-item-icon">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
+
+                                            <div>
+                                                <span class="institutional-item-label">
+                                                    Telephone
+                                                </span>
+                                                <a href="#">
+                                                    221-8181 loc 176
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="institutional-item">
+                                            <div class="institutional-item-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+
+                                            <div>
+                                                <span class="institutional-item-label">
+                                                    Email
+                                                </span>
+                                                <a href="mailto:minna@uic.edu.ph">
+                                                    minna@uic.edu.ph
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="institutional-item">
+                                            <div class="institutional-item-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+
+                                            <div>
+                                                <span class="institutional-item-label">
+                                                    University Website
+                                                </span>
+                                                <a href="https://minna-lproc.github.io/"
+                                                   target="_blank"
+                                                   rel="noopener noreferrer">
+                                                    minna-lproc.github.io
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </aside>
+
                             </div>
                         </div>
-                    </form>
-                </nav>
+                    </section>
 
-                <!-- Image Carousel -->
-                <div class="row gy-4">
+                   
 
-                    <div class="col-xl-6">
-            
-                      <div class="row">
-                        <div class="col-lg-6">
-                          <div class="info-box card">
-                            <i class="bi bi-geo-alt"></i>
-                            <h3>Address</h3>
-                            <p>A108 Adam Street,<br>New York, NY 535022</p>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="info-box card">
-                            <i class="bi bi-telephone"></i>
-                            <h3>Call Us</h3>
-                            <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="info-box card">
-                            <i class="bi bi-envelope"></i>
-                            <h3>Email Us</h3>
-                            <p>info@example.com<br>contact@example.com</p>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="info-box card">
-                            <i class="bi bi-clock"></i>
-                            <h3>Open Hours</h3>
-                            <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-                          </div>
-                        </div>
-                      </div>
-            
-                    </div>
-            
-                    <div class="col-xl-6">
-                      <div class="card p-4">
-                        <form action="forms/contact.php" method="post" class="php-email-form">
-                          <div class="row gy-4">
-            
-                            <div class="col-md-6">
-                              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                            </div>
-            
-                            <div class="col-md-6 ">
-                              <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                            </div>
-            
-                            <div class="col-md-12">
-                              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                            </div>
-            
-                            <div class="col-md-12">
-                              <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                            </div>
-            
-                            <div class="col-md-12 text-center">
-                              <div class="loading">Loading</div>
-                              <div class="error-message"></div>
-                              <div class="sent-message">Your message has been sent. Thank you!</div>
-            
-                              <button type="submit">Send Message</button>
-                            </div>
-            
-                          </div>
-                        </form>
-                      </div>
-            
-                    </div>
-            
-                  </div>
+                </main>
 
-                <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; MinNa LProc R&D Lab 2021</span>
+                            <span>
+                                &copy; <span id="currentYear"></span>
+                                MinNa LProc R&amp;D Lab. All rights reserved.
+                            </span>
                         </div>
                     </div>
                 </footer>
-                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
-
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Bootstrap core JavaScript-->
+    <a class="scroll-to-top rounded"
+       href="#page-top"
+       aria-label="Back to top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        const contactForm =
+            document.getElementById("minnaContactForm");
 
-<script src="js/chatbot.js"></script>
+        const contactStatus =
+            document.getElementById("contactFormStatus");
+
+        function setContactStatus(message, type) {
+            contactStatus.textContent = message;
+            contactStatus.className =
+                "form-status is-visible " +
+                (type === "success"
+                    ? "is-success"
+                    : "is-error");
+        }
+
+        contactForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.classList.add("was-validated");
+
+                setContactStatus(
+                    "Please complete all required fields using a valid email address.",
+                    "error"
+                );
+
+                const firstInvalid =
+                    contactForm.querySelector(":invalid");
+
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                }
+
+                return;
+            }
+
+            const formData =
+                new FormData(contactForm);
+
+            const name =
+                String(formData.get("name") || "").trim();
+
+            const email =
+                String(formData.get("email") || "").trim();
+
+            const organization =
+                String(formData.get("organization") || "").trim();
+
+            const subject =
+                String(formData.get("subject") || "").trim();
+
+            const message =
+                String(formData.get("message") || "").trim();
+
+            const emailSubject =
+                `[MinNa Website] ${subject}`;
+
+            const emailBody = [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                `Organization/Institution: ${organization || "Not provided"}`,
+                `Inquiry Type: ${subject}`,
+                "",
+                "Message:",
+                message
+            ].join("\n");
+
+            const mailtoUrl =
+                "mailto:minna@uic.edu.ph" +
+                `?subject=${encodeURIComponent(emailSubject)}` +
+                `&body=${encodeURIComponent(emailBody)}`;
+
+            setContactStatus(
+                "Your email application is being opened with the message you prepared.",
+                "success"
+            );
+
+            window.location.href = mailtoUrl;
+        });
+
+        const revealItems =
+            document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+            const revealObserver =
+                new IntersectionObserver(
+                    entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add(
+                                    "is-visible"
+                                );
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+            revealItems.forEach(item =>
+                revealObserver.observe(item)
+            );
+        } else {
+            revealItems.forEach(item =>
+                item.classList.add("is-visible")
+            );
+        }
+    </script>
+
+    <!-- MinNa Website Agent -->
+    <script src="/agent/agent-config.js"></script>
+    <script src="/agent/minna-agent.js"
+            defer></script>
 </body>
 
 </html>

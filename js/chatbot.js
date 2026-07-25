@@ -86,6 +86,10 @@
         return keywords.some(keyword => text.includes(keyword));
     }
 
+    function normalizeText(text) {
+        return text.toLowerCase().trim();
+    }
+
     function detectLanguage(text) {
         const tagalogKeywords = ['kumusta', 'kamusta', 'magandang', 'paano', 'saan', 'ano', 'anong', 'tungkol', 'tulong', 'salamat', 'mga', 'proyekto', 'publikasyon', 'komunidad', 'kontak'];
         const cebuanoKeywords = ['unsa', 'asa', 'maayong', 'salamat', 'tabang', 'kinsa', 'kanus-a', 'unsa man', 'komunidad', 'publikasyon', 'proyekto', 'kontak'];
@@ -101,8 +105,111 @@
         return 'english';
     }
 
+    function getMatchedIntents(text) {
+        const normalized = normalizeText(text);
+        const intents = [];
+
+        if (/(hello|hi|hey|good (morning|afternoon|evening)|kumusta|kamusta|maayong|magandang araw)/.test(normalized)) {
+            intents.push('greeting');
+        }
+
+        if (/(what does the lab do|what is the lab|about the lab|research|focus|purpose|who are you|what is minna|tungkol|ano ang lab|unsa ang lab|unsa ka|unsa ang minna|what is this lab)/.test(normalized)) {
+            intents.push('about');
+        }
+
+        if (/(project|projects|featured projects|show me projects|show projects|proyekto|mga proyekto|project page)/.test(normalized)) {
+            intents.push('projects');
+        }
+
+        if (/(publication|publications|paper|papers|article|articles|read publications|publikasyon|papel|where can i read|where can i find publications)/.test(normalized)) {
+            intents.push('publications');
+        }
+
+        if (/(contact|reach|email|get in touch|how do i contact|kontak|tulong|email|talk to you)/.test(normalized)) {
+            intents.push('contact');
+        }
+
+        if (/(researcher|researchers|faculty|student|people|staff|who works|mga mananaliksik|estudyante|mga tao|members)/.test(normalized)) {
+            intents.push('researchers');
+        }
+
+        if (/(community|communities|kagan|manobo|mansaka|komunidad|community page)/.test(normalized)) {
+            intents.push('communities');
+        }
+
+        if (/(thank|thanks|salamat|daghang salamat)/.test(normalized)) {
+            intents.push('thanks');
+        }
+
+        return intents;
+    }
+
+    function getGreetingReply(language) {
+        return language === 'tagalog'
+            ? 'Kumusta! Makakatulong ako sa pag-explore ng MinNa LProc, mga proyekto, publikasyon, researchers, at mga community pages.'
+            : language === 'cebuano'
+                ? 'Kumusta! Makahatag ako og tabang sa pag-explore sa MinNa LProc, mga proyekto, publikasyon, researchers, ug mga community pages.'
+                : 'Hello! I can help you explore MinNa LProc, its projects, publications, researchers, and community pages.';
+    }
+
+    function getAboutReply(language) {
+        return language === 'tagalog'
+            ? 'Ang MinNa LProc ay nag-aaral ng natural language processing, language resources, at responsible AI para sa mga wika sa Pilipinas at low-resource languages, lalo na sa mga komunidad sa Mindanao.'
+            : language === 'cebuano'
+                ? 'Ang MinNa LProc nagtuon sa natural language processing, language resources, ug responsible AI para sa mga pinulongan sa Pilipinas ug low-resource languages, ilabina sa mga komunidad sa Mindanao.'
+                : 'MinNa LProc researches natural language processing, language resources, and responsible AI for Philippine and low-resource languages, with a strong focus on Mindanao communities.';
+    }
+
+    function getProjectsReply(language) {
+        return language === 'tagalog'
+            ? 'Pwede kang mag-browse sa featured projects dito: <a href="' + getRelativePath(maybeLinks.projects) + '" target="_blank" rel="noopener noreferrer">Featured projects</a>.'
+            : language === 'cebuano'
+                ? 'Pwede ka mag-browse sa featured projects dinhi: <a href="' + getRelativePath(maybeLinks.projects) + '" target="_blank" rel="noopener noreferrer">Featured projects</a>.'
+                : 'You can browse the featured projects here: <a href="' + getRelativePath(maybeLinks.projects) + '" target="_blank" rel="noopener noreferrer">Featured projects</a>.';
+    }
+
+    function getPublicationsReply(language) {
+        return language === 'tagalog'
+            ? 'Ang publikasyon ay narito: <a href="' + getRelativePath(maybeLinks.publications) + '" target="_blank" rel="noopener noreferrer">Publications</a>.'
+            : language === 'cebuano'
+                ? 'Ang publikasyon anaa dinhi: <a href="' + getRelativePath(maybeLinks.publications) + '" target="_blank" rel="noopener noreferrer">Publications</a>.'
+                : 'The publications page is here: <a href="' + getRelativePath(maybeLinks.publications) + '" target="_blank" rel="noopener noreferrer">Publications</a>.';
+    }
+
+    function getContactReply(language) {
+        return language === 'tagalog'
+            ? 'Pwede kang makipag-ugnayan sa lab sa contact page: <a href="' + getRelativePath(maybeLinks.contact) + '" target="_blank" rel="noopener noreferrer">Contact us</a>.'
+            : language === 'cebuano'
+                ? 'Pwede ka maka-contact sa lab sa contact page: <a href="' + getRelativePath(maybeLinks.contact) + '" target="_blank" rel="noopener noreferrer">Contact us</a>.'
+                : 'You can reach the lab through the contact page: <a href="' + getRelativePath(maybeLinks.contact) + '" target="_blank" rel="noopener noreferrer">Contact us</a>.';
+    }
+
+    function getResearchersReply(language) {
+        return language === 'tagalog'
+            ? 'Pwede kang mag-explore sa mga people pages dito: <a href="' + getRelativePath(maybeLinks.researchers) + '" target="_blank" rel="noopener noreferrer">Researchers</a>.'
+            : language === 'cebuano'
+                ? 'Pwede ka mag-explore sa mga people pages dinhi: <a href="' + getRelativePath(maybeLinks.researchers) + '" target="_blank" rel="noopener noreferrer">Researchers</a>.'
+                : 'You can explore the people pages here: <a href="' + getRelativePath(maybeLinks.researchers) + '" target="_blank" rel="noopener noreferrer">Researchers</a>.';
+    }
+
+    function getCommunitiesReply(language) {
+        return language === 'tagalog'
+            ? 'Ang community pages ay nagpapakita ng mga komunidad at dokumentasyon. Simulan sa Kagan page: <a href="' + getRelativePath(maybeLinks.communities) + '" target="_blank" rel="noopener noreferrer">Communities</a>.'
+            : language === 'cebuano'
+                ? 'Ang community pages nagpakita sa mga komunidad ug dokumentasyon. Sugdi sa Kagan page: <a href="' + getRelativePath(maybeLinks.communities) + '" target="_blank" rel="noopener noreferrer">Communities</a>.'
+                : 'The community pages highlight language communities and related documentation work. Start with the Kagan page: <a href="' + getRelativePath(maybeLinks.communities) + '" target="_blank" rel="noopener noreferrer">Communities</a>.';
+    }
+
+    function getThanksReply(language) {
+        return language === 'tagalog'
+            ? 'Walang anuman. Nandito ako para tulungan ka sa pag-explore sa site.'
+            : language === 'cebuano'
+                ? 'Walay sapayan. Ania ko aron matabangan ka sa pag-explore sa site.'
+                : 'You are welcome. I am here to help you explore the site.';
+    }
+
     function createReply(inputText) {
-        const text = inputText.toLowerCase().trim();
+        const text = normalizeText(inputText);
         const language = detectLanguage(text);
 
         if (!text) {
@@ -115,84 +222,45 @@
             return 'Please type a question so I can help you explore the site.';
         }
 
-        const greeting = language === 'tagalog'
-            ? 'Kumusta! Makakatulong ako sa pag-explore ng MinNa LProc, mga proyekto, publikasyon, researchers, at mga community pages.'
-            : language === 'cebuano'
-                ? 'Kumusta! Makahatag ako og tabang sa pag-explore sa MinNa LProc, mga proyekto, publikasyon, researchers, ug mga community pages.'
-                : 'Hello! I can help you explore MinNa LProc, its projects, publications, researchers, and community pages.';
+        const intents = getMatchedIntents(text);
 
-        if (containsAny(text, ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'kumusta', 'kamusta', 'maayong buntag', 'maayong hapon', 'maayong gabie', 'magandang araw']) ) {
-            return greeting;
+        if (intents.includes('thanks')) {
+            return getThanksReply(language);
         }
 
-        const about = language === 'tagalog'
-            ? 'Ang MinNa LProc ay nag-aaral ng natural language processing, language resources, at responsible AI para sa mga wika sa Pilipinas at low-resource languages, lalo na sa mga komunidad sa Mindanao.'
-            : language === 'cebuano'
-                ? 'Ang MinNa LProc nagtuon sa natural language processing, language resources, ug responsible AI para sa mga pinulongan sa Pilipinas ug low-resource languages, ilabina sa mga komunidad sa Mindanao.'
-                : 'MinNa LProc researches natural language processing, language resources, and responsible AI for Philippine and low-resource languages, with a strong focus on Mindanao communities.';
-
-        if (containsAny(text, ['what does the lab do', 'research', 'focus', 'about', 'tungkol', 'ano ang', 'unsa ang', 'unsa ka', 'lab', 'ano ang lab']) ) {
-            return about;
+        const replyParts = [];
+        if (intents.includes('greeting')) {
+            replyParts.push(getGreetingReply(language));
+        }
+        if (intents.includes('about')) {
+            replyParts.push(getAboutReply(language));
+        }
+        if (intents.includes('projects')) {
+            replyParts.push(getProjectsReply(language));
+        }
+        if (intents.includes('publications')) {
+            replyParts.push(getPublicationsReply(language));
+        }
+        if (intents.includes('contact')) {
+            replyParts.push(getContactReply(language));
+        }
+        if (intents.includes('researchers')) {
+            replyParts.push(getResearchersReply(language));
+        }
+        if (intents.includes('communities')) {
+            replyParts.push(getCommunitiesReply(language));
         }
 
-        const projects = language === 'tagalog'
-            ? 'Pwede kang mag-browse sa featured projects dito: <a href="' + getRelativePath(maybeLinks.projects) + '" target="_blank" rel="noopener noreferrer">Featured projects</a>.'
-            : language === 'cebuano'
-                ? 'Pwede ka mag-browse sa featured projects dinhi: <a href="' + getRelativePath(maybeLinks.projects) + '" target="_blank" rel="noopener noreferrer">Featured projects</a>.'
-                : 'You can browse the featured projects here: <a href="' + getRelativePath(maybeLinks.projects) + '" target="_blank" rel="noopener noreferrer">Featured projects</a>.';
-
-        if (containsAny(text, ['project', 'projects', 'proyekto', 'proyekto']) ) {
-            return projects;
+        if (replyParts.length > 0) {
+            return replyParts.join(' ');
         }
 
-        const publications = language === 'tagalog'
-            ? 'Ang publikasyon ay narito: <a href="' + getRelativePath(maybeLinks.publications) + '" target="_blank" rel="noopener noreferrer">Publications</a>.'
-            : language === 'cebuano'
-                ? 'Ang publikasyon anaa dinhi: <a href="' + getRelativePath(maybeLinks.publications) + '" target="_blank" rel="noopener noreferrer">Publications</a>.'
-                : 'The publications page is here: <a href="' + getRelativePath(maybeLinks.publications) + '" target="_blank" rel="noopener noreferrer">Publications</a>.';
-
-        if (containsAny(text, ['publication', 'publications', 'paper', 'papers', 'publikasyon', 'papel']) ) {
-            return publications;
-        }
-
-        const contact = language === 'tagalog'
-            ? 'Pwede kang makipag-ugnayan sa lab sa contact page: <a href="' + getRelativePath(maybeLinks.contact) + '" target="_blank" rel="noopener noreferrer">Contact us</a>.'
-            : language === 'cebuano'
-                ? 'Pwede ka maka-contact sa lab sa contact page: <a href="' + getRelativePath(maybeLinks.contact) + '" target="_blank" rel="noopener noreferrer">Contact us</a>.'
-                : 'You can reach the lab through the contact page: <a href="' + getRelativePath(maybeLinks.contact) + '" target="_blank" rel="noopener noreferrer">Contact us</a>.';
-
-        if (containsAny(text, ['contact', 'reach', 'email', 'help', 'kontak', 'tulong', 'email']) ) {
-            return contact;
-        }
-
-        const researchers = language === 'tagalog'
-            ? 'Pwede kang mag-explore sa mga people pages dito: <a href="' + getRelativePath(maybeLinks.researchers) + '" target="_blank" rel="noopener noreferrer">Researchers</a>.'
-            : language === 'cebuano'
-                ? 'Pwede ka mag-explore sa mga people pages dinhi: <a href="' + getRelativePath(maybeLinks.researchers) + '" target="_blank" rel="noopener noreferrer">Researchers</a>.'
-                : 'You can explore the people pages here: <a href="' + getRelativePath(maybeLinks.researchers) + '" target="_blank" rel="noopener noreferrer">Researchers</a>.';
-
-        if (containsAny(text, ['researcher', 'researchers', 'faculty', 'student', 'researcher', 'mga mananaliksik', 'estudyante']) ) {
-            return researchers;
-        }
-
-        const communities = language === 'tagalog'
-            ? 'Ang community pages ay nagpapakita ng mga komunidad at dokumentasyon. Simulan sa Kagan page: <a href="' + getRelativePath(maybeLinks.communities) + '" target="_blank" rel="noopener noreferrer">Communities</a>.'
-            : language === 'cebuano'
-                ? 'Ang community pages nagpakita sa mga komunidad ug dokumentasyon. Sugdi sa Kagan page: <a href="' + getRelativePath(maybeLinks.communities) + '" target="_blank" rel="noopener noreferrer">Communities</a>.'
-                : 'The community pages highlight language communities and related documentation work. Start with the Kagan page: <a href="' + getRelativePath(maybeLinks.communities) + '" target="_blank" rel="noopener noreferrer">Communities</a>.';
-
-        if (containsAny(text, ['community', 'communities', 'kagan', 'manobo', 'mansaka', 'komunidad', 'komunidad']) ) {
-            return communities;
-        }
-
-        const thanks = language === 'tagalog'
-            ? 'Walang anuman. Nandito ako para tulungan ka sa pag-explore sa site.'
-            : language === 'cebuano'
-                ? 'Walay sapayan. Ania ko aron matabangan ka sa pag-explore sa site.'
-                : 'You are welcome. I am here to help you explore the site.';
-
-        if (containsAny(text, ['thank', 'thanks', 'salamat', 'daghang salamat']) ) {
-            return thanks;
+        if (/(can you|could you|help me|site|website|browse|find)/.test(text)) {
+            return language === 'tagalog'
+                ? 'Pwede ko kayong tulungan sa lab overview, featured projects, publikasyon, researchers, communities, at contact info. Sabihin mo lang ang gusto mong hanapin.'
+                : language === 'cebuano'
+                    ? 'Makatabang ko sa lab overview, featured projects, publikasyon, researchers, communities, ug contact info. Ibutang lang ang gusto nimo nga pangita.'
+                    : 'I can help with the lab overview, featured projects, publications, researchers, communities, and contact information. Just tell me what you want to find.';
         }
 
         if (language === 'tagalog') {
