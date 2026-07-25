@@ -169,12 +169,39 @@
         }
 
         .stats-card {
+            position: relative;
             height: 100%;
+            overflow: hidden;
             padding: 1.35rem;
             border: 1px solid var(--minna-border);
             border-radius: 1rem;
             background: white;
             box-shadow: 0 0.8rem 2rem rgba(31, 51, 105, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .stats-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 72px;
+            height: 72px;
+            border-radius: 0 0 0 100%;
+            background: linear-gradient(135deg, rgba(78, 115, 223, 0.10), rgba(54, 185, 204, 0.16));
+        }
+
+        .stats-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 1rem 2.5rem rgba(31, 51, 105, 0.13);
+        }
+
+        .stat-note {
+            display: block;
+            margin-top: 0.4rem;
+            color: #8a94a8;
+            font-size: 0.75rem;
+            font-weight: 700;
         }
 
         .stat-icon {
@@ -680,6 +707,57 @@
                         </div>
                     </section>
 
+                    <!-- Publication Statistics -->
+                    <section class="stats-strip" aria-label="Publication statistics">
+                        <div class="container-fluid px-4 px-lg-5">
+                            <div class="row">
+                                <div class="col-6 col-xl-3 mb-4">
+                                    <div class="stats-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-book-open"></i>
+                                        </div>
+                                        <p class="stat-value" id="publicationCount">0</p>
+                                        <p class="stat-label">Total Publications</p>
+                                        <span class="stat-note">Research outputs in the collection</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-xl-3 mb-4">
+                                    <div class="stats-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                        <p class="stat-value" id="publicationYearCount">0</p>
+                                        <p class="stat-label">Publication Years</p>
+                                        <span class="stat-note" id="publicationYearRange">—</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-xl-3 mb-4">
+                                    <div class="stats-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-user-friends"></i>
+                                        </div>
+                                        <p class="stat-value" id="coauthorCount">0</p>
+                                        <p class="stat-label">Research Collaborators</p>
+                                        <span class="stat-note">Unique co-authors represented</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-xl-3 mb-4">
+                                    <div class="stats-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-tags"></i>
+                                        </div>
+                                        <p class="stat-value" id="topicCount">0</p>
+                                        <p class="stat-label">Research Topics</p>
+                                        <span class="stat-note">Distinct areas across the publications</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
 
                     <!-- Publications -->
                     <section id="publications" class="section-wrap">
@@ -1070,8 +1148,7 @@
         "Text Classification",
         "Machine Learning",
         "Social Media Analytics",
-        "Quality Assurance",
-        "Higher Education"
+        "Quality Assurance"
     ],
     abstract: "Presents iMosyon, a text-based emotion recognition system designed to analyze Facebook comments and support systemic quality assurance and institutional decision-making in higher education. The study compares machine learning classifiers for recognizing emotions from social media text, with the Support Vector Machine model achieving the highest reported accuracy of 78%. System evaluation also indicated positive user acceptance of its functionality and software quality.",
     officialUrl: "https://dl.acm.org/doi/abs/10.1145/3582099.3582137",
@@ -1108,9 +1185,7 @@
         "Vision–Language Models",
         "Handwriting Recognition",
         "Optical Character Recognition",
-        "Prescription Recognition",
-        "Medical Informatics",
-        "Computer Vision"
+        "Prescription Recognition"
     ],
     abstract: "Benchmarks three open-source vision–language models—olmOCR-7B, Qwen 2.5-VL, and Moondream 2—for recognizing handwritten drug names from prescription images. The models are evaluated using similarity scores, error rates, exact matches, and edit-distance analysis. Results show that olmOCR-7B achieved the most exact matches, Moondream 2 produced fewer structural errors but frequently truncated its predictions, and Qwen 2.5-VL provided a balance between fluent output and character-level accuracy.",
     officialUrl: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/14169/141690K/Benchmarking-visionlanguage-models-for-handwritten-drug-name-recognition/10.1117/12.3109630.short",
@@ -1195,7 +1270,6 @@
         "Artificial Intelligence",
         "Healthcare Technology",
         "Over-the-Counter Medicines",
-        "Clinical Decision Support",
         "Drug Dispensing"
     ],
     abstract: "Presents the development of an artificial intelligence-powered recommender system for an over-the-counter drug dispenser. The content-based approach analyzes user-reported symptoms and medication attributes, including active ingredients and intended symptom relief, to generate suitable OTC medicine recommendations. The system was assessed through intrinsic evaluation to determine the accuracy and effectiveness of its medication suggestions.",
@@ -1460,22 +1534,45 @@
         }
 
         function updateStats() {
-            const years = publications.map(pub => pub.year);
+            const years = publications.map(pub => Number(pub.year));
+            const uniqueYears = new Set(years);
+
             const collaborators = new Set(
-                publications.flatMap(pub => pub.authors)
+                publications
+                    .flatMap(pub => pub.authors)
                     .filter(author => !author.toLowerCase().includes("kristine mae"))
             );
-            const venues = new Set(publications.map(pub => pub.venue));
+
+            const topics = new Set(
+                publications.flatMap(pub => pub.topics)
+            );
 
             const publicationCount = document.getElementById("publicationCount");
-            const yearRange = document.getElementById("yearRange");
+            const publicationYearCount = document.getElementById("publicationYearCount");
+            const publicationYearRange = document.getElementById("publicationYearRange");
             const coauthorCount = document.getElementById("coauthorCount");
-            const venueCount = document.getElementById("venueCount");
+            const topicCount = document.getElementById("topicCount");
 
-            if (publicationCount) publicationCount.textContent = publications.length;
-            if (yearRange) yearRange.textContent = `${Math.min(...years)}–${Math.max(...years)}`;
-            if (coauthorCount) coauthorCount.textContent = collaborators.size;
-            if (venueCount) venueCount.textContent = venues.size;
+            if (publicationCount) {
+                publicationCount.textContent = publications.length;
+            }
+
+            if (publicationYearCount) {
+                publicationYearCount.textContent = uniqueYears.size;
+            }
+
+            if (publicationYearRange && years.length) {
+                publicationYearRange.textContent =
+                    `${Math.min(...years)}–${Math.max(...years)}`;
+            }
+
+            if (coauthorCount) {
+                coauthorCount.textContent = collaborators.size;
+            }
+
+            if (topicCount) {
+                topicCount.textContent = topics.size;
+            }
         }
 
         searchInput.addEventListener("input", event => {
