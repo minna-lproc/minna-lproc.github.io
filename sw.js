@@ -1,4 +1,4 @@
-const CACHE_NAME = 'minna-cache-v1';
+const CACHE_NAME = 'minna-cache-v2';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -7,10 +7,17 @@ const PRECACHE_ASSETS = [
   '/interactive_map.html',
   '/projects/featuredprojects.html',
   '/about/about.html',
+  '/people/faculties.html',
+  '/people/gradstudents.html',
+  '/people/undergradstudents.html',
+  '/people/kagan.html',
+  '/people/manobo.html',
+  '/people/mansaka.html',
   '/offline.html',
   '/manifest.json',
   '/sw.js',
   '/js/sw-register.js',
+  '/js/pwa-install.js',
   '/css/sb-admin-2.min.css',
   '/css/chatbot.css',
   '/vendor/bootstrap/css/bootstrap.min.css',
@@ -39,31 +46,38 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const {request} = event;
+  const isHtmlRequest = request.mode === 'navigate' || (request.method === 'GET' && request.headers.get('accept')?.includes('text/html'));
 
-  // Handle navigation requests with network-first, fallback to cache -> offline page
-  if (request.mode === 'navigate' || (request.method === 'GET' && request.headers.get('accept')?.includes('text/html'))) {
+  if (isHtmlRequest) {
     event.respondWith(
-      fetch(request).then(resp => {
-        const copy = resp.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-        return resp;
-      }).catch(() => caches.match(request).then(match => match || caches.match('/offline.html')))
+      fetch(request)
+        .then(response => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => {
+          return caches.match(request)
+            .then(match => match || caches.match('/index.html'))
+            .then(match => match || caches.match('/offline.html'))
+            .then(match => match || new Response('Offline fallback unavailable', {status: 404, headers: {'Content-Type': 'text/plain'}}));
+        })
     );
     return;
   }
 
-  // For other requests use cache-first then network
   event.respondWith(
-    caches.match(request).then(cacheResp => cacheResp || fetch(request).then(netResp => {
-      // Optionally cache runtime GET requests for same-origin assets
-      if (request.method === 'GET' && request.url.startsWith(self.location.origin)) {
-        const copy = netResp.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-      }
-      return netResp;
-    })).catch(() => {
-      // As a last resort for images/styles/scripts, return nothing
-      return new Response('', {status: 504, statusText: 'Gateway Timeout'});
-    })
+    caches.match(request).then(cacheResp => {
+      if (cacheResp) return cacheResp;
+      return fetch(request).then(netResp => {
+        if (netResp && netResp.ok && request.method === 'GET' && request.url.startsWith(self.location.origin)) {
+          const copy = netResp.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        }
+        return netResp;
+      });
+    }).catch(() => new Response('', {status: 504, statusText: 'Gateway Timeout'}))
   );
 });

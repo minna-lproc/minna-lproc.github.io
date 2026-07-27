@@ -1,44 +1,70 @@
 let deferredPrompt;
+const installBannerId = 'minna-install-banner';
 const installButtonId = 'minna-install-btn';
+const installDismissId = 'minna-install-dismiss';
+
+function createInstallBanner() {
+  if (document.getElementById(installBannerId)) return;
+
+  const banner = document.createElement('div');
+  banner.id = installBannerId;
+  banner.className = 'minna-install-banner';
+  banner.innerHTML = `
+    <div class="minna-install-banner__content">
+      <div>
+        <strong>Install MinNa for a faster, offline-ready experience</strong>
+        <p>Open it like an app on your desktop or phone and keep browsing even when the connection drops.</p>
+      </div>
+      <div class="minna-install-banner__actions">
+        <button id="${installButtonId}" class="minna-install-banner__button" type="button">Install</button>
+        <button id="${installDismissId}" class="minna-install-banner__dismiss" type="button" aria-label="Dismiss install prompt">×</button>
+      </div>
+    </div>
+  `;
+
+  const installButton = banner.querySelector(`#${installButtonId}`);
+  const dismissButton = banner.querySelector(`#${installDismissId}`);
+
+  installButton.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+
+    installButton.disabled = true;
+    installButton.textContent = 'Installing…';
+    deferredPrompt.prompt();
+
+    const choice = await deferredPrompt.userChoice;
+    if (choice.outcome === 'accepted') {
+      banner.remove();
+    } else {
+      installButton.disabled = false;
+      installButton.textContent = 'Install';
+    }
+    deferredPrompt = null;
+  });
+
+  dismissButton.addEventListener('click', () => {
+    banner.remove();
+  });
+
+  document.body.appendChild(banner);
+}
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  // Create a simple install button if not present
-  if (!document.getElementById(installButtonId)) {
-    const btn = document.createElement('button');
-    btn.id = installButtonId;
-    btn.textContent = 'Install MinNa App';
-    Object.assign(btn.style, {
-      position: 'fixed',
-      right: '1rem',
-      bottom: '1rem',
-      zIndex: 1200,
-      padding: '0.6rem 1rem',
-      background: '#c32962',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '0.6rem',
-      fontWeight: '800',
-      boxShadow: '0 6px 18px rgba(76,20,40,0.18)'
-    });
-    btn.addEventListener('click', async () => {
-      btn.disabled = true;
-      deferredPrompt.prompt();
-      const choice = await deferredPrompt.userChoice;
-      if (choice.outcome === 'accepted') btn.remove(); else btn.disabled = false;
-      deferredPrompt = null;
-    });
-    document.body.appendChild(btn);
-  }
+  createInstallBanner();
 });
 
-// iOS fallback: show hint when running in standalone or Safari
+window.addEventListener('appinstalled', () => {
+  const banner = document.getElementById(installBannerId);
+  if (banner) banner.remove();
+});
+
+// iOS fallback: hide the banner when the site is already running as an app
 window.addEventListener('load', () => {
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-  if (isStandalone) {
-    // Optionally hide install button
-    const b = document.getElementById(installButtonId);
-    if (b) b.remove();
+  const banner = document.getElementById(installBannerId);
+  if (isStandalone && banner) {
+    banner.remove();
   }
 });
