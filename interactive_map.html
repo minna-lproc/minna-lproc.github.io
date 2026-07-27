@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#c32962">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <meta name="description"
           content="Interactive province-level map of Indigenous Peoples and language communities in the Davao Region based on a list supplied by NCIP Region XI.">
+    <meta name="author"
+          content="Mindanao Natural Language Processing Research and Development Laboratory">
+        <meta name="theme-color"
+            content="#c32962">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="apple-touch-icon" href="/minna_round_logo.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="MinNa">
 
-    <title>Interactive Mindanao IP and Language Map | MinNa LProc</title>
+    <title>
+        Interactive Community Map | MinNa LProc R&amp;D Lab
+    </title>
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
+    <!-- MinNa website assets -->
+    <link href="vendor/fontawesome-free/css/all.min.css"
+          rel="stylesheet"
+          type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css"
           rel="stylesheet">
+    <link href="css/sb-admin-2.min.css"
+          rel="stylesheet">
+    <link rel="icon"
+          type="image/x-icon"
+          href="minna_round_logo.png">
 
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIINfQ3ynhprHmZ9jMZgPScXtNnMZKp2HVo="
-          crossorigin="">
+    <!-- Leaflet CSS with a secondary CDN fallback -->
+    <link id="leafletCss"
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+          onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 
     <style>
         :root {
-            --rose: #c32962;
-            --pink: #e05d87;
-            --burgundy: #4f1730;
-            --blush: #fff0f5;
-            --surface: #fcf7f9;
-            --text: #3a2d33;
-            --muted: #76666d;
-            --border: #eadde3;
-        }
+            --minna-primary: #c32962;
+            --minna-secondary: #e05d87;
+            --minna-dark: #4f1730;
+            --minna-accent: #f29ab3;
+            --minna-light: #fff0f5;
+            --minna-surface: #fcf7f9;
+            --minna-text: #3a2d33;
+            --minna-muted: #76666d;
+            --minna-border: #eadde3;
+            --minna-success: #2f9e72;
+            --minna-warning: #c87f24;
 
-        * {
-            box-sizing: border-box;
+            --uic-rose: #c32962;
+            --uic-pink: #e05d87;
+            --uic-burgundy: #4f1730;
+            --uic-blush: #fff0f5;
+            --uic-cream: #fcf7f9;
+            --uic-charcoal: #3a2d33;
         }
 
         html {
@@ -38,100 +72,212 @@
         }
 
         body {
-            margin: 0;
-            font-family: "Nunito", system-ui, sans-serif;
-            color: var(--text);
-            background: var(--surface);
+            font-family: "Nunito", sans-serif;
+            color: var(--minna-text);
+            background: var(--minna-surface);
         }
 
-        button,
-        input,
-        select {
-            font: inherit;
+        #wrapper,
+        #content-wrapper,
+        #content {
+            width: 100%;
+            min-width: 0;
         }
 
-        .topbar {
-            position: sticky;
-            z-index: 1200;
-            top: 0;
-            border-top: 4px solid var(--rose);
+        #content-wrapper {
+            background: var(--minna-surface);
+        }
+
+        /* Top navigation */
+        .site-navbar {
+            z-index: 1040;
+            min-height: 76px;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            border-top: 4px solid var(--uic-rose);
             border-bottom: 1px solid rgba(195, 41, 98, 0.12);
             background: rgba(255, 255, 255, 0.97);
             box-shadow: 0 0.45rem 1.6rem rgba(91, 37, 57, 0.10);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
         }
 
-        .topbar-inner {
+        .navbar-brand {
+            margin-right: 1.5rem;
+        }
+
+        .navbar-brand-logo {
+            width: 46px;
+            height: 46px;
+            margin-right: 0.72rem;
+            object-fit: contain;
+        }
+
+        .navbar-brand-copy {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            max-width: 1500px;
-            min-height: 70px;
-            padding: 0.7rem 1.2rem;
-            margin: 0 auto;
+            flex-direction: column;
+            color: var(--minna-dark);
+            line-height: 1.05;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .brand-mark {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 0.9rem;
-            color: #fff;
-            background: linear-gradient(135deg, var(--burgundy), var(--rose));
-            box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.20);
+        .navbar-brand-copy strong {
+            font-size: 1rem;
             font-weight: 900;
+            letter-spacing: -0.02em;
         }
 
-        .brand-copy strong,
-        .brand-copy small {
-            display: block;
-        }
-
-        .brand-copy strong {
-            color: var(--burgundy);
-            font-weight: 900;
-        }
-
-        .brand-copy small {
-            margin-top: 0.16rem;
-            color: var(--muted);
-            font-size: 0.65rem;
+        .navbar-brand-copy small {
+            margin-top: 0.25rem;
+            color: var(--minna-muted);
+            font-size: 0.68rem;
             font-weight: 800;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
         }
 
-        .topbar-button {
-            min-height: 2.65rem;
-            padding: 0.6rem 0.9rem;
-            border: 1px solid var(--border);
-            border-radius: 0.7rem;
-            color: var(--rose);
-            background: #fff;
-            font-size: 0.77rem;
+        .site-navbar .navbar-nav {
+            gap: 0.1rem;
+        }
+
+        .site-navbar .nav-link {
+            position: relative;
+            padding: 0.68rem 0.78rem !important;
+            border-radius: 0.65rem;
+            color: #5a404a !important;
+            font-size: 0.84rem;
+            font-weight: 800;
+            transition:
+                color 0.18s ease,
+                background-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-item.active > .nav-link,
+        .site-navbar .nav-item.show > .nav-link {
+            color: var(--uic-rose) !important;
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .nav-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .nav-icon {
+            margin-right: 0.35rem;
+            color: #b07a8f;
+            font-size: 0.76rem;
+        }
+
+        .site-navbar .nav-link:hover .nav-icon,
+        .site-navbar .nav-item.active .nav-icon {
+            color: var(--uic-rose);
+        }
+
+        .site-navbar .dropdown-menu {
+            min-width: 245px;
+            padding: 0.65rem;
+            margin-top: 0.55rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.85rem;
+        }
+
+        .site-navbar .dropdown-item {
+            padding: 0.62rem 0.75rem;
+            border-radius: 0.55rem;
+            color: #5a404a;
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: normal;
+        }
+
+        .site-navbar .dropdown-item:hover,
+        .site-navbar .dropdown-item:focus,
+        .site-navbar .dropdown-item.active {
+            color: var(--uic-rose);
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .dropdown-header {
+            padding: 0.45rem 0.75rem;
+            color: #9d7c88;
+            font-size: 0.66rem;
             font-weight: 900;
-            cursor: pointer;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
         }
 
-        .topbar-button:hover {
+        .dropdown-icon {
+            width: 1.2rem;
+            margin-right: 0.45rem;
+            color: #b07a8f;
+            text-align: center;
+        }
+
+        .resource-dropdown {
+            min-width: 285px !important;
+        }
+
+        .nav-cta {
+            padding: 0.72rem 1rem;
+            border-radius: 0.68rem;
             color: #fff;
-            border-color: var(--rose);
-            background: var(--rose);
+            background: linear-gradient(
+                135deg,
+                var(--uic-rose),
+                var(--uic-pink)
+            );
+            box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.24);
+            font-size: 0.8rem;
+            font-weight: 900;
         }
 
-        .hero {
+        .nav-cta:hover {
+            color: #fff;
+            box-shadow: 0 0.7rem 1.4rem rgba(195, 41, 98, 0.32);
+            transform: translateY(-1px);
+        }
+
+        .site-navbar .navbar-toggler {
+            padding: 0.42rem 0.58rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.6rem;
+        }
+
+        /* Shared */
+        .section-wrap {
+            padding: 4.7rem 0;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.45rem;
+            color: var(--minna-secondary);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            color: var(--minna-dark);
+            font-size: clamp(1.8rem, 3vw, 2.65rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+        }
+
+        .section-copy {
+            max-width: 840px;
+            color: var(--minna-muted);
+            font-size: 1rem;
+            line-height: 1.82;
+        }
+
+        /* Hero */
+        .hero-section {
             position: relative;
             overflow: hidden;
-            padding: 4.6rem 1.2rem 4.8rem;
+            padding: 5rem 0;
             color: #fff;
             background:
                 radial-gradient(circle at 88% 14%, rgba(255, 207, 221, 0.34), transparent 24%),
@@ -139,296 +285,394 @@
                 linear-gradient(135deg, #4f1730 0%, #9f2958 55%, #df6a8f 100%);
         }
 
-        .hero::before {
+        .hero-section::before,
+        .hero-section::after {
             content: "";
             position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::before {
             width: 430px;
             height: 430px;
             top: -220px;
             right: -120px;
             border: 1px solid rgba(255, 255, 255, 0.13);
-            border-radius: 50%;
         }
 
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            max-width: 1500px;
-            margin: 0 auto;
+        .hero-section::after {
+            width: 330px;
+            height: 330px;
+            right: 8%;
+            bottom: -250px;
+            border: 58px solid rgba(255, 255, 255, 0.07);
         }
 
         .hero-kicker {
             display: inline-flex;
-            padding: 0.5rem 0.9rem;
-            margin-bottom: 1.15rem;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 0.95rem;
+            margin-bottom: 1.3rem;
             border: 1px solid rgba(255, 255, 255, 0.28);
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.1);
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 900;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
-        .hero h1 {
+        .hero-title {
             max-width: 980px;
-            margin: 0 0 1.15rem;
-            font-size: clamp(2.35rem, 5vw, 4.65rem);
+            margin-bottom: 1.3rem;
+            font-size: clamp(2.4rem, 5vw, 4.6rem);
             font-weight: 900;
-            letter-spacing: -0.055em;
-            line-height: 1.02;
+            letter-spacing: -0.06em;
+            line-height: 1.01;
         }
 
-        .hero h1 span {
+        .hero-title span {
             color: #ffd9e5;
         }
 
-        .hero p {
+        .hero-copy {
             max-width: 850px;
-            margin: 0;
+            margin-bottom: 0;
             color: rgba(255, 255, 255, 0.86);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             line-height: 1.82;
         }
 
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-top: 1.7rem;
-        }
+      .hero-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
 
-        .hero-button {
-            min-height: 3rem;
-            padding: 0.7rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.36);
-            border-radius: 0.75rem;
+.hero-actions .btn {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+}
+
+        .btn-soft-light {
             color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.38);
             background: rgba(255, 255, 255, 0.1);
-            font-size: 0.8rem;
-            font-weight: 900;
-            cursor: pointer;
         }
 
-        .hero-button.primary {
-            color: var(--rose);
+        .btn-soft-light:hover {
+            color: var(--minna-primary);
             background: #fff;
         }
 
-        .page {
-            max-width: 1500px;
-            padding: 2.2rem 1.2rem 4.5rem;
-            margin: 0 auto;
-        }
-
-        .section-kicker {
-            margin-bottom: 0.4rem;
-            color: var(--pink);
-            font-size: 0.78rem;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            margin: 0;
-            color: var(--burgundy);
-            font-size: clamp(1.75rem, 3vw, 2.55rem);
-            font-weight: 900;
-            letter-spacing: -0.035em;
-            line-height: 1.14;
-        }
-
-        .section-copy {
-            max-width: 850px;
-            margin: 0.8rem 0 0;
-            color: var(--muted);
-            line-height: 1.78;
+        /* Map */
+        .map-section {
+            padding: 4.7rem 0;
+            background: linear-gradient(180deg, #fdebf1 0%, #fff9fb 100%);
         }
 
         .map-layout {
             display: grid;
-            grid-template-columns: 340px minmax(0, 1fr);
-            gap: 1.1rem;
-            margin-top: 1.7rem;
+            grid-template-columns: 350px minmax(0, 1fr);
+            gap: 1.2rem;
+            align-items: stretch;
+            margin-top: 2rem;
         }
 
-        .controls {
+        .filter-panel {
             display: flex;
-            min-height: 690px;
+            min-height: 700px;
             overflow: hidden;
             flex-direction: column;
-            border: 1px solid var(--border);
-            border-radius: 1.1rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
             background: #fff;
-            box-shadow: 0 0.65rem 2rem rgba(91, 37, 57, 0.08);
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
         }
 
-        .controls-header {
-            padding: 1.2rem;
+        .filter-panel-heading {
+            padding: 1.35rem;
             color: #fff;
-            background: linear-gradient(135deg, var(--burgundy), var(--rose));
+            background:
+                radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.13), transparent 25%),
+                linear-gradient(135deg, var(--uic-burgundy), var(--uic-rose));
         }
 
-        .controls-header h2 {
-            margin: 0 0 0.3rem;
-            font-size: 1.16rem;
+        .filter-panel-heading h3 {
+            margin-bottom: 0.35rem;
+            color: #fff;
+            font-size: 1.25rem;
             font-weight: 900;
         }
 
-        .controls-header p {
-            margin: 0;
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 0.78rem;
-            line-height: 1.6;
+        .filter-panel-heading p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.82rem;
+            line-height: 1.65;
         }
 
-        .controls-body {
+        .filter-panel-body {
             display: flex;
             flex: 1;
             flex-direction: column;
-            gap: 0.95rem;
-            padding: 1.1rem;
+            gap: 1rem;
+            padding: 1.15rem;
         }
 
-        .field label {
+        .filter-label {
             display: block;
-            margin-bottom: 0.35rem;
-            color: #6c4c59;
-            font-size: 0.7rem;
+            margin-bottom: 0.4rem;
+            color: #654955;
+            font-size: 0.72rem;
             font-weight: 900;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
         }
 
-        .field input,
-        .field select {
+        .filter-control {
             width: 100%;
-            min-height: 2.8rem;
-            padding: 0.65rem 0.72rem;
-            border: 1px solid var(--border);
-            border-radius: 0.68rem;
-            color: var(--text);
+            min-height: 3rem;
+            padding: 0.68rem 0.75rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.72rem;
+            color: var(--minna-text);
             background: #fffafb;
         }
 
-        .field input:focus,
-        .field select:focus {
+        .filter-control:focus {
             outline: none;
-            border-color: var(--pink);
-            box-shadow: 0 0 0 0.18rem rgba(195, 41, 98, 0.12);
+            border-color: var(--minna-secondary);
+            box-shadow: 0 0 0 0.2rem rgba(195, 41, 98, 0.13);
         }
 
-        .control-buttons {
+        .filter-actions {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.55rem;
         }
 
-        .control-button {
-            min-height: 2.55rem;
-            padding: 0.55rem 0.65rem;
+        .filter-button {
+            min-height: 2.75rem;
+            padding: 0.6rem 0.7rem;
             border: 1px solid #e7abc0;
-            border-radius: 0.65rem;
-            color: var(--rose);
+            border-radius: 0.68rem;
+            color: var(--minna-primary);
             background: #fff;
-            font-size: 0.73rem;
+            font-size: 0.75rem;
             font-weight: 900;
             cursor: pointer;
         }
 
-        .control-button:hover {
+        .filter-button:hover {
             color: #fff;
-            background: var(--rose);
+            background: var(--minna-primary);
         }
 
-        .chip-heading {
+        .language-list-heading {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            gap: 0.5rem;
+            gap: 0.6rem;
             margin-bottom: 0.5rem;
         }
 
-        .chip-heading strong {
-            color: var(--burgundy);
-            font-size: 0.8rem;
+        .language-list-heading strong {
+            color: var(--minna-dark);
+            font-size: 0.82rem;
             font-weight: 900;
         }
 
-        .chip-heading span {
-            color: var(--muted);
-            font-size: 0.67rem;
+        .language-list-heading span {
+            color: var(--minna-muted);
+            font-size: 0.68rem;
             font-weight: 800;
         }
 
-        .language-chips {
+        .language-list {
             display: flex;
             overflow-y: auto;
             flex-wrap: wrap;
             align-content: flex-start;
-            gap: 0.4rem;
+            gap: 0.42rem;
             max-height: 285px;
+            padding-right: 0.25rem;
         }
 
         .language-chip {
-            padding: 0.4rem 0.58rem;
-            border: 1px solid var(--border);
+            padding: 0.42rem 0.62rem;
+            border: 1px solid var(--minna-border);
             border-radius: 999px;
             color: #6d3a50;
-            background: var(--blush);
-            font-size: 0.68rem;
+            background: var(--minna-light);
+            font-size: 0.7rem;
             font-weight: 900;
             cursor: pointer;
         }
 
         .language-chip:hover,
-        .language-chip.active {
+        .language-chip.is-active {
             color: #fff;
-            border-color: var(--rose);
-            background: var(--rose);
+            border-color: var(--minna-primary);
+            background: var(--minna-primary);
         }
 
-        .summary {
+        .filter-summary {
             margin-top: auto;
-            padding: 0.8rem;
-            border-radius: 0.75rem;
+            padding: 0.85rem;
+            border-radius: 0.78rem;
             color: #6d3a50;
-            background: var(--blush);
-            font-size: 0.73rem;
+            background: var(--minna-light);
+            font-size: 0.75rem;
             font-weight: 800;
             line-height: 1.55;
         }
 
-        .map-wrap {
+        .map-panel {
             position: relative;
-            min-height: 690px;
+            min-height: 700px;
             overflow: hidden;
-            border: 1px solid var(--border);
-            border-radius: 1.1rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
             background: #edf1f2;
-            box-shadow: 0 0.65rem 2rem rgba(91, 37, 57, 0.08);
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
         }
 
-        #mindanaoMap {
+        #leafletMap {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
             width: 100%;
-            height: 100%;
-            min-height: 690px;
+            min-height: 700px;
+        }
+
+        .fallback-map {
+            position: absolute;
+            z-index: 3;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+            background:
+                radial-gradient(circle at 18% 15%, rgba(195, 41, 98, 0.08), transparent 28%),
+                linear-gradient(180deg, #edf4f5, #f7fbfb);
+            transition: opacity 0.3s ease;
+        }
+
+        .fallback-map.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .fallback-map-inner {
+            width: min(100%, 700px);
+        }
+
+        .fallback-map-heading {
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .fallback-map-heading strong {
+            display: block;
+            color: var(--minna-dark);
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .fallback-map-heading span {
+            color: var(--minna-muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .mindanao-svg {
+            display: block;
+            width: 100%;
+            max-height: 570px;
+        }
+
+        .mindanao-outline {
+            fill: #ffffff;
+            stroke: #c9d6d8;
+            stroke-width: 5;
+            filter: drop-shadow(0 12px 22px rgba(79, 23, 48, 0.13));
+        }
+
+        .fallback-marker {
+            cursor: pointer;
+        }
+
+        .fallback-marker circle {
+            fill: var(--minna-primary);
+            stroke: #fff;
+            stroke-width: 4;
+            filter: drop-shadow(0 6px 10px rgba(79, 23, 48, 0.25));
+            transition: transform 0.2s ease, fill 0.2s ease;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .fallback-marker:hover circle,
+        .fallback-marker.is-highlighted circle {
+            fill: var(--minna-accent);
+            transform: scale(1.12);
+        }
+
+        .fallback-marker .marker-count {
+            fill: #fff;
+            font-size: 18px;
+            font-weight: 900;
+            pointer-events: none;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+
+        .fallback-marker.is-highlighted .marker-count {
+            fill: var(--minna-dark);
+        }
+
+        .fallback-marker .marker-label {
+            fill: var(--minna-dark);
+            font-size: 15px;
+            font-weight: 900;
+            paint-order: stroke;
+            stroke: #fff;
+            stroke-width: 4;
+            stroke-linejoin: round;
+            pointer-events: none;
+            text-anchor: middle;
+        }
+
+        .fallback-status {
+            margin-top: 0.55rem;
+            color: var(--minna-muted);
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 800;
         }
 
         .map-disclaimer {
             position: absolute;
             z-index: 500;
-            right: 0.8rem;
-            bottom: 0.8rem;
-            max-width: 330px;
-            padding: 0.72rem 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.65);
-            border-radius: 0.75rem;
-            color: var(--burgundy);
-            background: rgba(255, 255, 255, 0.94);
+            right: 0.85rem;
+            bottom: 0.85rem;
+            max-width: 345px;
+            padding: 0.75rem 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.66);
+            border-radius: 0.78rem;
+            color: var(--minna-dark);
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 0.45rem 1.2rem rgba(79, 23, 48, 0.14);
             backdrop-filter: blur(8px);
-            font-size: 0.67rem;
+            font-size: 0.68rem;
             font-weight: 800;
             line-height: 1.5;
         }
@@ -442,15 +686,19 @@
             border: 3px solid rgba(255, 255, 255, 0.92);
             border-radius: 50%;
             color: #fff;
-            background: linear-gradient(135deg, var(--burgundy), var(--rose));
+            background:
+                radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.20), transparent 28%),
+                linear-gradient(135deg, var(--uic-burgundy), var(--uic-rose));
             box-shadow: 0 0.6rem 1.3rem rgba(79, 23, 48, 0.32);
             font-size: 0.8rem;
             font-weight: 900;
         }
 
-        .province-marker.highlighted {
-            color: var(--burgundy);
-            background: linear-gradient(135deg, #ffd9e5, #f29ab3);
+        .province-marker.is-highlighted {
+            color: var(--minna-dark);
+            background:
+                radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.32), transparent 28%),
+                linear-gradient(135deg, #ffd9e5, #f29ab3);
             transform: scale(1.12);
         }
 
@@ -464,9 +712,9 @@
             font-family: "Nunito", sans-serif;
         }
 
-        .popup-label {
-            color: var(--rose);
-            font-size: 0.65rem;
+        .popup-kicker {
+            color: var(--minna-primary);
+            font-size: 0.66rem;
             font-weight: 900;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -474,159 +722,250 @@
 
         .popup-title {
             margin: 0.2rem 0 0.6rem;
-            color: var(--burgundy);
+            color: var(--minna-dark);
             font-size: 1rem;
             font-weight: 900;
         }
 
-        .popup-chips {
+        .popup-language-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.33rem;
+            gap: 0.35rem;
         }
 
-        .popup-chip {
-            padding: 0.3rem 0.45rem;
+        .popup-language {
+            display: inline-flex;
+            padding: 0.32rem 0.48rem;
             border-radius: 999px;
             color: #6d3a50;
-            background: var(--blush);
-            font-size: 0.65rem;
+            background: var(--minna-light);
+            font-size: 0.66rem;
             font-weight: 900;
         }
 
-        .directory {
-            margin-top: 3.7rem;
-        }
-
+        /* Province directory */
         .province-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 0.95rem;
-            margin-top: 1.4rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .province-card {
             display: flex;
             height: 100%;
             flex-direction: column;
-            padding: 1.15rem;
-            border: 1px solid var(--border);
-            border-radius: 0.92rem;
+            padding: 1.25rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
             background: #fff;
-            box-shadow: 0 0.45rem 1.3rem rgba(91, 37, 57, 0.06);
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
             cursor: pointer;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .province-card:hover,
-        .province-card.highlighted {
+        .province-card.is-highlighted {
             border-color: #e7abc0;
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(91, 37, 57, 0.13);
         }
 
         .province-card-header {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 0.7rem;
-            margin-bottom: 0.7rem;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
         }
 
         .province-card h3 {
-            margin: 0;
-            color: var(--burgundy);
-            font-size: 0.98rem;
+            margin-bottom: 0;
+            color: var(--minna-dark);
+            font-size: 1.05rem;
             font-weight: 900;
         }
 
-        .province-count {
+        .province-total {
             display: inline-flex;
+            flex: 0 0 auto;
             align-items: center;
             justify-content: center;
             min-width: 2rem;
             height: 2rem;
-            padding: 0 0.45rem;
+            padding: 0 0.5rem;
             border-radius: 999px;
             color: #fff;
-            background: var(--rose);
-            font-size: 0.68rem;
+            background: var(--minna-primary);
+            font-size: 0.7rem;
             font-weight: 900;
         }
 
         .province-languages {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.36rem;
+            gap: 0.38rem;
             margin-top: auto;
         }
 
         .province-language {
-            padding: 0.33rem 0.48rem;
+            display: inline-flex;
+            padding: 0.35rem 0.5rem;
             border-radius: 999px;
             color: #6d3a50;
-            background: var(--blush);
-            font-size: 0.66rem;
+            background: var(--minna-light);
+            font-size: 0.68rem;
             font-weight: 900;
         }
 
-        .province-language.match {
+        .province-language.is-match {
             color: #fff;
-            background: var(--rose);
+            background: var(--minna-primary);
         }
 
         .empty-state {
             display: none;
             padding: 2rem;
-            margin-top: 1.4rem;
+            margin-top: 1.5rem;
             border: 1px dashed #dfbecb;
             border-radius: 1rem;
-            color: var(--muted);
+            color: var(--minna-muted);
             text-align: center;
             background: #fff;
         }
 
-        .notes {
+        /* Notes */
+        .source-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1rem;
-            margin-top: 3.7rem;
+            margin-top: 2rem;
         }
 
-        .note-card {
-            padding: 1.3rem;
-            border: 1px solid var(--border);
+        .source-card {
+            padding: 1.4rem;
+            border: 1px solid var(--minna-border);
             border-radius: 1rem;
             background: #fff;
-            box-shadow: 0 0.45rem 1.3rem rgba(91, 37, 57, 0.06);
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
         }
 
-        .note-card.source {
-            border-left: 5px solid var(--rose);
+        .source-card.is-source {
+            border-left: 5px solid var(--minna-primary);
             background: linear-gradient(135deg, #fff0f5, #fff9fb);
         }
 
-        .note-card h2 {
-            margin: 0 0 0.55rem;
-            color: var(--burgundy);
-            font-size: 0.98rem;
+        .source-card h3 {
+            margin-bottom: 0.55rem;
+            color: var(--minna-dark);
+            font-size: 1.05rem;
             font-weight: 900;
         }
 
-        .note-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.8rem;
-            line-height: 1.7;
+        .source-card p {
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            font-size: 0.84rem;
+            line-height: 1.75;
         }
 
-        footer {
-            padding: 1.4rem 1.2rem;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            background: #fff;
+        /* CTA and footer */
+        .map-cta {
+            padding: 4.8rem 0;
+            color: #fff;
             text-align: center;
-            font-size: 0.73rem;
-            font-weight: 700;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(242, 154, 179, 0.32), transparent 25%),
+                linear-gradient(135deg, #4f1730, #b52d60);
+        }
+
+        .map-cta h2 {
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            font-size: clamp(1.9rem, 3vw, 2.75rem);
+            font-weight: 900;
+            letter-spacing: -0.035em;
+        }
+
+        .map-cta p {
+            max-width: 790px;
+            margin: 0 auto 1.7rem;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.8;
+        }
+
+        .map-cta .btn {
+            margin: 0.25rem;
+            border-radius: 0.7rem;
+            font-weight: 900;
+        }
+
+        .sticky-footer {
+            border-top: 1px solid var(--minna-border);
+        }
+
+        .scroll-to-top {
+            background: var(--minna-primary);
+        }
+
+        @media (min-width: 1200px) {
+            .site-navbar .dropdown:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .site-navbar .dropdown-menu {
+                top: calc(100% - 0.1rem);
+            }
+
+            .site-navbar .nav-item.active > .nav-link::after {
+                content: "";
+                position: absolute;
+                right: 0.8rem;
+                bottom: 0.28rem;
+                left: 0.8rem;
+                height: 3px;
+                border-radius: 999px;
+                background: var(--uic-rose);
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .site-navbar {
+                padding-top: 0.55rem;
+                padding-bottom: 0.55rem;
+            }
+
+            .site-navbar .navbar-collapse {
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+                padding: 1rem 0 0.35rem;
+            }
+
+            .site-navbar .navbar-nav {
+                align-items: stretch !important;
+                gap: 0.2rem;
+            }
+
+            .site-navbar .nav-link {
+                padding: 0.75rem !important;
+            }
+
+            .site-navbar .dropdown-menu {
+                margin-top: 0.15rem;
+                margin-bottom: 0.35rem;
+                border: 0;
+                box-shadow: none !important;
+                background: #fff9fb;
+            }
+
+            .nav-cta {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
         }
 
         @media (max-width: 1100px) {
@@ -634,7 +973,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .controls {
+            .filter-panel {
                 min-height: auto;
             }
 
@@ -643,275 +982,746 @@
             }
         }
 
-        @media (max-width: 720px) {
-            .topbar-inner {
-                align-items: flex-start;
-                flex-direction: column;
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 4rem 0;
             }
 
-            .topbar-button {
-                width: 100%;
+            .section-wrap,
+            .map-section,
+            .map-cta {
+                padding: 3.7rem 0;
             }
 
             .province-grid,
-            .notes {
+            .source-grid {
                 grid-template-columns: 1fr;
             }
 
-            .map-wrap,
-            #mindanaoMap {
-                min-height: 560px;
+            .map-panel,
+            #leafletMap {
+                min-height: 590px;
             }
 
             .map-disclaimer {
-                right: 0.55rem;
-                left: 0.55rem;
+                right: 0.6rem;
+                left: 0.6rem;
                 max-width: none;
             }
         }
 
-        @media (max-width: 480px) {
-            .control-buttons {
-                grid-template-columns: 1fr;
+        @media (max-width: 575.98px) {
+            .navbar-brand-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .navbar-brand-copy strong {
+                font-size: 0.92rem;
+            }
+
+            .navbar-brand-copy small {
+                font-size: 0.62rem;
             }
 
             .hero-actions {
                 flex-direction: column;
             }
 
-            .hero-button {
+            .hero-actions .btn {
                 width: 100%;
+            }
+
+            .filter-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
             }
         }
     </style>
+
+    <!-- MinNa Website Agent: active when the page is inside the website -->
+    <link rel="stylesheet"
+          href="/agent/minna-agent.css">
+    <script src="/js/sw-register.js" defer></script>
+    <script src="/js/pwa-install.js" defer></script>
 </head>
 
-<body>
-    <header class="topbar">
-        <div class="topbar-inner">
-            <div class="brand">
-                <span class="brand-mark">M</span>
-                <span class="brand-copy">
+<body id="page-top">
+
+    <nav class="navbar navbar-expand-xl navbar-light site-navbar sticky-top"
+         aria-label="Primary navigation">
+        <div class="container-fluid px-3 px-lg-5">
+
+            <a class="navbar-brand d-flex align-items-center"
+               href="index.html">
+                <img src="minna_round_logo.png"
+                     class="navbar-brand-logo"
+                     alt="MinNa LProc logo">
+                <span class="navbar-brand-copy">
                     <strong>MinNa LProc</strong>
-                    <small>Interactive Community Map</small>
+                    <small>R&amp;D Lab</small>
                 </span>
-            </div>
+            </a>
 
-            <button id="topReset"
-                    class="topbar-button"
-                    type="button">
-                Reset Map
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#mainNavigation"
+                    aria-controls="mainNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-inner">
-                <span class="hero-kicker">
-                    Davao Region · Mindanao
-                </span>
+            <div class="collapse navbar-collapse"
+                 id="mainNavigation">
 
-                <h1>
-                    Interactive map of
-                    <span>Indigenous Peoples and language communities</span>
-                </h1>
+                <ul class="navbar-nav ml-auto align-items-xl-center">
 
-                <p>
-                    Explore the IP groups and language communities listed by
-                    province in the Davao Region. Select a province, search for
-                    a community, or click a language name to see where it appears
-                    in the supplied NCIP Region XI list.
-                </p>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="homeDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-home nav-icon"></i>
+                            Home
+                        </a>
 
-                <div class="hero-actions">
-                    <button id="exploreMap"
-                            class="hero-button primary"
-                            type="button">
-                        Explore the Map
-                    </button>
+                        <div class="dropdown-menu shadow"
+                             aria-labelledby="homeDropdown">
+                            <a class="dropdown-item"
+                               href="about/about.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Vision and Mission
+                            </a>
+                        </div>
+                    </li>
 
-                    <button id="heroReset"
-                            class="hero-button"
-                            type="button">
-                        Show All Communities
-                    </button>
-                </div>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="projects/featuredprojects.html">
+                            <i class="fas fa-lightbulb nav-icon"></i>
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="publications.html">
+                            <i class="fas fa-book-open nav-icon"></i>
+                            Publications
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="researchersDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-user-friends nav-icon"></i>
+                            Researchers
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow"
+                             aria-labelledby="researchersDropdown">
+                            <a class="dropdown-item"
+                               href="people/faculties.html">
+                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
+                                Faculties
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/gradstudents.html">
+                                <i class="fas fa-user-graduate dropdown-icon"></i>
+                                Graduate Students
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/undergradstudents.html">
+                                <i class="fas fa-users dropdown-icon"></i>
+                                Undergraduate Students
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="communitiesDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="fas fa-hands-helping nav-icon"></i>
+                            Communities
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow"
+                             aria-labelledby="communitiesDropdown">
+                            <h6 class="dropdown-header">
+                                Language Communities
+                            </h6>
+
+                            <a class="dropdown-item"
+                               href="people/kagan.html">
+                                Kagan
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/manobo.html">
+                                Manobo
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/mansaka.html">
+                                Mansaka
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="resourcesDropdown"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           aria-current="page">
+                            <i class="fas fa-folder-open nav-icon"></i>
+                            Resources
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow resource-dropdown"
+                             aria-labelledby="resourcesDropdown">
+
+                            <h6 class="dropdown-header">
+                                Interactive Resources
+                            </h6>
+
+                            <a class="dropdown-item active"
+                               href="interactive-map.html">
+                                <i class="fas fa-map-marked-alt dropdown-icon"></i>
+                                IndigenousCommunity Map
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">
+                                Language Tools
+                            </h6>
+
+                            <a class="dropdown-item"
+                               href="https://www.iwag.info/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-language dropdown-icon"></i>
+                                Translation Tool
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-tools dropdown-icon"></i>
+                                Cebuano NLTK
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">
+                                Parallel Corpora
+                            </h6>
+
+                            <a class="dropdown-item"
+                               href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Filipino–Cebuano
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/kagan.html">
+                                Cebuano–Kagan
+                            </a>
+
+                            <a class="dropdown-item"
+                               href="people/manobo.html">
+                                Cebuano–Manobo
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="contact-us.html">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
+                        <a class="btn nav-cta"
+                           href="#interactiveMap">
+                            <i class="fas fa-map-marked-alt mr-2"></i>
+                            Explore Map
+                        </a>
+                    </li>
+
+                </ul>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <div class="page">
-            <section id="mapSection"
-                     aria-labelledby="mapTitle">
-                <div class="section-kicker">
-                    Interactive Visualization
-                </div>
+    <div id="wrapper"
+         class="d-block w-100">
+        <div id="content-wrapper"
+             class="d-flex flex-column w-100">
+            <div id="content"
+                 class="w-100">
 
-                <h2 id="mapTitle"
-                    class="section-title">
-                    Map communities by province or language
-                </h2>
+                <main>
 
-                <p class="section-copy">
-                    Province markers show the number of listed groups. Click a
-                    marker or province card to zoom in. Language filters highlight
-                    all provinces where the selected name appears.
-                </p>
+                    <section class="hero-section">
+                        <div class="container-fluid px-4 px-lg-5 position-relative"
+                             style="z-index: 2;">
 
-                <div class="map-layout">
-                    <aside class="controls"
-                           aria-label="Interactive map filters">
-                        <div class="controls-header">
-                            <h2>Explore the Data</h2>
-                            <p>
-                                Filter the map using a province, language name,
-                                or search term.
+                            <p class="hero-copy">
+                                Explore the IP groups and language communities
+                                listed by province in the Davao Region. Select a
+                                province, search for a community, or click a
+                                language name to see where it appears in the
+                                supplied NCIP Region XI list.
                             </p>
-                        </div>
 
-                        <div class="controls-body">
-                            <div class="field">
-                                <label for="searchInput">
-                                    Search
-                                </label>
-                                <input id="searchInput"
-                                       type="search"
-                                       placeholder="Example: Mansaka or Davao de Oro"
-                                       autocomplete="off">
-                            </div>
+                            <div class="hero-actions">
+                                <a href="#interactiveMap"
+                                   class="btn btn-light">
+                                    <i class="fas fa-map mr-2"></i>
+                                    Explore the Map
+                                </a>
 
-                            <div class="field">
-                                <label for="provinceFilter">
-                                    Province
-                                </label>
-                                <select id="provinceFilter">
-                                    <option value="all"
-                                            selected>
-                                        All provinces
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="field">
-                                <label for="languageFilter">
-                                    Language or IP group
-                                </label>
-                                <select id="languageFilter">
-                                    <option value="all"
-                                            selected>
-                                        All communities
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="control-buttons">
-                                <button id="showAll"
-                                        class="control-button"
+                                <button id="heroResetButton"
+                                        class="btn btn-soft-light"
                                         type="button">
-                                    Show All
-                                </button>
-
-                                <button id="resetFilters"
-                                        class="control-button"
-                                        type="button">
-                                    Reset Filters
+                                    <i class="fas fa-redo-alt mr-2"></i>
+                                    Show All Communities
                                 </button>
                             </div>
 
-                            <div>
-                                <div class="chip-heading">
-                                    <strong>Browse communities</strong>
-                                    <span id="languageCount"></span>
-                                </div>
-
-                                <div id="languageChips"
-                                     class="language-chips">
-                                </div>
-                            </div>
-
-                            <div id="filterSummary"
-                                 class="summary"
-                                 role="status"
-                                 aria-live="polite">
-                            </div>
-                        </div>
-                    </aside>
-
-                    <section class="map-wrap"
-                             aria-label="Interactive Davao Region map">
-                        <div id="mindanaoMap"></div>
-
-                        <div class="map-disclaimer">
-                            Markers use representative provincial locations.
-                            This visualization does not show official ancestral
-                            domain or ancestral land boundaries.
                         </div>
                     </section>
-                </div>
-            </section>
 
-            <section class="directory"
-                     aria-labelledby="directoryTitle">
-                <div class="section-kicker">
-                    Provincial Directory
-                </div>
+                    <section id="interactiveMap"
+                             class="map-section">
+                        <div class="container-fluid px-4 px-lg-5">
 
-                <h2 id="directoryTitle"
-                    class="section-title">
-                    Communities listed for each province
-                </h2>
+                            <div class="section-kicker">
+                                Interactive Visualization
+                            </div>
 
-                <p class="section-copy">
-                    The cards mirror the supplied list. Click a province card
-                    to focus its representative location on the map.
-                </p>
+                            <h2 class="section-title">
+                                Map communities by province or language
+                            </h2>
 
-                <div id="provinceGrid"
-                     class="province-grid">
-                </div>
+                            <p class="section-copy">
+                                Province markers show the number of listed groups.
+                                Click a marker or province card to focus its
+                                representative location. Language filters highlight
+                                every province where a selected name appears.
+                            </p>
 
-                <div id="emptyState"
-                     class="empty-state">
-                    No province or community matches the current filters.
-                </div>
-            </section>
+                            <div class="map-layout">
 
-            <section id="dataSource"
-                     class="notes">
-                <article class="note-card source">
-                    <h2>Source of the Community List</h2>
-                    <p>
-                        The province-to-community mapping is based on the
-                        “IP groups per Province with Ancestral Domains/Ancestral
-                        Lands” list supplied through correspondence from NCIP
-                        Region XI. Community names are preserved as provided.
-                    </p>
-                </article>
+                                <aside class="filter-panel"
+                                       aria-label="Map filters">
 
-                <article class="note-card">
-                    <h2>Important Mapping Limitation</h2>
-                    <p>
-                        This page visualizes province-level associations only.
-                        It does not reproduce CADT, CALT, ancestral domain,
-                        ancestral land, barangay, municipal, or community
-                        boundary data. Representative marker coordinates are
-                        used only for navigation and exploration.
-                    </p>
-                </article>
-            </section>
+                                    <div class="filter-panel-heading">
+                                        <h3>Explore the Data</h3>
+                                        <p>
+                                            Filter the map using a province,
+                                            community name, or search term.
+                                        </p>
+                                    </div>
+
+                                    <div class="filter-panel-body">
+
+                                        <div>
+                                            <label class="filter-label"
+                                                   for="searchInput">
+                                                Search
+                                            </label>
+
+                                            <input id="searchInput"
+                                                   class="filter-control"
+                                                   type="search"
+                                                   placeholder="Example: Mansaka or Davao de Oro"
+                                                   autocomplete="off">
+                                        </div>
+
+                                        <div>
+                                            <label class="filter-label"
+                                                   for="provinceFilter">
+                                                Province
+                                            </label>
+
+                                            <select id="provinceFilter"
+                                                    class="filter-control">
+                                                <option value="all"
+                                                        selected>
+                                                    All provinces
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label class="filter-label"
+                                                   for="languageFilter">
+                                                Language or IP group
+                                            </label>
+
+                                            <select id="languageFilter"
+                                                    class="filter-control">
+                                                <option value="all"
+                                                        selected>
+                                                    All communities
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-actions">
+                                            <button id="showAllButton"
+                                                    class="filter-button"
+                                                    type="button">
+                                                Show All
+                                            </button>
+
+                                            <button id="resetButton"
+                                                    class="filter-button"
+                                                    type="button">
+                                                Reset Filters
+                                            </button>
+                                        </div>
+
+                                        <div>
+                                            <div class="language-list-heading">
+                                                <strong>
+                                                    Browse communities
+                                                </strong>
+
+                                                <span id="languageCount"></span>
+                                            </div>
+
+                                            <div id="languageList"
+                                                 class="language-list">
+                                            </div>
+                                        </div>
+
+                                        <div id="filterSummary"
+                                             class="filter-summary"
+                                             role="status"
+                                             aria-live="polite">
+                                        </div>
+
+                                    </div>
+                                </aside>
+
+                                <section class="map-panel"
+                                         aria-label="Interactive map of Mindanao">
+
+                                    <div id="leafletMap"
+                                         aria-hidden="true">
+                                    </div>
+
+                                    <!--
+                                        Fully self-contained interactive fallback.
+                                        This remains usable if Leaflet, the map tiles,
+                                        or an external CDN cannot be reached.
+                                    -->
+                                    <div id="fallbackMap"
+                                         class="fallback-map">
+
+                                        <div class="fallback-map-inner">
+                                            <div class="fallback-map-heading">
+                                                <strong>
+                                                    Mindanao Community Map
+                                                </strong>
+                                                <span>
+                                                    Schematic offline fallback
+                                                </span>
+                                            </div>
+
+                                            <svg class="mindanao-svg"
+                                                 viewBox="0 0 720 610"
+                                                 role="img"
+                                                 aria-labelledby="fallbackMapTitle fallbackMapDescription">
+
+                                                <title id="fallbackMapTitle">
+                                                    Schematic map of Mindanao with Davao Region province markers
+                                                </title>
+
+                                                <desc id="fallbackMapDescription">
+                                                    Six interactive province markers show the number of listed Indigenous Peoples and language communities.
+                                                </desc>
+
+                                                <path class="mindanao-outline"
+                                                      d="M255 35
+                                                         C315 20 365 42 392 82
+                                                         C414 112 455 115 482 143
+                                                         C514 176 508 217 538 243
+                                                         C568 269 632 257 663 298
+                                                         C690 334 671 384 629 403
+                                                         C592 420 577 456 537 470
+                                                         C495 484 478 541 431 560
+                                                         C386 579 351 550 312 557
+                                                         C268 565 221 549 196 513
+                                                         C172 478 126 470 102 434
+                                                         C79 398 96 358 78 325
+                                                         C57 288 80 251 110 229
+                                                         C140 207 144 165 178 148
+                                                         C210 132 214 88 255 35 Z">
+                                                </path>
+
+                                                <text x="350"
+                                                      y="310"
+                                                      fill="#b4c0c2"
+                                                      font-size="34"
+                                                      font-weight="900"
+                                                      text-anchor="middle"
+                                                      transform="rotate(-12 350 310)">
+                                                    MINDANAO
+                                                </text>
+
+                                                <g class="fallback-marker"
+                                                   data-province="Davao del Norte"
+                                                   tabindex="0"
+                                                   role="button"
+                                                   aria-label="Davao del Norte, 5 listed communities"
+                                                   transform="translate(468 266)">
+                                                    <circle r="25"></circle>
+                                                    <text class="marker-count"
+                                                          x="0"
+                                                          y="1">5</text>
+                                                    <text class="marker-label"
+                                                          x="0"
+                                                          y="-38">
+                                                        Davao del Norte
+                                                    </text>
+                                                </g>
+
+                                                <g class="fallback-marker"
+                                                   data-province="Davao de Oro"
+                                                   tabindex="0"
+                                                   role="button"
+                                                   aria-label="Davao de Oro, 6 listed communities"
+                                                   transform="translate(548 296)">
+                                                    <circle r="25"></circle>
+                                                    <text class="marker-count"
+                                                          x="0"
+                                                          y="1">6</text>
+                                                    <text class="marker-label"
+                                                          x="0"
+                                                          y="-38">
+                                                        Davao de Oro
+                                                    </text>
+                                                </g>
+
+                                                <g class="fallback-marker"
+                                                   data-province="Davao Oriental"
+                                                   tabindex="0"
+                                                   role="button"
+                                                   aria-label="Davao Oriental, 2 listed communities"
+                                                   transform="translate(617 362)">
+                                                    <circle r="25"></circle>
+                                                    <text class="marker-count"
+                                                          x="0"
+                                                          y="1">2</text>
+                                                    <text class="marker-label"
+                                                          x="0"
+                                                          y="-38">
+                                                        Davao Oriental
+                                                    </text>
+                                                </g>
+
+                                                <g class="fallback-marker"
+                                                   data-province="Davao City"
+                                                   tabindex="0"
+                                                   role="button"
+                                                   aria-label="Davao City, 5 listed communities"
+                                                   transform="translate(475 377)">
+                                                    <circle r="25"></circle>
+                                                    <text class="marker-count"
+                                                          x="0"
+                                                          y="1">5</text>
+                                                    <text class="marker-label"
+                                                          x="0"
+                                                          y="-38">
+                                                        Davao City
+                                                    </text>
+                                                </g>
+
+                                                <g class="fallback-marker"
+                                                   data-province="Davao del Sur"
+                                                   tabindex="0"
+                                                   role="button"
+                                                   aria-label="Davao del Sur, 4 listed communities"
+                                                   transform="translate(392 426)">
+                                                    <circle r="25"></circle>
+                                                    <text class="marker-count"
+                                                          x="0"
+                                                          y="1">4</text>
+                                                    <text class="marker-label"
+                                                          x="0"
+                                                          y="44">
+                                                        Davao del Sur
+                                                    </text>
+                                                </g>
+
+                                                <g class="fallback-marker"
+                                                   data-province="Davao Occidental"
+                                                   tabindex="0"
+                                                   role="button"
+                                                   aria-label="Davao Occidental, 3 listed communities"
+                                                   transform="translate(321 477)">
+                                                    <circle r="25"></circle>
+                                                    <text class="marker-count"
+                                                          x="0"
+                                                          y="1">3</text>
+                                                    <text class="marker-label"
+                                                          x="0"
+                                                          y="44">
+                                                        Davao Occidental
+                                                    </text>
+                                                </g>
+                                            </svg>
+
+                                            <div id="fallbackStatus"
+                                                 class="fallback-status">
+                                                Loading the detailed map. The schematic map is already interactive.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="map-disclaimer">
+                                        Markers use representative provincial
+                                        locations. This visualization does not
+                                        show official ancestral domain or
+                                        ancestral land boundaries.
+                                    </div>
+
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="section-kicker">
+                                Provincial Directory
+                            </div>
+
+                            <h2 class="section-title">
+                                Communities listed for each province
+                            </h2>
+
+                            <p class="section-copy">
+                                The cards mirror the supplied NCIP Region XI
+                                correspondence. Click a province card to focus
+                                its representative location on the map.
+                            </p>
+
+                            <div id="provinceGrid"
+                                 class="province-grid">
+                            </div>
+
+                            <div id="emptyState"
+                                 class="empty-state">
+                                No province or community matches the
+                                current filters.
+                            </div>
+
+                        </div>
+                    </section>
+
+                    
+                    <section class="map-cta">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <h2>
+                                Community-centered language work begins
+                                with careful and responsible representation.
+                            </h2>
+
+                            <p>
+                                MinNa supports language documentation,
+                                community validation, and the responsible
+                                inclusion of Mindanao languages in digital
+                                technologies and artificial intelligence.
+                            </p>
+
+                            <a href="people/kagan.html"
+                               class="btn btn-light">
+                                <i class="fas fa-hands-helping mr-2"></i>
+                                Explore Community Pages
+                            </a>
+
+                            <a href="contact-us.html"
+                               class="btn btn-outline-light">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Contact MinNa
+                            </a>
+
+                        </div>
+                    </section>
+
+                </main>
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>
+                                &copy; <span id="currentYear"></span>
+                                MinNa LProc R&amp;D Lab. All rights reserved.
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        MinNa LProc R&amp;D Lab · Interactive Davao Region IP and Language Communities Map
-    </footer>
+    <a class="scroll-to-top rounded"
+       href="#page-top"
+       aria-label="Back to top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="">
-    </script>
+    <!-- MinNa website scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 
     <script>
+        "use strict";
+
         const provinceData = [
             {
                 province: "Davao Occidental",
@@ -982,21 +1792,12 @@
             search: ""
         };
 
-        const map = L.map("mindanaoMap", {
-            zoomControl: true,
-            scrollWheelZoom: true
-        }).setView([7.05, 125.78], 8);
-
-        L.tileLayer(
-            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            {
-                maxZoom: 18,
-                attribution:
-                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }
-        ).addTo(map);
-
-        const markers = new Map();
+        const leafletState = {
+            map: null,
+            markers: new Map(),
+            ready: false,
+            tilesLoaded: false
+        };
 
         const searchInput =
             document.getElementById("searchInput");
@@ -1007,20 +1808,26 @@
         const languageFilter =
             document.getElementById("languageFilter");
 
-        const languageChips =
-            document.getElementById("languageChips");
+        const languageList =
+            document.getElementById("languageList");
 
         const languageCount =
             document.getElementById("languageCount");
 
-        const provinceGrid =
-            document.getElementById("provinceGrid");
-
         const filterSummary =
             document.getElementById("filterSummary");
 
+        const provinceGrid =
+            document.getElementById("provinceGrid");
+
         const emptyState =
             document.getElementById("emptyState");
+
+        const fallbackMap =
+            document.getElementById("fallbackMap");
+
+        const fallbackStatus =
+            document.getElementById("fallbackStatus");
 
         const allLanguages = [
             ...new Set(
@@ -1039,47 +1846,7 @@
                 .replace(/'/g, "&#039;");
         }
 
-        function markerIcon(item, highlighted) {
-            return L.divIcon({
-                className: "",
-                html: `
-                    <div class="province-marker ${highlighted ? "highlighted" : ""}">
-                        ${item.communities.length}
-                    </div>
-                `,
-                iconSize: [44, 44],
-                iconAnchor: [22, 22],
-                popupAnchor: [0, -22]
-            });
-        }
-
-        function popupContent(item) {
-            const communities = item.communities
-                .map(
-                    community => `
-                        <span class="popup-chip">
-                            ${escapeHtml(community)}
-                        </span>
-                    `
-                )
-                .join("");
-
-            return `
-                <div class="popup-label">
-                    Province-level listing
-                </div>
-
-                <div class="popup-title">
-                    ${escapeHtml(item.province)}
-                </div>
-
-                <div class="popup-chips">
-                    ${communities}
-                </div>
-            `;
-        }
-
-        function buildControls() {
+        function buildFilters() {
             provinceData
                 .map(item => item.province)
                 .sort((a, b) => a.localeCompare(b))
@@ -1108,66 +1875,33 @@
                 chip.dataset.language = language;
                 chip.textContent = language;
 
-                chip.addEventListener("click", () => {
-                    state.language =
-                        state.language === language
-                            ? "all"
-                            : language;
+                chip.addEventListener(
+                    "click",
+                    () => {
+                        state.language =
+                            state.language === language
+                                ? "all"
+                                : language;
 
-                    languageFilter.value =
-                        state.language;
+                        languageFilter.value =
+                            state.language;
 
-                    render(true);
-                });
+                        render(true);
+                    }
+                );
 
-                languageChips.appendChild(chip);
+                languageList.appendChild(chip);
             });
 
             languageCount.textContent =
                 `${allLanguages.length} names`;
         }
 
-        function buildMarkers() {
-            provinceData.forEach(item => {
-                const marker = L.marker(
-                    item.coordinates,
-                    {
-                        icon: markerIcon(item, false),
-                        title: item.province
-                    }
-                );
-
-                marker.bindPopup(
-                    popupContent(item),
-                    {
-                        maxWidth: 320
-                    }
-                );
-
-                marker.bindTooltip(
-                    item.province,
-                    {
-                        direction: "top",
-                        offset: [0, -20]
-                    }
-                );
-
-                marker.on("click", () => {
-                    state.province = item.province;
-                    provinceFilter.value = item.province;
-                    render(false);
-                });
-
-                marker.addTo(map);
-                markers.set(item.province, marker);
-            });
-        }
-
-        function isMatch(item) {
+        function matchesItem(item) {
             const query =
                 state.search.trim().toLowerCase();
 
-            const searchableText = [
+            const searchable = [
                 item.province,
                 ...item.communities
             ].join(" ").toLowerCase();
@@ -1183,121 +1917,133 @@
                 ) &&
                 (
                     !query ||
-                    searchableText.includes(query)
+                    searchable.includes(query)
                 )
             );
         }
 
-        function filteredData() {
-            return provinceData.filter(isMatch);
+        function getFilteredData() {
+            return provinceData.filter(matchesItem);
         }
 
-        function renderMarkers(filtered) {
-            const visible = new Set(
-                filtered.map(item => item.province)
-            );
-
-            provinceData.forEach(item => {
-                const marker =
-                    markers.get(item.province);
-
-                const highlighted =
-                    state.province === item.province ||
-                    (
-                        state.language !== "all" &&
-                        item.communities.includes(state.language)
-                    );
-
-                marker.setIcon(
-                    markerIcon(item, highlighted)
-                );
-
-                if (visible.has(item.province)) {
-                    if (!map.hasLayer(marker)) {
-                        marker.addTo(map);
-                    }
-                } else if (map.hasLayer(marker)) {
-                    map.removeLayer(marker);
-                }
-            });
-        }
-
-        function renderChips() {
+        function renderLanguageChips() {
             document
                 .querySelectorAll(".language-chip")
                 .forEach(chip => {
                     chip.classList.toggle(
-                        "active",
-                        chip.dataset.language === state.language
+                        "is-active",
+                        chip.dataset.language ===
+                            state.language
                     );
                 });
         }
 
-        function renderCards(filtered) {
+        function renderFallbackMarkers(filtered) {
+            const visible =
+                new Set(
+                    filtered.map(
+                        item => item.province
+                    )
+                );
+
+            document
+                .querySelectorAll(".fallback-marker")
+                .forEach(marker => {
+                    const province =
+                        marker.dataset.province;
+
+                    const item =
+                        provinceData.find(
+                            record =>
+                                record.province === province
+                        );
+
+                    const highlighted =
+                        state.province === province ||
+                        (
+                            state.language !== "all" &&
+                            item.communities.includes(
+                                state.language
+                            )
+                        );
+
+                    marker.style.display =
+                        visible.has(province)
+                            ? "inline"
+                            : "none";
+
+                    marker.classList.toggle(
+                        "is-highlighted",
+                        highlighted
+                    );
+                });
+        }
+
+        function renderProvinceCards(filtered) {
             provinceGrid.innerHTML = "";
 
             filtered.forEach(item => {
-                const card =
+                const article =
                     document.createElement("article");
 
-                card.className = "province-card";
+                article.className =
+                    "province-card";
 
-                if (state.province === item.province) {
-                    card.classList.add("highlighted");
+                if (
+                    state.province ===
+                    item.province
+                ) {
+                    article.classList.add(
+                        "is-highlighted"
+                    );
                 }
 
-                const languages = item.communities
-                    .map(community => `
-                        <span class="province-language ${state.language === community ? "match" : ""}">
-                            ${escapeHtml(community)}
-                        </span>
-                    `)
-                    .join("");
+                const communities =
+                    item.communities
+                        .map(community => `
+                            <span class="province-language ${state.language === community ? "is-match" : ""}">
+                                ${escapeHtml(community)}
+                            </span>
+                        `)
+                        .join("");
 
-                card.innerHTML = `
+                article.innerHTML = `
                     <div class="province-card-header">
-                        <h3>${escapeHtml(item.province)}</h3>
+                        <h3>
+                            ${escapeHtml(item.province)}
+                        </h3>
 
-                        <span class="province-count">
+                        <span class="province-total">
                             ${item.communities.length}
                         </span>
                     </div>
 
                     <div class="province-languages">
-                        ${languages}
+                        ${communities}
                     </div>
                 `;
 
-                card.addEventListener("click", () => {
-                    state.province = item.province;
-                    provinceFilter.value = item.province;
+                article.addEventListener(
+                    "click",
+                    () => focusProvince(
+                        item.province
+                    )
+                );
 
-                    map.setView(
-                        item.coordinates,
-                        10,
-                        {
-                            animate: true
-                        }
-                    );
-
-                    const marker =
-                        markers.get(item.province);
-
-                    if (marker && map.hasLayer(marker)) {
-                        marker.openPopup();
-                    }
-
-                    render(false);
-                });
-
-                provinceGrid.appendChild(card);
+                provinceGrid.appendChild(
+                    article
+                );
             });
 
             provinceGrid.style.display =
-                filtered.length ? "grid" : "none";
+                filtered.length
+                    ? "grid"
+                    : "none";
 
             emptyState.style.display =
-                filtered.length ? "none" : "block";
+                filtered.length
+                    ? "none"
+                    : "block";
         }
 
         function updateSummary(filtered) {
@@ -1344,30 +2090,266 @@
                     : `Showing all ${provinceText} and ${communityText}.`;
         }
 
-        function fitMarkers(filtered) {
-            if (!filtered.length) {
+        function markerIcon(item, highlighted) {
+            return window.L.divIcon({
+                className: "",
+                html: `
+                    <div class="province-marker ${highlighted ? "is-highlighted" : ""}">
+                        ${item.communities.length}
+                    </div>
+                `,
+                iconSize: [44, 44],
+                iconAnchor: [22, 22],
+                popupAnchor: [0, -22]
+            });
+        }
+
+        function popupHtml(item) {
+            const communities =
+                item.communities
+                    .map(community => `
+                        <span class="popup-language">
+                            ${escapeHtml(community)}
+                        </span>
+                    `)
+                    .join("");
+
+            return `
+                <div class="popup-kicker">
+                    Province-level listing
+                </div>
+
+                <div class="popup-title">
+                    ${escapeHtml(item.province)}
+                </div>
+
+                <div class="popup-language-list">
+                    ${communities}
+                </div>
+            `;
+        }
+
+        function initializeLeaflet() {
+            if (
+                leafletState.ready ||
+                !window.L
+            ) {
+                return;
+            }
+
+            try {
+                const map =
+                    window.L.map(
+                        "leafletMap",
+                        {
+                            zoomControl: true,
+                            scrollWheelZoom: true
+                        }
+                    ).setView(
+                        [7.05, 125.78],
+                        8
+                    );
+
+                leafletState.map = map;
+
+                const tileLayer =
+                    window.L.tileLayer(
+                        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                        {
+                            maxZoom: 18,
+                            attribution:
+                                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        }
+                    );
+
+                let tileLoaded = false;
+
+                tileLayer.on(
+                    "load",
+                    () => {
+                        tileLoaded = true;
+                        leafletState.tilesLoaded = true;
+                        fallbackMap.classList.add(
+                            "is-hidden"
+                        );
+                    }
+                );
+
+                tileLayer.on(
+                    "tileerror",
+                    () => {
+                        if (!tileLoaded) {
+                            fallbackStatus.textContent =
+                                "The detailed basemap could not be loaded. The interactive schematic map remains available.";
+                        }
+                    }
+                );
+
+                tileLayer.addTo(map);
+
+                provinceData.forEach(item => {
+                    const marker =
+                        window.L.marker(
+                            item.coordinates,
+                            {
+                                icon: markerIcon(
+                                    item,
+                                    false
+                                ),
+                                title: item.province
+                            }
+                        );
+
+                    marker.bindPopup(
+                        popupHtml(item),
+                        {
+                            maxWidth: 320
+                        }
+                    );
+
+                    marker.bindTooltip(
+                        item.province,
+                        {
+                            direction: "top",
+                            offset: [0, -20]
+                        }
+                    );
+
+                    marker.on(
+                        "click",
+                        () => {
+                            state.province =
+                                item.province;
+
+                            provinceFilter.value =
+                                item.province;
+
+                            render(false);
+                        }
+                    );
+
+                    marker.addTo(map);
+
+                    leafletState.markers.set(
+                        item.province,
+                        marker
+                    );
+                });
+
+                leafletState.ready = true;
+
+                window.setTimeout(
+                    () => {
+                        map.invalidateSize();
+
+                        if (!tileLoaded) {
+                            fallbackStatus.textContent =
+                                "The interactive schematic map is active. The detailed basemap is still loading or unavailable.";
+                        }
+                    },
+                    1800
+                );
+
+                renderLeaflet(
+                    getFilteredData(),
+                    true
+                );
+            } catch (error) {
+                console.error(
+                    "Leaflet initialization failed:",
+                    error
+                );
+
+                fallbackStatus.textContent =
+                    "The detailed map could not start. The interactive schematic map remains fully available.";
+            }
+        }
+
+        function renderLeaflet(filtered, shouldFit) {
+            if (
+                !leafletState.ready ||
+                !leafletState.map
+            ) {
+                return;
+            }
+
+            const visible =
+                new Set(
+                    filtered.map(
+                        item => item.province
+                    )
+                );
+
+            provinceData.forEach(item => {
+                const marker =
+                    leafletState.markers.get(
+                        item.province
+                    );
+
+                const highlighted =
+                    state.province === item.province ||
+                    (
+                        state.language !== "all" &&
+                        item.communities.includes(
+                            state.language
+                        )
+                    );
+
+                marker.setIcon(
+                    markerIcon(
+                        item,
+                        highlighted
+                    )
+                );
+
+                if (visible.has(item.province)) {
+                    if (
+                        !leafletState.map.hasLayer(
+                            marker
+                        )
+                    ) {
+                        marker.addTo(
+                            leafletState.map
+                        );
+                    }
+                } else if (
+                    leafletState.map.hasLayer(
+                        marker
+                    )
+                ) {
+                    leafletState.map.removeLayer(
+                        marker
+                    );
+                }
+            });
+
+            if (
+                !shouldFit ||
+                !filtered.length
+            ) {
                 return;
             }
 
             if (filtered.length === 1) {
-                map.setView(
+                leafletState.map.setView(
                     filtered[0].coordinates,
                     10,
                     {
                         animate: true
                     }
                 );
+
                 return;
             }
 
             const bounds =
-                L.latLngBounds(
+                window.L.latLngBounds(
                     filtered.map(
                         item => item.coordinates
                     )
                 );
 
-            map.fitBounds(
+            leafletState.map.fitBounds(
                 bounds.pad(0.35),
                 {
                     animate: true,
@@ -1378,19 +2360,67 @@
 
         function render(shouldFit) {
             const filtered =
-                filteredData();
+                getFilteredData();
 
-            renderMarkers(filtered);
-            renderChips();
-            renderCards(filtered);
+            renderLanguageChips();
+            renderFallbackMarkers(filtered);
+            renderProvinceCards(filtered);
             updateSummary(filtered);
-
-            if (shouldFit) {
-                fitMarkers(filtered);
-            }
+            renderLeaflet(filtered, shouldFit);
         }
 
-        function resetAll() {
+        function focusProvince(province) {
+            const item =
+                provinceData.find(
+                    record =>
+                        record.province === province
+                );
+
+            if (!item) {
+                return;
+            }
+
+            state.province = province;
+            provinceFilter.value = province;
+
+            render(false);
+
+            if (
+                leafletState.ready &&
+                leafletState.map
+            ) {
+                leafletState.map.setView(
+                    item.coordinates,
+                    10,
+                    {
+                        animate: true
+                    }
+                );
+
+                const marker =
+                    leafletState.markers.get(
+                        province
+                    );
+
+                if (
+                    marker &&
+                    leafletState.map.hasLayer(
+                        marker
+                    )
+                ) {
+                    marker.openPopup();
+                }
+            }
+
+            document
+                .getElementById("interactiveMap")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+        }
+
+        function resetFilters() {
             state.province = "all";
             state.language = "all";
             state.search = "";
@@ -1402,67 +2432,176 @@
             render(true);
         }
 
-        searchInput.addEventListener("input", event => {
-            state.search = event.target.value;
-            render(true);
-        });
+        function loadScript(url) {
+            return new Promise(
+                (resolve, reject) => {
+                    const script =
+                        document.createElement("script");
 
-        provinceFilter.addEventListener("change", event => {
-            state.province = event.target.value;
-            render(true);
-        });
+                    script.src = url;
+                    script.async = true;
+                    script.onload = resolve;
+                    script.onerror = reject;
 
-        languageFilter.addEventListener("change", event => {
-            state.language = event.target.value;
-            render(true);
-        });
-
-        document
-            .getElementById("resetFilters")
-            .addEventListener("click", resetAll);
-
-        document
-            .getElementById("showAll")
-            .addEventListener("click", resetAll);
-
-        document
-            .getElementById("topReset")
-            .addEventListener("click", resetAll);
-
-        document
-            .getElementById("heroReset")
-            .addEventListener("click", () => {
-                resetAll();
-
-                document
-                    .getElementById("mapSection")
-                    .scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-            });
-
-        document
-            .getElementById("exploreMap")
-            .addEventListener("click", () => {
-                document
-                    .getElementById("mapSection")
-                    .scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-            });
-
-        buildControls();
-        buildMarkers();
-        resetAll();
-
-        window.addEventListener("resize", () => {
-            window.setTimeout(
-                () => map.invalidateSize(),
-                100
+                    document.head.appendChild(
+                        script
+                    );
+                }
             );
-        });
+        }
+
+        async function loadLeafletWithFallback() {
+            if (window.L) {
+                initializeLeaflet();
+                return;
+            }
+
+            const sources = [
+                "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+                "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            ];
+
+            for (const source of sources) {
+                try {
+                    await loadScript(source);
+
+                    if (window.L) {
+                        initializeLeaflet();
+                        return;
+                    }
+                } catch (error) {
+                    console.warn(
+                        `Could not load Leaflet from ${source}`,
+                        error
+                    );
+                }
+            }
+
+            fallbackStatus.textContent =
+                "The external mapping library is unavailable. The interactive schematic map remains fully usable.";
+        }
+
+        searchInput.addEventListener(
+            "input",
+            event => {
+                state.search =
+                    event.target.value;
+
+                render(true);
+            }
+        );
+
+        provinceFilter.addEventListener(
+            "change",
+            event => {
+                state.province =
+                    event.target.value;
+
+                render(true);
+            }
+        );
+
+        languageFilter.addEventListener(
+            "change",
+            event => {
+                state.language =
+                    event.target.value;
+
+                render(true);
+            }
+        );
+
+        document
+            .querySelectorAll(
+                ".fallback-marker"
+            )
+            .forEach(marker => {
+                const activate = () =>
+                    focusProvince(
+                        marker.dataset.province
+                    );
+
+                marker.addEventListener(
+                    "click",
+                    activate
+                );
+
+                marker.addEventListener(
+                    "keydown",
+                    event => {
+                        if (
+                            event.key === "Enter" ||
+                            event.key === " "
+                        ) {
+                            event.preventDefault();
+                            activate();
+                        }
+                    }
+                );
+            });
+
+        document
+            .getElementById("resetButton")
+            .addEventListener(
+                "click",
+                resetFilters
+            );
+
+        document
+            .getElementById("showAllButton")
+            .addEventListener(
+                "click",
+                resetFilters
+            );
+
+        document
+            .getElementById("heroResetButton")
+            .addEventListener(
+                "click",
+                () => {
+                    resetFilters();
+
+                    document
+                        .getElementById(
+                            "interactiveMap"
+                        )
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+                }
+            );
+
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
+
+        buildFilters();
+        resetFilters();
+        loadLeafletWithFallback();
+
+        window.addEventListener(
+            "resize",
+            () => {
+                if (
+                    leafletState.ready &&
+                    leafletState.map
+                ) {
+                    window.setTimeout(
+                        () =>
+                            leafletState.map.invalidateSize(),
+                        100
+                    );
+                }
+            }
+        );
     </script>
+
+    <!-- MinNa Website Agent -->
+    <script src="/agent/agent-config.js"></script>
+    <script src="/agent/minna-agent.js"
+            defer></script>
 </body>
+
 </html>

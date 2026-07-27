@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/minna_round_logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MinNa">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"
           content="IE=edge">
@@ -52,8 +56,8 @@
 
             --uic-rose: #c32962;
             --uic-pink: #e05d87;
-            --uic-burgundy: #4f1730;
-            --uic-blush: #fff0f5;
+                --uic-burgundy: #4f1730;
+                --uic-blush: #fff0f5;
             --uic-cream: #fcf7f9;
             --uic-charcoal: #3a2d33;
         }
@@ -910,6 +914,24 @@
         gtag("config", "G-BZRJP33YFX");
     </script>
 
+    <!-- Google Analytics -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "G-BZRJP33YFX");
+    </script>
+
+    <script src="/js/sw-register.js" defer></script>
+    <script src="/js/pwa-install.js" defer></script>
+
     <!-- MinNa Website Agent -->
     <link rel="stylesheet"
           href="/agent/minna-agent.css">
@@ -1059,6 +1081,15 @@
 
                         <div class="dropdown-menu dropdown-menu-right shadow resource-dropdown"
                              aria-labelledby="resourcesDropdown">
+                             <h6 class="dropdown-header">
+                                Interactive Resources
+                            </h6>
+
+                            <a class="dropdown-item active"
+                               href="interactive-map.html">
+                                <i class="fas fa-map-marked-alt dropdown-icon"></i>
+                                IndigenousCommunity Map
+                            </a>
                             <h6 class="dropdown-header">
                                 Language Tools
                             </h6>

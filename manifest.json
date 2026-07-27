@@ -1,0 +1,22 @@
+{
+  "name": "MinNa LProc R&D Lab",
+  "short_name": "MinNa",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fcf7f9",
+  "theme_color": "#c32962",
+  "description": "Mindanao Natural Language Processing Research and Development Laboratory - offline-capable site",
+  "icons": [
+    {
+      "src": "/minna_round_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/minna_round_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
