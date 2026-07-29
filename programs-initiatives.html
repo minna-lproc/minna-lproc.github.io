@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description"
+        content="Programs, initiatives, and services of the Mindanao Natural Language Processing Research and Development Laboratory.">
+    <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
+    <meta name="theme-color" content="#c32962">
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/minna_round_logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MinNa">
+
+    <title>
+        Programs, Initiatives, and Services | MinNa LProc R&amp;D Lab
+    </title>
+
+    <!-- MinNa website assets -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="minna_round_logo.png">
+
+    <style>
+        :root {
+            --minna-primary: #c32962;
+            --minna-secondary: #e05d87;
+            --minna-dark: #4f1730;
+            --minna-accent: #f29ab3;
+            --minna-light: #fff0f5;
+            --minna-surface: #fcf7f9;
+            --minna-text: #3a2d33;
+            --minna-muted: #76666d;
+            --minna-border: #eadde3;
+            --minna-success: #2f9e72;
+            --minna-blue: #3a6ea5;
+            --minna-gold: #b9781f;
+
+            --uic-rose: #c32962;
+            --uic-pink: #e05d87;
+            --uic-burgundy: #4f1730;
+            --uic-blush: #fff0f5;
+            --uic-cream: #fcf7f9;
+            --uic-charcoal: #3a2d33;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: "Nunito", sans-serif;
+            color: var(--minna-text);
+            background: var(--minna-surface);
+        }
+
+        #wrapper,
+        #content-wrapper,
+        #content {
+            width: 100%;
+            min-width: 0;
+        }
+
+        #content-wrapper {
+            background: var(--minna-surface);
+        }
+
+        a {
+            transition:
+                color 0.18s ease,
+                background-color 0.18s ease,
+                border-color 0.18s ease,
+                transform 0.18s ease,
+                box-shadow 0.18s ease;
+        }
+
+        /* =====================================================
+           TOP NAVIGATION
+        ===================================================== */
+        .site-navbar {
+            z-index: 1040;
+            min-height: 76px;
+            padding-top: 0.65rem;
+            padding-bottom: 0.65rem;
+            border-top: 4px solid var(--uic-rose);
+            border-bottom: 1px solid rgba(195, 41, 98, 0.12);
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 0.45rem 1.6rem rgba(91, 37, 57, 0.10);
+            backdrop-filter: blur(14px);
+        }
+
+        .mobile-nav-row {
+            display: contents;
+        }
+
+        .mobile-nav-spacer {
+            display: none;
+        }
+
+        .navbar-brand {
+            margin-right: 1.35rem;
+        }
+
+        .navbar-brand-logo {
+            width: 46px;
+            height: 46px;
+            margin-right: 0.72rem;
+            object-fit: contain;
+        }
+
+        .navbar-brand-copy {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            color: var(--minna-dark);
+            line-height: 1.05;
+        }
+
+        .navbar-brand-copy strong {
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+
+        .navbar-brand-copy small {
+            margin-top: 0.25rem;
+            color: var(--minna-muted);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .site-navbar .navbar-nav {
+            gap: 0.1rem;
+        }
+
+        .site-navbar .nav-link {
+            position: relative;
+            padding: 0.68rem 0.72rem !important;
+            border-radius: 0.65rem;
+            color: #5a404a !important;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-item.active>.nav-link,
+        .site-navbar .nav-item.show>.nav-link {
+            color: var(--uic-rose) !important;
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .nav-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .nav-icon {
+            margin-right: 0.34rem;
+            color: #b07a8f;
+            font-size: 0.74rem;
+        }
+
+        .site-navbar .nav-link:hover .nav-icon,
+        .site-navbar .nav-item.active .nav-icon {
+            color: var(--uic-rose);
+        }
+
+        .site-navbar .dropdown-menu {
+            min-width: 245px;
+            padding: 0.65rem;
+            margin-top: 0.55rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.85rem;
+        }
+
+        .site-navbar .dropdown-item {
+            padding: 0.62rem 0.75rem;
+            border-radius: 0.55rem;
+            color: #5a404a;
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: normal;
+        }
+
+        .site-navbar .dropdown-item:hover,
+        .site-navbar .dropdown-item:focus,
+        .site-navbar .dropdown-item.active {
+            color: var(--uic-rose);
+            background: var(--uic-blush);
+        }
+
+        .site-navbar .dropdown-header {
+            padding: 0.45rem 0.75rem;
+            color: #9d7c88;
+            font-size: 0.66rem;
+            font-weight: 900;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .dropdown-icon {
+            width: 1.2rem;
+            margin-right: 0.45rem;
+            color: #b07a8f;
+            text-align: center;
+        }
+
+        .resource-dropdown {
+            min-width: 285px !important;
+        }
+
+        .nav-cta {
+            padding: 0.72rem 0.95rem;
+            border-radius: 0.68rem;
+            color: #fff;
+            background: linear-gradient(135deg,
+                    var(--uic-rose),
+                    var(--uic-pink));
+            box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.24);
+            font-size: 0.78rem;
+            font-weight: 900;
+        }
+
+        .nav-cta:hover {
+            color: #fff;
+            box-shadow: 0 0.7rem 1.4rem rgba(195, 41, 98, 0.32);
+            transform: translateY(-1px);
+        }
+
+        .site-navbar .navbar-toggler {
+            padding: 0.42rem 0.58rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.6rem;
+        }
+
+        /* =====================================================
+           SHARED SECTIONS
+        ===================================================== */
+        .section-wrap {
+            padding: 5rem 0;
+        }
+
+        .section-wrap.is-soft {
+            background:
+                radial-gradient(circle at 94% 10%, rgba(195, 41, 98, 0.07), transparent 22%),
+                linear-gradient(180deg, #fff9fb 0%, #fff0f5 100%);
+        }
+
+        .section-header {
+            max-width: 850px;
+            margin-bottom: 2.25rem;
+        }
+
+        .section-header.is-centered {
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .section-kicker {
+            margin-bottom: 0.48rem;
+            color: var(--minna-secondary);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            color: var(--minna-dark);
+            font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: 1.12;
+        }
+
+        .section-copy {
+            max-width: 840px;
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            font-size: 1rem;
+            line-height: 1.82;
+        }
+
+        .section-header.is-centered .section-copy {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            padding: 5.6rem 0 5.2rem;
+            color: #fff;
+            background:
+                radial-gradient(circle at 88% 16%, rgba(255, 207, 221, 0.34), transparent 24%),
+                radial-gradient(circle at 65% 96%, rgba(255, 255, 255, 0.14), transparent 25%),
+                linear-gradient(135deg, #4f1730 0%, #992653 52%, #df6a8f 100%);
+        }
+
+        .hero-section::before,
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::before {
+            width: 430px;
+            height: 430px;
+            top: -230px;
+            right: -115px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-section::after {
+            width: 350px;
+            height: 350px;
+            right: 9%;
+            bottom: -270px;
+            border: 58px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .hero-layout {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 0.95rem;
+            margin-bottom: 1.35rem;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            max-width: 900px;
+            margin-bottom: 1.35rem;
+            font-size: clamp(2.45rem, 5vw, 4.55rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.02;
+        }
+
+        .hero-title span {
+            color: #ffd9e5;
+        }
+
+        .hero-copy {
+            max-width: 820px;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.08rem;
+            line-height: 1.82;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .hero-actions .btn {
+            flex: 0 0 auto;
+            width: auto;
+            padding: 0.82rem 1.15rem;
+            border-radius: 0.75rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .btn-soft-light {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        .btn-soft-light:hover {
+            color: var(--minna-primary);
+            background: #fff;
+        }
+
+        .hero-summary {
+            display: grid;
+            gap: 0.8rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 1.25rem;
+            background: rgba(255, 255, 255, 0.10);
+            box-shadow: 0 1.3rem 3rem rgba(79, 23, 48, 0.20);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-summary-card {
+            display: grid;
+            grid-template-columns: 50px minmax(0, 1fr);
+            gap: 0.9rem;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 0.9rem;
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        .hero-summary-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 0.85rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 1.15rem;
+        }
+
+        .hero-summary-card strong {
+            display: block;
+            margin-bottom: 0.15rem;
+            color: #fff;
+            font-size: 0.98rem;
+            font-weight: 900;
+        }
+
+        .hero-summary-card span {
+            color: rgba(255, 255, 255, 0.76);
+            font-size: 0.76rem;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           CATEGORY NAVIGATOR
+        ===================================================== */
+        .category-nav-section {
+            position: relative;
+            z-index: 5;
+            margin-top: -2.2rem;
+        }
+
+        .category-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .category-nav-card {
+            display: grid;
+            grid-template-columns: 56px minmax(0, 1fr) 28px;
+            gap: 0.9rem;
+            align-items: center;
+            min-height: 118px;
+            padding: 1.2rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            color: inherit;
+            text-decoration: none;
+            background: #fff;
+            box-shadow: 0 0.8rem 2.2rem rgba(91, 37, 57, 0.10);
+        }
+
+        .category-nav-card:hover {
+            color: inherit;
+            text-decoration: none;
+            border-color: #e7abc0;
+            transform: translateY(-5px);
+            box-shadow: 0 1.2rem 2.8rem rgba(91, 37, 57, 0.15);
+        }
+
+        .category-nav-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 1rem;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .category-nav-card.is-program .category-nav-icon {
+            background: linear-gradient(135deg, #4f1730, #c32962);
+        }
+
+        .category-nav-card.is-initiative .category-nav-icon {
+            background: linear-gradient(135deg, #315e88, #5f94c7);
+        }
+
+        .category-nav-card.is-service .category-nav-icon {
+            background: linear-gradient(135deg, #1f7658, #4cad82);
+        }
+
+        .category-nav-copy strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: var(--minna-dark);
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .category-nav-copy span {
+            display: block;
+            color: var(--minna-muted);
+            font-size: 0.76rem;
+            line-height: 1.55;
+        }
+
+        .category-nav-arrow {
+            color: #c2a2ae;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* =====================================================
+           OFFERING CARDS
+        ===================================================== */
+        .offering-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.15rem;
+        }
+
+        .offering-card {
+            position: relative;
+            display: flex;
+            min-height: 100%;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 1.45rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1.1rem;
+            background: #fff;
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
+        }
+
+        .offering-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--minna-primary), var(--minna-accent));
+        }
+
+        .offering-card.is-blue::before {
+            background: linear-gradient(90deg, #315e88, #7aa9d4);
+        }
+
+        .offering-card.is-green::before {
+            background: linear-gradient(90deg, #1f7658, #69bd91);
+        }
+
+        .offering-card:hover {
+            border-color: #e5b4c5;
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(91, 37, 57, 0.12);
+        }
+
+        .offering-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .offering-icon {
+            display: inline-flex;
+            flex: 0 0 54px;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 0.95rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+            font-size: 1.2rem;
+        }
+
+        .offering-card.is-blue .offering-icon {
+            color: #315e88;
+            background: #edf5fc;
+        }
+
+        .offering-card.is-green .offering-icon {
+            color: #1f7658;
+            background: #ecf8f2;
+        }
+
+        .offering-label {
+            display: inline-flex;
+            padding: 0.28rem 0.55rem;
+            margin-bottom: 0.4rem;
+            border-radius: 999px;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+            font-size: 0.62rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .offering-card.is-blue .offering-label {
+            color: #315e88;
+            background: #edf5fc;
+        }
+
+        .offering-card.is-green .offering-label {
+            color: #1f7658;
+            background: #ecf8f2;
+        }
+
+        .offering-card h3 {
+            margin-bottom: 0;
+            color: var(--minna-dark);
+            font-size: 1.15rem;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        .offering-card p {
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.86rem;
+            line-height: 1.75;
+        }
+
+        .offering-list {
+            padding: 0;
+            margin: 0 0 1.1rem;
+            list-style: none;
+        }
+
+        .offering-list li {
+            position: relative;
+            padding-left: 1.35rem;
+            margin-bottom: 0.5rem;
+            color: #654f58;
+            font-size: 0.78rem;
+            line-height: 1.55;
+        }
+
+        .offering-list li::before {
+            content: "\f058";
+            position: absolute;
+            top: 0.08rem;
+            left: 0;
+            color: var(--minna-primary);
+            font-family: "Font Awesome 5 Free";
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+
+        .offering-card.is-blue .offering-list li::before {
+            color: #315e88;
+        }
+
+        .offering-card.is-green .offering-list li::before {
+            color: #1f7658;
+        }
+
+        .offering-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding-top: 0.95rem;
+            margin-top: auto;
+            border-top: 1px solid var(--minna-border);
+        }
+
+        .audience-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #7b626c;
+            font-size: 0.68rem;
+            font-weight: 800;
+        }
+
+        .offering-link {
+            color: var(--minna-primary);
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .offering-link:hover {
+            color: var(--minna-dark);
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           FEATURED INITIATIVES
+        ===================================================== */
+        .initiative-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .initiative-card {
+            display: flex;
+            min-height: 100%;
+            overflow: hidden;
+            flex-direction: column;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
+        }
+
+        .initiative-card:hover {
+            border-color: #d8b5c2;
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(91, 37, 57, 0.12);
+        }
+
+        .initiative-visual {
+            position: relative;
+            display: flex;
+            min-height: 160px;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background:
+                radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.22), transparent 26%),
+                linear-gradient(135deg, #4f1730, #c32962);
+        }
+
+        .initiative-card:nth-child(2) .initiative-visual {
+            background:
+                radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.20), transparent 26%),
+                linear-gradient(135deg, #315e88, #6ba3d2);
+        }
+
+        .initiative-card:nth-child(3) .initiative-visual {
+            background:
+                radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.20), transparent 26%),
+                linear-gradient(135deg, #1f7658, #4cad82);
+        }
+
+        .initiative-card:nth-child(4) .initiative-visual {
+            background:
+                radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.20), transparent 26%),
+                linear-gradient(135deg, #875415, #c18b3b);
+        }
+
+        .initiative-visual i {
+            font-size: 3rem;
+            opacity: 0.95;
+        }
+
+        .initiative-status {
+            position: absolute;
+            top: 0.85rem;
+            right: 0.85rem;
+            padding: 0.32rem 0.55rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 0.58rem;
+            font-weight: 900;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .initiative-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 1.2rem;
+        }
+
+        .initiative-body h3 {
+            margin-bottom: 0.6rem;
+            color: var(--minna-dark);
+            font-size: 1rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .initiative-body p {
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.78rem;
+            line-height: 1.68;
+        }
+
+        .initiative-body a {
+            align-self: flex-start;
+            margin-top: auto;
+            color: var(--minna-primary);
+            font-size: 0.73rem;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .initiative-body a:hover {
+            color: var(--minna-dark);
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .service-card {
+            position: relative;
+            display: flex;
+            min-height: 100%;
+            flex-direction: column;
+            padding: 1.35rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 0.55rem 1.7rem rgba(91, 37, 57, 0.07);
+        }
+
+        .service-card:hover {
+            border-color: #e7abc0;
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(91, 37, 57, 0.12);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #ead6de;
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 1rem;
+            border-radius: 0.9rem;
+            color: var(--minna-primary);
+            background: var(--minna-light);
+            font-size: 1.15rem;
+        }
+
+        .service-card h3 {
+            max-width: 85%;
+            margin-bottom: 0.6rem;
+            color: var(--minna-dark);
+            font-size: 1.02rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .service-card p {
+            margin-bottom: 1rem;
+            color: var(--minna-muted);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .service-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.38rem;
+            margin-top: auto;
+        }
+
+        .service-meta span {
+            display: inline-flex;
+            padding: 0.32rem 0.52rem;
+            border-radius: 999px;
+            color: #6d3a50;
+            background: var(--minna-light);
+            font-size: 0.62rem;
+            font-weight: 900;
+        }
+
+        /* =====================================================
+           ENGAGEMENT PATHWAY
+        ===================================================== */
+        .engagement-section {
+            padding: 5rem 0;
+            color: #fff;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(242, 154, 179, 0.27), transparent 24%),
+                linear-gradient(135deg, #4f1730, #9f2958);
+        }
+
+        .engagement-section .section-kicker {
+            color: #ffd1df;
+        }
+
+        .engagement-section .section-title {
+            color: #fff;
+        }
+
+        .engagement-section .section-copy {
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-top: 2.2rem;
+        }
+
+        .engagement-step {
+            position: relative;
+            padding: 1.15rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 0.95rem;
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .engagement-step:not(:last-child)::after {
+            content: "\f061";
+            position: absolute;
+            top: 50%;
+            right: -0.62rem;
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.55);
+            font-family: "Font Awesome 5 Free";
+            font-size: 0.65rem;
+            font-weight: 900;
+            transform: translateY(-50%);
+        }
+
+        .engagement-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            margin-bottom: 0.75rem;
+            border-radius: 50%;
+            color: var(--minna-dark);
+            background: #ffd9e5;
+            font-size: 0.75rem;
+            font-weight: 900;
+        }
+
+        .engagement-step strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: #fff;
+            font-size: 0.88rem;
+            font-weight: 900;
+        }
+
+        .engagement-step span {
+            display: block;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.7rem;
+            line-height: 1.55;
+        }
+
+        /* =====================================================
+           AUDIENCES AND NOTE
+        ===================================================== */
+        .audience-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 1.15rem;
+            background: #fff;
+            box-shadow: 0 0.8rem 2.2rem rgba(91, 37, 57, 0.08);
+        }
+
+        .audience-panel h2 {
+            margin-bottom: 0.8rem;
+            color: var(--minna-dark);
+            font-size: clamp(1.65rem, 3vw, 2.35rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+        }
+
+        .audience-panel p {
+            margin-bottom: 0;
+            color: var(--minna-muted);
+            font-size: 0.88rem;
+            line-height: 1.78;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .audience-tags span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.68rem 0.82rem;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.75rem;
+            color: #654955;
+            background: #fff9fb;
+            font-size: 0.73rem;
+            font-weight: 900;
+        }
+
+        .audience-tags i {
+            color: var(--minna-primary);
+        }
+
+        .service-note {
+            padding: 1rem 1.1rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--minna-primary);
+            border-radius: 0.7rem;
+            color: #70535e;
+            background: var(--minna-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1.65;
+        }
+
+        /* =====================================================
+           CTA AND FOOTER
+        ===================================================== */
+        .page-cta {
+            padding: 5rem 0;
+            color: #fff;
+            text-align: center;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(242, 154, 179, 0.30), transparent 25%),
+                linear-gradient(135deg, #4f1730, #b52d60);
+        }
+
+        .page-cta h2 {
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            font-size: clamp(1.95rem, 3vw, 2.85rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+        }
+
+        .page-cta p {
+            max-width: 790px;
+            margin: 0 auto 1.8rem;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.8;
+        }
+
+        .page-cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .page-cta .btn {
+            padding: 0.82rem 1.15rem;
+            border-radius: 0.72rem;
+            font-weight: 900;
+        }
+
+        .sticky-footer {
+            border-top: 1px solid var(--minna-border);
+        }
+
+        .scroll-to-top {
+            background: var(--minna-primary);
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition:
+                opacity 0.55s ease,
+                transform 0.55s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =====================================================
+           RESPONSIVE RULES
+        ===================================================== */
+        @media (min-width: 1200px) {
+            .site-navbar .dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+
+            .site-navbar .dropdown-menu {
+                top: calc(100% - 0.1rem);
+            }
+
+            .site-navbar .nav-item.active>.nav-link::after {
+                content: "";
+                position: absolute;
+                right: 0.72rem;
+                bottom: 0.28rem;
+                left: 0.72rem;
+                height: 3px;
+                border-radius: 999px;
+                background: var(--uic-rose);
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .site-navbar {
+                min-height: auto;
+                padding: 0.55rem 0;
+            }
+
+            .site-navbar>.container-fluid {
+                display: block;
+            }
+
+            .mobile-nav-row {
+                display: grid;
+                grid-template-columns: 44px minmax(0, 1fr) 44px;
+                align-items: center;
+                width: 100%;
+                min-height: 52px;
+            }
+
+            .mobile-nav-row .navbar-toggler {
+                grid-column: 1;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px !important;
+                min-width: 44px;
+                max-width: 44px;
+                height: 44px;
+                padding: 0;
+                margin: 0;
+                border: 1px solid var(--minna-border);
+                border-radius: 0.75rem;
+                background: #fff;
+                box-shadow: 0 0.3rem 0.8rem rgba(79, 23, 48, 0.08);
+            }
+
+            .mobile-nav-row .navbar-toggler:hover,
+            .mobile-nav-row .navbar-toggler:focus {
+                border-color: var(--minna-primary);
+                background: var(--minna-light);
+                outline: none;
+                box-shadow: 0 0 0 0.2rem rgba(195, 41, 98, 0.14);
+            }
+
+            .mobile-nav-row .navbar-toggler-icon {
+                width: 21px;
+                height: 21px;
+            }
+
+            .mobile-nav-row .navbar-brand {
+                grid-column: 2;
+                justify-self: center;
+                width: max-content;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .mobile-nav-row .navbar-brand-logo {
+                width: 42px;
+                height: 42px;
+                margin-right: 0.55rem;
+            }
+
+            .mobile-nav-row .navbar-brand-copy strong {
+                font-size: 0.92rem;
+            }
+
+            .mobile-nav-row .navbar-brand-copy small {
+                font-size: 0.60rem;
+            }
+
+            .mobile-nav-spacer {
+                grid-column: 3;
+                display: block;
+                width: 44px;
+                height: 44px;
+            }
+
+            .site-navbar .navbar-collapse {
+                width: 100%;
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+                padding: 0.75rem;
+                margin-top: 0.7rem;
+                border: 1px solid var(--minna-border);
+                border-radius: 0.9rem;
+                background: #fff;
+                box-shadow: 0 0.8rem 2rem rgba(79, 23, 48, 0.12);
+            }
+
+            .site-navbar .navbar-nav,
+            .site-navbar .nav-item {
+                width: 100%;
+            }
+
+            .site-navbar .navbar-nav {
+                align-items: stretch !important;
+                gap: 0.2rem;
+            }
+
+            .site-navbar .nav-link {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 0.75rem !important;
+            }
+
+            .site-navbar .dropdown-menu {
+                position: static;
+                float: none;
+                width: 100%;
+                margin-top: 0.15rem;
+                margin-bottom: 0.35rem;
+                border: 0;
+                background: #fff9fb;
+                box-shadow: none !important;
+            }
+
+            .nav-cta {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-summary {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .hero-summary-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-summary-icon {
+                margin: 0 auto;
+            }
+
+            .initiative-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .engagement-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .engagement-step:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+
+            .category-nav-grid,
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offering-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audience-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 4.2rem 0 4rem;
+            }
+
+            .section-wrap,
+            .engagement-section,
+            .page-cta {
+                padding: 3.8rem 0;
+            }
+
+            .category-nav-section {
+                margin-top: -1.4rem;
+            }
+
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-summary-card {
+                grid-template-columns: 50px minmax(0, 1fr);
+                text-align: left;
+            }
+
+            .hero-summary-icon {
+                margin: 0;
+            }
+
+            .initiative-grid,
+            .engagement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-nav-card {
+                grid-template-columns: 50px minmax(0, 1fr) 24px;
+            }
+
+            .category-nav-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .mobile-nav-row {
+                grid-template-columns: 42px minmax(0, 1fr) 42px;
+            }
+
+            .mobile-nav-row .navbar-toggler,
+            .mobile-nav-spacer {
+                width: 42px !important;
+                min-width: 42px;
+                max-width: 42px;
+                height: 42px;
+            }
+
+            .mobile-nav-row .navbar-brand-logo {
+                width: 37px;
+                height: 37px;
+                margin-right: 0.42rem;
+            }
+
+            .mobile-nav-row .navbar-brand-copy strong {
+                font-size: 0.82rem;
+            }
+
+            .mobile-nav-row .navbar-brand-copy small {
+                font-size: 0.52rem;
+            }
+
+            .hero-actions {
+                flex-wrap: nowrap;
+                gap: 0.55rem;
+            }
+
+            .hero-actions .btn {
+                flex: 0 1 auto;
+                padding: 0.72rem 0.7rem;
+                font-size: 0.70rem;
+            }
+
+            .page-cta-actions {
+                flex-direction: column;
+            }
+
+            .page-cta-actions .btn {
+                width: 100%;
+            }
+
+            .audience-panel {
+                padding: 1.35rem;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .mobile-nav-row .navbar-brand-copy strong {
+                font-size: 0.76rem;
+            }
+
+            .mobile-nav-row .navbar-brand-copy small {
+                font-size: 0.48rem;
+            }
+
+            .hero-actions .btn {
+                padding-right: 0.52rem;
+                padding-left: 0.52rem;
+                font-size: 0.64rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- MinNa Website Agent -->
+    <link rel="stylesheet" href="/agent/minna-agent.css">
+    <script src="/js/sw-register.js" defer></script>
+    <script src="/js/pwa-install.js" defer></script>
+</head>
+
+<body id="page-top">
+
+    <nav class="navbar navbar-expand-xl navbar-light site-navbar sticky-top" aria-label="Primary navigation">
+        <div class="container-fluid px-3 px-lg-5">
+
+            <div class="mobile-nav-row">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavigation"
+                    aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="minna_round_logo.png" class="navbar-brand-logo" alt="MinNa LProc logo">
+                    <span class="navbar-brand-copy">
+                        <strong>MinNa LProc</strong>
+                        <small>R&amp;D Lab</small>
+                    </span>
+                </a>
+
+                <span class="mobile-nav-spacer" aria-hidden="true"></span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+
+                <ul class="navbar-nav ml-auto align-items-xl-center">
+
+                     <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="homeDropdown" role="button">
+                            <i class="fas fa-home nav-icon"></i>
+                            Home
+                        </a>
+                        <div aria-labelledby="homeDropdown" class="dropdown-menu shadow">
+                            <a class="dropdown-item" href="about/about.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Vision and Mission
+                            </a>
+                            <a class="dropdown-item" href="programs-initiatives.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Programs and Services
+                            </a>
+                            
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects/featuredprojects.html">
+                            <i class="fas fa-lightbulb nav-icon"></i>
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">
+                            <i class="fas fa-book-open nav-icon"></i>
+                            Publications
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchersDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-friends nav-icon"></i>
+                            Researchers
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="researchersDropdown">
+                            <a class="dropdown-item" href="people/faculties.html">
+                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
+                                Faculties
+                            </a>
+
+                            <a class="dropdown-item" href="people/gradstudents.html">
+                                <i class="fas fa-user-graduate dropdown-icon"></i>
+                                Graduate Students
+                            </a>
+
+                            <a class="dropdown-item" href="people/undergradstudents.html">
+                                <i class="fas fa-users dropdown-icon"></i>
+                                Undergraduate Students
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="communitiesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-hands-helping nav-icon"></i>
+                            Communities
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="communitiesDropdown">
+                            <h6 class="dropdown-header">
+                                Language Communities
+                            </h6>
+
+                            <a class="dropdown-item" href="people/kagan.html">
+                                Kagan
+                            </a>
+
+                            <a class="dropdown-item" href="people/manobo.html">
+                                Manobo
+                            </a>
+
+                            <a class="dropdown-item" href="people/mansaka.html">
+                                Mansaka
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-folder-open nav-icon"></i>
+                            Resources
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right shadow resource-dropdown"
+                            aria-labelledby="resourcesDropdown">
+
+                            <h6 class="dropdown-header">
+                                Interactive Resources
+                            </h6>
+
+                            <a class="dropdown-item" href="interactive-map.html">
+                                <i class="fas fa-map-marked-alt dropdown-icon"></i>
+                                Indigenous Community Map
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">
+                                Language Tools
+                            </h6>
+
+                            <a class="dropdown-item" href="https://www.iwag.info/" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fas fa-language dropdown-icon"></i>
+                                Translation Tool
+                            </a>
+
+                            <a class="dropdown-item"
+                                href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-tools dropdown-icon"></i>
+                                Cebuano NLTK
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">
+                                Parallel Corpora
+                            </h6>
+
+                            <a class="dropdown-item"
+                                href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                                target="_blank" rel="noopener noreferrer">
+                                Filipino–Cebuano
+                            </a>
+
+                            <a class="dropdown-item" href="people/kagan.html">
+                                Cebuano–Kagan
+                            </a>
+
+                            <a class="dropdown-item" href="people/manobo.html">
+                                Cebuano–Manobo
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
+                        <a class="btn nav-cta" href="#services">
+                            <i class="fas fa-handshake mr-2"></i>
+                            Work With Us
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper" class="d-block w-100">
+        <div id="content-wrapper" class="d-flex flex-column w-100">
+            <div id="content" class="w-100">
+
+                <main>
+
+                    <!-- Hero -->
+                    <section class="hero-section">
+                        <div class="container-fluid px-4 px-lg-5">
+                            <div class="hero-layout">
+
+                                <div>
+                                    <div class="hero-kicker">
+                                        <i class="fas fa-project-diagram"></i>
+                                        Research translated into meaningful action
+                                    </div>
+
+                                    <p class="hero-copy">
+                                        MinNa LProc R&amp;D Lab advances language
+                                        documentation, natural language processing,
+                                        and responsible artificial intelligence for
+                                        Philippine and Mindanao languages. Our work
+                                        connects research, community engagement,
+                                        technology development, and capacity building.
+                                    </p>
+
+                                    <div class="hero-actions">
+                                        <a href="#programs" class="btn btn-light">
+                                            <i class="fas fa-layer-group mr-2"></i>
+                                            Explore Our Programs
+                                        </a>
+
+                                        <a href="contact.html" class="btn btn-soft-light">
+                                            <i class="fas fa-comments mr-2"></i>
+                                            Start a Conversation
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <aside class="hero-summary" aria-label="Laboratory focus areas">
+
+                                    <div class="hero-summary-card">
+                                        <span class="hero-summary-icon">
+                                            <i class="fas fa-book-reader"></i>
+                                        </span>
+
+                                        <div>
+                                            <strong>Research Programs</strong>
+                                            <span>
+                                                Long-term areas that guide the
+                                                laboratory’s research and development.
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-summary-card">
+                                        <span class="hero-summary-icon">
+                                            <i class="fas fa-rocket"></i>
+                                        </span>
+
+                                        <div>
+                                            <strong>Strategic Initiatives</strong>
+                                            <span>
+                                                Focused projects, digital resources,
+                                                and community-centered activities.
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="hero-summary-card">
+                                        <span class="hero-summary-icon">
+                                            <i class="fas fa-hands-helping"></i>
+                                        </span>
+
+                                        <div>
+                                            <strong>Research Services</strong>
+                                            <span>
+                                                Technical, training, and collaborative
+                                                support for partners and researchers.
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </aside>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Category navigator -->
+                    <section class="category-nav-section" aria-label="Page sections">
+                        <div class="container-fluid px-4 px-lg-5">
+                            <div class="category-nav-grid">
+
+                                <a href="#programs" class="category-nav-card is-program reveal">
+                                    <span class="category-nav-icon">
+                                        <i class="fas fa-layer-group"></i>
+                                    </span>
+
+                                    <span class="category-nav-copy">
+                                        <strong>Programs</strong>
+                                        <span>
+                                            The laboratory’s sustained research,
+                                            development, and capacity-building areas.
+                                        </span>
+                                    </span>
+
+                                    <span class="category-nav-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </a>
+
+                                <a href="#initiatives" class="category-nav-card is-initiative reveal">
+                                    <span class="category-nav-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </span>
+
+                                    <span class="category-nav-copy">
+                                        <strong>Initiatives</strong>
+                                        <span>
+                                            Current platforms, resources, and
+                                            community-facing technology efforts.
+                                        </span>
+                                    </span>
+
+                                    <span class="category-nav-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </a>
+
+                                <a href="#services" class="category-nav-card is-service reveal">
+                                    <span class="category-nav-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </span>
+
+                                    <span class="category-nav-copy">
+                                        <strong>Services</strong>
+                                        <span>
+                                            Research, technical, training, and
+                                            collaboration support offered by MinNa.
+                                        </span>
+                                    </span>
+
+                                    <span class="category-nav-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Programs -->
+                    <section id="programs" class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="section-header">
+                                <div class="section-kicker">
+                                    Research Programs
+                                </div>
+
+                                <h2 class="section-title">
+                                    Sustained programs that guide the laboratory’s work
+                                </h2>
+
+                                <p class="section-copy">
+                                    These programs establish the long-term direction
+                                    of MinNa’s research, community engagement,
+                                    technology development, and researcher formation.
+                                </p>
+                            </div>
+
+                            <div class="offering-grid">
+
+                                <article class="offering-card reveal">
+                                    <div class="offering-card-header">
+                                        <span class="offering-icon">
+                                            <i class="fas fa-microphone-alt"></i>
+                                        </span>
+
+                                        <div>
+                                            <span class="offering-label">
+                                                Program
+                                            </span>
+
+                                            <h3>
+                                                Indigenous Language Documentation
+                                                and Digital Preservation
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        Supports the responsible collection,
+                                        digitization, organization, validation, and
+                                        preservation of language resources in
+                                        collaboration with language communities.
+                                    </p>
+
+                                    <ul class="offering-list">
+                                        <li>
+                                            Community-informed documentation and
+                                            language resource collection
+                                        </li>
+                                        <li>
+                                            Digitization and structured storage of
+                                            text, lexical, and related language data
+                                        </li>
+                                        <li>
+                                            Resource validation, attribution, and
+                                            responsible dissemination
+                                        </li>
+                                    </ul>
+
+                                    <div class="offering-footer">
+                                        <span class="audience-tag">
+                                            <i class="fas fa-users"></i>
+                                            Communities and research partners
+                                        </span>
+
+                                        <a href="interactive_map.html" class="offering-link">
+                                            Explore communities
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="offering-card reveal">
+                                    <div class="offering-card-header">
+                                        <span class="offering-icon">
+                                            <i class="fas fa-language"></i>
+                                        </span>
+
+                                        <div>
+                                            <span class="offering-label">
+                                                Program
+                                            </span>
+
+                                            <h3>
+                                                Language Technology Research
+                                                and Development
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        Develops natural language processing tools,
+                                        language technologies, and digital resources
+                                        for Philippine languages, particularly
+                                        low-resource and underrepresented languages.
+                                    </p>
+
+                                    <ul class="offering-list">
+                                        <li>
+                                            Machine translation and multilingual
+                                            language processing
+                                        </li>
+                                        <li>
+                                            Dialogue systems, text processing, and
+                                            language resource tools
+                                        </li>
+                                        <li>
+                                            Model evaluation, linguistic analysis,
+                                            and prototype validation
+                                        </li>
+                                    </ul>
+
+                                    <div class="offering-footer">
+                                        <span class="audience-tag">
+                                            <i class="fas fa-laptop-code"></i>
+                                            Researchers and technology teams
+                                        </span>
+
+                                        <a href="projects/featuredprojects.html" class="offering-link">
+                                            View related projects
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="offering-card reveal">
+                                    <div class="offering-card-header">
+                                        <span class="offering-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </span>
+
+                                        <div>
+                                            <span class="offering-label">
+                                                Program
+                                            </span>
+
+                                            <h3>
+                                                Indigenous Languages in AI
+                                                and Language Models
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        Investigates how language models and
+                                        artificial intelligence systems can better
+                                        represent, support, and responsibly include
+                                        Indigenous and low-resource languages.
+                                    </p>
+
+                                    <ul class="offering-list">
+                                        <li>
+                                            Language model experimentation,
+                                            adaptation, and benchmarking
+                                        </li>
+                                        <li>
+                                            Corpus development for low-resource
+                                            language inclusion
+                                        </li>
+                                        <li>
+                                            Responsible AI practices for culturally
+                                            and linguistically grounded systems
+                                        </li>
+                                    </ul>
+
+                                    <div class="offering-footer">
+                                        <span class="audience-tag">
+                                            <i class="fas fa-network-wired"></i>
+                                            AI researchers and institutions
+                                        </span>
+
+                                        <a href="publications.html" class="offering-link">
+                                            Read our research
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="offering-card reveal">
+                                    <div class="offering-card-header">
+                                        <span class="offering-icon">
+                                            <i class="fas fa-user-graduate"></i>
+                                        </span>
+
+                                        <div>
+                                            <span class="offering-label">
+                                                Program
+                                            </span>
+
+                                            <h3>
+                                                Research Capacity Building,
+                                                Mentorship, and Training
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        Strengthens the local research community by
+                                        supporting students, faculty members, and
+                                        partner institutions in NLP, language
+                                        technology, and responsible AI.
+                                    </p>
+
+                                    <ul class="offering-list">
+                                        <li>
+                                            Research mentoring and technical guidance
+                                        </li>
+                                        <li>
+                                            Workshops, seminars, and applied learning
+                                            activities
+                                        </li>
+                                        <li>
+                                            Collaborative research formation and
+                                            publication support
+                                        </li>
+                                    </ul>
+
+                                    <div class="offering-footer">
+                                        <span class="audience-tag">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                            Students, faculty, and partners
+                                        </span>
+
+                                        <a href="people/faculties.html" class="offering-link">
+                                            Meet the researchers
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Initiatives -->
+                    <section id="initiatives" class="section-wrap is-soft">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="section-header is-centered">
+                                <div class="section-kicker">
+                                    Strategic Initiatives
+                                </div>
+
+                                <h2 class="section-title">
+                                    Research brought to life through tools,
+                                    resources, and partnerships
+                                </h2>
+
+                                <p class="section-copy">
+                                    MinNa’s initiatives translate research into
+                                    accessible digital platforms, language resources,
+                                    and collaborative activities that support
+                                    communities, researchers, and institutions.
+                                </p>
+                            </div>
+
+                            <div class="initiative-grid">
+
+                                <article class="initiative-card reveal">
+                                    <div class="initiative-visual">
+                                        <span class="initiative-status">
+                                            Language Technology
+                                        </span>
+                                        <i class="fas fa-language"></i>
+                                    </div>
+
+                                    <div class="initiative-body">
+                                        <h3>
+                                            Project iWag
+                                        </h3>
+
+                                        <p>
+                                            A language technology initiative focused
+                                            on Filipino–Cebuano machine translation
+                                            and multilingual language support.
+                                        </p>
+
+                                        <a href="https://www.iwag.info/" target="_blank" rel="noopener noreferrer">
+                                            Visit Project iWag
+                                            <i class="fas fa-external-link-alt ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="initiative-card reveal">
+                                    <div class="initiative-visual">
+                                        <span class="initiative-status">
+                                            Digital Resource
+                                        </span>
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+
+                                    <div class="initiative-body">
+                                        <h3>
+                                            Interactive Indigenous Community Map
+                                        </h3>
+
+                                        <p>
+                                            An interactive resource that presents
+                                            province-level information about
+                                            Indigenous Peoples and language
+                                            communities, beginning with Region XI.
+                                        </p>
+
+                                        <a href="interactive-map.html">
+                                            Explore the map
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="initiative-card reveal">
+                                    <div class="initiative-visual">
+                                        <span class="initiative-status">
+                                            Language Resources
+                                        </span>
+                                        <i class="fas fa-database"></i>
+                                    </div>
+
+                                    <div class="initiative-body">
+                                        <h3>
+                                            Mindanao Language Resources
+                                            and Parallel Corpora
+                                        </h3>
+
+                                        <p>
+                                            Development and dissemination of
+                                            structured datasets, parallel corpora,
+                                            lexical resources, and related materials
+                                            for low-resource language research.
+                                        </p>
+
+                                        <a href="projects/featuredprojects.html">
+                                            View resource projects
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="initiative-card reveal">
+                                    <div class="initiative-visual">
+                                        <span class="initiative-status">
+                                            Collaboration
+                                        </span>
+                                        <i class="fas fa-people-carry"></i>
+                                    </div>
+
+                                    <div class="initiative-body">
+                                        <h3>
+                                            Community and Institutional
+                                            Research Collaboration
+                                        </h3>
+
+                                        <p>
+                                            Collaborative research, validation,
+                                            training, and technology development with
+                                            communities, academic institutions, and
+                                            government or development partners.
+                                        </p>
+
+                                        <a href="contact.html">
+                                            Discuss a collaboration
+                                            <i class="fas fa-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </article>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Services -->
+                    <section id="services" class="section-wrap">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="section-header">
+                                <div class="section-kicker">
+                                    Laboratory Services
+                                </div>
+
+                                <h2 class="section-title">
+                                    Research and technical support for meaningful
+                                    language technology work
+                                </h2>
+
+                                <p class="section-copy">
+                                    MinNa works with students, researchers,
+                                    institutions, government agencies, and community
+                                    partners on projects aligned with the
+                                    laboratory’s expertise and mandate.
+                                </p>
+                            </div>
+
+                            <div class="service-grid">
+
+                                <article class="service-card reveal">
+                                    <span class="service-number">01</span>
+
+                                    <span class="service-icon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+
+                                    <h3>
+                                        NLP and AI Research Consultation
+                                    </h3>
+
+                                    <p>
+                                        Technical consultation on research problems,
+                                        study design, language technology methods,
+                                        model selection, evaluation, and responsible
+                                        AI considerations.
+                                    </p>
+
+                                    <div class="service-meta">
+                                        <span>Research Design</span>
+                                        <span>Technical Review</span>
+                                    </div>
+                                </article>
+
+                                <article class="service-card reveal">
+                                    <span class="service-number">02</span>
+
+                                    <span class="service-icon">
+                                        <i class="fas fa-database"></i>
+                                    </span>
+
+                                    <h3>
+                                        Corpus, Dataset, and Language
+                                        Resource Development
+                                    </h3>
+
+                                    <p>
+                                        Guidance and collaborative support for
+                                        collecting, cleaning, organizing, annotating,
+                                        validating, documenting, and preparing
+                                        language datasets.
+                                    </p>
+
+                                    <div class="service-meta">
+                                        <span>Corpus Building</span>
+                                        <span>Annotation</span>
+                                        <span>Data Documentation</span>
+                                    </div>
+                                </article>
+
+                                <article class="service-card reveal">
+                                    <span class="service-number">03</span>
+
+                                    <span class="service-icon">
+                                        <i class="fas fa-code"></i>
+                                    </span>
+
+                                    <h3>
+                                        NLP Prototype and Language
+                                        Technology Development
+                                    </h3>
+
+                                    <p>
+                                        Collaborative design and development of
+                                        research prototypes such as translation
+                                        tools, text-processing systems, dialogue
+                                        systems, and language resource applications.
+                                    </p>
+
+                                    <div class="service-meta">
+                                        <span>Prototyping</span>
+                                        <span>Evaluation</span>
+                                        <span>Deployment Guidance</span>
+                                    </div>
+                                </article>
+
+                                <article class="service-card reveal">
+                                    <span class="service-number">04</span>
+
+                                    <span class="service-icon">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                    </span>
+
+                                    <h3>
+                                        Workshops, Seminars, and
+                                        Capacity-Building Activities
+                                    </h3>
+
+                                    <p>
+                                        Customized learning activities on NLP,
+                                        machine translation, language models, AI
+                                        agents, research methods, and responsible
+                                        development.
+                                    </p>
+
+                                    <div class="service-meta">
+                                        <span>Training</span>
+                                        <span>Hands-on Workshops</span>
+                                    </div>
+                                </article>
+
+                                <article class="service-card reveal">
+                                    <span class="service-number">05</span>
+
+                                    <span class="service-icon">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </span>
+
+                                    <h3>
+                                        Thesis, Capstone, Internships, and Research Mentoring
+                                    </h3>
+
+                                    <p>
+                                        Mentoring and technical guidance for student
+                                        researchers working on NLP, machine learning,
+                                        language resources, and related computing
+                                        research.
+                                    </p>
+
+                                    <div class="service-meta">
+                                        <span>Mentoring</span>
+                                        <span>Research Feedback</span>
+                                    </div>
+                                </article>
+
+                                <article class="service-card reveal">
+                                    <span class="service-number">06</span>
+
+                                    <span class="service-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </span>
+
+                                    <h3>
+                                        Partnership and Project Co-development
+                                    </h3>
+
+                                    <p>
+                                        Joint problem framing, proposal development,
+                                        research implementation, validation, and
+                                        knowledge-sharing with aligned institutional
+                                        and community partners.
+                                    </p>
+
+                                    <div class="service-meta">
+                                        <span>Joint Research</span>
+                                        <span>Proposal Support</span>
+                                        <span>Co-development</span>
+                                    </div>
+                                </article>
+
+                            </div>
+
+                            <div class="service-note">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Engagements are considered according to alignment
+                                with MinNa’s mandate, available expertise and
+                                resources, institutional requirements, research
+                                ethics, data governance, and appropriate community
+                                consultation or consent.
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- Audiences -->
+                    <section class="section-wrap is-soft">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <div class="audience-panel reveal">
+                                <div>
+                                    <div class="section-kicker">
+                                        Who We Work With
+                                    </div>
+
+                                    <h2>
+                                        Collaboration across research,
+                                        education, government, and communities
+                                    </h2>
+
+                                    <p>
+                                        MinNa welcomes conversations with groups
+                                        whose proposed work supports language
+                                        documentation, language technology,
+                                        low-resource NLP, responsible AI, researcher
+                                        development, or community-centered innovation.
+                                    </p>
+                                </div>
+
+                                <div class="audience-tags" aria-label="Potential collaborators">
+                                    <span>
+                                        <i class="fas fa-users"></i>
+                                        Language Communities
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-university"></i>
+                                        Academic Institutions
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-user-graduate"></i>
+                                        Students and Researchers
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-landmark"></i>
+                                        Government Agencies
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-hands-helping"></i>
+                                        Development Organizations
+                                    </span>
+
+                                    <span>
+                                        <i class="fas fa-laptop-code"></i>
+                                        Technology and Innovation Teams
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CTA -->
+                    <section class="page-cta">
+                        <div class="container-fluid px-4 px-lg-5">
+
+                            <h2>
+                                Let us build language technologies that are
+                                useful, responsible, and inclusive.
+                            </h2>
+
+                            <p>
+                                Share your research need, training request,
+                                proposed collaboration, or community-centered
+                                language initiative with the MinNa team.
+                            </p>
+
+                            <div class="page-cta-actions">
+                                <a href="contact.html" class="btn btn-light">
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    Contact MinNa
+                                </a>
+
+                                <a href="projects/featuredprojects.html" class="btn btn-outline-light">
+                                    <i class="fas fa-lightbulb mr-2"></i>
+                                    Explore Our Projects
+                                </a>
+                            </div>
+
+                        </div>
+                    </section>
+
+                </main>
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>
+                                &copy; <span id="currentYear"></span>
+                                MinNa LProc R&amp;D Lab. All rights reserved.
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top" aria-label="Back to top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- MinNa website scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+        "use strict";
+
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
+
+        const revealItems =
+            document.querySelectorAll(".reveal");
+
+        if (
+            "IntersectionObserver" in window &&
+            !window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
+            const revealObserver =
+                new IntersectionObserver(
+                    entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add(
+                                    "is-visible"
+                                );
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+            revealItems.forEach(item => {
+                revealObserver.observe(item);
+            });
+        } else {
+            revealItems.forEach(item => {
+                item.classList.add("is-visible");
+            });
+        }
+
+        document
+            .querySelectorAll(
+                '.navbar-collapse a[href^="#"]'
+            )
+            .forEach(link => {
+                link.addEventListener(
+                    "click",
+                    () => {
+                        const collapse =
+                            document.getElementById(
+                                "mainNavigation"
+                            );
+
+                        if (
+                            window.innerWidth < 1200 &&
+                            collapse.classList.contains("show")
+                        ) {
+                            $(collapse).collapse("hide");
+                        }
+                    }
+                );
+            });
+    </script>
+
+    <!-- MinNa Website Agent -->
+    <script src="/agent/agent-config.js"></script>
+    <script src="/agent/minna-agent.js" defer></script>
+</body>
+
+</html>
