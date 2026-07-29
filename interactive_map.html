@@ -3,47 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta name="description"
-          content="Interactive province-level map of Indigenous Peoples and language communities in the Davao Region based on a list supplied by NCIP Region XI.">
-    <meta name="author"
-          content="Mindanao Natural Language Processing Research and Development Laboratory">
-        <meta name="theme-color"
-            content="#c32962">
-        <link rel="manifest" href="/manifest.json">
-        <link rel="apple-touch-icon" href="/minna_round_logo.png">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <meta name="apple-mobile-web-app-title" content="MinNa">
+        content="Interactive province-level map of Indigenous Peoples and language communities in the Davao Region based on a list supplied by NCIP Region XI.">
+    <meta name="author" content="Mindanao Natural Language Processing Research and Development Laboratory">
+    <meta name="theme-color" content="#c32962">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/minna_round_logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MinNa">
 
     <title>
         Interactive Community Map | MinNa LProc R&amp;D Lab
     </title>
 
     <!-- MinNa website assets -->
-    <link href="vendor/fontawesome-free/css/all.min.css"
-          rel="stylesheet"
-          type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
-        rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="css/sb-admin-2.min.css"
-          rel="stylesheet">
-    <link rel="icon"
-          type="image/x-icon"
-          href="minna_round_logo.png">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="minna_round_logo.png">
 
     <!-- Leaflet CSS with a secondary CDN fallback -->
-    <link id="leafletCss"
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
-          onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+    <link id="leafletCss" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+        onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 
     <style>
         :root {
@@ -152,8 +138,8 @@
         }
 
         .site-navbar .nav-link:hover,
-        .site-navbar .nav-item.active > .nav-link,
-        .site-navbar .nav-item.show > .nav-link {
+        .site-navbar .nav-item.active>.nav-link,
+        .site-navbar .nav-item.show>.nav-link {
             color: var(--uic-rose) !important;
             background: var(--uic-blush);
         }
@@ -221,11 +207,9 @@
             padding: 0.72rem 1rem;
             border-radius: 0.68rem;
             color: #fff;
-            background: linear-gradient(
-                135deg,
-                var(--uic-rose),
-                var(--uic-pink)
-            );
+            background: linear-gradient(135deg,
+                    var(--uic-rose),
+                    var(--uic-pink));
             box-shadow: 0 0.45rem 1rem rgba(195, 41, 98, 0.24);
             font-size: 0.8rem;
             font-weight: 900;
@@ -345,20 +329,20 @@
             line-height: 1.82;
         }
 
-      .hero-actions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 0.8rem;
-    margin-top: 2rem;
-}
+        .hero-actions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
 
-.hero-actions .btn {
-    flex: 0 0 auto;
-    width: auto;
-    white-space: nowrap;
-}
+        .hero-actions .btn {
+            flex: 0 0 auto;
+            width: auto;
+            white-space: nowrap;
+        }
 
         .btn-soft-light {
             color: #fff;
@@ -912,7 +896,7 @@
         }
 
         @media (min-width: 1200px) {
-            .site-navbar .dropdown:hover > .dropdown-menu {
+            .site-navbar .dropdown:hover>.dropdown-menu {
                 display: block;
             }
 
@@ -920,7 +904,7 @@
                 top: calc(100% - 0.1rem);
             }
 
-            .site-navbar .nav-item.active > .nav-link::after {
+            .site-navbar .nav-item.active>.nav-link::after {
                 content: "";
                 position: absolute;
                 right: 0.8rem;
@@ -1049,60 +1033,42 @@
     </style>
 
     <!-- MinNa Website Agent: active when the page is inside the website -->
-    <link rel="stylesheet"
-          href="/agent/minna-agent.css">
+    <link rel="stylesheet" href="/agent/minna-agent.css">
     <script src="/js/sw-register.js" defer></script>
     <script src="/js/pwa-install.js" defer></script>
 </head>
 
 <body id="page-top">
 
-    <nav class="navbar navbar-expand-xl navbar-light site-navbar sticky-top"
-         aria-label="Primary navigation">
+    <nav class="navbar navbar-expand-xl navbar-light site-navbar sticky-top" aria-label="Primary navigation">
         <div class="container-fluid px-3 px-lg-5">
 
-            <a class="navbar-brand d-flex align-items-center"
-               href="index.html">
-                <img src="minna_round_logo.png"
-                     class="navbar-brand-logo"
-                     alt="MinNa LProc logo">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="minna_round_logo.png" class="navbar-brand-logo" alt="MinNa LProc logo">
                 <span class="navbar-brand-copy">
                     <strong>MinNa LProc</strong>
                     <small>R&amp;D Lab</small>
                 </span>
             </a>
 
-            <button class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#mainNavigation"
-                    aria-controls="mainNavigation"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavigation"
+                aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse"
-                 id="mainNavigation">
+            <div class="collapse navbar-collapse" id="mainNavigation">
 
                 <ul class="navbar-nav ml-auto align-items-xl-center">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           id="homeDropdown"
-                           role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true"
-                           aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-home nav-icon"></i>
                             Home
                         </a>
 
-                        <div class="dropdown-menu shadow"
-                             aria-labelledby="homeDropdown">
-                            <a class="dropdown-item"
-                               href="about/about.html">
+                        <div class="dropdown-menu shadow" aria-labelledby="homeDropdown">
+                            <a class="dropdown-item" href="about/about.html">
                                 <i class="fas fa-compass dropdown-icon"></i>
                                 Vision and Mission
                             </a>
@@ -1110,49 +1076,38 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="projects/featuredprojects.html">
+                        <a class="nav-link" href="projects/featuredprojects.html">
                             <i class="fas fa-lightbulb nav-icon"></i>
                             Projects
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="publications.html">
+                        <a class="nav-link" href="publications.html">
                             <i class="fas fa-book-open nav-icon"></i>
                             Publications
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           id="researchersDropdown"
-                           role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true"
-                           aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchersDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user-friends nav-icon"></i>
                             Researchers
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right shadow"
-                             aria-labelledby="researchersDropdown">
-                            <a class="dropdown-item"
-                               href="people/faculties.html">
+                        <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="researchersDropdown">
+                            <a class="dropdown-item" href="people/faculties.html">
                                 <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
                                 Faculties
                             </a>
 
-                            <a class="dropdown-item"
-                               href="people/gradstudents.html">
+                            <a class="dropdown-item" href="people/gradstudents.html">
                                 <i class="fas fa-user-graduate dropdown-icon"></i>
                                 Graduate Students
                             </a>
 
-                            <a class="dropdown-item"
-                               href="people/undergradstudents.html">
+                            <a class="dropdown-item" href="people/undergradstudents.html">
                                 <i class="fas fa-users dropdown-icon"></i>
                                 Undergraduate Students
                             </a>
@@ -1160,62 +1115,46 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           id="communitiesDropdown"
-                           role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true"
-                           aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="communitiesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-hands-helping nav-icon"></i>
                             Communities
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right shadow"
-                             aria-labelledby="communitiesDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="communitiesDropdown">
                             <h6 class="dropdown-header">
                                 Language Communities
                             </h6>
 
-                            <a class="dropdown-item"
-                               href="people/kagan.html">
+                            <a class="dropdown-item" href="people/kagan.html">
                                 Kagan
                             </a>
 
-                            <a class="dropdown-item"
-                               href="people/manobo.html">
+                            <a class="dropdown-item" href="people/manobo.html">
                                 Manobo
                             </a>
 
-                            <a class="dropdown-item"
-                               href="people/mansaka.html">
+                            <a class="dropdown-item" href="people/mansaka.html">
                                 Mansaka
                             </a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle"
-                           href="#"
-                           id="resourcesDropdown"
-                           role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true"
-                           aria-expanded="false"
-                           aria-current="page">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-current="page">
                             <i class="fas fa-folder-open nav-icon"></i>
                             Resources
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right shadow resource-dropdown"
-                             aria-labelledby="resourcesDropdown">
+                            aria-labelledby="resourcesDropdown">
 
                             <h6 class="dropdown-header">
                                 Interactive Resources
                             </h6>
 
-                            <a class="dropdown-item active"
-                               href="interactive-map.html">
+                            <a class="dropdown-item active" href="interactive-map.html">
                                 <i class="fas fa-map-marked-alt dropdown-icon"></i>
                                 IndigenousCommunity Map
                             </a>
@@ -1226,18 +1165,15 @@
                                 Language Tools
                             </h6>
 
-                            <a class="dropdown-item"
-                               href="https://www.iwag.info/"
-                               target="_blank"
-                               rel="noopener noreferrer">
+                            <a class="dropdown-item" href="https://www.iwag.info/" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fas fa-language dropdown-icon"></i>
                                 Translation Tool
                             </a>
 
                             <a class="dropdown-item"
-                               href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
-                               target="_blank"
-                               rel="noopener noreferrer">
+                                href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                                target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-tools dropdown-icon"></i>
                                 Cebuano NLTK
                             </a>
@@ -1249,35 +1185,30 @@
                             </h6>
 
                             <a class="dropdown-item"
-                               href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
-                               target="_blank"
-                               rel="noopener noreferrer">
+                                href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                                target="_blank" rel="noopener noreferrer">
                                 Filipino–Cebuano
                             </a>
 
-                            <a class="dropdown-item"
-                               href="people/kagan.html">
+                            <a class="dropdown-item" href="people/kagan.html">
                                 Cebuano–Kagan
                             </a>
 
-                            <a class="dropdown-item"
-                               href="people/manobo.html">
+                            <a class="dropdown-item" href="people/manobo.html">
                                 Cebuano–Manobo
                             </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="contact.html">
+                        <a class="nav-link" href="contact.html">
                             <i class="fas fa-envelope nav-icon"></i>
                             Contact
                         </a>
                     </li>
 
                     <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
-                        <a class="btn nav-cta"
-                           href="#interactiveMap">
+                        <a class="btn nav-cta" href="#interactiveMap">
                             <i class="fas fa-map-marked-alt mr-2"></i>
                             Explore Map
                         </a>
@@ -1288,18 +1219,14 @@
         </div>
     </nav>
 
-    <div id="wrapper"
-         class="d-block w-100">
-        <div id="content-wrapper"
-             class="d-flex flex-column w-100">
-            <div id="content"
-                 class="w-100">
+    <div id="wrapper" class="d-block w-100">
+        <div id="content-wrapper" class="d-flex flex-column w-100">
+            <div id="content" class="w-100">
 
                 <main>
 
                     <section class="hero-section">
-                        <div class="container-fluid px-4 px-lg-5 position-relative"
-                             style="z-index: 2;">
+                        <div class="container-fluid px-4 px-lg-5 position-relative" style="z-index: 2;">
 
                             <p class="hero-copy">
                                 Explore the IP groups and language communities
@@ -1310,15 +1237,12 @@
                             </p>
 
                             <div class="hero-actions">
-                                <a href="#interactiveMap"
-                                   class="btn btn-light">
+                                <a href="#interactiveMap" class="btn btn-light">
                                     <i class="fas fa-map mr-2"></i>
                                     Explore the Map
                                 </a>
 
-                                <button id="heroResetButton"
-                                        class="btn btn-soft-light"
-                                        type="button">
+                                <button id="heroResetButton" class="btn btn-soft-light" type="button">
                                     <i class="fas fa-redo-alt mr-2"></i>
                                     Show All Communities
                                 </button>
@@ -1327,8 +1251,7 @@
                         </div>
                     </section>
 
-                    <section id="interactiveMap"
-                             class="map-section">
+                    <section id="interactiveMap" class="map-section">
                         <div class="container-fluid px-4 px-lg-5">
 
                             <div class="section-kicker">
@@ -1348,8 +1271,7 @@
 
                             <div class="map-layout">
 
-                                <aside class="filter-panel"
-                                       aria-label="Map filters">
+                                <aside class="filter-panel" aria-label="Map filters">
 
                                     <div class="filter-panel-heading">
                                         <h3>Explore the Data</h3>
@@ -1362,58 +1284,44 @@
                                     <div class="filter-panel-body">
 
                                         <div>
-                                            <label class="filter-label"
-                                                   for="searchInput">
+                                            <label class="filter-label" for="searchInput">
                                                 Search
                                             </label>
 
-                                            <input id="searchInput"
-                                                   class="filter-control"
-                                                   type="search"
-                                                   placeholder="Example: Mansaka or Davao de Oro"
-                                                   autocomplete="off">
+                                            <input id="searchInput" class="filter-control" type="search"
+                                                placeholder="Example: Mansaka or Davao de Oro" autocomplete="off">
                                         </div>
 
                                         <div>
-                                            <label class="filter-label"
-                                                   for="provinceFilter">
+                                            <label class="filter-label" for="provinceFilter">
                                                 Province
                                             </label>
 
-                                            <select id="provinceFilter"
-                                                    class="filter-control">
-                                                <option value="all"
-                                                        selected>
+                                            <select id="provinceFilter" class="filter-control">
+                                                <option value="all" selected>
                                                     All provinces
                                                 </option>
                                             </select>
                                         </div>
 
                                         <div>
-                                            <label class="filter-label"
-                                                   for="languageFilter">
+                                            <label class="filter-label" for="languageFilter">
                                                 Language or IP group
                                             </label>
 
-                                            <select id="languageFilter"
-                                                    class="filter-control">
-                                                <option value="all"
-                                                        selected>
+                                            <select id="languageFilter" class="filter-control">
+                                                <option value="all" selected>
                                                     All communities
                                                 </option>
                                             </select>
                                         </div>
 
                                         <div class="filter-actions">
-                                            <button id="showAllButton"
-                                                    class="filter-button"
-                                                    type="button">
+                                            <button id="showAllButton" class="filter-button" type="button">
                                                 Show All
                                             </button>
 
-                                            <button id="resetButton"
-                                                    class="filter-button"
-                                                    type="button">
+                                            <button id="resetButton" class="filter-button" type="button">
                                                 Reset Filters
                                             </button>
                                         </div>
@@ -1427,25 +1335,19 @@
                                                 <span id="languageCount"></span>
                                             </div>
 
-                                            <div id="languageList"
-                                                 class="language-list">
+                                            <div id="languageList" class="language-list">
                                             </div>
                                         </div>
 
-                                        <div id="filterSummary"
-                                             class="filter-summary"
-                                             role="status"
-                                             aria-live="polite">
+                                        <div id="filterSummary" class="filter-summary" role="status" aria-live="polite">
                                         </div>
 
                                     </div>
                                 </aside>
 
-                                <section class="map-panel"
-                                         aria-label="Interactive map of Mindanao">
+                                <section class="map-panel" aria-label="Interactive map of Mindanao">
 
-                                    <div id="leafletMap"
-                                         aria-hidden="true">
+                                    <div id="leafletMap" aria-hidden="true">
                                     </div>
 
                                     <!--
@@ -1453,8 +1355,7 @@
                                         This remains usable if Leaflet, the map tiles,
                                         or an external CDN cannot be reached.
                                     -->
-                                    <div id="fallbackMap"
-                                         class="fallback-map">
+                                    <div id="fallbackMap" class="fallback-map">
 
                                         <div class="fallback-map-inner">
                                             <div class="fallback-map-heading">
@@ -1466,21 +1367,19 @@
                                                 </span>
                                             </div>
 
-                                            <svg class="mindanao-svg"
-                                                 viewBox="0 0 720 610"
-                                                 role="img"
-                                                 aria-labelledby="fallbackMapTitle fallbackMapDescription">
+                                            <svg class="mindanao-svg" viewBox="0 0 720 610" role="img"
+                                                aria-labelledby="fallbackMapTitle fallbackMapDescription">
 
                                                 <title id="fallbackMapTitle">
                                                     Schematic map of Mindanao with Davao Region province markers
                                                 </title>
 
                                                 <desc id="fallbackMapDescription">
-                                                    Six interactive province markers show the number of listed Indigenous Peoples and language communities.
+                                                    Six interactive province markers show the number of listed
+                                                    Indigenous Peoples and language communities.
                                                 </desc>
 
-                                                <path class="mindanao-outline"
-                                                      d="M255 35
+                                                <path class="mindanao-outline" d="M255 35
                                                          C315 20 365 42 392 82
                                                          C414 112 455 115 482 143
                                                          C514 176 508 217 538 243
@@ -1497,121 +1396,73 @@
                                                          C210 132 214 88 255 35 Z">
                                                 </path>
 
-                                                <text x="350"
-                                                      y="310"
-                                                      fill="#b4c0c2"
-                                                      font-size="34"
-                                                      font-weight="900"
-                                                      text-anchor="middle"
-                                                      transform="rotate(-12 350 310)">
+                                                <text x="350" y="310" fill="#b4c0c2" font-size="34" font-weight="900"
+                                                    text-anchor="middle" transform="rotate(-12 350 310)">
                                                     MINDANAO
                                                 </text>
 
-                                                <g class="fallback-marker"
-                                                   data-province="Davao del Norte"
-                                                   tabindex="0"
-                                                   role="button"
-                                                   aria-label="Davao del Norte, 5 listed communities"
-                                                   transform="translate(468 266)">
+                                                <g class="fallback-marker" data-province="Davao del Norte" tabindex="0"
+                                                    role="button" aria-label="Davao del Norte, 5 listed communities"
+                                                    transform="translate(468 266)">
                                                     <circle r="25"></circle>
-                                                    <text class="marker-count"
-                                                          x="0"
-                                                          y="1">5</text>
-                                                    <text class="marker-label"
-                                                          x="0"
-                                                          y="-38">
+                                                    <text class="marker-count" x="0" y="1">5</text>
+                                                    <text class="marker-label" x="0" y="-38">
                                                         Davao del Norte
                                                     </text>
                                                 </g>
 
-                                                <g class="fallback-marker"
-                                                   data-province="Davao de Oro"
-                                                   tabindex="0"
-                                                   role="button"
-                                                   aria-label="Davao de Oro, 6 listed communities"
-                                                   transform="translate(548 296)">
+                                                <g class="fallback-marker" data-province="Davao de Oro" tabindex="0"
+                                                    role="button" aria-label="Davao de Oro, 6 listed communities"
+                                                    transform="translate(548 296)">
                                                     <circle r="25"></circle>
-                                                    <text class="marker-count"
-                                                          x="0"
-                                                          y="1">6</text>
-                                                    <text class="marker-label"
-                                                          x="0"
-                                                          y="-38">
+                                                    <text class="marker-count" x="0" y="1">6</text>
+                                                    <text class="marker-label" x="0" y="-38">
                                                         Davao de Oro
                                                     </text>
                                                 </g>
 
-                                                <g class="fallback-marker"
-                                                   data-province="Davao Oriental"
-                                                   tabindex="0"
-                                                   role="button"
-                                                   aria-label="Davao Oriental, 2 listed communities"
-                                                   transform="translate(617 362)">
+                                                <g class="fallback-marker" data-province="Davao Oriental" tabindex="0"
+                                                    role="button" aria-label="Davao Oriental, 2 listed communities"
+                                                    transform="translate(617 362)">
                                                     <circle r="25"></circle>
-                                                    <text class="marker-count"
-                                                          x="0"
-                                                          y="1">2</text>
-                                                    <text class="marker-label"
-                                                          x="0"
-                                                          y="-38">
+                                                    <text class="marker-count" x="0" y="1">2</text>
+                                                    <text class="marker-label" x="0" y="-38">
                                                         Davao Oriental
                                                     </text>
                                                 </g>
 
-                                                <g class="fallback-marker"
-                                                   data-province="Davao City"
-                                                   tabindex="0"
-                                                   role="button"
-                                                   aria-label="Davao City, 5 listed communities"
-                                                   transform="translate(475 377)">
+                                                <g class="fallback-marker" data-province="Davao City" tabindex="0"
+                                                    role="button" aria-label="Davao City, 5 listed communities"
+                                                    transform="translate(475 377)">
                                                     <circle r="25"></circle>
-                                                    <text class="marker-count"
-                                                          x="0"
-                                                          y="1">5</text>
-                                                    <text class="marker-label"
-                                                          x="0"
-                                                          y="-38">
+                                                    <text class="marker-count" x="0" y="1">5</text>
+                                                    <text class="marker-label" x="0" y="-38">
                                                         Davao City
                                                     </text>
                                                 </g>
 
-                                                <g class="fallback-marker"
-                                                   data-province="Davao del Sur"
-                                                   tabindex="0"
-                                                   role="button"
-                                                   aria-label="Davao del Sur, 4 listed communities"
-                                                   transform="translate(392 426)">
+                                                <g class="fallback-marker" data-province="Davao del Sur" tabindex="0"
+                                                    role="button" aria-label="Davao del Sur, 4 listed communities"
+                                                    transform="translate(392 426)">
                                                     <circle r="25"></circle>
-                                                    <text class="marker-count"
-                                                          x="0"
-                                                          y="1">4</text>
-                                                    <text class="marker-label"
-                                                          x="0"
-                                                          y="44">
+                                                    <text class="marker-count" x="0" y="1">4</text>
+                                                    <text class="marker-label" x="0" y="44">
                                                         Davao del Sur
                                                     </text>
                                                 </g>
 
-                                                <g class="fallback-marker"
-                                                   data-province="Davao Occidental"
-                                                   tabindex="0"
-                                                   role="button"
-                                                   aria-label="Davao Occidental, 3 listed communities"
-                                                   transform="translate(321 477)">
+                                                <g class="fallback-marker" data-province="Davao Occidental" tabindex="0"
+                                                    role="button" aria-label="Davao Occidental, 3 listed communities"
+                                                    transform="translate(321 477)">
                                                     <circle r="25"></circle>
-                                                    <text class="marker-count"
-                                                          x="0"
-                                                          y="1">3</text>
-                                                    <text class="marker-label"
-                                                          x="0"
-                                                          y="44">
+                                                    <text class="marker-count" x="0" y="1">3</text>
+                                                    <text class="marker-label" x="0" y="44">
                                                         Davao Occidental
                                                     </text>
                                                 </g>
                                             </svg>
 
-                                            <div id="fallbackStatus"
-                                                 class="fallback-status">
+                                            <div id="fallbackStatus" class="fallback-status">
                                                 Loading the detailed map. The schematic map is already interactive.
                                             </div>
                                         </div>
@@ -1646,12 +1497,10 @@
                                 its representative location on the map.
                             </p>
 
-                            <div id="provinceGrid"
-                                 class="province-grid">
+                            <div id="provinceGrid" class="province-grid">
                             </div>
 
-                            <div id="emptyState"
-                                 class="empty-state">
+                            <div id="emptyState" class="empty-state">
                                 No province or community matches the
                                 current filters.
                             </div>
@@ -1659,7 +1508,7 @@
                         </div>
                     </section>
 
-                    
+
                     <section class="map-cta">
                         <div class="container-fluid px-4 px-lg-5">
 
@@ -1675,14 +1524,12 @@
                                 technologies and artificial intelligence.
                             </p>
 
-                            <a href="people/kagan.html"
-                               class="btn btn-light">
+                            <a href="people/kagan.html" class="btn btn-light">
                                 <i class="fas fa-hands-helping mr-2"></i>
                                 Explore Community Pages
                             </a>
 
-                            <a href="contact-us.html"
-                               class="btn btn-outline-light">
+                            <a href="contact-us.html" class="btn btn-outline-light">
                                 <i class="fas fa-envelope mr-2"></i>
                                 Contact MinNa
                             </a>
@@ -1707,9 +1554,7 @@
         </div>
     </div>
 
-    <a class="scroll-to-top rounded"
-       href="#page-top"
-       aria-label="Back to top">
+    <a class="scroll-to-top rounded" href="#page-top" aria-label="Back to top">
         <i class="fas fa-angle-up"></i>
     </a>
 
@@ -1785,6 +1630,16 @@
                 ]
             }
         ];
+        const communityPageMap = {
+            "Kagan": "people/kagan.html",
+            "Kalagan": "people/kagan.html",
+            "Manobo": "people/manobo.html",
+            "Mansaka": "people/mansaka.html"
+        };
+
+        function getCommunityPage(community) {
+            return communityPageMap[community] || null;
+        }
 
         const state = {
             province: "all",
@@ -1933,7 +1788,7 @@
                     chip.classList.toggle(
                         "is-active",
                         chip.dataset.language ===
-                            state.language
+                        state.language
                     );
                 });
         }
@@ -2103,15 +1958,31 @@
                 popupAnchor: [0, -22]
             });
         }
-
         function popupHtml(item) {
             const communities =
                 item.communities
-                    .map(community => `
-                        <span class="popup-language">
-                            ${escapeHtml(community)}
-                        </span>
-                    `)
+                    .map(community => {
+                        const communityPage =
+                            getCommunityPage(community);
+
+                        if (communityPage) {
+                            return `
+                                <a href="${escapeHtml(communityPage)}"
+                                   class="popup-language community-page-link"
+                                   aria-label="Open the ${escapeHtml(community)} community page">
+                                    <span>${escapeHtml(community)}</span>
+                                    <i class="fas fa-external-link-alt community-link-icon"
+                                       aria-hidden="true"></i>
+                                </a>
+                            `;
+                        }
+
+                        return `
+                            <span class="popup-language">
+                                ${escapeHtml(community)}
+                            </span>
+                        `;
+                    })
                     .join("");
 
             return `
@@ -2600,8 +2471,7 @@
 
     <!-- MinNa Website Agent -->
     <script src="/agent/agent-config.js"></script>
-    <script src="/agent/minna-agent.js"
-            defer></script>
+    <script src="/agent/minna-agent.js" defer></script>
 </body>
 
 </html>
