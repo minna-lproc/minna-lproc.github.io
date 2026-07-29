@@ -775,7 +775,7 @@
         }
 
         /* Community gallery */
-       .community-grid {
+        .community-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             align-items: stretch;
@@ -811,11 +811,9 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(79, 23, 48, 0.01) 40%,
-                rgba(79, 23, 48, 0.78) 100%
-            );
+            background: linear-gradient(180deg,
+                    rgba(79, 23, 48, 0.01) 40%,
+                    rgba(79, 23, 48, 0.78) 100%);
         }
 
         .community-caption {
@@ -1290,6 +1288,197 @@
             }
 
         }
+
+        /* Highlights PDF modal */
+        .pdf-modal-content {
+            overflow: hidden;
+            border: 0;
+            border-radius: 1.1rem;
+            box-shadow: 0 1.5rem 4rem rgba(79, 23, 48, 0.28);
+        }
+
+        .pdf-modal-header {
+            align-items: flex-start;
+            padding: 1rem 1.25rem;
+            color: #fff;
+            border-bottom: 0;
+            background:
+                radial-gradient(circle at 90% 15%,
+                    rgba(255, 255, 255, 0.14),
+                    transparent 25%),
+                linear-gradient(135deg,
+                    var(--minna-dark),
+                    var(--minna-primary));
+        }
+
+        .pdf-modal-header .modal-title {
+            margin: 0;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+
+        .pdf-modal-kicker {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.66rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .pdf-modal-header .close {
+            margin: -0.35rem -0.25rem -0.35rem auto;
+            opacity: 0.9;
+            text-shadow: none;
+        }
+
+        .pdf-modal-header .close:hover {
+            opacity: 1;
+        }
+
+        .pdf-modal-body {
+            padding: 1rem;
+            background: #fffafb;
+        }
+
+        .pdf-modal-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-modal-toolbar p {
+            max-width: 680px;
+            margin: 0;
+            color: var(--minna-muted);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        .pdf-modal-actions {
+            display: flex;
+            flex: 0 0 auto;
+            gap: 0.5rem;
+        }
+
+        .pdf-modal-actions .btn {
+            border-radius: 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .pdf-modal-viewer {
+            overflow: hidden;
+            height: min(76vh, 780px);
+            min-height: 520px;
+            border: 1px solid var(--minna-border);
+            border-radius: 0.85rem;
+            background: #f0e7eb;
+        }
+
+        .pdf-modal-viewer iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .pdf-mobile-fallback {
+            display: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .pdf-modal-toolbar {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .pdf-modal-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: 100%;
+            }
+
+            .pdf-modal-actions .btn {
+                width: 100%;
+            }
+
+            .pdf-modal-viewer {
+                height: 65vh;
+                min-height: 430px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .modal-dialog {
+                margin: 0.55rem;
+            }
+
+            .pdf-modal-body {
+                padding: 0.85rem;
+            }
+
+            .pdf-modal-viewer {
+                display: none;
+            }
+
+            .pdf-modal-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .pdf-mobile-fallback {
+                display: grid;
+                grid-template-columns: 52px minmax(0, 1fr);
+                gap: 0.8rem;
+                align-items: center;
+                padding: 1rem;
+                border: 1px solid var(--minna-border);
+                border-radius: 0.85rem;
+                background: #fff;
+            }
+
+            .pdf-mobile-fallback>i {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 52px;
+                height: 52px;
+                border-radius: 0.8rem;
+                color: #fff;
+                background: var(--minna-primary);
+                font-size: 1.35rem;
+            }
+
+            .pdf-mobile-fallback strong,
+            .pdf-mobile-fallback span {
+                display: block;
+            }
+
+            .pdf-mobile-fallback strong {
+                color: var(--minna-dark);
+                font-size: 0.84rem;
+                font-weight: 900;
+            }
+
+            .pdf-mobile-fallback span {
+                margin-top: 0.2rem;
+                color: var(--minna-muted);
+                font-size: 0.68rem;
+                line-height: 1.45;
+            }
+
+            .pdf-mobile-fallback .btn {
+                grid-column: 1 / -1;
+                width: 100%;
+                border-radius: 0.65rem;
+                font-weight: 900;
+            }
+        }
     </style>
     <!-- Google Analytics -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
@@ -1339,7 +1528,18 @@
                                 <i class="fas fa-compass dropdown-icon"></i>
                                 Programs and Services
                             </a>
+                            <h6 class="dropdown-header">
+                                <i class="fas fa-star dropdown-icon"></i>
+                                Highlights
+                            </h6>
+
+                            <a class="dropdown-item pl-4" href="#" data-toggle="modal"
+                                data-target="#highlightsAY20252026Modal">
+                                <i class="fas fa-file-pdf dropdown-icon"></i>
+                                AY 2025–2026
+                            </a>
                         </div>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="projects/featuredprojects.html">
@@ -2009,6 +2209,79 @@
         }
     </script>
     <script src="js/chatbot.js"></script>
+    <div class="modal fade" id="highlightsAY20252026Modal" tabindex="-1" role="dialog"
+        aria-labelledby="highlightsAY20252026Title" aria-hidden="true">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+
+            <div class="modal-content pdf-modal-content">
+
+                <div class="modal-header pdf-modal-header">
+                    <div>
+                        <span class="pdf-modal-kicker">
+                            MinNa Highlights
+                        </span>
+                    </div>
+
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+                        </span>
+                    </button>
+                </div>
+
+                <div class="modal-body pdf-modal-body">
+
+                    <div class="pdf-modal-toolbar">
+                        <p>
+                            Browse MinNa LProc R&amp;D Lab’s activities,
+                            accomplishments, projects, and highlights for
+                            Academic Year 2025–2026.
+                        </p>
+
+                        <div class="pdf-modal-actions">
+                            <a href="files/highlights/AY-2025-2026.pdf" class="btn btn-primary" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Open Full PDF
+                            </a>
+
+                            <a href="files/highlights/AY-2025-2026.pdf" class="btn btn-outline-minna" download>
+                                <i class="fas fa-download mr-2"></i>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="pdf-modal-viewer">
+                        <iframe src="files/highlights/AY-2025-2026.pdf#view=FitH"
+                            title="MinNa Highlights for Academic Year 2025–2026" loading="lazy">
+                        </iframe>
+                    </div>
+
+                    <div class="pdf-mobile-fallback">
+                        <i class="fas fa-file-pdf"></i>
+
+                        <div>
+                            <strong>
+                                View the AY 2025–2026 Highlights
+                            </strong>
+
+                            <span>
+                                Open the document using your browser’s PDF viewer.
+                            </span>
+                        </div>
+
+                        <a href="files/highlights/AY-2025-2026.pdf" class="btn btn-primary" target="_blank"
+                            rel="noopener noreferrer">
+                            Open PDF
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
