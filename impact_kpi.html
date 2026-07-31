@@ -1796,51 +1796,150 @@
 <body id="page-top">
     <nav aria-label="Primary navigation" class="navbar navbar-expand-xl navbar-light site-navbar sticky-top">
         <div class="container-fluid px-3 px-lg-5">
-            <div class="mobile-nav-row">
-                <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation"
-                    class="navbar-toggler" data-target="#mainNavigation" data-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img alt="MinNa LProc logo" class="navbar-brand-logo" src="minna_round_logo.png" />
-                    <span class="navbar-brand-copy"><strong>MinNa LProc</strong><small>R&amp;D Lab</small></span>
-                </a>
-                <span aria-hidden="true" class="mobile-nav-spacer"></span>
-            </div>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img alt="MinNa LProc logo" class="navbar-brand-logo" src="minna_round_logo.png" />
+                <span class="navbar-brand-copy">
+                    <strong>MinNa LProc</strong>
+                    <small>R&amp;D Lab</small>
+                </span>
+            </a>
+            <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-target="#mainNavigation" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="mainNavigation">
                 <ul class="navbar-nav ml-auto align-items-xl-center">
                     <li class="nav-item dropdown">
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                            data-toggle="dropdown" href="#" id="homeDropdown" role="button"><i
-                                class="fas fa-home nav-icon"></i>Home</a>
+                            data-toggle="dropdown" href="#" id="homeDropdown" role="button">
+                            <i class="fas fa-home nav-icon"></i>
+                            Home
+                        </a>
                         <div aria-labelledby="homeDropdown" class="dropdown-menu shadow">
-                            <a class="dropdown-item" href="index.html"><i class="fas fa-home dropdown-icon"></i>Home</a>
-                            <a class="dropdown-item" href="about/about.html"><i
-                                    class="fas fa-compass dropdown-icon"></i>Vision and Mission</a>
-                            <a class="dropdown-item" href="programs-initiatives.html"><i
-                                    class="fas fa-layer-group dropdown-icon"></i>Programs and Services</a>
-                            <a class="dropdown-item active" href="impact-pathway.html"><i
-                                    class="fas fa-route dropdown-icon"></i>Impact Pathway and KPIs</a>
+                            <a class="dropdown-item" href="about/about.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Vision and Mission
+                            </a>
+                            <a class="dropdown-item" href="programs-initiatives.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Programs and Services
+                            </a>
+                            <h6 class="dropdown-header">
+                                <i class="fas fa-star dropdown-icon"></i>
+                                Highlights
+                            </h6>
+
+                            <a class="dropdown-item pl-4" href="#" data-toggle="modal"
+                                data-target="#highlightsAY20252026Modal">
+                                <i class="fas fa-file-pdf dropdown-icon"></i>
+                                AY 2025–2026
+                            </a>
                         </div>
+
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="projects/featuredprojects.html"><i
-                                class="fas fa-lightbulb nav-icon"></i>Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="publications.html"><i
-                                class="fas fa-book-open nav-icon"></i>Publications</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects/featuredprojects.html">
+                            <i class="fas fa-lightbulb nav-icon"></i>
+                            Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">
+                            <i class="fas fa-book-open nav-icon"></i>
+                            Publications
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                            data-toggle="dropdown" href="#" id="communitiesDropdown" role="button"><i
-                                class="fas fa-hands-helping nav-icon"></i>Communities</a>
-                        <div aria-labelledby="communitiesDropdown" class="dropdown-menu dropdown-menu-right shadow">
+                            data-toggle="dropdown" href="#" id="researchersDropdown" role="button">
+                            <i class="fas fa-user-friends nav-icon"></i>
+                            Researchers
+                        </a>
+                        <div aria-labelledby="researchersDropdown" class="dropdown-menu dropdown-menu-right shadow">
+                            <a class="dropdown-item" href="people/faculties.html">
+                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
+                                Faculties
+                            </a>
+                            <a class="dropdown-item" href="people/gradstudents.html">
+                                <i class="fas fa-user-graduate dropdown-icon"></i>
+                                Graduate Students
+                            </a>
+                            <a class="dropdown-item" href="people/undergradstudents.html">
+                                <i class="fas fa-users dropdown-icon"></i>
+                                Undergraduate Students
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="collaboratorsDropdown" role="button">
+                            <i class="fas fa-hands-helping nav-icon"></i>
+                            Communities
+                        </a>
+                        <div aria-labelledby="collaboratorsDropdown" class="dropdown-menu dropdown-menu-right shadow">
+                            <h6 class="dropdown-header">Language Communities</h6>
                             <a class="dropdown-item" href="people/kagan.html">Kagan</a>
                             <a class="dropdown-item" href="people/manobo.html">Manobo</a>
                             <a class="dropdown-item" href="people/mansaka.html">Mansaka</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html"><i
-                                class="fas fa-envelope nav-icon"></i>Contact</a></li>
-                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0"><a class="btn nav-cta" href="#kpis"><i
-                                class="fas fa-chart-line mr-2"></i>View KPIs</a></li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="resourcesDropdown" role="button">
+                            <i class="fas fa-folder-open nav-icon"></i>
+                            Resources
+                        </a>
+                        <div aria-labelledby="resourcesDropdown"
+                            class="dropdown-menu dropdown-menu-right shadow resource-dropdown">
+                            <h6 class="dropdown-header">
+                                Other Resources
+                            </h6>
+
+                            <a class="dropdown-item" href="/interactive_map.html">
+                                <i class="fas fa-map-marked-alt dropdown-icon"></i>
+                                Indigenous Community Map
+                            </a>
+                            <h6 class="dropdown-header">Language Tools</h6>
+                            <a class="dropdown-item" href="https://www.iwag.info/" rel="noopener noreferrer"
+                                target="_blank">
+                                <i class="fas fa-language dropdown-icon"></i>
+                                Translation Tool
+                            </a>
+                            <a class="dropdown-item"
+                                href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                                rel="noopener noreferrer" target="_blank">
+                                <i class="fas fa-tools dropdown-icon"></i>
+                                Cebuano NLTK
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Parallel Corpora</h6>
+                            <a class="dropdown-item"
+                                href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                                rel="noopener noreferrer" target="_blank">
+                                Filipino–Cebuano
+                            </a>
+                            <a class="dropdown-item" href="people/kagan.html">
+                                Cebuano–Kagan
+                            </a>
+                            <a class="dropdown-item" href="people/manobo.html">
+                                Cebuano–Manobo
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" aria-current="page">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            Contact
+                        </a>
+                    </li>
+                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
+                        <a class="btn nav-cta" href="projects/featuredprojects.html">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Explore Projects
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
