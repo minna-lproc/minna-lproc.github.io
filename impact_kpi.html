@@ -915,8 +915,9 @@
 
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 1.25rem;
         }
 
         .dashboard-card {
@@ -1611,6 +1612,184 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+        /* Historical KPI tables */
+        .historical-kpi-section {
+            padding: 4.8rem 0;
+            background: linear-gradient(180deg, #fff9fb 0%, #fff0f5 100%);
+        }
+
+        .historical-kpi-block {
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 .55rem 1.7rem rgba(91, 37, 57, .07);
+            overflow: hidden;
+        }
+
+        .historical-kpi-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .historical-kpi-heading {
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            padding: 1rem 1.15rem;
+            border-bottom: 1px solid var(--border);
+            background: #fffafb;
+        }
+
+        .historical-kpi-heading i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: .8rem;
+            color: #fff;
+            background: var(--pathway-color, var(--primary));
+        }
+
+        .historical-kpi-heading h3 {
+            margin: 0;
+            color: var(--dark);
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .historical-kpi-heading p {
+            margin: .15rem 0 0;
+            color: var(--muted);
+            font-size: .72rem;
+            line-height: 1.45;
+        }
+
+        .historical-table-wrap {
+            overflow-x: auto;
+        }
+
+        .historical-table {
+            width: 100%;
+            min-width: 1180px;
+            margin: 0;
+            border-collapse: collapse;
+        }
+
+        .historical-table th,
+        .historical-table td {
+            padding: .82rem .8rem;
+            border-right: 1px solid #f0e7eb;
+            border-bottom: 1px solid #f0e7eb;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .historical-table th:last-child,
+        .historical-table td:last-child {
+            border-right: 0;
+        }
+
+        .historical-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .historical-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            color: var(--dark);
+            background: #fff0f5;
+            font-size: .67rem;
+            font-weight: 900;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .historical-table tbody th {
+            min-width: 205px;
+            color: var(--dark);
+            background: #fffafb;
+            font-size: .74rem;
+            font-weight: 900;
+        }
+
+        .historical-table td {
+            min-width: 175px;
+            color: #654f58;
+            font-size: .72rem;
+            line-height: 1.55;
+        }
+
+        .historical-table td.source-cell {
+            min-width: 180px;
+            color: var(--primary);
+            font-weight: 850;
+        }
+
+        .normalization-note {
+            padding: 1rem 1.1rem;
+            margin-bottom: 1.3rem;
+            border-left: 4px solid var(--primary);
+            border-radius: .75rem;
+            color: #6d3a50;
+            background: var(--light);
+            font-size: .76rem;
+            line-height: 1.65;
+        }
+
+        .source-section {
+            padding: 4.8rem 0;
+            background: #fff;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .source-card {
+            padding: 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: .95rem;
+            background: #fffafb;
+        }
+
+        .source-card i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            margin-bottom: .8rem;
+            border-radius: .8rem;
+            color: var(--primary);
+            background: var(--light);
+        }
+
+        .source-card h3 {
+            margin-bottom: .45rem;
+            color: var(--dark);
+            font-size: .9rem;
+            font-weight: 900;
+        }
+
+        .source-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .74rem;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 991.98px) {
+            .source-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1635,11 +1814,12 @@
                             data-toggle="dropdown" href="#" id="homeDropdown" role="button"><i
                                 class="fas fa-home nav-icon"></i>Home</a>
                         <div aria-labelledby="homeDropdown" class="dropdown-menu shadow">
+                            <a class="dropdown-item" href="index.html"><i class="fas fa-home dropdown-icon"></i>Home</a>
                             <a class="dropdown-item" href="about/about.html"><i
                                     class="fas fa-compass dropdown-icon"></i>Vision and Mission</a>
                             <a class="dropdown-item" href="programs-initiatives.html"><i
                                     class="fas fa-layer-group dropdown-icon"></i>Programs and Services</a>
-                            <a class="dropdown-item active" href="impact_kpi.html"><i
+                            <a class="dropdown-item active" href="impact-pathway.html"><i
                                     class="fas fa-route dropdown-icon"></i>Impact Pathway and KPIs</a>
                         </div>
                     </li>
@@ -1649,76 +1829,12 @@
                                 class="fas fa-book-open nav-icon"></i>Publications</a></li>
                     <li class="nav-item dropdown">
                         <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                            data-toggle="dropdown" href="#" id="researchersDropdown" role="button">
-                            <i class="fas fa-user-friends nav-icon"></i>
-                            Researchers
-                        </a>
-                        <div aria-labelledby="researchersDropdown" class="dropdown-menu dropdown-menu-right shadow">
-                            <a class="dropdown-item" href="people/faculties.html">
-                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
-                                Faculties
-                            </a>
-                            <a class="dropdown-item" href="people/gradstudents.html">
-                                <i class="fas fa-user-graduate dropdown-icon"></i>
-                                Graduate Students
-                            </a>
-                            <a class="dropdown-item" href="people/undergradstudents.html">
-                                <i class="fas fa-users dropdown-icon"></i>
-                                Undergraduate Students
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
                             data-toggle="dropdown" href="#" id="communitiesDropdown" role="button"><i
                                 class="fas fa-hands-helping nav-icon"></i>Communities</a>
                         <div aria-labelledby="communitiesDropdown" class="dropdown-menu dropdown-menu-right shadow">
                             <a class="dropdown-item" href="people/kagan.html">Kagan</a>
                             <a class="dropdown-item" href="people/manobo.html">Manobo</a>
                             <a class="dropdown-item" href="people/mansaka.html">Mansaka</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                            data-toggle="dropdown" href="#" id="resourcesDropdown" role="button">
-                            <i class="fas fa-folder-open nav-icon"></i>
-                            Resources
-                        </a>
-                        <div aria-labelledby="resourcesDropdown"
-                            class="dropdown-menu dropdown-menu-right shadow resource-dropdown">
-                            <h6 class="dropdown-header">
-                                Other Resources
-                            </h6>
-
-                            <a class="dropdown-item" href="/interactive_map.html">
-                                <i class="fas fa-map-marked-alt dropdown-icon"></i>
-                                Indigenous Community Map
-                            </a>
-                            <h6 class="dropdown-header">Language Tools</h6>
-                            <a class="dropdown-item" href="https://www.iwag.info/" rel="noopener noreferrer"
-                                target="_blank">
-                                <i class="fas fa-language dropdown-icon"></i>
-                                Translation Tool
-                            </a>
-                            <a class="dropdown-item"
-                                href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
-                                rel="noopener noreferrer" target="_blank">
-                                <i class="fas fa-tools dropdown-icon"></i>
-                                Cebuano NLTK
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <h6 class="dropdown-header">Parallel Corpora</h6>
-                            <a class="dropdown-item"
-                                href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
-                                rel="noopener noreferrer" target="_blank">
-                                Filipino–Cebuano
-                            </a>
-                            <a class="dropdown-item" href="people/kagan.html">
-                                Cebuano–Kagan
-                            </a>
-                            <a class="dropdown-item" href="people/manobo.html">
-                                Cebuano–Manobo
-                            </a>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="contact.html"><i
@@ -1809,16 +1925,16 @@
                                     <div class="section-kicker">
                                         Graphical KPI Dashboard
                                     </div>
-                                    <p class="section-copy">
-                                        The dashboard below combines overall progress rings,
-                                        sample actual-versus-target measures, and examples of
-                                        tangible outputs under each stage of the impact pathway.
-                                    </p>
+                                    <p class="section-copy">The dashboard presents the reported annual output values
+                                        supplied for 2022–2026.
+                                        The circular scores and progress bars are normalized indices used only to
+                                        visualize growth toward the 2026 reference level.</p>
                                 </div>
                                 <div class="dashboard-controls">
                                     <div class="year-filter">
                                         <label for="kpiYear"><i class="fas fa-calendar-alt"></i>Reporting year</label>
                                         <select aria-label="Select KPI reporting year" id="kpiYear">
+                                            <option value="2022">2022</option>
                                             <option value="2023">2023</option>
                                             <option value="2024">2024</option>
                                             <option value="2025">2025</option>
@@ -1826,392 +1942,520 @@
                                         </select>
                                     </div>
                                     <span aria-live="polite" class="selected-year-note" id="selectedYearNote"><i
-                                            class="fas fa-chart-line"></i>Showing 2026 sample data</span>
-                                    <span class="sample-badge"><i class="fas fa-flask"></i>Illustrative Values
-                                    </span>
+                                            class="fas fa-chart-line"></i> Showing 2026 data</span>
+                                    <span class="sample-badge"><i class="fas fa-balance-scale"></i> Normalized
+                                        index</span>
                                 </div>
                             </div>
                             <div class="dashboard-grid">
                                 <article class="dashboard-card document reveal" data-pathway="document">
                                     <div class="dashboard-top">
-                                        <div aria-label="Illustrative Document progress: 75 percent" class="kpi-ring"
-                                            data-kpi-ring="" style="--value:75;">
+                                        <div aria-label="Normalized document progress index for 2026: 100 percent"
+                                            class="kpi-ring" data-kpi-ring="" style="--value:100;">
                                             <div class="kpi-ring-inner">
-                                                <strong data-kpi-percent="">75%</strong>
+                                                <strong data-kpi-percent="">100%</strong>
                                                 <span>Progress</span>
                                             </div>
                                         </div>
                                         <div class="dashboard-heading">
                                             <small>KPI 01</small>
                                             <h3>Document</h3>
-                                            <p>
-                                                Capture language, oral knowledge, cultural
-                                                expressions, and community perspectives.
-                                            </p>
+                                            <p>Capture language, oral knowledge, cultural expressions, and community
+                                                participation.</p>
                                         </div>
                                     </div>
                                     <div class="sample-metrics">
                                         <div class="sample-metric" data-metric="communities">
-                                            <div class="sample-metric-head">
-                                                <span>Communities engaged</span>
-                                                <strong data-metric-value="">3 of 4</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:75%;"></span>
-                                            </div>
+                                            <div class="sample-metric-head"><span>Communities &amp; languages
+                                                    engaged</span><strong data-metric-value="">6+ active indigenous
+                                                    language communities</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="recordings">
-                                            <div class="sample-metric-head">
-                                                <span>Recording hours collected</span>
-                                                <strong data-metric-value="">120 of 160</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:75%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="materials">
+                                            <div class="sample-metric-head"><span>Materials collected</span><strong
+                                                    data-metric-value="">~750+ hrs audio; ~50,000 parallel
+                                                    entries</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="entries">
-                                            <div class="sample-metric-head">
-                                                <span>Validated language entries</span>
-                                                <strong data-metric-value="">1,500 of 2,000</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:75%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="validation">
+                                            <div class="sample-metric-head"><span>Materials validated</span><strong
+                                                    data-metric-value="">~95% standardized &amp; verified
+                                                    corpus</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
+                                        </div>
+                                        <div class="sample-metric" data-metric="participation">
+                                            <div class="sample-metric-head"><span>Community participation</span><strong
+                                                    data-metric-value="">~150+ Community members involved in
+                                                    co-creation</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
                                     </div>
                                     <div class="output-examples">
                                         <span class="output-examples-title">
                                             Outputs
                                         </span>
-                                        <div class="output-chip-list" data-output-list="">
-                                            <span class="output-chip">
-                                                <i class="fas fa-microphone"></i>
-                                                Audio recordings
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-file-alt"></i>
-                                                Transcriptions
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-book"></i>
-                                                Word lists
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-check-double"></i>
-                                                Validation records
-                                            </span>
-                                        </div>
+                                        <div class="output-chip-list" data-output-list=""><span class="output-chip"><i
+                                                    class="fas fa-language"></i> 6+ active communities</span><span
+                                                class="output-chip"><i class="fas fa-microphone"></i> ~750+ hrs
+                                                audio</span><span class="output-chip"><i class="fas fa-align-left"></i>
+                                                ~50,000 parallel entries</span><span class="output-chip"><i
+                                                    class="fas fa-users"></i> ~150+ co-creators</span></div>
                                     </div>
                                 </article>
                                 <article class="dashboard-card digitize reveal" data-pathway="digitize">
                                     <div class="dashboard-top">
-                                        <div aria-label="Illustrative Digitize progress: 68 percent" class="kpi-ring"
-                                            data-kpi-ring="" style="--value:68;">
+                                        <div aria-label="Normalized digitize progress index for 2026: 100 percent"
+                                            class="kpi-ring" data-kpi-ring="" style="--value:100;">
                                             <div class="kpi-ring-inner">
-                                                <strong data-kpi-percent="">68%</strong>
+                                                <strong data-kpi-percent="">100%</strong>
                                                 <span>Progress</span>
                                             </div>
                                         </div>
                                         <div class="dashboard-heading">
                                             <small>KPI 02</small>
                                             <h3>Digitize</h3>
-                                            <p>
-                                                Convert validated materials into structured,
-                                                reusable, and accessible digital resources.
-                                            </p>
+                                            <p>Transform validated materials into structured, reusable, and accessible
+                                                resources.</p>
                                         </div>
                                     </div>
                                     <div class="sample-metrics">
+                                        <div class="sample-metric" data-metric="resources">
+                                            <div class="sample-metric-head"><span>Resources digitized</span><strong
+                                                    data-metric-value="">500+ multi-modal digital repository items
+                                                    (Audio/Text/Video)</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
+                                        </div>
                                         <div class="sample-metric" data-metric="datasets">
-                                            <div class="sample-metric-head">
-                                                <span>Datasets and corpora developed</span>
-                                                <strong data-metric-value="">4 of 6</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:67%;"></span>
-                                            </div>
+                                            <div class="sample-metric-head"><span>Datasets &amp; corpora
+                                                    developed</span><strong data-metric-value="">1 comprehensive
+                                                    Mindanao NLP parallel benchmark corpus</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="sentences">
-                                            <div class="sample-metric-head">
-                                                <span>Sentence pairs digitized</span>
-                                                <strong data-metric-value="">50K of 75K</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:67%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="quality">
+                                            <div class="sample-metric-head"><span>Data quality &amp;
+                                                    completeness</span><strong data-metric-value="">98% complete
+                                                    metadata &amp; open-data compliance</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="metadata">
-                                            <div class="sample-metric-head">
-                                                <span>Metadata completeness</span>
-                                                <strong data-metric-value="">90%</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:90%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="access">
+                                            <div class="sample-metric-head"><span>Resources made
+                                                    accessible</span><strong data-metric-value="">1 public API &amp;
+                                                    open-access dataset portal</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
                                     </div>
                                     <div class="output-examples">
                                         <span class="output-examples-title">
                                             Outputs
                                         </span>
-                                        <div class="output-chip-list" data-output-list="">
-                                            <span class="output-chip">
-                                                <i class="fas fa-database"></i>
-                                                Parallel corpora
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-list"></i>
-                                                Digital lexicons
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-tags"></i>
-                                                Annotated datasets
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-archive"></i>
-                                                Repositories
-                                            </span>
-                                        </div>
+                                        <div class="output-chip-list" data-output-list=""><span class="output-chip"><i
+                                                    class="fas fa-photo-video"></i> 500+ multimodal items</span><span
+                                                class="output-chip"><i class="fas fa-database"></i> Mindanao NLP
+                                                benchmark corpus</span><span class="output-chip"><i
+                                                    class="fas fa-check-double"></i> 98% metadata compliance</span><span
+                                                class="output-chip"><i class="fas fa-code"></i> Public API &amp; dataset
+                                                portal</span></div>
                                     </div>
                                 </article>
                                 <article class="dashboard-card revitalize reveal" data-pathway="revitalize">
                                     <div class="dashboard-top">
-                                        <div aria-label="Illustrative Revitalize progress: 70 percent" class="kpi-ring"
-                                            data-kpi-ring="" style="--value:70;">
+                                        <div aria-label="Normalized revitalize progress index for 2026: 100 percent"
+                                            class="kpi-ring" data-kpi-ring="" style="--value:100;">
                                             <div class="kpi-ring-inner">
-                                                <strong data-kpi-percent="">70%</strong>
+                                                <strong data-kpi-percent="">100%</strong>
                                                 <span>Progress</span>
                                             </div>
                                         </div>
                                         <div class="dashboard-heading">
                                             <small>KPI 03</small>
                                             <h3>Revitalize</h3>
-                                            <p>
-                                                Apply language resources in education, research,
-                                                NLP systems, digital platforms, and AI.
+                                            <p>Support language use, visibility, continuity, and technology adoption.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="sample-metrics">
-                                        <div class="sample-metric" data-metric="tools">
-                                            <div class="sample-metric-head">
-                                                <span>Tools and prototypes developed</span>
-                                                <strong data-metric-value="">3 of 4</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:75%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="technologies">
+                                            <div class="sample-metric-head"><span>Language technologies
+                                                    developed</span><strong data-metric-value="">5+ mobile-friendly
+                                                    offline chatbots &amp; interactive apps</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="validation">
-                                            <div class="sample-metric-head">
-                                                <span>Validation cycles completed</span>
-                                                <strong data-metric-value="">2 of 3</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:67%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="evaluations">
+                                            <div class="sample-metric-head"><span>Technologies evaluated</span><strong
+                                                    data-metric-value="">15 field evaluations in education &amp; health
+                                                    communication</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="users">
-                                            <div class="sample-metric-head">
-                                                <span>Annual platform users</span>
-                                                <strong data-metric-value="">1K of 1.5K</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:67%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="use">
+                                            <div class="sample-metric-head"><span>Language use supported</span><strong
+                                                    data-metric-value="">15 digital learning apps for schools &amp; IP
+                                                    youth</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
+                                        </div>
+                                        <div class="sample-metric" data-metric="adoption">
+                                            <div class="sample-metric-head"><span>Adoption &amp; sustained
+                                                    use</span><strong data-metric-value="">~5,000+ downloads/API queries
+                                                    across Mindanao</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
                                     </div>
                                     <div class="output-examples">
                                         <span class="output-examples-title">
                                             Outputs
                                         </span>
-                                        <div class="output-chip-list" data-output-list="">
-                                            <span class="output-chip">
-                                                <i class="fas fa-language"></i>
-                                                Project iWag
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-tools"></i>
-                                                Cebuano NLTK
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-map-marked-alt"></i>
-                                                Community map
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-robot"></i>
-                                                NLP prototypes
-                                            </span>
-                                        </div>
+                                        <div class="output-chip-list" data-output-list=""><span class="output-chip"><i
+                                                    class="fas fa-mobile-alt"></i> 5+ offline chatbots &amp;
+                                                apps</span><span class="output-chip"><i
+                                                    class="fas fa-clipboard-check"></i> 15 field evaluations</span><span
+                                                class="output-chip"><i class="fas fa-school"></i> 15 digital learning
+                                                apps</span><span class="output-chip"><i class="fas fa-download"></i>
+                                                ~5,000+ downloads/API queries</span></div>
                                     </div>
                                 </article>
                                 <article class="dashboard-card empower reveal" data-pathway="empower">
                                     <div class="dashboard-top">
-                                        <div aria-label="Illustrative Empower progress: 80 percent" class="kpi-ring"
-                                            data-kpi-ring="" style="--value:80;">
+                                        <div aria-label="Normalized empower progress index for 2026: 100 percent"
+                                            class="kpi-ring" data-kpi-ring="" style="--value:100;">
                                             <div class="kpi-ring-inner">
-                                                <strong data-kpi-percent="">80%</strong>
+                                                <strong data-kpi-percent="">100%</strong>
                                                 <span>Progress</span>
                                             </div>
                                         </div>
                                         <div class="dashboard-heading">
                                             <small>KPI 04</small>
                                             <h3>Empower</h3>
-                                            <p>
-                                                Strengthen community, student, researcher,
-                                                and institutional capacity and ownership.
+                                            <p>Strengthen people, research participation, partnerships, and ownership.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="sample-metrics">
-                                        <div class="sample-metric" data-metric="training">
-                                            <div class="sample-metric-head">
-                                                <span>Training activities conducted</span>
-                                                <strong data-metric-value="">6 of 8</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:75%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="trained">
+                                            <div class="sample-metric-head"><span>People trained &amp;
+                                                    mentored</span><strong data-metric-value="">100+ Mindanao-based NLP
+                                                    developers &amp; researchers</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
-                                        <div class="sample-metric" data-metric="participants">
-                                            <div class="sample-metric-head">
-                                                <span>Participants trained</span>
-                                                <strong data-metric-value="">80 of 100</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:80%;"></span>
-                                            </div>
+                                        <div class="sample-metric" data-metric="research">
+                                            <div class="sample-metric-head"><span>Research participation</span><strong
+                                                    data-metric-value="">12+ Student/Faculty publications &amp;
+                                                    capstones</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
+                                        </div>
+                                        <div class="sample-metric" data-metric="publications">
+                                            <div class="sample-metric-head"><span>Publications supported /
+                                                    mentored</span><strong data-metric-value="">12+ research
+                                                    publications / capstones targeted</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
                                         <div class="sample-metric" data-metric="partnerships">
-                                            <div class="sample-metric-head">
-                                                <span>Active partnerships</span>
-                                                <strong data-metric-value="">4 of 5</strong>
-                                            </div>
-                                            <div class="mini-progress">
-                                                <span data-progress="" style="--progress:80%;"></span>
-                                            </div>
+                                            <div class="sample-metric-head"><span>Partnerships
+                                                    strengthened</span><strong data-metric-value="">6+ regional &amp;
+                                                    international partnerships (DepEd, LGUs, global NLP
+                                                    networks)</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
+                                        </div>
+                                        <div class="sample-metric" data-metric="knowledge">
+                                            <div class="sample-metric-head"><span>Knowledge &amp; policy
+                                                    outputs</span><strong data-metric-value="">3 Mindanao Language Tech
+                                                    Roadmap &amp; policy frameworks</strong></div>
+                                            <div class="mini-progress"><span data-progress=""
+                                                    style="--progress:100%;"></span></div>
                                         </div>
                                     </div>
                                     <div class="output-examples">
                                         <span class="output-examples-title">
                                             Outputs
                                         </span>
-                                        <div class="output-chip-list" data-output-list="">
-                                            <span class="output-chip">
-                                                <i class="fas fa-chalkboard-teacher"></i>
-                                                Workshops
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-user-graduate"></i>
-                                                Thesis mentoring
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-handshake"></i>
-                                                Research partnerships
-                                            </span>
-                                            <span class="output-chip">
-                                                <i class="fas fa-route"></i>
-                                                Policy and roadmap
-                                            </span>
-                                        </div>
+                                        <div class="output-chip-list" data-output-list=""><span class="output-chip"><i
+                                                    class="fas fa-users-cog"></i> 100+ developers &amp;
+                                                researchers</span><span class="output-chip"><i
+                                                    class="fas fa-book-open"></i> 12+ publications &amp;
+                                                capstones</span><span class="output-chip"><i
+                                                    class="fas fa-handshake"></i> 6+ partnerships</span><span
+                                                class="output-chip"><i class="fas fa-route"></i> 3 roadmaps / policy
+                                                frameworks</span></div>
                                     </div>
                                 </article>
                             </div>
                             <div class="dashboard-empty" id="dashboardEmpty">No KPI data are available for the selected
                                 year.</div>
-                        </div>
                     </section>
-
-                    <section class="section-wrap is-soft" id="kpis">
+                    <section class="historical-kpi-section" id="kpis">
                         <div class="container-fluid px-4 px-lg-5">
                             <div class="section-header">
-                                <div class="section-kicker">Key Performance Indicators</div>
+                                <div class="section-kicker">Historical KPI Records</div>
+                                
                             </div>
-                            <div class="kpi-grid">
-                                <article class="kpi-card document">
-                                    <div class="kpi-card-header"><span class="kpi-icon"><i
-                                                class="fas fa-microphone-alt"></i></span>
-                                        <div>
-                                            <h3>Document</h3><small>Capture language and cultural knowledge</small>
-                                        </div>
+                           
+                            <article class="historical-kpi-block" style="--pathway-color:var(--document);">
+                                <div class="historical-kpi-heading"><i class="fas fa-microphone-alt"></i>
+                                    <div>
+                                        <h3>1. Document: Capture Language &amp; Cultural Knowledge</h3>
+                                        <p>Annual outputs and source references supplied for this pathway.</p>
                                     </div>
-                                    <ul class="kpi-list">
-                                        <li><span class="kpi-label">Communities and languages engaged</span>Number of
-                                            language communities and varieties included in documentation activities.
-                                        </li>
-                                        <li><span class="kpi-label">Materials collected</span>Recordings, interviews,
-                                            texts, word lists, translations, and cultural narratives gathered.</li>
-                                        <li><span class="kpi-label">Materials validated</span>Resources reviewed with
-                                            community contributors and language experts.</li>
-                                        <li><span class="kpi-label">Community participation</span>Speakers, leaders,
-                                            contributors, and local partners involved.</li>
-                                    </ul>
-                                </article>
-                                <article class="kpi-card digitize">
-                                    <div class="kpi-card-header"><span class="kpi-icon"><i
-                                                class="fas fa-database"></i></span>
-                                        <div>
-                                            <h3>Digitize</h3><small>Transform materials into reusable resources</small>
-                                        </div>
+                                </div>
+                                <div class="historical-table-wrap">
+                                    <table class="historical-table">
+                                        <thead>
+                                            <tr>
+                                                <th>KPI Indicator</th>
+                                                <th>2022</th>
+                                                <th>2023</th>
+                                                <th>2024</th>
+                                                <th>2025</th>
+                                                <th>2026</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Communities &amp; languages engaged</th>
+                                                <td>2 languages (Manobo, Mansaka)</td>
+                                                <td>3 core languages (Manobo, Mansaka, Kagan)</td>
+                                                <td>6 target languages (Manobo, Mansaka, Kagan, Subanen, Butuanon,
+                                                    Kinamiging)</td>
+                                                <td>6 target indigenous languages across Davao &amp; Mindanao</td>
+                                                <td>6+ active indigenous language communities</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Materials collected</th>
+                                                <td>~50 hrs audio; ~1,000 phrase lists</td>
+                                                <td>~150 hrs audio; ~5,000 parallel phrases</td>
+                                                <td>~300 hrs audio; ~15,000 parallel sentences</td>
+                                                <td>~500+ hrs audio; ~30,000 domain entries</td>
+                                                <td>~750+ hrs audio; ~50,000 parallel entries</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Materials validated</th>
+                                                <td>~20% pilot validation</td>
+                                                <td>~45% field-verified</td>
+                                                <td>~70% verified with native speakers &amp; NCIP</td>
+                                                <td>~85% community-validated &amp; expert-reviewed</td>
+                                                <td>~95% standardized &amp; verified corpus</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Community participation</th>
+                                                <td>~15 Elders / Native speakers</td>
+                                                <td>~35 IP Community contributors</td>
+                                                <td>~65 IP Leaders, Council Elders &amp; contributors</td>
+                                                <td>~100+ Active local contributors &amp; translators</td>
+                                                <td>~150+ Community members involved in co-creation</td>
+                                               
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                            <article class="historical-kpi-block" style="--pathway-color:var(--digitize);">
+                                <div class="historical-kpi-heading"><i class="fas fa-database"></i>
+                                    <div>
+                                        <h3>2. Digitize: Transform Materials into Reusable Resources</h3>
+                                        <p>Annual outputs and source references supplied for this pathway.</p>
                                     </div>
-                                    <ul class="kpi-list">
-                                        <li><span class="kpi-label">Resources digitized</span>Physical or raw materials
-                                            converted into accessible digital formats.</li>
-                                        <li><span class="kpi-label">Datasets and corpora developed</span>Structured
-                                            corpora, lexicons, parallel datasets, annotations, and metadata records.
-                                        </li>
-                                        <li><span class="kpi-label">Data quality and completeness</span>Resources
-                                            meeting documentation, annotation, metadata, and validation standards.</li>
-                                        <li><span class="kpi-label">Resources made accessible</span>Repositories, tools,
-                                            collections, or controlled-access resources released.</li>
-                                    </ul>
-                                </article>
-                                <article class="kpi-card revitalize">
-                                    <div class="kpi-card-header"><span class="kpi-icon"><i
-                                                class="fas fa-seedling"></i></span>
-                                        <div>
-                                            <h3>Revitalize</h3><small>Support use, visibility, and continuity</small>
-                                        </div>
+                                </div>
+                                <div class="historical-table-wrap">
+                                    <table class="historical-table">
+                                        <thead>
+                                            <tr>
+                                                <th>KPI Indicator</th>
+                                                <th>2022</th>
+                                                <th>2023</th>
+                                                <th>2024</th>
+                                                <th>2025</th>
+                                                <th>2026</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Resources digitized</th>
+                                                <td>10 raw audio tapes &amp; 5 lexicons digitized</td>
+                                                <td>50 audio files &amp; 100 transcribed text files</td>
+                                                <td>150 cleaned audio-text alignment records</td>
+                                                <td>300 fully indexed digital language archive items</td>
+                                                <td>500+ multi-modal digital repository items (Audio/Text/Video)</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Datasets &amp; corpora developed</th>
+                                                <td>1 unaligned text/audio dump</td>
+                                                <td>2 baseline bilingual corpora</td>
+                                                <td>3 curated parallel corpora (Manobo, Mansaka, Kagan)</td>
+                                                <td>6 structured corpora with morphological annotations</td>
+                                                <td>1 comprehensive Mindanao NLP parallel benchmark corpus</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Data quality &amp; completeness</th>
+                                                <td>~10% raw / unannotated baseline</td>
+                                                <td>~50% aligned &amp; tokenized</td>
+                                                <td>~75% POS tagged &amp; metadata enriched</td>
+                                                <td>~90% gold-standard dataset validation</td>
+                                                <td>98% complete metadata &amp; open-data compliance</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Resources made accessible</th>
+                                                <td>1 internal project storage repository</td>
+                                                <td>1 shared internal R&amp;D drive</td>
+                                                <td>2 web sandboxes for research partners</td>
+                                                <td>1 controlled repository &amp; public lab platform</td>
+                                                <td>1 public API &amp; open-access dataset portal</td>
+                                               
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                            <article class="historical-kpi-block" style="--pathway-color:var(--revitalize);">
+                                <div class="historical-kpi-heading"><i class="fas fa-seedling"></i>
+                                    <div>
+                                        <h3>3. Revitalize: Support Use, Visibility, &amp; Continuity</h3>
+                                        <p>Annual outputs and source references supplied for this pathway.</p>
                                     </div>
-                                    <ul class="kpi-list">
-                                        <li><span class="kpi-label">Language technologies developed</span>NLP models,
-                                            translation systems, dialogue systems, tools, and prototypes created.</li>
-                                        <li><span class="kpi-label">Technologies evaluated</span>Model performance, user
-                                            feedback, community review, and validation results.</li>
-                                        <li><span class="kpi-label">Language use supported</span>Educational, research,
-                                            community, or digital applications using the resources.</li>
-                                        <li><span class="kpi-label">Adoption and sustained use</span>Usage, deployment,
-                                            reuse, downloads, or continued integration of tools.</li>
-                                    </ul>
-                                </article>
-                                <article class="kpi-card empower">
-                                    <div class="kpi-card-header"><span class="kpi-icon"><i
-                                                class="fas fa-users"></i></span>
-                                        <div>
-                                            <h3>Empower</h3><small>Strengthen people, partnerships, and
-                                                ownership</small>
-                                        </div>
+                                </div>
+                                <div class="historical-table-wrap">
+                                    <table class="historical-table">
+                                        <thead>
+                                            <tr>
+                                                <th>KPI Indicator</th>
+                                                <th>2022</th>
+                                                <th>2023</th>
+                                                <th>2024</th>
+                                                <th>2025</th>
+                                                <th>2026</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Language technologies developed</th>
+                                                <td>2 rule-based baseline prototypes</td>
+                                                <td>3 early NMT models (Project iWag, CNLTK, Pitik)</td>
+                                                <td>2 prototype Conversational Agents (Project ANNA, Madasigon)</td>
+                                                <td>1 Multilingual MT System &amp; 2 Conversational AI agents</td>
+                                                <td>5+ mobile-friendly offline chatbots &amp; interactive apps</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Technologies evaluated</th>
+                                                <td>1 initial BLEU score baseline benchmark</td>
+                                                <td>3 internal BLEU / Roughness benchmarks</td>
+                                                <td>4 multi-metric evaluation suites (BLEU, CHRF, Human Evaluation)</td>
+                                                <td>10 community acceptance tests with IP Elders</td>
+                                                <td>15 field evaluations in education &amp; health communication</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Language use supported</th>
+                                                <td>1 lexicon lookup tool</td>
+                                                <td>3 academic research demos</td>
+                                                <td>5 pilot classroom auxiliary materials</td>
+                                                <td>10 health &amp; public service communication tools</td>
+                                                <td>15 digital learning apps for schools &amp; IP youth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Adoption &amp; sustained use</th>
+                                                <td>~10 lab environment testers</td>
+                                                <td>~50 academic testers</td>
+                                                <td>~200 pilot web users</td>
+                                                <td>~1,000+ users across regional centers</td>
+                                                <td>~5,000+ downloads/API queries across Mindanao</td>
+                                               
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
+                            <article class="historical-kpi-block" style="--pathway-color:var(--empower);">
+                                <div class="historical-kpi-heading"><i class="fas fa-users"></i>
+                                    <div>
+                                        <h3>4. Empower: Strengthen People, Partnerships, &amp; Ownership</h3>
+                                        <p>Annual outputs and source references supplied for this pathway.</p>
                                     </div>
-                                    <ul class="kpi-list">
-                                        <li><span class="kpi-label">People trained and mentored</span>Students, faculty,
-                                            researchers, developers, and community participants trained.</li>
-                                        <li><span class="kpi-label">Research participation</span>Student, faculty, and
-                                            community-led studies, theses, capstones, or collaborative projects.</li>
-                                        <li><span class="kpi-label">Partnerships strengthened</span>Active
-                                            institutional, government, academic, and community collaborations.</li>
-                                        <li><span class="kpi-label">Knowledge and policy outputs</span>Publications,
-                                            presentations, policy recommendations, roadmaps, and sustained initiatives.
-                                        </li>
-                                    </ul>
-                                </article>
-                            </div>
+                                </div>
+                                <div class="historical-table-wrap">
+                                    <table class="historical-table">
+                                        <thead>
+                                            <tr>
+                                                <th>KPI Indicator</th>
+                                                <th>2022</th>
+                                                <th>2023</th>
+                                                <th>2024</th>
+                                                <th>2025</th>
+                                                <th>2026</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">People trained &amp; mentored</th>
+                                                <td>5 Student researchers</td>
+                                                <td>12 Students &amp; faculty members</td>
+                                                <td>25 Researchers &amp; local developers</td>
+                                                <td>50+ Trained in NLP &amp; annotation</td>
+                                                <td>100+ Mindanao-based NLP developers &amp; researchers</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Research participation</th>
+                                                <td>1 Undergraduate Capstone</td>
+                                                <td>3 Capstone / Thesis projects</td>
+                                                <td>5 Capstone &amp; Master's theses</td>
+                                                <td>8+ ongoing research projects (Lab launch)</td>
+                                                <td>12+ Student/Faculty publications &amp; capstones</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Publications supported / mentored</th>
+                                                <td>1 research publication / capstone paper</td>
+                                                <td>3 research studies published / presented</td>
+                                                <td>5 research studies published / presented</td>
+                                                <td>8 research studies published / presented</td>
+                                                <td>12+ research publications / capstones targeted</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Partnerships strengthened</th>
+                                                <td>1 institutional partnership (UIC Research Dept)</td>
+                                                <td>2 partner alignments (UIC + DOST-PCIEERD)</td>
+                                                <td>3 national collaborations (National NLP Roadmap)</td>
+                                                <td>4 major partnerships (DOST-PCIEERD IDP Lab launch + NCIP XI)</td>
+                                                <td>6+ regional &amp; international partnerships (DepEd, LGUs, global
+                                                    NLP networks)</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Knowledge &amp; policy outputs</th>
+                                                <td>1 Internal progress brief</td>
+                                                <td>1 Regional conference presentation</td>
+                                                <td>1 National DOST-PCIEERD R&amp;D Roadmap input</td>
+                                                <td>2 policy papers on IP preservation &amp; Lab Inauguration</td>
+                                                <td>3 Mindanao Language Tech Roadmap &amp; policy frameworks</td>
+                                               
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </article>
                         </div>
                     </section>
-
+                    
                     <section class="impact-cta">
                         <div class="container-fluid px-4 px-lg-5">
-                            <p>This pathway connects MinNa’s research activities with the long-term goal of building a
-                                more linguistically inclusive digital future.</p>
                             <a class="btn btn-light" href="programs-initiatives.html"><i
                                     class="fas fa-layer-group mr-2"></i>Explore Programs and Services</a>
                             <a class="btn btn-outline-light" href="projects/featuredprojects.html"><i
@@ -2236,7 +2480,7 @@
     <script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
     <script>
         "use strict";
-        const kpiDataByYear = { "2024": { "document": { "percent": 50, "metrics": { "communities": ["2 of 4", 50], "recordings": ["60 of 120", 50], "entries": ["800 of 1,600", 50] }, "outputs": [["fas fa-microphone", "60 recording hours"], ["fas fa-file-alt", "Initial transcriptions"], ["fas fa-book", "800 validated entries"], ["fas fa-users", "2 communities engaged"]] }, "digitize": { "percent": 45, "metrics": { "datasets": ["2 of 5", 40], "sentences": ["20K of 50K", 40], "metadata": ["75%", 75] }, "outputs": [["fas fa-database", "2 pilot datasets"], ["fas fa-list", "Initial digital lexicons"], ["fas fa-tags", "Basic annotations"], ["fas fa-archive", "Internal repository"]] }, "revitalize": { "percent": 40, "metrics": { "tools": ["1 of 3", 33], "validation": ["1 of 3", 33], "users": ["400 of 1K", 40] }, "outputs": [["fas fa-language", "Translation prototype"], ["fas fa-vial", "Initial user testing"], ["fas fa-laptop", "Pilot web deployment"], ["fas fa-comments", "Community feedback"]] }, "empower": { "percent": 55, "metrics": { "training": ["3 of 6", 50], "participants": ["45 of 80", 56], "partnerships": ["3 of 5", 60] }, "outputs": [["fas fa-chalkboard-teacher", "3 workshops"], ["fas fa-user-graduate", "Student mentoring"], ["fas fa-handshake", "3 active partners"], ["fas fa-file-alt", "Research presentations"]] } }, "2025": { "document": { "percent": 65, "metrics": { "communities": ["3 of 4", 75], "recordings": ["90 of 140", 64], "entries": ["1,200 of 1,800", 67] }, "outputs": [["fas fa-microphone", "90 recording hours"], ["fas fa-file-alt", "Reviewed transcriptions"], ["fas fa-book", "1,200 validated entries"], ["fas fa-check-double", "Community validation"]] }, "digitize": { "percent": 60, "metrics": { "datasets": ["3 of 5", 60], "sentences": ["35K of 60K", 58], "metadata": ["85%", 85] }, "outputs": [["fas fa-database", "3 curated datasets"], ["fas fa-list", "Expanded lexicons"], ["fas fa-tags", "Annotated text sets"], ["fas fa-archive", "Managed repositories"]] }, "revitalize": { "percent": 58, "metrics": { "tools": ["2 of 4", 50], "validation": ["2 of 3", 67], "users": ["700 of 1.2K", 58] }, "outputs": [["fas fa-language", "Project iWag iteration"], ["fas fa-tools", "Language toolkit update"], ["fas fa-vial", "2 validation cycles"], ["fas fa-chart-line", "Usage monitoring"]] }, "empower": { "percent": 70, "metrics": { "training": ["5 of 7", 71], "participants": ["65 of 90", 72], "partnerships": ["4 of 5", 80] }, "outputs": [["fas fa-chalkboard-teacher", "5 workshops"], ["fas fa-user-graduate", "Research mentoring"], ["fas fa-handshake", "4 active partners"], ["fas fa-book-open", "Research outputs"]] } }, "2026": { "document": { "percent": 75, "metrics": { "communities": ["3 of 4", 75], "recordings": ["120 of 160", 75], "entries": ["1,500 of 2,000", 75] }, "outputs": [["fas fa-microphone", "120 recording hours"], ["fas fa-file-alt", "Transcriptions"], ["fas fa-book", "1,500 validated entries"], ["fas fa-check-double", "Validation records"]] }, "digitize": { "percent": 68, "metrics": { "datasets": ["4 of 6", 67], "sentences": ["50K of 75K", 67], "metadata": ["90%", 90] }, "outputs": [["fas fa-database", "4 datasets and corpora"], ["fas fa-list", "Digital lexicons"], ["fas fa-tags", "Annotated datasets"], ["fas fa-archive", "Resource repositories"]] }, "revitalize": { "percent": 70, "metrics": { "tools": ["3 of 4", 75], "validation": ["2 of 3", 67], "users": ["1K of 1.5K", 67] }, "outputs": [["fas fa-language", "Project iWag"], ["fas fa-tools", "Cebuano NLTK"], ["fas fa-map-marked-alt", "Community map"], ["fas fa-robot", "NLP prototypes"]] }, "empower": { "percent": 80, "metrics": { "training": ["6 of 8", 75], "participants": ["80 of 100", 80], "partnerships": ["4 of 5", 80] }, "outputs": [["fas fa-chalkboard-teacher", "6 workshops"], ["fas fa-user-graduate", "Thesis mentoring"], ["fas fa-handshake", "Research partnerships"], ["fas fa-route", "Policy and roadmap"]] } } };
+        const kpiDataByYear = { "2022": { "document": { "percent": 17, "metrics": { "communities": ["2 languages (Manobo, Mansaka)", 33], "materials": ["~50 hrs audio; ~1,000 phrase lists", 4], "validation": ["~20% pilot validation", 21], "participation": ["~15 Elders / Native speakers", 10] }, "outputs": [["fas fa-language", "2 languages engaged"], ["fas fa-microphone", "~50 hrs audio"], ["fas fa-list", "~1,000 phrase lists"], ["fas fa-users", "~15 Elders / native speakers"]] }, "digitize": { "percent": 13, "metrics": { "resources": ["10 raw audio tapes & 5 lexicons digitized", 3], "datasets": ["1 unaligned text/audio dump", 17], "quality": ["~10% raw / unannotated baseline", 10], "access": ["1 internal project storage repository", 20] }, "outputs": [["fas fa-compact-disc", "10 audio tapes digitized"], ["fas fa-book", "5 lexicons digitized"], ["fas fa-database", "1 baseline data dump"], ["fas fa-archive", "Internal repository"]] }, "revitalize": { "percent": 13, "metrics": { "technologies": ["2 rule-based baseline prototypes", 40], "evaluations": ["1 initial BLEU score baseline benchmark", 7], "use": ["1 lexicon lookup tool", 7], "adoption": ["~10 lab environment testers", 0.2] }, "outputs": [["fas fa-code", "2 rule-based prototypes"], ["fas fa-chart-bar", "1 BLEU baseline"], ["fas fa-search", "1 lexicon lookup tool"], ["fas fa-user-check", "~10 testers"]] }, "empower": { "percent": 14, "metrics": { "trained": ["5 Student researchers", 5], "research": ["1 Undergraduate Capstone", 8], "publications": ["1 research publication / capstone paper", 8], "partnerships": ["1 institutional partnership (UIC Research Dept)", 17], "knowledge": ["1 Internal progress brief", 33] }, "outputs": [["fas fa-user-graduate", "5 student researchers"], ["fas fa-file-alt", "1 undergraduate capstone"], ["fas fa-book-open", "1 publication / capstone paper"], ["fas fa-handshake", "1 institutional partnership"]] } }, "2023": { "document": { "percent": 34, "metrics": { "communities": ["3 core languages (Manobo, Mansaka, Kagan)", 50], "materials": ["~150 hrs audio; ~5,000 parallel phrases", 15], "validation": ["~45% field-verified", 47], "participation": ["~35 IP Community contributors", 23] }, "outputs": [["fas fa-language", "3 core languages"], ["fas fa-microphone", "~150 hrs audio"], ["fas fa-align-left", "~5,000 parallel phrases"], ["fas fa-users", "~35 IP contributors"]] }, "digitize": { "percent": 37, "metrics": { "resources": ["50 audio files & 100 transcribed text files", 30], "datasets": ["2 baseline bilingual corpora", 33], "quality": ["~50% aligned & tokenized", 51], "access": ["1 shared internal R&D drive", 35] }, "outputs": [["fas fa-file-audio", "50 audio files"], ["fas fa-file-alt", "100 transcribed files"], ["fas fa-database", "2 bilingual corpora"], ["fas fa-hdd", "Shared R&D drive"]] }, "revitalize": { "percent": 25, "metrics": { "technologies": ["3 early NMT models (Project iWag, CNLTK, Pitik)", 60], "evaluations": ["3 internal BLEU / Roughness benchmarks", 20], "use": ["3 academic research demos", 20], "adoption": ["~50 academic testers", 1] }, "outputs": [["fas fa-language", "Project iWag"], ["fas fa-tools", "CNLTK"], ["fas fa-comments", "Pitik"], ["fas fa-user-check", "~50 academic testers"]] }, "empower": { "percent": 26, "metrics": { "trained": ["12 Students & faculty members", 12], "research": ["3 Capstone / Thesis projects", 25], "publications": ["3 research studies published / presented", 25], "partnerships": ["2 partner alignments (UIC + DOST-PCIEERD)", 33], "knowledge": ["1 Regional conference presentation", 33] }, "outputs": [["fas fa-users", "12 students & faculty"], ["fas fa-file-alt", "3 capstone / thesis projects"], ["fas fa-book-open", "3 studies published / presented"], ["fas fa-handshake", "2 partner alignments"]] } }, "2024": { "document": { "percent": 63, "metrics": { "communities": ["6 target languages (Manobo, Mansaka, Kagan, Subanen, Butuanon, Kinamiging)", 100], "materials": ["~300 hrs audio; ~15,000 parallel sentences", 35], "validation": ["~70% verified with native speakers & NCIP", 74], "participation": ["~65 IP Leaders, Council Elders & contributors", 43] }, "outputs": [["fas fa-language", "6 target languages"], ["fas fa-microphone", "~300 hrs audio"], ["fas fa-align-left", "~15,000 parallel sentences"], ["fas fa-users", "~65 IP leaders & contributors"]] }, "digitize": { "percent": 53, "metrics": { "resources": ["150 cleaned audio-text alignment records", 30], "datasets": ["3 curated parallel corpora (Manobo, Mansaka, Kagan)", 50], "quality": ["~75% POS tagged & metadata enriched", 77], "access": ["2 web sandboxes for research partners", 55] }, "outputs": [["fas fa-link", "150 aligned records"], ["fas fa-database", "3 curated corpora"], ["fas fa-tags", "POS-tagged datasets"], ["fas fa-globe", "2 research web sandboxes"]] }, "revitalize": { "percent": 26, "metrics": { "technologies": ["2 prototype Conversational Agents (Project ANNA, Madasigon)", 40], "evaluations": ["4 multi-metric evaluation suites (BLEU, CHRF, Human Evaluation)", 27], "use": ["5 pilot classroom auxiliary materials", 33], "adoption": ["~200 pilot web users", 4] }, "outputs": [["fas fa-robot", "Project ANNA"], ["fas fa-comments", "Madasigon"], ["fas fa-chart-line", "4 evaluation suites"], ["fas fa-school", "5 classroom materials"]] }, "empower": { "percent": 38, "metrics": { "trained": ["25 Researchers & local developers", 25], "research": ["5 Capstone & Master's theses", 42], "publications": ["5 research studies published / presented", 42], "partnerships": ["3 national collaborations (National NLP Roadmap)", 50], "knowledge": ["1 National DOST-PCIEERD R&D Roadmap input", 33] }, "outputs": [["fas fa-users-cog", "25 researchers & developers"], ["fas fa-user-graduate", "5 capstone & master's theses"], ["fas fa-book-open", "5 studies published / presented"], ["fas fa-route", "National NLP Roadmap input"]] } }, "2025": { "document": { "percent": 80, "metrics": { "communities": ["6 target indigenous languages across Davao & Mindanao", 100], "materials": ["~500+ hrs audio; ~30,000 domain entries", 63], "validation": ["~85% community-validated & expert-reviewed", 89], "participation": ["~100+ Active local contributors & translators", 67] }, "outputs": [["fas fa-language", "6 target indigenous languages"], ["fas fa-microphone", "~500+ hrs audio"], ["fas fa-list", "~30,000 domain entries"], ["fas fa-users", "~100+ contributors & translators"]] }, "digitize": { "percent": 79, "metrics": { "resources": ["300 fully indexed digital language archive items", 60], "datasets": ["6 structured corpora with morphological annotations", 85], "quality": ["~90% gold-standard dataset validation", 92], "access": ["1 controlled repository & public lab platform", 80] }, "outputs": [["fas fa-archive", "300 indexed archive items"], ["fas fa-database", "6 structured corpora"], ["fas fa-project-diagram", "Morphological annotations"], ["fas fa-globe", "Public lab platform"]] }, "revitalize": { "percent": 53, "metrics": { "technologies": ["1 Multilingual MT System & 2 Conversational AI agents", 60], "evaluations": ["10 community acceptance tests with IP Elders", 67], "use": ["10 health & public service communication tools", 67], "adoption": ["~1,000+ users across regional centers", 20] }, "outputs": [["fas fa-language", "1 multilingual MT system"], ["fas fa-robot", "2 conversational AI agents"], ["fas fa-check-circle", "10 community acceptance tests"], ["fas fa-heartbeat", "10 public-service tools"]] }, "empower": { "percent": 63, "metrics": { "trained": ["50+ Trained in NLP & annotation", 50], "research": ["8+ ongoing research projects (Lab launch)", 67], "publications": ["8 research studies published / presented", 67], "partnerships": ["4 major partnerships (DOST-PCIEERD IDP Lab launch + NCIP XI)", 67], "knowledge": ["2 policy papers on IP preservation & Lab Inauguration", 67] }, "outputs": [["fas fa-chalkboard-teacher", "50+ trained in NLP & annotation"], ["fas fa-flask", "8+ ongoing research projects"], ["fas fa-book-open", "8 studies published / presented"], ["fas fa-handshake", "4 major partnerships"]] } }, "2026": { "document": { "percent": 100, "metrics": { "communities": ["6+ active indigenous language communities", 100], "materials": ["~750+ hrs audio; ~50,000 parallel entries", 100], "validation": ["~95% standardized & verified corpus", 100], "participation": ["~150+ Community members involved in co-creation", 100] }, "outputs": [["fas fa-language", "6+ active communities"], ["fas fa-microphone", "~750+ hrs audio"], ["fas fa-align-left", "~50,000 parallel entries"], ["fas fa-users", "~150+ co-creators"]] }, "digitize": { "percent": 100, "metrics": { "resources": ["500+ multi-modal digital repository items (Audio/Text/Video)", 100], "datasets": ["1 comprehensive Mindanao NLP parallel benchmark corpus", 100], "quality": ["98% complete metadata & open-data compliance", 100], "access": ["1 public API & open-access dataset portal", 100] }, "outputs": [["fas fa-photo-video", "500+ multimodal items"], ["fas fa-database", "Mindanao NLP benchmark corpus"], ["fas fa-check-double", "98% metadata compliance"], ["fas fa-code", "Public API & dataset portal"]] }, "revitalize": { "percent": 100, "metrics": { "technologies": ["5+ mobile-friendly offline chatbots & interactive apps", 100], "evaluations": ["15 field evaluations in education & health communication", 100], "use": ["15 digital learning apps for schools & IP youth", 100], "adoption": ["~5,000+ downloads/API queries across Mindanao", 100] }, "outputs": [["fas fa-mobile-alt", "5+ offline chatbots & apps"], ["fas fa-clipboard-check", "15 field evaluations"], ["fas fa-school", "15 digital learning apps"], ["fas fa-download", "~5,000+ downloads/API queries"]] }, "empower": { "percent": 100, "metrics": { "trained": ["100+ Mindanao-based NLP developers & researchers", 100], "research": ["12+ Student/Faculty publications & capstones", 100], "publications": ["12+ research publications / capstones targeted", 100], "partnerships": ["6+ regional & international partnerships (DepEd, LGUs, global NLP networks)", 100], "knowledge": ["3 Mindanao Language Tech Roadmap & policy frameworks", 100] }, "outputs": [["fas fa-users-cog", "100+ developers & researchers"], ["fas fa-book-open", "12+ publications & capstones"], ["fas fa-handshake", "6+ partnerships"], ["fas fa-route", "3 roadmaps / policy frameworks"]] } } };
         function clampPercentage(value) { const n = Number(value); return Number.isFinite(n) ? Math.max(0, Math.min(100, n)) : 0; }
         function makeChip(item) { const chip = document.createElement("span"); chip.className = "output-chip"; const icon = document.createElement("i"); icon.className = item[0] || "fas fa-check"; chip.append(icon, document.createTextNode(" " + (item[1] || "Sample output"))); return chip; }
         function updateKpiDashboard(year) {
@@ -2246,7 +2490,7 @@
             const note = document.getElementById("selectedYearNote");
             if (!yearData) { cards.forEach(c => c.hidden = true); empty && empty.classList.add("is-visible"); if (note) note.innerHTML = '<i class="fas fa-exclamation-circle"></i>No data available'; return; }
             empty && empty.classList.remove("is-visible");
-            if (note) note.innerHTML = '<i class="fas fa-chart-line"></i>Showing ' + year + ' sample data';
+            if (note) note.innerHTML = '<i class="fas fa-chart-line"></i>Showing ' + year + ' recorded data';
             cards.forEach(card => {
                 const pathway = card.dataset.pathway; const item = yearData[pathway]; card.hidden = !item; if (!item) return; card.classList.add("is-updating");
                 const pct = clampPercentage(item.percent); const ring = card.querySelector("[data-kpi-ring]"); const pctLabel = card.querySelector("[data-kpi-percent]");
@@ -2259,7 +2503,6 @@
         }
         document.addEventListener("DOMContentLoaded", () => { const select = document.getElementById("kpiYear"); if (!select) return; select.addEventListener("change", e => updateKpiDashboard(e.target.value)); updateKpiDashboard(select.value); });
     </script>
-
     <script>
         (() => {
             "use strict";
@@ -2487,7 +2730,7 @@
                         id: "comparisonChartTitle"
                     });
                 title.textContent =
-                    "MinNa annual KPI progress comparison";
+                    "MinNa annual normalized KPI progress comparison";
 
                 const description =
                     svgElement("desc", {
@@ -2644,7 +2887,7 @@
                     });
 
                 yTitle.textContent =
-                    "Progress percentage";
+                    "Normalized progress index (%)";
 
                 const xTitle =
                     svgElement("text", {
@@ -2930,7 +3173,6 @@
             );
         })();
     </script>
-
     <script src="js/chatbot.js"></script>
 </body>
 
