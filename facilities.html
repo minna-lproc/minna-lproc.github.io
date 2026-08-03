@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <meta
+        content="Explore the MinNa LProc R&amp;D Laboratory, its high-performance computing equipment, mobile testing devices, workspaces, and pantry."
+        name="description" />
+    <title>Laboratory and Equipment | MinNa LProc R&amp;D Lab</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900&amp;display=swap" rel="stylesheet" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="css/chatbot.css" rel="stylesheet" />
+    <link href="minna_round_logo.png" rel="icon" />
+    <style>
+        :root {
+            --primary: #c04659;
+            --secondary: #e05d87;
+            --dark: #4f1730;
+            --light: #fff0f5;
+            --surface: #fcf7f9;
+            --text: #3a2d33;
+            --muted: #76666d;
+            --border: #eadde3;
+            --blue: #4d6fa7;
+            --green: #2f8a69;
+            --gold: #b77a25;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: "Nunito", sans-serif;
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        a {
+            transition: .2s ease;
+        }
+
+        .site-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            min-height: 74px;
+            padding: .65rem 0;
+            border-top: 4px solid var(--primary);
+            border-bottom: 1px solid rgba(192, 70, 89, .12);
+            background: rgba(255, 255, 255, .98);
+            box-shadow: 0 .45rem 1.6rem rgba(79, 23, 48, .09);
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            margin-right: .65rem;
+            object-fit: contain;
+        }
+
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            color: var(--dark);
+            line-height: 1.05;
+        }
+
+        .brand-copy strong {
+            font-weight: 900;
+        }
+
+        .brand-copy small {
+            margin-top: .2rem;
+            color: var(--muted);
+            font-size: .61rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .site-navbar .nav-link {
+            color: #5a404a !important;
+            font-size: .8rem;
+            font-weight: 800;
+            border-radius: .6rem;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-link.active {
+            color: var(--primary) !important;
+            background: var(--light);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 5.2rem 0 5.8rem;
+            color: #fff;
+            background:
+                radial-gradient(circle at 88% 14%, rgba(255, 207, 221, .32), transparent 24%),
+                linear-gradient(135deg, #4f1730 0%, #9f2958 56%, #df6a8f 100%);
+        }
+
+        .hero:after {
+            content: "";
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            right: -130px;
+            top: -235px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 50%;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .48rem .85rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .1);
+            font-size: .75rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            max-width: 930px;
+            margin: 0 0 1rem;
+            font-size: clamp(2.35rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -.055em;
+            line-height: 1.02;
+        }
+
+        .hero h1 span {
+            color: #ffd9e5;
+        }
+
+        .hero p {
+            max-width: 840px;
+            margin: 0;
+            color: rgba(255, 255, 255, .86);
+            font-size: 1.03rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .65rem;
+            margin-top: 1.6rem;
+        }
+
+        .hero-actions .btn {
+            border-radius: .7rem;
+            font-weight: 900;
+        }
+
+        .btn-soft {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .4);
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .btn-soft:hover {
+            color: var(--primary);
+            background: #fff;
+        }
+
+        .summary-grid {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: -2.3rem;
+        }
+
+        .summary-card {
+            padding: 1.1rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 .7rem 1.8rem rgba(79, 23, 48, .1);
+        }
+
+        .summary-card i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-bottom: .65rem;
+            border-radius: .75rem;
+            color: var(--primary);
+            background: var(--light);
+        }
+
+        .summary-card strong {
+            display: block;
+            color: var(--dark);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .summary-card span {
+            color: var(--muted);
+            font-size: .7rem;
+            font-weight: 800;
+        }
+
+        .section {
+            padding: 4.8rem 0;
+        }
+
+        .section.soft {
+            background: linear-gradient(180deg, #fff9fb, #fff0f5);
+        }
+
+        .section-head {
+            max-width: 850px;
+            margin-bottom: 2rem;
+        }
+
+        .section-head.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .kicker {
+            margin-bottom: .4rem;
+            color: var(--secondary);
+            font-size: .75rem;
+            font-weight: 900;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .section h2 {
+            margin: 0 0 .8rem;
+            color: var(--dark);
+            font-size: clamp(1.8rem, 3vw, 2.65rem);
+            font-weight: 900;
+            letter-spacing: -.04em;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .facility-card {
+            position: relative;
+            min-height: 310px;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #5d1d37, #ca5178);
+            box-shadow: 0 .65rem 1.8rem rgba(91, 37, 57, .09);
+        }
+
+        .facility-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .facility-placeholder {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+            color: #fff;
+            text-align: center;
+            background: radial-gradient(circle at 80% 10%, rgba(255, 255, 255, .16), transparent 28%);
+        }
+
+        .facility-placeholder i {
+            display: block;
+            margin-bottom: .55rem;
+            font-size: 2rem;
+        }
+
+        .facility-placeholder small {
+            color: rgba(255, 255, 255, .72);
+            font-weight: 800;
+        }
+
+        .facility-overlay {
+            position: absolute;
+            inset: auto 0 0;
+            padding: 1rem;
+            color: #fff;
+            background: linear-gradient(180deg, transparent, rgba(44, 12, 26, .92));
+        }
+
+        .facility-overlay small {
+            display: block;
+            margin-bottom: .2rem;
+            color: rgba(255, 255, 255, .72);
+            font-size: .6rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .facility-overlay h3 {
+            margin: 0;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .zones {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: .85rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: #fff;
+        }
+
+        .zone {
+            padding: 1rem;
+            border: 2px dashed rgba(192, 70, 89, .18);
+            border-radius: .85rem;
+            background: #fffafb;
+        }
+
+        .zone i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            margin-bottom: .65rem;
+            border-radius: .8rem;
+            color: #fff;
+            background: var(--zone-color, var(--primary));
+        }
+
+        .zone h3 {
+            margin: 0 0 .3rem;
+            color: var(--dark);
+            font-size: .88rem;
+            font-weight: 900;
+        }
+
+        .zone p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .7rem;
+            line-height: 1.55;
+        }
+
+        .zone.compute {
+            --zone-color: var(--blue);
+        }
+
+        .zone.mobile {
+            --zone-color: var(--green);
+        }
+
+        .zone.pantry {
+            --zone-color: var(--gold);
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: .9rem;
+            background: #fff;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .filter-btn {
+            padding: .5rem .72rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: #674d58;
+            background: #fff;
+            font: 800 .7rem "Nunito", sans-serif;
+            cursor: pointer;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: #fff;
+            border-color: var(--primary);
+            background: var(--primary);
+        }
+
+        .search-wrap {
+            position: relative;
+            min-width: min(100%, 300px);
+        }
+
+        .search-wrap i {
+            position: absolute;
+            top: 50%;
+            left: .8rem;
+            color: #aa8a96;
+            transform: translateY(-50%);
+        }
+
+        .search-wrap input {
+            width: 100%;
+            padding: .62rem .8rem .62rem 2.3rem;
+            border: 1px solid var(--border);
+            border-radius: .68rem;
+            background: #fffafb;
+            font: 750 .75rem "Nunito", sans-serif;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .equipment-card {
+            --card-color: var(--blue);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 .55rem 1.7rem rgba(91, 37, 57, .07);
+        }
+
+        .equipment-card.mobile {
+            --card-color: var(--green);
+        }
+
+        .equipment-card:before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto;
+            height: 5px;
+            background: var(--card-color);
+        }
+
+        .equipment-top {
+            display: grid;
+            grid-template-columns: 58px minmax(0, 1fr);
+            gap: .85rem;
+            align-items: center;
+            margin-bottom: .85rem;
+        }
+
+        .equipment-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            border-radius: .9rem;
+            color: #fff;
+            background: var(--card-color);
+            font-size: 1.25rem;
+        }
+
+        .equipment-card small {
+            display: block;
+            margin-bottom: .15rem;
+            color: var(--card-color);
+            font-size: .6rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .equipment-card h3 {
+            margin: 0;
+            color: var(--dark);
+            font-size: 1rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .equipment-card>p {
+            color: var(--muted);
+            font-size: .76rem;
+            line-height: 1.6;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: .55rem;
+            margin-bottom: .85rem;
+        }
+
+        .meta {
+            padding: .65rem;
+            border: 1px solid #f0e7eb;
+            border-radius: .7rem;
+            background: #fffafb;
+        }
+
+        .meta span {
+            display: block;
+            color: #9b818b;
+            font-size: .56rem;
+            font-weight: 900;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+        }
+
+        .meta strong {
+            display: block;
+            margin-top: .15rem;
+            color: var(--dark);
+            font-size: .7rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        details {
+            margin-top: auto;
+            padding-top: .75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        summary {
+            color: var(--primary);
+            font-size: .72rem;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .spec-list {
+            padding: 0;
+            margin: .65rem 0 0;
+            list-style: none;
+        }
+
+        .spec-list li {
+            position: relative;
+            padding: .45rem 0 .45rem 1.25rem;
+            border-bottom: 1px solid #f0e7eb;
+            color: #654f58;
+            font-size: .7rem;
+            line-height: 1.45;
+        }
+
+        .spec-list li:before {
+            content: "\f058";
+            position: absolute;
+            left: 0;
+            top: .55rem;
+            color: var(--primary);
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: .62rem;
+        }
+
+        .empty {
+            display: none;
+            padding: 1rem;
+            border: 1px dashed var(--border);
+            border-radius: .8rem;
+            text-align: center;
+            color: var(--muted);
+            background: #fff;
+        }
+
+        .pantry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .pantry-card {
+            padding: 1.35rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: #fff;
+            box-shadow: 0 .55rem 1.7rem rgba(91, 37, 57, .07);
+        }
+
+        .pantry-card i.big {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            margin-bottom: .75rem;
+            border-radius: .9rem;
+            color: #fff;
+            background: var(--gold);
+            font-size: 1.25rem;
+        }
+
+        .pantry-card h3 {
+            color: var(--dark);
+            font-weight: 900;
+        }
+
+        .pantry-card p {
+            color: var(--muted);
+            font-size: .78rem;
+            line-height: 1.7;
+        }
+
+        .pantry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .pantry-tags span {
+            padding: .38rem .55rem;
+            border-radius: 999px;
+            color: #6d3a50;
+            background: var(--light);
+            font-size: .64rem;
+            font-weight: 850;
+        }
+
+        .pantry-photo {
+            position: relative;
+            min-height: 320px;
+            overflow: hidden;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(135deg, #835018, #d18d39);
+        }
+
+        .pantry-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pantry-photo .facility-placeholder {
+            background: radial-gradient(circle at 80% 10%, rgba(255, 255, 255, .18), transparent 28%);
+        }
+
+        .note {
+            padding: 1rem 1.05rem;
+            margin-top: 1.1rem;
+            border-left: 4px solid var(--primary);
+            border-radius: .7rem;
+            color: #6d3a50;
+            background: var(--light);
+            font-size: .74rem;
+            line-height: 1.6;
+        }
+
+        .cta {
+            padding: 4.5rem 0;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(135deg, #4f1730, #b52d60);
+        }
+
+        .cta h2 {
+            max-width: 820px;
+            margin: 0 auto .8rem;
+            font-size: clamp(1.85rem, 3vw, 2.6rem);
+            font-weight: 900;
+        }
+
+        .cta p {
+            max-width: 760px;
+            margin: 0 auto 1.3rem;
+            color: rgba(255, 255, 255, .82);
+            line-height: 1.75;
+        }
+
+        footer {
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            background: #fff;
+            color: var(--muted);
+            font-size: .75rem;
+            text-align: center;
+        }
+
+        @media (max-width:1199.98px) {
+
+            .summary-grid,
+            .zones {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .site-navbar .navbar-collapse {
+                padding: .75rem;
+                margin-top: .6rem;
+                border: 1px solid var(--border);
+                border-radius: .85rem;
+                background: #fff;
+            }
+        }
+
+        @media (max-width:767.98px) {
+
+            .hero,
+            .section {
+                padding: 3.7rem 0;
+            }
+
+            .summary-grid,
+            .facility-grid,
+            .zones,
+            .equipment-grid,
+            .pantry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                margin-top: -1.5rem;
+            }
+
+            .toolbar {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .search-wrap {
+                width: 100%;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Base-compatible MinNa navigation */
+        .site-navbar {
+            z-index: 1040;
+            min-height: 76px;
+            padding: .65rem 0;
+            border-top: 4px solid var(--primary);
+            border-bottom: 1px solid rgba(195, 41, 98, .12);
+            background: rgba(255, 255, 255, .97);
+            box-shadow: 0 .45rem 1.6rem rgba(79, 23, 48, .09);
+            backdrop-filter: blur(14px);
+        }
+
+        .navbar-brand-logo {
+            width: 46px;
+            height: 46px;
+            margin-right: .72rem;
+            object-fit: contain;
+        }
+
+        .navbar-brand-copy {
+            display: flex;
+            flex-direction: column;
+            color: var(--dark);
+            line-height: 1.05;
+        }
+
+        .navbar-brand-copy strong {
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: -.02em;
+        }
+
+        .navbar-brand-copy small {
+            margin-top: .25rem;
+            color: var(--muted);
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .site-navbar .navbar-nav {
+            gap: .1rem;
+        }
+
+        .site-navbar .nav-link {
+            position: relative;
+            padding: .68rem .78rem !important;
+            border-radius: .65rem;
+            color: #5a404a !important;
+            font-size: .84rem;
+            font-weight: 800;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-item.active>.nav-link,
+        .site-navbar .nav-item.show>.nav-link {
+            color: var(--primary) !important;
+            background: var(--light);
+        }
+
+        .nav-icon {
+            margin-right: .35rem;
+            color: #b07a8f;
+            font-size: .76rem;
+        }
+
+        .site-navbar .dropdown-menu {
+            min-width: 245px;
+            padding: .65rem;
+            margin-top: .55rem;
+            border: 1px solid var(--border);
+            border-radius: .85rem;
+        }
+
+        .site-navbar .dropdown-item {
+            padding: .62rem .75rem;
+            border-radius: .55rem;
+            color: #5a404a;
+            font-size: .82rem;
+            font-weight: 700;
+            white-space: normal;
+        }
+
+        .site-navbar .dropdown-item:hover,
+        .site-navbar .dropdown-item:focus,
+        .site-navbar .dropdown-item.active {
+            color: var(--primary);
+            background: var(--light);
+        }
+
+        .site-navbar .dropdown-header {
+            padding: .45rem .75rem;
+            color: #9d7c88;
+            font-size: .66rem;
+            font-weight: 900;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .dropdown-icon {
+            width: 1.2rem;
+            margin-right: .45rem;
+            color: #b07a8f;
+            text-align: center;
+        }
+
+        .resource-dropdown {
+            min-width: 285px !important;
+        }
+
+        .nav-cta {
+            padding: .72rem 1rem;
+            border-radius: .68rem;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 .45rem 1rem rgba(195, 41, 98, .22);
+            font-size: .8rem;
+            font-weight: 900;
+        }
+
+        .nav-cta:hover {
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Highlights PDF modal */
+        .pdf-modal-content {
+            overflow: hidden;
+            border: 0;
+            border-radius: 1.1rem;
+            box-shadow: 0 1.5rem 4rem rgba(79, 23, 48, .28);
+        }
+
+        .pdf-modal-header {
+            align-items: flex-start;
+            padding: 1rem 1.25rem;
+            color: #fff;
+            border-bottom: 0;
+            background:
+                radial-gradient(circle at 90% 15%,
+                    rgba(255, 255, 255, .14),
+                    transparent 25%),
+                linear-gradient(135deg, var(--dark), var(--primary));
+        }
+
+        .pdf-modal-header .modal-title {
+            margin: 0;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+
+        .pdf-modal-kicker {
+            display: block;
+            margin-bottom: .2rem;
+            color: rgba(255, 255, 255, .68);
+            font-size: .66rem;
+            font-weight: 900;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .pdf-modal-body {
+            padding: 1rem;
+            background: #fffafb;
+        }
+
+        .pdf-modal-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-modal-toolbar p {
+            max-width: 680px;
+            margin: 0;
+            color: var(--muted);
+            font-size: .82rem;
+            line-height: 1.6;
+        }
+
+        .pdf-modal-actions {
+            display: flex;
+            flex: 0 0 auto;
+            gap: .5rem;
+        }
+
+        .pdf-modal-viewer {
+            overflow: hidden;
+            height: min(76vh, 780px);
+            min-height: 520px;
+            border: 1px solid var(--border);
+            border-radius: .85rem;
+            background: #f0e7eb;
+        }
+
+        .pdf-modal-viewer iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .pdf-mobile-fallback {
+            display: none;
+        }
+
+        @media (min-width: 1200px) {
+            .site-navbar .dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+
+            .site-navbar .dropdown-menu {
+                top: calc(100% - .1rem);
+            }
+
+            .site-navbar .nav-item.active>.nav-link::after {
+                content: "";
+                position: absolute;
+                right: .8rem;
+                bottom: .28rem;
+                left: .8rem;
+                height: 3px;
+                border-radius: 999px;
+                background: var(--primary);
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .site-navbar .navbar-collapse {
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+                padding: 1rem 0 .35rem;
+            }
+
+            .site-navbar .navbar-nav {
+                align-items: stretch !important;
+            }
+
+            .site-navbar .dropdown-menu {
+                margin-top: .15rem;
+                margin-bottom: .35rem;
+                border: 0;
+                box-shadow: none !important;
+                background: #fff9fb;
+            }
+
+            .nav-cta {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .pdf-modal-toolbar {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .pdf-modal-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-brand-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .navbar-brand-copy strong {
+                font-size: .92rem;
+            }
+
+            .navbar-brand-copy small {
+                font-size: .62rem;
+            }
+
+            .pdf-modal-viewer {
+                display: none;
+            }
+
+            .pdf-modal-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .pdf-mobile-fallback {
+                display: grid;
+                grid-template-columns: 52px minmax(0, 1fr);
+                gap: .8rem;
+                align-items: center;
+                padding: 1rem;
+                border: 1px solid var(--border);
+                border-radius: .85rem;
+                background: #fff;
+            }
+
+            .pdf-mobile-fallback>i {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 52px;
+                height: 52px;
+                border-radius: .8rem;
+                color: #fff;
+                background: var(--primary);
+                font-size: 1.35rem;
+            }
+
+            .pdf-mobile-fallback .btn {
+                grid-column: 1 / -1;
+                width: 100%;
+            }
+        }
+    </style>
+    <meta content="Mindanao Natural Language Processing Research and Development Laboratory" name="author" />
+    <meta content="W-7jMkwGkUVrpEl8iTIQndhhsYKNOA-aprxdmZXfem8" name="google-site-verification" />
+    <meta content="#c32962" name="theme-color" />
+    <link href="/manifest.json" rel="manifest" />
+    <link href="/minna_round_logo.png" rel="apple-touch-icon" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="default" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="MinNa" name="apple-mobile-web-app-title" />
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BZRJP33YFX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-BZRJP33YFX");
+    </script>
+    <script defer="" src="/js/sw-register.js"></script>
+    <script defer="" src="/js/pwa-install.js"></script>
+</head>
+
+<body>
+    <nav aria-label="Primary navigation" class="navbar navbar-expand-xl navbar-light site-navbar sticky-top">
+        <div class="container-fluid px-3 px-lg-5">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img alt="MinNa LProc logo" class="navbar-brand-logo" src="minna_round_logo.png" />
+                <span class="navbar-brand-copy">
+                    <strong>MinNa LProc</strong>
+                    <small>R&amp;D Lab</small>
+                </span>
+            </a>
+            <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-target="#mainNavigation" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ml-auto align-items-xl-center">
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="homeDropdown" role="button">
+                            <i class="fas fa-home nav-icon"></i>
+                            Home
+                        </a>
+                        <div aria-labelledby="homeDropdown" class="dropdown-menu shadow">
+                            <a class="dropdown-item" href="about/about.html">
+                                <i class="fas fa-compass dropdown-icon"></i>
+                                Vision and Mission
+                            </a>
+                            <a class="dropdown-item" href="programs-initiatives.html">
+                                <i class="fas fa-layer-group dropdown-icon"></i>
+                                Programs and Services
+                            </a>
+                            <h6 class="dropdown-header">
+                                <i class="fas fa-star dropdown-icon"></i>
+                                Highlights
+                            </h6>
+                            <a class="dropdown-item pl-4" data-target="#highlightsAY20252026Modal" data-toggle="modal"
+                                href="#">
+                                <i class="fas fa-file-pdf dropdown-icon"></i>
+                                AY 2025–2026
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects/featuredprojects.html">
+                            <i class="fas fa-lightbulb nav-icon"></i>
+                            Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">
+                            <i class="fas fa-book-open nav-icon"></i>
+                            Publications
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="researchersDropdown" role="button">
+                            <i class="fas fa-user-friends nav-icon"></i>
+                            Researchers
+                        </a>
+                        <div aria-labelledby="researchersDropdown" class="dropdown-menu dropdown-menu-right shadow">
+                            <a class="dropdown-item" href="people/faculties.html">
+                                <i class="fas fa-chalkboard-teacher dropdown-icon"></i>
+                                Faculties
+                            </a>
+                            <a class="dropdown-item" href="people/gradstudents.html">
+                                <i class="fas fa-user-graduate dropdown-icon"></i>
+                                Graduate Students
+                            </a>
+                            <a class="dropdown-item" href="people/undergradstudents.html">
+                                <i class="fas fa-users dropdown-icon"></i>
+                                Undergraduate Students
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="collaboratorsDropdown" role="button">
+                            <i class="fas fa-hands-helping nav-icon"></i>
+                            Communities
+                        </a>
+                        <div aria-labelledby="collaboratorsDropdown" class="dropdown-menu dropdown-menu-right shadow">
+                            <h6 class="dropdown-header">Language Communities</h6>
+                            <a class="dropdown-item" href="people/kagan.html">Kagan</a>
+                            <a class="dropdown-item" href="people/manobo.html">Manobo</a>
+                            <a class="dropdown-item" href="people/mansaka.html">Mansaka</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+                            data-toggle="dropdown" href="#" id="resourcesDropdown" role="button">
+                            <i class="fas fa-folder-open nav-icon"></i>
+                            Resources
+                        </a>
+                        <div aria-labelledby="resourcesDropdown"
+                            class="dropdown-menu dropdown-menu-right shadow resource-dropdown">
+                            <h6 class="dropdown-header">Laboratory Resources</h6>
+                            <a class="dropdown-item active" href="facilities.html">
+                                <i class="fas fa-flask dropdown-icon"></i>
+                                Laboratory and Equipment
+                            </a>
+                            <a class="dropdown-item" href="/interactive_map.html">
+                                <i class="fas fa-map-marked-alt dropdown-icon"></i>
+                                Indigenous Community Map
+                            </a>
+                            <h6 class="dropdown-header">Language Tools</h6>
+                            <a class="dropdown-item" href="https://www.iwag.info/" rel="noopener noreferrer"
+                                target="_blank">
+                                <i class="fas fa-language dropdown-icon"></i>
+                                Translation Tool
+                            </a>
+                            <a class="dropdown-item"
+                                href="https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta"
+                                rel="noopener noreferrer" target="_blank">
+                                <i class="fas fa-tools dropdown-icon"></i>
+                                Cebuano NLTK
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Parallel Corpora</h6>
+                            <a class="dropdown-item"
+                                href="https://huggingface.co/datasets/jfernandez/cebuano-filipino-sentences"
+                                rel="noopener noreferrer" target="_blank">
+                                Filipino–Cebuano
+                            </a>
+                            <a class="dropdown-item" href="people/kagan.html">
+                                Cebuano–Kagan
+                            </a>
+                            <a class="dropdown-item" href="people/manobo.html">
+                                Cebuano–Manobo
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope nav-icon"></i>
+                            Contact
+                        </a>
+                    </li>
+                    <li class="nav-item ml-xl-2 mt-3 mt-xl-0">
+                        <a class="btn nav-cta" href="#equipment">
+                            <i class="fas fa-server mr-2"></i>
+                            Explore Equipment
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="container-fluid px-4 px-lg-5 position-relative" style="z-index:2">
+            <div class="hero-kicker"><i class="fas fa-flask"></i> Inside MinNa</div>
+            <p>
+                Explore the MinNa LProc R&amp;D Laboratory, its high-performance computing equipment,
+                mobile testing devices, collaborative spaces, and pantry. The facility supports research,
+                development, validation, training, and deployment of language technologies for Philippine
+                and Mindanao languages.
+            </p>
+        </div>
+    </header>
+   
+    
+    <section class="section" id="equipment">
+        <div class="container-fluid px-4 px-lg-5">
+            <div class="section-head">
+                <div class="kicker">Equipment Inventory</div>
+                <p>Browse the listed laboratory assets by category or search by equipment name, specification, or
+                    property number.</p>
+            </div>
+            <div class="toolbar">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All Equipment</button>
+                    <button class="filter-btn" data-filter="computing">Computing</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Devices</button>
+                </div>
+                <div class="search-wrap"><i class="fas fa-search"></i><input id="equipmentSearch"
+                        placeholder="Search equipment" type="search" /></div>
+            </div>
+            <div class="equipment-grid" id="equipmentGrid"></div>
+            <div class="empty" id="emptyState">No equipment matches the selected filter or search.</div>
+        </div>
+    </section>
+    <section class="section soft" id="pantry">
+        <div class="container-fluid px-4 px-lg-5">
+            <div class="section-head">
+                <div class="kicker">Pantry and Support Space</div>
+            </div>
+            <div class="pantry-grid">
+                <article class="pantry-card">
+                    <i class="fas fa-coffee big"></i>
+                    <h3>Laboratory Pantry</h3>
+                    <p>
+                        The pantry provides a designated area for refreshments, meals, brief breaks,
+                        and informal conversations among researchers, students, collaborators, and visitors.
+                    </p>
+                    <div class="pantry-tags">
+                        <span><i class="fas fa-mug-hot mr-1"></i>Refreshments</span>
+                        <span><i class="fas fa-utensils mr-1"></i>Meal space</span>
+                        <span><i class="fas fa-comments mr-1"></i>Informal discussion</span>
+                        <span><i class="fas fa-user-friends mr-1"></i>Visitor support</span>
+                    </div>
+                </article>
+                <article class="pantry-card pantry-photo">
+                    <div class="facility-placeholder">
+                        <div><i class="fas fa-coffee"></i><strong>Add an actual pantry
+                                photograph</strong><br /><small>files/images/lab/pantry.jpg</small></div>
+                    </div>
+                    <img alt="MinNa pantry" onerror="this.style.display='none'" src="files/pantry.JPG" />
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <footer>© <span id="year"></span> MinNa LProc R&amp;D Lab. All rights reserved.</footer>
+    <div aria-hidden="true" aria-labelledby="highlightsAY20252026Title" class="modal fade"
+        id="highlightsAY20252026Modal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content pdf-modal-content">
+                <div class="modal-header pdf-modal-header">
+                    <div>
+                        <span class="pdf-modal-kicker">MinNa Highlights</span>
+                        <h5 class="modal-title" id="highlightsAY20252026Title">
+                            Academic Year 2025–2026
+                        </h5>
+                    </div>
+                    <button aria-label="Close" class="close text-white" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body pdf-modal-body">
+                    <div class="pdf-modal-toolbar">
+                        <p>
+                            Browse MinNa LProc R&amp;D Lab's activities,
+                            accomplishments, projects, and highlights for
+                            Academic Year 2025–2026.
+                        </p>
+                        <div class="pdf-modal-actions">
+                            <a class="btn btn-primary" href="files/highlights/AY-2025-2026.pdf"
+                                rel="noopener noreferrer" target="_blank">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Open Full PDF
+                            </a>
+                            <a class="btn btn-outline-primary" download="" href="files/highlights/AY-2025-2026.pdf">
+                                <i class="fas fa-download mr-2"></i>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pdf-modal-viewer">
+                        <iframe loading="lazy" src="files/highlights/AY-2025-2026.pdf#view=FitH"
+                            title="MinNa Highlights for Academic Year 2025–2026">
+                        </iframe>
+                    </div>
+                    <div class="pdf-mobile-fallback">
+                        <i class="fas fa-file-pdf"></i>
+                        <div>
+                            <strong>View the AY 2025–2026 Highlights</strong>
+                            <span>Open the document using your browser's PDF viewer.</span>
+                        </div>
+                        <a class="btn btn-primary" href="files/highlights/AY-2025-2026.pdf" rel="noopener noreferrer"
+                            target="_blank">
+                            Open PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script>
+        "use strict";
+
+        const equipmentData = [{ "category": "computing", "icon": "fa-server", "name": "Dell Precision 3660 Tower CTO Base", "qty": "5 pcs", "property": "MINA-CE-CPU-01 – MINA-CE-CPU-05", "price": "₱1,938,500.00", "summary": "High-performance desktop workstations for NLP, AI, machine learning, and large-scale data processing.", "specs": ["Intel Core i9-12900K, 3.2GHz to 5.2GHz, 12th Generation", "64GB (2x32GB) NECC 4400MHz DDR5 SODIMM", "1TB Gen 4 PCIe x4 NVMe SSD", "1TB 7200rpm SATA 2.5-inch HDD", "NVIDIA RTX A5000 GDDR6", "Intel Wi-Fi 6E AX211 with Bluetooth 5.2", "Dell MS116 wired mouse and Dell KB216 wired keyboard", "Windows 11 Pro, English", "Internal speaker"] }, { "category": "computing", "icon": "fa-laptop-code", "name": "Dell Mobile Precision Workstation 7770 CTO", "qty": "5 pcs", "property": "MINA-CE-LTP-01 – MINA-CE-LTP-05", "price": "₱2,052,868.00", "summary": "Portable GPU workstations for field deployment, demonstrations, model development, and collaborative research.", "specs": ["Intel Core i9-12950HX, 2.3GHz to 5GHz, 12th Generation", "64GB (2x32GB) NECC 4800MHz DDR5 SODIMM", "2TB Gen 4 PCIe x4 NVMe SSD", "NVIDIA RTX A5500 16GB GDDR6", "6-cell 93WHr lithium-ion battery", "17.3-inch FHD 1920x1080, 60Hz, anti-glare, non-touch", "Intel AX211 WLAN", "Dell Mobile Pro Wireless Mouse MS5120W", "Windows 10 Pro with Windows 11 Pro license", "Dell EcoLoop Pro backpack"] }, { "category": "mobile", "icon": "fa-mobile-alt", "name": "CPWW2864 Realme Nanzo 50 5G, 6GB/128GB", "qty": "10 pcs", "property": "MINA-OA-CEP-01 – MINA-OA-CEP-10", "price": "₱150,000.00", "summary": "Dual-SIM mobile devices for testing field-ready, offline-capable, and network-aware language applications.", "specs": ["CPWW2864 Realme Nanzo 50 5G", "6GB RAM / 128GB storage", "Serial number example supplied: 864135060079034", "Blue", "With tempered glass", "Dual SIM", "Globe and Smart"] }, { "category": "mobile", "icon": "fa-tablet-alt", "name": "Samsung Galaxy Tab A8 Wi-Fi with Accessories", "qty": "5 pcs", "property": "MINA-OA-TBT-01 – MINA-OA-TBT-05", "price": "₱75,000.00", "summary": "Tablets for language-resource review, classroom demonstrations, usability testing, and mobile research activities.", "specs": ["Samsung Galaxy Tab A8 Wi-Fi", "Includes accessories", "Five units listed in the laboratory inventory"] }];
+        const grid = document.getElementById("equipmentGrid");
+        const search = document.getElementById("equipmentSearch");
+        const empty = document.getElementById("emptyState");
+        const buttons = document.querySelectorAll("[data-filter]");
+        let activeFilter = "all";
+
+        function card(item) {
+            const article = document.createElement("article");
+            article.className = `equipment-card ${item.category === "mobile" ? "mobile" : ""}`;
+            article.innerHTML = `
+      <div class="equipment-top">
+        <span class="equipment-icon"><i class="fas ${item.icon}"></i></span>
+        <div><small>${item.category === "computing" ? "High-Performance Computing" : "Mobile Testing Device"}</small><h3>${item.name}</h3></div>
+      </div>
+      <p>${item.summary}</p>
+      <div class="meta-grid">
+        <div class="meta"><span>Quantity</span><strong>${item.qty}</strong></div>
+        <div class="meta" style="grid-column:1/-1"><span>Property Number</span><strong>${item.property}</strong></div>
+      </div>
+      <details>
+        <summary><i class="fas fa-list-ul mr-2"></i>View full specifications</summary>
+        <ul class="spec-list">${item.specs.map(spec => `<li>${spec}</li>`).join("")}</ul>
+      </details>`;
+            return article;
+        }
+
+        function render() {
+            const query = search.value.trim().toLowerCase();
+            const items = equipmentData.filter(item => {
+                const categoryMatch = activeFilter === "all" || item.category === activeFilter;
+                const haystack = [item.name, item.property, item.summary, ...item.specs].join(" ").toLowerCase();
+                return categoryMatch && (!query || haystack.includes(query));
+            });
+            grid.textContent = "";
+            items.forEach(item => grid.appendChild(card(item)));
+            empty.style.display = items.length ? "none" : "block";
+        }
+
+        buttons.forEach(button => button.addEventListener("click", () => {
+            buttons.forEach(item => item.classList.remove("active"));
+            button.classList.add("active");
+            activeFilter = button.dataset.filter;
+            render();
+        }));
+
+        search.addEventListener("input", render);
+        document.getElementById("year").textContent = new Date().getFullYear();
+        render();
+    </script>
+    <!-- Original MinNa chatbot integration -->
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>
