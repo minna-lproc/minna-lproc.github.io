@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Explore KAAG, a mobile-based multimodal initiative for preserving Indigenous languages and cultural heritage.">
+    <meta name="theme-color" content="#c32962">
+    <title>KAAG</title>
+    <link rel="icon" href="minna_round_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pink: #c32962;
+            --pink-dark: #9c174a;
+            --ink: #202336;
+            --muted: #667085;
+            --cream: #fff9f6;
+            --line: #ece6e8;
+            --purple: #472956
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            background: #fff
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: auto;
+            padding: 0 24px
+        }
+
+        .topbar {
+            background: #25192c;
+            color: #f6eaf0;
+            font-size: 12px;
+            padding: 9px 0;
+            text-align: center;
+            letter-spacing: .09em;
+            text-transform: uppercase
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #ffffffef;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav-inner {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: Outfit, sans-serif;
+            font-size: 18px;
+            font-weight: 800
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain
+        }
+
+        .navlinks {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        .navlinks a:hover {
+            color: var(--pink)
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 11px;
+            padding: 15px 22px;
+            background: var(--pink);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 10px 24px #c3296224;
+            transition: .2s
+        }
+
+        .btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px)
+        }
+
+        .btn.outline {
+            background: #fff;
+            color: var(--pink);
+            border: 1px solid #eac4d3;
+            box-shadow: none
+        }
+
+        .btn.light {
+            background: #fff;
+            color: var(--pink);
+            box-shadow: none
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 82% 20%, #f9dbe7 0, transparent 37%), linear-gradient(125deg, #fff9f6, #fff 55%, #f9eff5);
+            padding: 100px 0 105px
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 60px;
+            align-items: center
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--pink)
+        }
+
+        .eyebrow:before {
+            content: '';
+            width: 25px;
+            height: 2px;
+            background: var(--pink)
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Outfit, sans-serif;
+            line-height: 1.13;
+            margin: 0
+        }
+
+        h1 {
+            font-size: clamp(66px, 9vw, 112px);
+            font-weight: 800;
+            letter-spacing: -.065em;
+            margin: 18px 0 8px
+        }
+
+        h1 span {
+            color: var(--pink)
+        }
+
+        .subtitle {
+            font-family: Outfit, sans-serif;
+            font-size: clamp(24px, 3vw, 36px);
+            line-height: 1.2;
+            font-weight: 600;
+            max-width: 620px;
+            margin: 0 0 22px
+        }
+
+        .lead {
+            font-size: 17px;
+            line-height: 1.85;
+            color: var(--muted);
+            max-width: 600px
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px
+        }
+
+        .fine {
+            font-size: 12px;
+            color: #777887;
+            margin-top: 17px
+        }
+
+        .hero-art {
+            position: relative;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .halo {
+            position: absolute;
+            width: min(100%, 460px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: linear-gradient(140deg, #f8c9db, #fce8e2);
+            box-shadow: 0 0 0 28px #f5dfe77a, 0 0 0 65px #f9eaf080
+        }
+
+        .phone {
+            position: relative;
+            z-index: 1;
+            width: 235px;
+            height: 440px;
+            border: 10px solid #29202d;
+            border-radius: 37px;
+            background: #fff;
+            box-shadow: 25px 35px 60px #50283e3d;
+            transform: rotate(-8deg);
+            overflow: hidden
+        }
+
+        .notch {
+            height: 19px;
+            width: 90px;
+            border-radius: 0 0 13px 13px;
+            background: #29202d;
+            margin: auto
+        }
+
+        .phone-screen {
+            height: 100%;
+            background: linear-gradient(165deg, #fff7f7, #f8d9e7);
+            padding: 27px 17px;
+            text-align: center
+        }
+
+        .phone-screen .mark {
+            font: 800 52px Outfit;
+            color: var(--pink);
+            margin: 34px 0 0
+        }
+
+        .phone-screen .line {
+            width: 54px;
+            height: 3px;
+            background: var(--pink);
+            margin: 14px auto 23px
+        }
+
+        .phone-screen p {
+            font-size: 13px;
+            line-height: 1.65;
+            color: #76566a
+        }
+
+        .tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 26px
+        }
+
+        .tile {
+            border-radius: 12px;
+            padding: 15px 5px;
+            background: #fff;
+            box-shadow: 0 5px 20px #ad658020;
+            font-size: 12px;
+            color: #6c4962;
+            font-weight: 700
+        }
+
+        .tile b {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 5px
+        }
+
+        .float {
+            position: absolute;
+            z-index: 2;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px #6a3b5224;
+            font-weight: 700;
+            font-size: 13px
+        }
+
+        .float.one {
+            top: 72px;
+            right: 0
+        }
+
+        .float.two {
+            bottom: 72px;
+            left: 0
+        }
+
+        section {
+            padding: 90px 0
+        }
+
+        .section-head {
+            max-width: 760px;
+            margin-bottom: 38px
+        }
+
+        .section-head h2 {
+            font-size: clamp(33px, 4vw, 48px);
+            letter-spacing: -.035em;
+            margin: 12px 0 18px
+        }
+
+        .section-head p,
+        .prose {
+            color: var(--muted);
+            line-height: 1.85;
+            font-size: 16px
+        }
+
+        .about {
+            background: #fff
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 38px
+        }
+
+        .stat {
+            border-left: 3px solid var(--pink);
+            padding: 9px 18px
+        }
+
+        .stat strong {
+            display: block;
+            font-family: Outfit;
+            font-size: 21px
+        }
+
+        .stat small {
+            display: block;
+            color: var(--muted);
+            margin-top: 6px;
+            line-height: 1.6
+        }
+
+        .features {
+            background: #fbf8fa
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .card {
+            background: #fff;
+            padding: 34px 28px;
+            border-radius: 20px;
+            border: 1px solid #f0e8ec;
+            box-shadow: 0 9px 30px #34243a08
+        }
+
+        .symbol {
+            width: 58px;
+            height: 58px;
+            border-radius: 17px;
+            background: #fce5ee;
+            display: grid;
+            place-items: center;
+            font-size: 26px;
+            margin-bottom: 25px
+        }
+
+        .card h3 {
+            font-size: 23px;
+            margin-bottom: 12px
+        }
+
+        .card p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin: 0
+        }
+
+        .mission {
+            background: #2d2038;
+            color: #fff;
+            position: relative;
+            overflow: hidden
+        }
+
+        .mission:after {
+            content: 'KAAG';
+            position: absolute;
+            right: -50px;
+            bottom: -85px;
+            font: 800 250px Outfit;
+            color: #ffffff08;
+            pointer-events: none
+        }
+
+        .mission .section-head p {
+            color: #e5d8e3
+        }
+
+        .mission .eyebrow {
+            color: #ffb7d0
+        }
+
+        .mission .eyebrow:before {
+            background: #ffb7d0
+        }
+
+        .download {
+            background: linear-gradient(135deg, #c32962, #8d245b);
+            color: #fff;
+            text-align: center
+        }
+
+        .download h2 {
+            font-size: clamp(35px, 5vw, 58px);
+            margin: 14px 0
+        }
+
+        .download p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: #ffeaf2;
+            line-height: 1.8
+        }
+
+        .download-counter { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin:26px auto 10px; padding:13px 20px; max-width:440px; border-radius:14px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.27); }
+        .download-counter strong { font:800 27px Outfit,sans-serif; font-variant-numeric:tabular-nums; }
+        .download-counter .counter-icon { font-size:23px; }
+        .download-counter span:last-child { font-size:13px; font-weight:600; }
+        .download .fine {
+            color: #ffe3ee
+        }
+
+        .footer {
+            background: #1e1923;
+            color: #d8cfd8;
+            padding: 45px 0
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px
+        }
+
+        .footer strong {
+            color: #fff;
+            font-family: Outfit
+        }
+
+        .footer p {
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 8px 0 0
+        }
+
+        .footer a:hover {
+            color: #fff
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+            font-size: 13px
+        }
+
+        @media(max-width:900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 25px
+            }
+
+            .hero {
+                padding: 65px 0
+            }
+
+            .hero-art {
+                min-height: 460px
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .navlinks {
+                gap: 14px
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+            .topbar {
+                font-size: 10px
+            }
+
+            .nav-inner {
+                min-height: 66px
+            }
+
+            .brand {
+                font-size: 15px
+            }
+
+            .brand img {
+                width: 34px;
+                height: 34px
+            }
+
+            .navlinks a:not(.home) {
+                display: none
+            }
+
+            .hero-art {
+                min-height: 430px
+            }
+
+            .float.one {
+                right: 0
+            }
+
+            .float.two {
+                left: 0
+            }
+
+            .stats {
+                grid-template-columns: 1fr
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            section {
+                padding: 65px 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="container nav-inner">
+            <nav class="navlinks" aria-label="Main navigation"><a class="home" href="../index.html">Home</a><a
+                    href="#about">About KAAG</a><a href="#features">Focus Areas</a><a href="#download">Download</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">Indigenous language &amp; cultural heritage</div>
+                    <h1>KA<span>AG.</span></h1>
+                    <p class="subtitle">Keeping language and culture connected through technology.</p>
+                    <p class="lead">A mobile-based multimodal initiative dedicated to the preservation and appreciation
+                        of Indigenous languages and cultural heritage—bringing stories, traditions, and cultural
+                        knowledge closer to today's digital generation.<br><br>
+                        Developed by: Prof. Shenna Rhea Cloribel, Mr. Kent Romans Bandong, Ms. Laimee Antonette Pisao, Ms. Jan Millena Villaflores
+                    </p>
+                    <div class="actions"><a class="btn" href="#download">Explore &amp; Download <span
+                                aria-hidden="true">↗</span></a><a class="btn outline" href="#about">Discover KAAG ↓</a>
+                    </div>
+                    <p class="fine">An initiative showcased by the Mindanao Natural Language Processing R&amp;D
+                        Laboratory.</p>
+                </div>
+                <div class="hero-art" aria-label="Illustrative mobile application concept">
+                    <div class="halo"></div>
+                    <div class="phone">
+                        <div class="notch"></div>
+                        <div class="phone-screen">
+                            <div class="mark">KAAG</div>
+                            <div class="line"></div>
+                            <p>Language. Culture.<br>Community. Heritage.</p>
+                            <div class="tiles">
+                                <div class="tile"><b>✦</b>Language</div>
+                                <div class="tile"><b>◈</b>Culture</div>
+                                <div class="tile"><b>♫</b>Heritage</div>
+                                <div class="tile"><b>❖</b>Stories</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float one">🌿 Cultural heritage</div>
+                    <div class="float two">📱 Mobile experience</div>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-head">
+                    <div class="eyebrow">About the project</div>
+                    <h2>Preserving voices. Celebrating identities.</h2>
+                    <p>KAAG—<strong>A Mobile-based Multimodal Preservation of Language and Culture</strong>—explores how
+                        digital technology can support the documentation, appreciation, and continued visibility of
+                        Indigenous languages and cultural traditions.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat"><strong>Language</strong><small>Supporting the visibility of underrepresented
+                            linguistic heritage.</small></div>
+                    <div class="stat"><strong>Culture</strong><small>Celebrating the traditions and knowledge that shape
+                            community identities.</small></div>
+                    <div class="stat"><strong>Technology</strong><small>Using accessible digital experiences to connect
+                            people with heritage.</small></div>
+                </div>
+            </div>
+        </section>
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-head">
+                    <div class="eyebrow">Project focus</div>
+                    <h2>Culture belongs in the digital future.</h2>
+                    <p>KAAG brings together three complementary priorities in the preservation of language and culture.
+                    </p>
+                </div>
+                <div class="cards">
+                    <article class="card">
+                        <div class="symbol">🗣️</div>
+                        <h3>Language preservation</h3>
+                        <p>Encouraging awareness and appreciation of Indigenous languages, especially those with limited
+                            representation in digital spaces.</p>
+                    </article>
+                    <article class="card">
+                        <div class="symbol">🪡</div>
+                        <h3>Cultural documentation</h3>
+                        <p>Recognizing the importance of preserving cultural expressions, traditions, and community
+                            knowledge for future generations.</p>
+                    </article>
+                    <article class="card">
+                        <div class="symbol">📱</div>
+                        <h3>Mobile accessibility</h3>
+                        <p>Bringing heritage-focused digital resources closer to learners, researchers, communities, and
+                            anyone interested in cultural diversity.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="download" id="download">
+            <div class="container">
+                <div class="eyebrow" style="color:#ffe4ef;justify-content:center">Experience KAAG</div>
+                <h2>Discover KAAG on your device.</h2>
+                <p>Access the KAAG mobile application using the download link below. Discover how mobile technology can
+                    help connect people with language and cultural heritage.</p><a class="btn light" id="kaagDownloadButton"
+                    href="https://drive.google.com/file/d/1OwrAPPMcxOKv3z0VRZsP0XYN5c9Np-sO/view?usp=sharing"
+                    target="_blank" rel="noopener noreferrer" aria-label="Download KAAG app from Google Drive">↓
+                    Download KAAG App</a>
+                <div class="download-counter" role="status" aria-live="polite">
+                    <span class="counter-icon" aria-hidden="true">↧</span>
+                    <strong id="kaagDownloadCount">—</strong>
+                    <span id="kaagCounterLabel">App download clicks · Counter not configured</span>
+                </div>
+                <p class="fine">This counter records clicks on the Download KAAG App button, not confirmed completed downloads.</p>
+                <p class="fine">Hosted on Google Drive. Your browser may open a Google Drive confirmation page before
+                    downloading.</p>
+                <p style="font-size:13px;margin-top:18px"><a
+                        href="https://drive.google.com/file/d/1OwrAPPMcxOKv3z0VRZsP0XYN5c9Np-sO/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer"
+                        style="text-decoration:underline;text-underline-offset:4px">Having trouble? Open the file
+                        directly in Google Drive ↗</a></p>
+            </div>
+        </section>
+    </main>
+    <script>
+        // 1. Deploy KAAG_DownloadCounter.gs as a Google Apps Script web app.
+        // 2. Paste its /exec URL below, then publish kaag.html to GitHub Pages.
+        const KAAG_COUNTER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVcGUnfBqz8ZAZCKTD2hcLeluAYdoBpU2lefWEbOhrkHMh00z6WpOIWKC71AQ4VqAh0w/exec';
+        const counterValue = document.getElementById('kaagDownloadCount');
+        const counterLabel = document.getElementById('kaagCounterLabel');
+        const downloadButton = document.getElementById('kaagDownloadButton');
+        let requestNumber = 0;
+
+        // Apps Script runs on a different origin. JSONP supports reading the
+        // counter from this otherwise static GitHub Pages website.
+        function counterRequest(action) {
+            return new Promise((resolve, reject) => {
+                const callback = 'kaagCounterCallback_' + (++requestNumber);
+                const script = document.createElement('script');
+                let done = false;
+                const timer = setTimeout(() => finish(new Error('Counter timed out')), 8000);
+                function finish(error, value) {
+                    if (done) return;
+                    done = true;
+                    clearTimeout(timer);
+                    delete window[callback];
+                    script.remove();
+                    if (error) reject(error); else resolve(value);
+                }
+                window[callback] = response => finish(null, response);
+                script.onerror = () => finish(new Error('Counter unavailable'));
+                script.src = KAAG_COUNTER_ENDPOINT +
+                    '?action=' + encodeURIComponent(action) +
+                    '&callback=' + encodeURIComponent(callback) +
+                    '&_=' + Date.now();
+                document.head.appendChild(script);
+            });
+        }
+        const counterConfigured = /^https:\/\/script\.google\.com\/macros\/s\//.test(KAAG_COUNTER_ENDPOINT);
+        function showCount(result) {
+            if (result && result.ok && Number.isSafeInteger(result.count)) {
+                counterValue.textContent = result.count.toLocaleString('en-US');
+                counterLabel.textContent = 'Download button clicks';
+            } else {
+                counterLabel.textContent = 'Download counter unavailable';
+            }
+        }
+        if (counterConfigured) {
+            counterLabel.textContent = 'Loading download counter…';
+            counterRequest('count').then(showCount).catch(() => {
+                counterLabel.textContent = 'Download counter temporarily unavailable';
+            });
+        }
+        // Let the normal Google Drive link open even if tracking is unavailable.
+        downloadButton.addEventListener('click', () => {
+            if (!counterConfigured) return;
+            counterRequest('increment').then(showCount).catch(() => {
+                counterLabel.textContent = 'Download tracking temporarily unavailable';
+            });
+        });
+    </script>
+</body>
+
+</html>
