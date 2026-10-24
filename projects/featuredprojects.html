@@ -1220,9 +1220,10 @@
                             <div class="col-md-6 col-lg-2">
                                 <select aria-label="Sort projects" autocomplete="off" class="form-control filter-select"
                                     id="sortFilter">
-                                    <option selected="selected" value="title">
-                                        Title A–Z
+                                    <option selected="selected" value="custom">
+                                        Default order
                                     </option>
+                                    <option value="title">Title A–Z</option>
                                     <option value="featured">
                                         Featured first
                                     </option>
@@ -1315,22 +1316,6 @@
                 ]
             },
             {
-                id: "cnltk",
-                title: "CNLTK",
-                category: "Research Infrastructure",
-                description: "A Cebuano Natural Language Toolkit that supports foundational language-processing tasks and the development of Cebuano NLP applications.",
-                image: "images/Cebuano Natural Language Toolkit.png",
-                url: "https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta",
-                actionLabel: "View Repository",
-                status: "Accessible",
-                featured: false,
-                tags: [
-                    "Cebuano",
-                    "NLP Toolkit",
-                    "Open Source"
-                ]
-            },
-            {
                 id: "anna",
                 title: "Project ANNA",
                 category: "Well-Being",
@@ -1347,6 +1332,22 @@
                 ]
             },
             {
+                id: "cnltk",
+                title: "CNLTK",
+                category: "Research Infrastructure",
+                description: "A Cebuano Natural Language Toolkit that supports foundational language-processing tasks and the development of Cebuano NLP applications.",
+                image: "images/Cebuano Natural Language Toolkit.png",
+                url: "https://github.com/AG0nzales/Cebuano-Natural-Language-Toolkit-Beta",
+                actionLabel: "View Repository",
+                status: "Accessible",
+                featured: false,
+                tags: [
+                    "Cebuano",
+                    "NLP Toolkit",
+                    "Open Source"
+                ]
+            },
+            {
                 id: "scanseta",
                 title: "ScanSeta",
                 category: "Health Technology",
@@ -1360,6 +1361,21 @@
                     "Vision–Language Models",
                     "Prescription Recognition",
                     "Medical AI"
+                ]
+            },
+            {
+                id: "kaag",
+                title: "KAAG",
+                category: "dictionary and language learning",
+                description: "A mobile application for language learning and practice.",
+                image: "images/KAAG.png",
+                url: "./kaag.html",
+                actionLabel: "Try It Now",
+                status: "Accessible",
+                featured: false,
+                tags: [
+                    "language learning",
+                    "dictionary",
                 ]
             },
             {
@@ -1441,28 +1457,13 @@
                     "Troubleshooting",
                     "Chatbot"
                 ]
-            },
-            {
-                id: "kaag",
-                title: "KAAG",
-                category: "dictionary and language learning",
-                description: "A mobile application for language learning and practice.",
-                image: "images/KAAG.png",
-                url: "./kaag.html",
-                actionLabel: "Try It Now",
-                status: "Accessible",
-                featured: false,
-                tags: [
-                    "language learning",
-                    "dictionary",
-                ]
             }
         ];
 
         const state = {
             search: "",
             category: "all",
-            sort: "title"
+            sort: "custom"
         };
 
         const projectGrid = document.getElementById("projectGrid");
@@ -1547,6 +1548,9 @@
             return filtered.sort((a, b) => {
                 if (state.sort === "title") {
                     return a.title.localeCompare(b.title);
+                }
+                 if (state.sort === "custom") {
+                     return filtered;
                 }
 
                 if (state.sort === "category") {
@@ -1648,11 +1652,11 @@
         function resetFilters() {
             state.search = "";
             state.category = "all";
-            state.sort = "title";
+            state.sort = "custom";
 
             projectSearch.value = "";
             categoryFilter.value = "all";
-            sortFilter.value = "title";
+            sortFilter.value = "custom";
 
             renderProjects();
         }
